@@ -1,0 +1,7 @@
+{
+ "schema": "five-seat-report-build-v1",
+ "pdf_backend": "matplotlib-fallback",
+ "manifest": "/workspace/large_artifacts/ii_mats/rational_agents/control_five_seat_private_opus_v3/primary_campaign_manifest.json",
+ "analysis": "/workspace/large_artifacts/ii_mats/rational_agents/control_five_seat_private_opus_v3/primary_analysis",
+ "hf_url": "https://huggingface.co/datasets/siddharthmb/2026.RA.Five-Seat-Frontier-Negotiation"
+}

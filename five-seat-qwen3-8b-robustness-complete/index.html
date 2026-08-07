@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qwen3-8B five-seat robustness — completed subset</title>
+<style>
+:root{color-scheme:light;--ink:#17202a;--muted:#5f6b76;--line:#d5dadd;--blue:#3978a8;--orange:#d17b2f;--green:#3f8f67;--paper:#fbfcfd;--note:#f2f6f8}
+body{font:16px/1.5 system-ui,sans-serif;max-width:1020px;margin:38px auto;padding:0 22px;color:var(--ink);background:var(--paper)}
+h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.12;margin-bottom:8px}h2{font-size:1.18rem;margin:0 0 8px}.lede{color:var(--muted);max-width:76ch}.note{background:var(--note);border-left:4px solid var(--blue);border-radius:8px;padding:14px 16px;margin:22px 0}
+.chart{background:white;border:1px solid var(--line);border-radius:12px;padding:14px;margin:24px 0}.axis{stroke:#9aa3aa;stroke-width:1}.grid{stroke:#e8ebed;stroke-width:1}.ci{stroke-width:5;stroke-linecap:round}.dot{stroke:white;stroke-width:2}.label{font:14px system-ui,sans-serif;fill:var(--ink)}.tick{font:12px system-ui,sans-serif;fill:var(--muted)}
+table{border-collapse:collapse;width:100%;margin:22px 0;background:white}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}.card{background:white;border:1px solid var(--line);border-radius:11px;padding:16px}.card p{color:var(--muted);margin:5px 0 12px}a{color:#185fa5}small{color:var(--muted)}
+</style>
+<h1>Qwen3-8B private negotiation subset</h1>
+<p class="lede">Nine whole-threshold parameter sets × two matched seeds per arm. All LLM seats use Qwen3-8B with native thinking, datacenter framing, public persuasive chat, private score sheets, and unanimity. Each arm has 18/18 validated episodes.</p>
+<p class="note"><strong>Result so far:</strong> one rational seat was statistically indistinguishable from all-Qwen play (−0.036 score; interval crosses zero). One omniscient oracle seat improved score by +0.449, with the entire clustered interval above zero. This is an exploratory small subset, not the 120-episode Opus confirmatory campaign.</p>
+<div class="chart">
+<svg viewBox="0 0 900 255" role="img" aria-label="Mean normalized score and 95 percent parameter-clustered intervals for three Qwen3-8B arms">
+<line class="grid" x1="185" y1="28" x2="185" y2="215"/><line class="grid" x1="321" y1="28" x2="321" y2="215"/><line class="grid" x1="457" y1="28" x2="457" y2="215"/><line class="grid" x1="593" y1="28" x2="593" y2="215"/><line class="grid" x1="729" y1="28" x2="729" y2="215"/><line class="grid" x1="865" y1="28" x2="865" y2="215"/>
+<text class="label" x="12" y="66">All Qwen LLMs</text><line class="ci" stroke="var(--blue)" x1="278" y1="61" x2="603" y2="61"/><circle class="dot" fill="var(--blue)" cx="430" cy="61" r="8"/>
+<text class="label" x="12" y="126">One rational</text><line class="ci" stroke="var(--orange)" x1="265" y1="121" x2="546" y2="121"/><circle class="dot" fill="var(--orange)" cx="406" cy="121" r="8"/>
+<text class="label" x="12" y="186">One oracle</text><line class="ci" stroke="var(--green)" x1="619" y1="181" x2="825" y2="181"/><circle class="dot" fill="var(--green)" cx="736" cy="181" r="8"/>
+<line class="axis" x1="185" y1="215" x2="865" y2="215"/><text class="tick" x="181" y="237">0</text><text class="tick" x="313" y="237">0.2</text><text class="tick" x="449" y="237">0.4</text><text class="tick" x="585" y="237">0.6</text><text class="tick" x="721" y="237">0.8</text><text class="tick" x="857" y="237">1.0</text>
+</svg>
+</div>
+<table>
+<thead><tr><th>Arm</th><th>Mean score [95% CI]</th><th>Deal rate [95% CI]</th><th>vs all LLM</th></tr></thead>
+<tbody>
+<tr><td>All Qwen LLMs</td><td>0.361 [0.137, 0.615]</td><td>0.389 [0.167, 0.667]</td><td>reference</td></tr>
+<tr><td>One rational</td><td>0.325 [0.118, 0.531]</td><td>0.333 [0.111, 0.556]</td><td>−0.036 [−0.364, 0.292]</td></tr>
+<tr><td>One oracle</td><td>0.810 [0.639, 0.941]</td><td>0.833 [0.667, 1.000]</td><td>+0.449 [0.209, 0.692]</td></tr>
+</tbody>
+</table>
+<div class="links">
+<div class="card"><h2>All Qwen LLMs</h2><p>Five Qwen3-8B seats.</p><a href="all_llm_visualizations/index.html">Open 18 visualizers</a><br><a href="all_llm_transcripts/index.html">Open transcripts</a></div>
+<div class="card"><h2>One rational</h2><p>Rotating private-information rational seat.</p><a href="one_rational_visualizations/index.html">Open 18 visualizers</a><br><a href="one_rational_transcripts/index.html">Open transcripts</a></div>
+<div class="card"><h2>One oracle</h2><p>Rotating omniscient oracle seat.</p><a href="one_oracle_visualizations/index.html">Open 18 visualizers</a><br><a href="one_oracle_transcripts/index.html">Open transcripts</a></div>
+</div>
+<p><small>Intervals use 10,000 bootstrap samples clustered by the nine parameter sets, keeping both seeds together. Every episode page includes turn-level rational and oracle counterfactual annotations.</small></p>
+</html>

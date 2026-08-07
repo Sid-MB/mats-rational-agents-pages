@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opus framing robustness — completed subset</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;max-width:960px;margin:40px auto;padding:0 20px;color:#17202a}
+h1{line-height:1.15} table{border-collapse:collapse;width:100%;margin:24px 0} th,td{padding:10px;border-bottom:1px solid #ccd1d1;text-align:right} th:first-child,td:first-child{text-align:left}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{border:1px solid #ccd1d1;border-radius:10px;padding:16px}.note{background:#f4f6f7;border-radius:8px;padding:14px}a{color:#185fa5}
+</style>
+<h1>Claude Opus 5: datacenter vs abstract framing</h1>
+<p class="note">Completed exploratory subset: nine private-information parameter sets × seeds 0 and 1. Every new abstract arm has 18/18 valid episodes. Final clustered intervals and Qwen similarity are pending the unified robustness analysis.</p>
+<table>
+<thead><tr><th>Arm</th><th>Abstract score</th><th>Datacenter score</th><th>Difference</th><th>Deals</th></tr></thead>
+<tbody>
+<tr><td>All LLM</td><td>0.93857</td><td>0.93009</td><td>+0.00848</td><td>18 / 18</td></tr>
+<tr><td>One rational</td><td>0.71533</td><td>0.83881</td><td>−0.12348</td><td>15 / 17</td></tr>
+<tr><td>One oracle</td><td>0.35694</td><td>0.41858</td><td>−0.06164</td><td>7 / 8</td></tr>
+</tbody>
+</table>
+<div class="links">
+<div class="card"><h2>All LLM</h2><a href="all_llm/visualizations/index.html">Open 18 visualizers</a><br><a href="all_llm/transcripts/index.html">Open transcripts</a></div>
+<div class="card"><h2>One rational</h2><a href="one_rational/visualizations/index.html">Open 18 visualizers</a><br><a href="one_rational/transcripts/index.html">Open transcripts</a></div>
+<div class="card"><h2>One oracle</h2><a href="one_oracle/visualizations/index.html">Open 18 visualizers</a><br><a href="one_oracle/transcripts/index.html">Open transcripts</a></div>
+</div>
+</html>

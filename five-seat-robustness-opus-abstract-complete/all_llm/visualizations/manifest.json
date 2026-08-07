@@ -1,0 +1,27 @@
+{
+ "run": "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm",
+ "out_dir": "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations",
+ "n_episodes": 18,
+ "index": "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/index.html",
+ "failures": [],
+ "pages": [
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-35f77b4afb.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-3c00656e41.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-49e7fb9a5c.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-5874bdb58b.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-05d3421487.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-1c1b5ad2a8.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-54998d0401.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-9ac80b9a10.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-5b6b16d642.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-98a4dd964b.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-cea78fc695.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-f1b7a6b30f.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-2578009435.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-8e8762042b.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-d02f5a795b.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-d084eff1b5.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-3e59376f5f.html",
+  "/workspace/large_artifacts/ii_mats/rational_agents/five_seat_robustness_v1__opus_abstract__all_llm/visualizations/scorable_negotiation-moves_chat-679c88d9db.html"
+ ]
+}

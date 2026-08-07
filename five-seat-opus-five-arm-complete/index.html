@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Five-seat Opus rational-agent campaign</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --paper:#f7faf7; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink); font:15px/1.5 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:850px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 8px 24px rgba(29,58,43,.06); }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .finding { border-left:4px solid var(--accent); padding:10px 14px; background:#eef7f1; }
+    .small { color:var(--muted); font-size:13px; }
+    img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); background:white; }
+  </style>
+</head>
+<body><main>
+  <h1>Five-seat Opus rational-agent campaign</h1>
+  <p class="lede">Complete private-information campaign: 24 whole-number parameter sets × five matched seeds × five arms = 600 episodes. LLM seats use Claude Opus 5 with thinking; all games use five-seat unanimity and the datacenter framing. Intervals resample parameter sets as clusters.</p>
+
+  <section class="card">
+    <table>
+      <thead><tr><th>Arm</th><th>Mean normalized score [95% CI]</th><th>Deals</th><th>Deal rate [95% CI]</th></tr></thead>
+      <tbody>
+        <tr><td>Five Opus LLMs</td><td>0.8726 [0.8328, 0.9104]</td><td>115 / 120</td><td>0.9583 [0.9250, 0.9917]</td></tr>
+        <tr><td>Four Opus + one rational</td><td>0.6864 [0.6132, 0.7594]</td><td>92 / 120</td><td>0.7667 [0.6917, 0.8417]</td></tr>
+        <tr><td>Four Opus + one oracle</td><td>0.4607 [0.3771, 0.5436]</td><td>61 / 120</td><td>0.5083 [0.4167, 0.6000]</td></tr>
+        <tr><td>Five rational agents</td><td>0.1889 [0.1098, 0.2782]</td><td>28 / 120</td><td>0.2333 [0.1333, 0.3417]</td></tr>
+        <tr><td>Five oracle agents</td><td>0.7907 [0.7343, 0.8417]</td><td>105 / 120</td><td>0.8750 [0.8167, 0.9250]</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h2>Headline comparison</h2>
+  <p class="finding"><strong>Five rational minus one rational:</strong> −0.4976 normalized score, 95% CI [−0.5901, −0.4036], and −53.3 percentage points of deal rate, 95% CI [−62.5, −43.3]. One rational agent was much less brittle than an entirely rational table, but five Opus agents still performed best.</p>
+
+  <h2>Open episode visualizers</h2>
+  <div class="links">
+    <a href="../five-seat-opus-all-llm-complete/index.html">Five Opus LLMs — 120 episodes</a>
+    <a href="../five-seat-opus-all-llm-vs-one-rational-complete/index.html">Matched all-LLM vs one-rational — 120 pairs</a>
+    <a href="one_oracle/index.html">One omniscient oracle — 120 episodes</a>
+    <a href="all_rational/index.html">Five rational agents — 120 episodes</a>
+    <a href="all_oracle/index.html">Five omniscient oracles — 120 episodes</a>
+  </div>
+  <p class="small">Every episode view includes the actual action plus the private-rational and omniscient-oracle turn counterfactuals.</p>
+
+  <h2>Campaign figures and evidence</h2>
+  <div class="links">
+    <a href="analysis/analysis.md">Full statistical analysis</a>
+    <a href="report/five_seat_frontier_report.pdf">Shareable PDF report</a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Five-Seat-Frontier-Negotiation">Public dataset (600 episodes)</a>
+  </div>
+  <p><a href="analysis/arm_scores.png"><img src="analysis/arm_scores.png" alt="Five-arm score estimates with 95 percent confidence intervals"></a></p>
+</main></body>
+</html>

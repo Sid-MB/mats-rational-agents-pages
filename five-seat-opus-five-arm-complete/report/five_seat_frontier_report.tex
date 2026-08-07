@@ -1,0 +1,95 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,graphicx,hyperref,longtable}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\title{Five-seat private-information frontier negotiation}
+\author{Rational Agents campaign}
+\date{2026-08-04}
+\begin{document}
+\maketitle
+
+\section{Narrative summary}
+\textbf{The setup / context.} The setup uses five negotiators with private score sheets and whole-number walk-away thresholds in a data-centre bargaining scenario.
+
+\textbf{The problem (why this was done).} The problem is whether exact decision support improves frontier-model bargaining without leaking anyone else's private values. 
+
+\textbf{What we did / what changed.} We played the same frozen parameter sets and seeds under each lineup using anthropic:claude-opus-5, with explicit model thinking and public persuasive messages, then paired every contrast on parameter set and seed. 
+
+\textbf{The result.} The all-LLM normalized collective score was 0.873 [0.833, 0.910] (higher is better and a failed negotiation scores zero); replacing one rotating seat with the private rational policy changed it by -0.186 [-0.267, -0.106]. Five rational agents versus one rational plus four LLMs changed it by -0.498 [-0.590, -0.404].
+
+\textbf{One-sentence version.} Across 600 matched episodes, one rational seat changed normalized collective score by -0.186 [-0.267, -0.106] relative to five LLMs.
+
+\section{Experiments and results}
+The primary endpoint is normalized collective surplus, with no deal scored as zero. Deal rate is the fraction
+of episodes reaching a valid agreement. Each bracket is a 95\% interval from a bootstrap that resamples the
+24 parameter sets as clusters, preserving five correlated rollout seeds within a set.
+
+\begin{longtable}{p{0.27\linewidth}rrrr}
+\toprule
+Arm & $n$ & Score [95\% CI] & Deal rate [95\% CI] & Paired score effect \\
+\midrule
+all llm & 120 & 0.873 [0.833, 0.910] & 0.958 [0.925, 0.992] & reference \\
+one rational & 120 & 0.686 [0.613, 0.759] & 0.767 [0.692, 0.842] & -0.186 [-0.267, -0.106] \\
+one oracle & 120 & 0.461 [0.377, 0.544] & 0.508 [0.417, 0.600] & -0.412 [-0.493, -0.323] \\
+all rational & 120 & 0.189 [0.110, 0.278] & 0.233 [0.133, 0.342] & -0.684 [-0.786, -0.580] \\
+all oracle & 120 & 0.791 [0.734, 0.842] & 0.875 [0.817, 0.925] & -0.082 [-0.146, -0.022] \\
+\bottomrule
+\end{longtable}
+
+All arms shown in the table reuse identical private values, thresholds, parameter-set identities, and seeds.
+The rotating treatment schedule covers every seat and every position relative to the opening proposer exactly
+once per parameter set. Deferred rational-advisor, quorum, and personality experiments are absent from this
+primary release. Difficulty is computed before outcomes from feasible-set scarcity,
+Pareto-frontier size, preference conflict, blocked favourite deals, and pivotal-party burden.
+
+\begin{figure}[p]\centering
+\includegraphics[width=0.94\linewidth]{../analysis/arm\_scores.pdf}
+\caption{Campaign analysis figure arm scores. Error bars are the reported 95\% parameter-set-clustered bootstrap intervals.}}\end{figure}
+\begin{figure}[p]\centering
+\includegraphics[width=0.94\linewidth]{../analysis/benefit\_by\_difficulty.pdf}
+\caption{Campaign analysis figure benefit by difficulty. Error bars are the reported 95\% parameter-set-clustered bootstrap intervals.}}\end{figure}
+\begin{figure}[p]\centering
+\includegraphics[width=0.94\linewidth]{../analysis/paired\_effects\_forest.pdf}
+\caption{Campaign analysis figure paired effects forest. Error bars are the reported 95\% parameter-set-clustered bootstrap intervals.}}\end{figure}
+
+\section{Method and interpretation}
+There are 24 independently generated parameter sets. Every LLM turn
+uses explicit thinking and the canonical data-centre prompt with private information. The private rational
+policy sees only its own sheet and public actions. The omniscient policy sees every sheet and uses the same
+exact best-response implementation as the visualizer. Each stored turn is replayed twice to attach both
+counterfactual actions; the interactive campaign visualizers plot the actual action, private-rational
+counterfactual, and omniscient counterfactual together.
+
+Intervals quantify variation across this frozen parameter-set population, not model or scenario universality.
+
+\section{Relationship to earlier experiments, significance, and next steps}
+Earlier project runs established that a computable rational seat can alter both agreement and distribution,
+but many used six seats, fixed treatment positions, thinking-disabled API calls, few independent games, or
+full information. This campaign directly closes those gaps with five seats, rotating positions, explicit
+thinking, 24 parameter-set clusters, and private information. Effects whose clustered interval excludes zero
+are resolved for this bank; the continuous difficulty correlation and tag-stratified results test whether any
+benefit concentrates in structurally hard games. The most useful next replication is a second frontier API
+family or a hosted 32B+ open model on the frozen bank.
+
+\appendix
+\section{Reproduction and artifacts}
+The public release is \url{https://huggingface.co/datasets/siddharthmb/2026.RA.Five-Seat-Frontier-Negotiation}. It contains raw episode JSON, dual annotations, Markdown and
+HTML transcripts, interactive visualizers, the frozen instance bank, analysis tables, figures, and this report.
+No Weights \& Biases run was used.
+
+\paragraph{Launch command.}\mbox{}\\
+\texttt{uv run python experiments/rational_agents/launch_five_seat_campaign.py --bank /workspace/projects/mats-ii-five-seat-20260804/experiments/rational\_agents/instances\_five\_seat\_private\_v1 --out <campaign-dir> --campaign-name five\_seat\_private\_opus\_v3 --model anthropic:claude-opus-5 --artifact-root /workspace/large\_artifacts --budget-usd 1800.0 --execute}
+
+\paragraph{Analysis command.}\mbox{}\\
+\texttt{uv run python experiments/rational\_agents/analyze\_five\_seat\_campaign.py --manifest <campaign-dir>/campaign\_manifest.json --out <campaign-dir>/analysis}
+
+\paragraph{Report command.}\mbox{}\\
+\texttt{uv run python experiments/rational\_agents/write\_five\_seat\_report.py --manifest <campaign-dir>/campaign\_manifest.json --analysis <campaign-dir>/analysis --out <campaign-dir>/writeup}
+
+The source analysis directory for this rendering was \texttt{/workspace/large\_artifacts/ii\_mats/rational\_agents/control\_five\_seat\_private\_opus\_v3/primary\_analysis}; immutable run and log
+locations are enumerated in the packaged campaign manifest. Relevant implementation files are
+\texttt{five\_seat\_campaign.py}, \texttt{run\_five\_seat\_cell.py},
+\texttt{annotate\_five\_seat\_campaign.py}, \texttt{analyze\_five\_seat\_campaign.py}, and the Interlens
+arena visualizer.
+
+\end{document}
