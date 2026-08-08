@@ -1,0 +1,1800 @@
+{
+ "reference": "one_oracle",
+ "arms": [
+  "all_fairness_algorithmic",
+  "all_fairness_oracle",
+  "all_llm",
+  "all_oracle",
+  "all_rational",
+  "all_selfish_dp_oracle",
+  "one_fairness_algorithmic",
+  "one_fairness_oracle",
+  "one_oracle",
+  "one_rational"
+ ],
+ "n_bootstrap": 10000,
+ "seed": 20260807,
+ "n_episodes": {
+  "all_fairness_algorithmic": 120,
+  "all_fairness_oracle": 120,
+  "all_llm": 120,
+  "all_oracle": 120,
+  "all_rational": 120,
+  "all_selfish_dp_oracle": 120,
+  "one_fairness_algorithmic": 120,
+  "one_fairness_oracle": 120,
+  "one_oracle": 120,
+  "one_rational": 120
+ },
+ "levels": {
+  "all_fairness_algorithmic": {
+   "normalized_primary": {
+    "estimate": 0.27762666666666663,
+    "ci_low": 0.1514674166666667,
+    "ci_high": 0.4161786875,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.1517261148450374,
+    "ci_low": 0.0837326580893885,
+    "ci_high": 0.2271039028599447,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.375,
+    "ci_low": 0.21666666666666667,
+    "ci_high": 0.5416666666666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.5667168483752175,
+    "ci_low": 0.39835564231723836,
+    "ci_high": 0.7316102865299706,
+    "n": 45,
+    "n_instances": 14
+   },
+   "dist_to_ks": {
+    "estimate": 0.5372999221225281,
+    "ci_low": 0.38831261242694415,
+    "ci_high": 0.6738380762835283,
+    "n": 45,
+    "n_instances": 14
+   },
+   "gini": {
+    "estimate": 0.3239351183017049,
+    "ci_low": 0.3044308596656115,
+    "ci_high": 0.34581130891405554,
+    "n": 45,
+    "n_instances": 14
+   },
+   "worst_off": {
+    "estimate": 0.12944193585954225,
+    "ci_low": 0.0981456941251431,
+    "ci_high": 0.1606270867359042,
+    "n": 45,
+    "n_instances": 14
+   },
+   "max_share": {
+    "estimate": 0.3340588603508062,
+    "ci_low": 0.3140136523249333,
+    "ci_high": 0.35528000310695834,
+    "n": 45,
+    "n_instances": 14
+   },
+   "ir_rate": {
+    "estimate": 0.375,
+    "ci_low": 0.21666666666666667,
+    "ci_high": 0.5416666666666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.625,
+    "ci_low": 0.4583333333333333,
+    "ci_high": 0.7833333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 13.0,
+    "ci_low": 10.305969387755102,
+    "ci_high": 16.08108108108108,
+    "n": 45,
+    "n_instances": 14
+   },
+   "n_distinct_openers": {
+    "estimate": 2.3,
+    "ci_low": 2.058333333333333,
+    "ci_high": 2.533333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_fairness_oracle": {
+   "normalized_primary": {
+    "estimate": 0.9665458333333333,
+    "ci_low": 0.9447457291666667,
+    "ci_high": 0.985091875,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.5957370388335075,
+    "ci_low": 0.5082777096420785,
+    "ci_high": 0.6672704860638332,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.09062007505030246,
+    "ci_low": 0.0,
+    "ci_high": 0.24930111215028122,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.09226980511583033,
+    "ci_low": 0.01834176510744838,
+    "ci_high": 0.1825709472566285,
+    "n": 120,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.25190044690573354,
+    "ci_low": 0.21217821659076957,
+    "ci_high": 0.2985215407079533,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.35653014261968136,
+    "ci_low": 0.2906842807180154,
+    "ci_high": 0.41630982181550946,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.27528897861000806,
+    "ci_low": 0.2646177439304448,
+    "ci_high": 0.28561250192480486,
+    "n": 120,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 5.0,
+    "ci_low": 5.0,
+    "ci_high": 5.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_llm": {
+   "normalized_primary": {
+    "estimate": 0.8726133333333334,
+    "ci_low": 0.8318534375,
+    "ci_high": 0.9101675625,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.5124549973527001,
+    "ci_low": 0.4300181587054946,
+    "ci_high": 0.5865936887514525,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.9583333333333334,
+    "ci_low": 0.925,
+    "ci_high": 0.9916666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.46360609046022655,
+    "ci_low": 0.3585081176810371,
+    "ci_high": 0.5882796984926064,
+    "n": 115,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.39841757139287376,
+    "ci_low": 0.3149177250672536,
+    "ci_high": 0.4750291357160762,
+    "n": 115,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.2994412320777761,
+    "ci_low": 0.2747696084253125,
+    "ci_high": 0.3283896907379895,
+    "n": 115,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.25662751078488905,
+    "ci_low": 0.2061388981741666,
+    "ci_high": 0.3065358965057117,
+    "n": 115,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.29899227726399724,
+    "ci_low": 0.2874042584417067,
+    "ci_high": 0.3091529426203581,
+    "n": 115,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 0.9583333333333334,
+    "ci_low": 0.925,
+    "ci_high": 0.9916666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.041666666666666664,
+    "ci_low": 0.008333333333333333,
+    "ci_high": 0.075,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 17.747826086956522,
+    "ci_low": 17.07891333938294,
+    "ci_high": 18.38058291650635,
+    "n": 115,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 3.966666666666667,
+    "ci_low": 3.7666666666666666,
+    "ci_high": 4.166666666666667,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_oracle": {
+   "normalized_primary": {
+    "estimate": 0.7907200000000001,
+    "ci_low": 0.7337069791666665,
+    "ci_high": 0.8420129375000002,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.3695618999916998,
+    "ci_low": 0.28548144652067575,
+    "ci_high": 0.44941737214288824,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.875,
+    "ci_low": 0.8166666666666667,
+    "ci_high": 0.925,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.6207211666435756,
+    "ci_low": 0.5244141641770663,
+    "ci_high": 0.7375985387445914,
+    "n": 105,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.5447858885777985,
+    "ci_low": 0.45732571183199666,
+    "ci_high": 0.6312018579740866,
+    "n": 105,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.3536468810107117,
+    "ci_low": 0.3294571674021223,
+    "ci_high": 0.3839795830956786,
+    "n": 105,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.171502430027302,
+    "ci_low": 0.1268405116085249,
+    "ci_high": 0.21737319094867333,
+    "n": 105,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.31907463506902306,
+    "ci_low": 0.304783691530134,
+    "ci_high": 0.33389032035405036,
+    "n": 105,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 0.875,
+    "ci_low": 0.8166666666666667,
+    "ci_high": 0.925,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.125,
+    "ci_low": 0.075,
+    "ci_high": 0.18333333333333332,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 5.0,
+    "ci_low": 5.0,
+    "ci_high": 5.0,
+    "n": 105,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 1.1416666666666666,
+    "ci_low": 1.0833333333333333,
+    "ci_high": 1.2083333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_rational": {
+   "normalized_primary": {
+    "estimate": 0.18885833333333338,
+    "ci_low": 0.10972635416666668,
+    "ci_high": 0.2788274583333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.09516215706354499,
+    "ci_low": 0.05132516362276623,
+    "ci_high": 0.14617435067868123,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.23333333333333334,
+    "ci_low": 0.13333333333333333,
+    "ci_high": 0.35,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.5995994212802717,
+    "ci_low": 0.4974090614171545,
+    "ci_high": 0.6800372911162069,
+    "n": 28,
+    "n_instances": 14
+   },
+   "dist_to_ks": {
+    "estimate": 0.5897606666492755,
+    "ci_low": 0.521403835816812,
+    "ci_high": 0.6488476853693508,
+    "n": 28,
+    "n_instances": 14
+   },
+   "gini": {
+    "estimate": 0.3109312600470347,
+    "ci_low": 0.2843116100956922,
+    "ci_high": 0.33884487070718394,
+    "n": 28,
+    "n_instances": 14
+   },
+   "worst_off": {
+    "estimate": 0.14694344596801961,
+    "ci_low": 0.10229972460862997,
+    "ci_high": 0.19673662246454204,
+    "n": 28,
+    "n_instances": 14
+   },
+   "max_share": {
+    "estimate": 0.31364014160553955,
+    "ci_low": 0.2986305786418047,
+    "ci_high": 0.32642639566892484,
+    "n": 28,
+    "n_instances": 14
+   },
+   "ir_rate": {
+    "estimate": 0.23333333333333334,
+    "ci_low": 0.13333333333333333,
+    "ci_high": 0.35,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.7666666666666667,
+    "ci_low": 0.65,
+    "ci_high": 0.8666666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 24.821428571428573,
+    "ci_low": 24.347826086956523,
+    "ci_high": 25.0,
+    "n": 28,
+    "n_instances": 14
+   },
+   "n_distinct_openers": {
+    "estimate": 3.6,
+    "ci_low": 3.375,
+    "ci_high": 3.816666666666667,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_selfish_dp_oracle": {
+   "normalized_primary": {
+    "estimate": 0.8712783333333333,
+    "ci_low": 0.8411282083333333,
+    "ci_high": 0.9018343125,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.39681405701867367,
+    "ci_low": 0.3029858655793193,
+    "ci_high": 0.48879103371947213,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.6088255832483601,
+    "ci_low": 0.47558710515338803,
+    "ci_high": 0.7515222986808289,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.5259071964547718,
+    "ci_low": 0.4101233052502071,
+    "ci_high": 0.6348048685977636,
+    "n": 120,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.3558851356050766,
+    "ci_low": 0.3198473949678551,
+    "ci_high": 0.39396175666044764,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.16122934497435068,
+    "ci_low": 0.1089781826781046,
+    "ci_high": 0.21745813909488815,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.3294866030929074,
+    "ci_low": 0.3105041946469811,
+    "ci_high": 0.34890242500749324,
+    "n": 120,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 24.783333333333335,
+    "ci_low": 24.508333333333333,
+    "ci_high": 25.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 3.175,
+    "ci_low": 2.8833333333333333,
+    "ci_high": 3.466666666666667,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_fairness_algorithmic": {
+   "normalized_primary": {
+    "estimate": 0.6974699999999999,
+    "ci_low": 0.6166781249999999,
+    "ci_high": 0.7728233541666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.4083648362752257,
+    "ci_low": 0.3376198284417484,
+    "ci_high": 0.4720174458643987,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.8083333333333333,
+    "ci_low": 0.725,
+    "ci_high": 0.8833333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.5495648055283624,
+    "ci_low": 0.4249623241176399,
+    "ci_high": 0.7078986224573598,
+    "n": 97,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.4691181704407855,
+    "ci_low": 0.38412144620682215,
+    "ci_high": 0.553501036766484,
+    "n": 97,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.31165820240550585,
+    "ci_low": 0.2795479291074722,
+    "ci_high": 0.35208155835131744,
+    "n": 97,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.23300244418591334,
+    "ci_low": 0.19021201788300174,
+    "ci_high": 0.2726123254989112,
+    "n": 97,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.30862970730001926,
+    "ci_low": 0.29597188886022907,
+    "ci_high": 0.3220810397160719,
+    "n": 97,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 0.8083333333333333,
+    "ci_low": 0.725,
+    "ci_high": 0.8833333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.19166666666666668,
+    "ci_low": 0.11666666666666667,
+    "ci_high": 0.275,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 19.7319587628866,
+    "ci_low": 18.927083333333332,
+    "ci_high": 20.562515169902913,
+    "n": 97,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 3.658333333333333,
+    "ci_low": 3.4916666666666667,
+    "ci_high": 3.808333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_fairness_oracle": {
+   "normalized_primary": {
+    "estimate": 0.8500008333333333,
+    "ci_low": 0.8092961875,
+    "ci_high": 0.8901500625,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.49199918155915795,
+    "ci_low": 0.411524032493329,
+    "ci_high": 0.5620105131020326,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.9333333333333333,
+    "ci_low": 0.8916666666666667,
+    "ci_high": 0.9666666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.3912797009140566,
+    "ci_low": 0.28294482190153525,
+    "ci_high": 0.5244284125058867,
+    "n": 112,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.32954115782869337,
+    "ci_low": 0.24802872910338894,
+    "ci_high": 0.4109658730183698,
+    "n": 112,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.2955403010764375,
+    "ci_low": 0.26547135248449244,
+    "ci_high": 0.3309332284364146,
+    "n": 112,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.2732772159512496,
+    "ci_low": 0.2220028869594628,
+    "ci_high": 0.32250114642737715,
+    "n": 112,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.29854386915952624,
+    "ci_low": 0.2876672516377225,
+    "ci_high": 0.3087820439191097,
+    "n": 112,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 0.9333333333333333,
+    "ci_low": 0.8916666666666667,
+    "ci_high": 0.9666666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.06666666666666667,
+    "ci_low": 0.03333333333333333,
+    "ci_high": 0.10833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 18.964285714285715,
+    "ci_low": 18.43362831858407,
+    "ci_high": 19.504504504504503,
+    "n": 112,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 4.025,
+    "ci_low": 3.8833333333333333,
+    "ci_high": 4.175,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_oracle": {
+   "normalized_primary": {
+    "estimate": 0.46072500000000005,
+    "ci_low": 0.37701199999999996,
+    "ci_high": 0.5431014999999999,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.2398638664601907,
+    "ci_low": 0.17343070976803807,
+    "ci_high": 0.30840696553112357,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.5083333333333333,
+    "ci_low": 0.4166666666666667,
+    "ci_high": 0.6,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.5486833382362237,
+    "ci_low": 0.41756905648347936,
+    "ci_high": 0.6873228122090463,
+    "n": 61,
+    "n_instances": 23
+   },
+   "dist_to_ks": {
+    "estimate": 0.47903252110179634,
+    "ci_low": 0.36519341752977436,
+    "ci_high": 0.5868829920321358,
+    "n": 61,
+    "n_instances": 23
+   },
+   "gini": {
+    "estimate": 0.34633896302535583,
+    "ci_low": 0.3186927039521447,
+    "ci_high": 0.3788930909660864,
+    "n": 61,
+    "n_instances": 23
+   },
+   "worst_off": {
+    "estimate": 0.18745561379263206,
+    "ci_low": 0.1312055249721919,
+    "ci_high": 0.24588185146661884,
+    "n": 61,
+    "n_instances": 23
+   },
+   "max_share": {
+    "estimate": 0.31433290995151064,
+    "ci_low": 0.2980017679307125,
+    "ci_high": 0.3319064180168068,
+    "n": 61,
+    "n_instances": 23
+   },
+   "ir_rate": {
+    "estimate": 0.5083333333333333,
+    "ci_low": 0.4166666666666667,
+    "ci_high": 0.6,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.49166666666666664,
+    "ci_low": 0.4,
+    "ci_high": 0.5833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 19.475409836065573,
+    "ci_low": 18.58823529411765,
+    "ci_high": 20.4528730703259,
+    "n": 61,
+    "n_instances": 23
+   },
+   "n_distinct_openers": {
+    "estimate": 3.8833333333333333,
+    "ci_low": 3.7083333333333335,
+    "ci_high": 4.05,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_rational": {
+   "normalized_primary": {
+    "estimate": 0.6864258333333334,
+    "ci_low": 0.6129595624999998,
+    "ci_high": 0.7597750624999999,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.38817283864520663,
+    "ci_low": 0.31839386071926584,
+    "ci_high": 0.4518310911789632,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.7666666666666667,
+    "ci_low": 0.6833333333333333,
+    "ci_high": 0.8416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.44434457646545117,
+    "ci_low": 0.34391181708812707,
+    "ci_high": 0.5648434925932122,
+    "n": 92,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.41411311378312343,
+    "ci_low": 0.3333963433174872,
+    "ci_high": 0.4917062922443456,
+    "n": 92,
+    "n_instances": 24
+   },
+   "gini": {
+    "estimate": 0.29364784164086005,
+    "ci_low": 0.2674251328310722,
+    "ci_high": 0.3245325502751261,
+    "n": 92,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.23923924245411646,
+    "ci_low": 0.19535443639975136,
+    "ci_high": 0.28304721096209684,
+    "n": 92,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.30102142748483496,
+    "ci_low": 0.28897557400542534,
+    "ci_high": 0.3137520906628792,
+    "n": 92,
+    "n_instances": 24
+   },
+   "ir_rate": {
+    "estimate": 0.7666666666666667,
+    "ci_low": 0.6833333333333333,
+    "ci_high": 0.8416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.23333333333333334,
+    "ci_low": 0.15833333333333333,
+    "ci_high": 0.31666666666666665,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 21.391304347826086,
+    "ci_low": 20.623496732026144,
+    "ci_high": 22.13954113528382,
+    "n": 92,
+    "n_instances": 24
+   },
+   "n_distinct_openers": {
+    "estimate": 3.9166666666666665,
+    "ci_low": 3.725,
+    "ci_high": 4.108333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  }
+ },
+ "paired_minus_reference": {
+  "all_fairness_algorithmic": {
+   "normalized_primary": {
+    "estimate": -0.18309833333333334,
+    "ci_low": -0.35768066666666665,
+    "ci_high": 0.002411124999999978,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": -0.08813775161515333,
+    "ci_low": -0.19910426327613262,
+    "ci_high": 0.025756465922520212,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": -0.13333333333333333,
+    "ci_low": -0.3333333333333333,
+    "ci_high": 0.075,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.05972517005977602,
+    "ci_low": -0.13351329348857227,
+    "ci_high": 0.23056948900804491,
+    "n": 23,
+    "n_instances": 13
+   },
+   "dist_to_ks": {
+    "estimate": 0.01891327426027906,
+    "ci_low": -0.16491753672890008,
+    "ci_high": 0.17457096606468486,
+    "n": 23,
+    "n_instances": 13
+   },
+   "gini": {
+    "estimate": -0.010507939016340982,
+    "ci_low": -0.05953683426378906,
+    "ci_high": 0.03820736678951269,
+    "n": 23,
+    "n_instances": 13
+   },
+   "worst_off": {
+    "estimate": -0.02484902487680661,
+    "ci_low": -0.09821226065889294,
+    "ci_high": 0.040976721015342214,
+    "n": 23,
+    "n_instances": 13
+   },
+   "max_share": {
+    "estimate": 0.020593522043042694,
+    "ci_low": -0.01968481471444343,
+    "ci_high": 0.058528779175431804,
+    "n": 23,
+    "n_instances": 13
+   },
+   "ir_rate": {
+    "estimate": -0.13333333333333333,
+    "ci_low": -0.3333333333333333,
+    "ci_high": 0.075,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.13333333333333333,
+    "ci_low": -0.075,
+    "ci_high": 0.3333333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": -5.043478260869565,
+    "ci_low": -8.4,
+    "ci_high": -1.0,
+    "n": 23,
+    "n_instances": 13
+   },
+   "n_distinct_openers": {
+    "estimate": -1.5833333333333333,
+    "ci_low": -1.9,
+    "ci_high": -1.2583333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_fairness_oracle": {
+   "normalized_primary": {
+    "estimate": 0.5058208333333333,
+    "ci_low": 0.42416443750000005,
+    "ci_high": 0.5859553541666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.3558731723733169,
+    "ci_low": 0.2850085298738847,
+    "ci_high": 0.42219911769465024,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.49166666666666664,
+    "ci_low": 0.4,
+    "ci_high": 0.5833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.4862514547870518,
+    "ci_low": -0.6035013162043296,
+    "ci_high": -0.3660250932383244,
+    "n": 61,
+    "n_instances": 23
+   },
+   "dist_to_ks": {
+    "estimate": -0.37402353121540244,
+    "ci_low": -0.49719696641305555,
+    "ci_high": -0.2570008335688566,
+    "n": 61,
+    "n_instances": 23
+   },
+   "gini": {
+    "estimate": -0.09726814934903256,
+    "ci_low": -0.12847103528502707,
+    "ci_high": -0.06667412900889609,
+    "n": 61,
+    "n_instances": 23
+   },
+   "worst_off": {
+    "estimate": 0.16714085550213578,
+    "ci_low": 0.11567989576813456,
+    "ci_high": 0.2222499183023231,
+    "n": 61,
+    "n_instances": 23
+   },
+   "max_share": {
+    "estimate": -0.03892721459027691,
+    "ci_low": -0.05507115563197081,
+    "ci_high": -0.025043749977526446,
+    "n": 61,
+    "n_instances": 23
+   },
+   "ir_rate": {
+    "estimate": 0.49166666666666664,
+    "ci_low": 0.4,
+    "ci_high": 0.5833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.49166666666666664,
+    "ci_low": -0.5833333333333334,
+    "ci_high": -0.4,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": -14.475409836065573,
+    "ci_low": -15.4528730703259,
+    "ci_high": -13.588235294117647,
+    "n": 61,
+    "n_instances": 23
+   },
+   "n_distinct_openers": {
+    "estimate": -2.8833333333333333,
+    "ci_low": -3.05,
+    "ci_high": -2.7083333333333335,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_llm": {
+   "normalized_primary": {
+    "estimate": 0.4118883333333333,
+    "ci_low": 0.32262245833333336,
+    "ci_high": 0.49408179166666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.2725911308925093,
+    "ci_low": 0.1975807360871126,
+    "ci_high": 0.34360413134644274,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.45,
+    "ci_low": 0.35,
+    "ci_high": 0.5416666666666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.07222204491125066,
+    "ci_low": -0.1590886135809989,
+    "ci_high": 0.012673265698483491,
+    "n": 56,
+    "n_instances": 22
+   },
+   "dist_to_ks": {
+    "estimate": -0.0858961073658959,
+    "ci_low": -0.16925841029628427,
+    "ci_high": -0.005199523549950992,
+    "n": 56,
+    "n_instances": 22
+   },
+   "gini": {
+    "estimate": -0.03980112278773041,
+    "ci_low": -0.0664977179999865,
+    "ci_high": -0.013981647701175213,
+    "n": 56,
+    "n_instances": 22
+   },
+   "worst_off": {
+    "estimate": 0.069978316528893,
+    "ci_low": 0.028349554328205035,
+    "ci_high": 0.1144211110577653,
+    "n": 56,
+    "n_instances": 22
+   },
+   "max_share": {
+    "estimate": -0.01796155469362104,
+    "ci_low": -0.034499959575744206,
+    "ci_high": -0.004424470908982872,
+    "n": 56,
+    "n_instances": 22
+   },
+   "ir_rate": {
+    "estimate": 0.45,
+    "ci_low": 0.35,
+    "ci_high": 0.5416666666666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.45,
+    "ci_low": -0.5416666666666666,
+    "ci_high": -0.35,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": -1.9464285714285714,
+    "ci_low": -2.9111403508771927,
+    "ci_high": -1.0517241379310345,
+    "n": 56,
+    "n_instances": 22
+   },
+   "n_distinct_openers": {
+    "estimate": 0.08333333333333333,
+    "ci_low": -0.058333333333333334,
+    "ci_high": 0.225,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_oracle": {
+   "normalized_primary": {
+    "estimate": 0.32999500000000004,
+    "ci_low": 0.24150793750000002,
+    "ci_high": 0.42043945833333324,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.12969803353150905,
+    "ci_low": 0.06748633923563592,
+    "ci_high": 0.19683735639563268,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.36666666666666664,
+    "ci_low": 0.2833333333333333,
+    "ci_high": 0.4583333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.038906783891506716,
+    "ci_low": -0.04611793178977882,
+    "ci_high": 0.11895933021140642,
+    "n": 54,
+    "n_instances": 22
+   },
+   "dist_to_ks": {
+    "estimate": 0.04774584858737195,
+    "ci_low": -0.021828096722015262,
+    "ci_high": 0.10952683291217441,
+    "n": 54,
+    "n_instances": 22
+   },
+   "gini": {
+    "estimate": -0.0032947872795945857,
+    "ci_low": -0.023450115505009465,
+    "ci_high": 0.017246779717150645,
+    "n": 54,
+    "n_instances": 22
+   },
+   "worst_off": {
+    "estimate": -0.01641020653955241,
+    "ci_low": -0.04747404213201151,
+    "ci_high": 0.013653000810482444,
+    "n": 54,
+    "n_instances": 22
+   },
+   "max_share": {
+    "estimate": -0.0016231210956810125,
+    "ci_low": -0.01691372555525934,
+    "ci_high": 0.01018935296909626,
+    "n": 54,
+    "n_instances": 22
+   },
+   "ir_rate": {
+    "estimate": 0.36666666666666664,
+    "ci_low": 0.2833333333333333,
+    "ci_high": 0.4583333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.36666666666666664,
+    "ci_low": -0.4583333333333333,
+    "ci_high": -0.2833333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": -14.481481481481481,
+    "ci_low": -15.574468085106384,
+    "ci_high": -13.508474576271187,
+    "n": 54,
+    "n_instances": 22
+   },
+   "n_distinct_openers": {
+    "estimate": -2.7416666666666667,
+    "ci_low": -2.9166666666666665,
+    "ci_high": -2.558333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_rational": {
+   "normalized_primary": {
+    "estimate": -0.2718666666666667,
+    "ci_low": -0.37900714583333334,
+    "ci_high": -0.16148970833333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": -0.14470170939664573,
+    "ci_low": -0.2198802889570237,
+    "ci_high": -0.07159183151070143,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": -0.275,
+    "ci_low": -0.39166666666666666,
+    "ci_high": -0.15,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.05961895998711585,
+    "ci_low": -0.2565989929627489,
+    "ci_high": 0.1679299453984116,
+    "n": 16,
+    "n_instances": 9
+   },
+   "dist_to_ks": {
+    "estimate": -0.08115561847349001,
+    "ci_low": -0.23491599724453296,
+    "ci_high": 0.10166451870151814,
+    "n": 16,
+    "n_instances": 9
+   },
+   "gini": {
+    "estimate": -0.0284382169508711,
+    "ci_low": -0.0775701114198648,
+    "ci_high": 0.013184606853210235,
+    "n": 16,
+    "n_instances": 9
+   },
+   "worst_off": {
+    "estimate": -0.010807998073990337,
+    "ci_low": -0.07152440016664684,
+    "ci_high": 0.07432856375127776,
+    "n": 16,
+    "n_instances": 9
+   },
+   "max_share": {
+    "estimate": -0.02120702271229761,
+    "ci_low": -0.053866290826859,
+    "ci_high": 0.005758117035278305,
+    "n": 16,
+    "n_instances": 9
+   },
+   "ir_rate": {
+    "estimate": -0.275,
+    "ci_low": -0.39166666666666666,
+    "ci_high": -0.15,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": 0.275,
+    "ci_low": 0.15,
+    "ci_high": 0.39166666666666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 5.875,
+    "ci_low": 4.642857142857143,
+    "ci_high": 6.8125,
+    "n": 16,
+    "n_instances": 9
+   },
+   "n_distinct_openers": {
+    "estimate": -0.2833333333333333,
+    "ci_low": -0.5,
+    "ci_high": -0.06666666666666667,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_selfish_dp_oracle": {
+   "normalized_primary": {
+    "estimate": 0.4105533333333334,
+    "ci_low": 0.3205237291666666,
+    "ci_high": 0.49999964583333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.15695019055848303,
+    "ci_low": 0.09538915608345262,
+    "ci_high": 0.22105575703405225,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.49166666666666664,
+    "ci_low": 0.4,
+    "ci_high": 0.5833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.018105731476761353,
+    "ci_low": -0.0827500909567096,
+    "ci_high": 0.12185219574889591,
+    "n": 61,
+    "n_instances": 23
+   },
+   "dist_to_ks": {
+    "estimate": 0.022233703003952544,
+    "ci_low": -0.06326406172041817,
+    "ci_high": 0.10621579763969778,
+    "n": 61,
+    "n_instances": 23
+   },
+   "gini": {
+    "estimate": -0.008923438432644043,
+    "ci_low": -0.04141044157912848,
+    "ci_high": 0.022923879583070645,
+    "n": 61,
+    "n_instances": 23
+   },
+   "worst_off": {
+    "estimate": -0.00526953409410336,
+    "ci_low": -0.043480055837876855,
+    "ci_high": 0.03657472732559931,
+    "n": 61,
+    "n_instances": 23
+   },
+   "max_share": {
+    "estimate": 0.012517993052741367,
+    "ci_low": -0.0054931615207107235,
+    "ci_high": 0.029893113070473674,
+    "n": 61,
+    "n_instances": 23
+   },
+   "ir_rate": {
+    "estimate": 0.49166666666666664,
+    "ci_low": 0.4,
+    "ci_high": 0.5833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.49166666666666664,
+    "ci_low": -0.5833333333333334,
+    "ci_high": -0.4,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 5.180327868852459,
+    "ci_low": 4.052631578947368,
+    "ci_high": 6.109418402777777,
+    "n": 61,
+    "n_instances": 23
+   },
+   "n_distinct_openers": {
+    "estimate": -0.7083333333333334,
+    "ci_low": -0.9666666666666667,
+    "ci_high": -0.4583333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_fairness_algorithmic": {
+   "normalized_primary": {
+    "estimate": 0.236745,
+    "ci_low": 0.13173220833333335,
+    "ci_high": 0.33717993749999997,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.16850096981503493,
+    "ci_low": 0.09823343500364735,
+    "ci_high": 0.23810664368259352,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.3,
+    "ci_low": 0.18333333333333332,
+    "ci_high": 0.4083333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.0372464057224733,
+    "ci_low": -0.14496193071882194,
+    "ci_high": 0.0647750267270181,
+    "n": 50,
+    "n_instances": 21
+   },
+   "dist_to_ks": {
+    "estimate": -0.009837716248527422,
+    "ci_low": -0.11244235053428618,
+    "ci_high": 0.09288018055642061,
+    "n": 50,
+    "n_instances": 21
+   },
+   "gini": {
+    "estimate": -0.03578548652968243,
+    "ci_low": -0.05914635791877359,
+    "ci_high": -0.014837862533121292,
+    "n": 50,
+    "n_instances": 21
+   },
+   "worst_off": {
+    "estimate": 0.05227126158618182,
+    "ci_low": 0.0064068845972776135,
+    "ci_high": 0.10220529311790148,
+    "n": 50,
+    "n_instances": 21
+   },
+   "max_share": {
+    "estimate": -0.008501500372340959,
+    "ci_low": -0.025697151264102564,
+    "ci_high": 0.007281382091267753,
+    "n": 50,
+    "n_instances": 21
+   },
+   "ir_rate": {
+    "estimate": 0.3,
+    "ci_low": 0.18333333333333332,
+    "ci_high": 0.4083333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.3,
+    "ci_low": -0.4083333333333333,
+    "ci_high": -0.18333333333333332,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": -0.66,
+    "ci_low": -2.0816751700680274,
+    "ci_high": 0.7308673469387741,
+    "n": 50,
+    "n_instances": 21
+   },
+   "n_distinct_openers": {
+    "estimate": -0.225,
+    "ci_low": -0.35833333333333334,
+    "ci_high": -0.08333333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_fairness_oracle": {
+   "normalized_primary": {
+    "estimate": 0.3892758333333333,
+    "ci_low": 0.3100124999999999,
+    "ci_high": 0.4663444374999999,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.2521353150989673,
+    "ci_low": 0.18772560628956658,
+    "ci_high": 0.31316127312056,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.425,
+    "ci_low": 0.3416666666666667,
+    "ci_high": 0.5083333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.15978875440018064,
+    "ci_low": -0.2758504412065457,
+    "ci_high": -0.042612419719606366,
+    "n": 59,
+    "n_instances": 23
+   },
+   "dist_to_ks": {
+    "estimate": -0.1501821987641136,
+    "ci_low": -0.26103088752380926,
+    "ci_high": -0.04497388375283061,
+    "n": 59,
+    "n_instances": 23
+   },
+   "gini": {
+    "estimate": -0.04763365868305369,
+    "ci_low": -0.0752712677169072,
+    "ci_high": -0.023135799204147513,
+    "n": 59,
+    "n_instances": 23
+   },
+   "worst_off": {
+    "estimate": 0.0815765257630231,
+    "ci_low": 0.039386320110805936,
+    "ci_high": 0.12917023530656233,
+    "n": 59,
+    "n_instances": 23
+   },
+   "max_share": {
+    "estimate": -0.021601231666299514,
+    "ci_low": -0.039398040640610255,
+    "ci_high": -0.006093831218749835,
+    "n": 59,
+    "n_instances": 23
+   },
+   "ir_rate": {
+    "estimate": 0.425,
+    "ci_low": 0.3416666666666667,
+    "ci_high": 0.5083333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.425,
+    "ci_low": -0.5083333333333333,
+    "ci_high": -0.3416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": -1.3559322033898304,
+    "ci_low": -2.6481725146198833,
+    "ci_high": -0.1805498633879782,
+    "n": 59,
+    "n_instances": 23
+   },
+   "n_distinct_openers": {
+    "estimate": 0.14166666666666666,
+    "ci_low": 0.008333333333333333,
+    "ci_high": 0.26666666666666666,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_rational": {
+   "normalized_primary": {
+    "estimate": 0.22570083333333332,
+    "ci_low": 0.14742400000000003,
+    "ci_high": 0.3028718333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.1483089721850159,
+    "ci_low": 0.0947673234775614,
+    "ci_high": 0.20173270310832206,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.25833333333333336,
+    "ci_low": 0.175,
+    "ci_high": 0.3416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.11366554931558207,
+    "ci_low": -0.21930604816004773,
+    "ci_high": -0.009562640471676332,
+    "n": 47,
+    "n_instances": 20
+   },
+   "dist_to_ks": {
+    "estimate": -0.09042971496003867,
+    "ci_low": -0.1992119312007749,
+    "ci_high": 0.005771695747098355,
+    "n": 47,
+    "n_instances": 20
+   },
+   "gini": {
+    "estimate": -0.03984396171296003,
+    "ci_low": -0.06977601714353564,
+    "ci_high": -0.010623712090572909,
+    "n": 47,
+    "n_instances": 20
+   },
+   "worst_off": {
+    "estimate": 0.04989576197417462,
+    "ci_low": 0.007510926935838899,
+    "ci_high": 0.09343157160037187,
+    "n": 47,
+    "n_instances": 20
+   },
+   "max_share": {
+    "estimate": -0.022940809630542344,
+    "ci_low": -0.04020484660705617,
+    "ci_high": -0.009351005178564662,
+    "n": 47,
+    "n_instances": 20
+   },
+   "ir_rate": {
+    "estimate": 0.25833333333333336,
+    "ci_low": 0.175,
+    "ci_high": 0.3416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "walked_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "expired_rate": {
+    "estimate": -0.25833333333333336,
+    "ci_low": -0.3416666666666667,
+    "ci_high": -0.175,
+    "n": 120,
+    "n_instances": 24
+   },
+   "turns_to_close": {
+    "estimate": 1.9361702127659575,
+    "ci_low": 0.5869565217391305,
+    "ci_high": 3.306122448979592,
+    "n": 47,
+    "n_instances": 20
+   },
+   "n_distinct_openers": {
+    "estimate": 0.03333333333333333,
+    "ci_low": -0.11666666666666667,
+    "ci_high": 0.18333333333333332,
+    "n": 120,
+    "n_instances": 24
+   }
+  }
+ }
+}

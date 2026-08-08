@@ -1,0 +1,156 @@
+{
+ "gates_pass": true,
+ "failures": [],
+ "arms": [
+  {
+   "arm": "all_fairness_oracle",
+   "run_dir": "/juice2/scr2/siddharth/ii_mats/rational_agents/fivepriv_opus_fairness_v2__all_fairness_oracle",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 600,
+   "n_llm_turns": 0,
+   "n_policy_turns": 600,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  },
+  {
+   "arm": "all_fairness_algorithmic",
+   "run_dir": "/juice2/scr2/siddharth/ii_mats/rational_agents/fivepriv_opus_fairness_v2__all_fairness_algorithmic",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2460,
+   "n_llm_turns": 0,
+   "n_policy_turns": 2460,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  },
+  {
+   "arm": "all_selfish_dp_oracle",
+   "run_dir": "/juice2/scr2/siddharth/ii_mats/rational_agents/fivepriv_opus_fairness_v2__all_selfish_dp_oracle",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2974,
+   "n_llm_turns": 0,
+   "n_policy_turns": 2974,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  },
+  {
+   "arm": "one_fairness_oracle",
+   "run_dir": "/juice2/scr2/siddharth/ii_mats/rational_agents/fivepriv_opus_fairness_v2__one_fairness_oracle",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2324,
+   "n_llm_turns": 1860,
+   "n_policy_turns": 464,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  },
+  {
+   "arm": "one_fairness_algorithmic",
+   "run_dir": "/juice2/scr2/siddharth/ii_mats/rational_agents/fivepriv_opus_fairness_v2__one_fairness_algorithmic",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2492,
+   "n_llm_turns": 1996,
+   "n_policy_turns": 496,
+   "gen_failures": 0,
+   "malformed_attempts": 3,
+   "malformed_attempt_rate": 0.001503006012024048
+  },
+  {
+   "arm": "all_llm",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/five_seat_private_hf_snapshot_v1/runs/all_llm",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2165,
+   "n_llm_turns": 2165,
+   "n_policy_turns": 0,
+   "gen_failures": 0,
+   "malformed_attempts": 4,
+   "malformed_attempt_rate": 0.0018475750577367205
+  },
+  {
+   "arm": "one_rational",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/five_seat_private_hf_snapshot_v1/runs/one_rational",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2665,
+   "n_llm_turns": 2128,
+   "n_policy_turns": 537,
+   "gen_failures": 0,
+   "malformed_attempts": 1,
+   "malformed_attempt_rate": 0.00046992481203007516
+  },
+  {
+   "arm": "one_oracle",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/five_seat_private_hf_snapshot_v1/runs/one_oracle",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2720,
+   "n_llm_turns": 2134,
+   "n_policy_turns": 586,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  },
+  {
+   "arm": "all_rational",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/five_seat_private_hf_snapshot_v1/runs/all_rational",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 2995,
+   "n_llm_turns": 0,
+   "n_policy_turns": 2995,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  },
+  {
+   "arm": "all_oracle",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/five_seat_private_hf_snapshot_v1/runs/all_oracle",
+   "n_episodes": 120,
+   "n_done": 120,
+   "status_counts": {
+    "done": 120
+   },
+   "n_turns": 947,
+   "n_llm_turns": 0,
+   "n_policy_turns": 947,
+   "gen_failures": 0,
+   "malformed_attempts": 0,
+   "malformed_attempt_rate": 0.0
+  }
+ ]
+}
