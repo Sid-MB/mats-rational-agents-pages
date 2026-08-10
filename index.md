@@ -15,5 +15,19 @@ The main campaign per the "what I want to see" brief: **five-seat scorable negot
 	- There are both PRIVATE and FULL runs. In the FULL runs, every agent (including the rational agent) has access to the would-be-private preferences and thresholds of the other agents.
 - [apibehav_sonnet5_thinkon_cot_datacenter](./apibehav_sonnet5_thinkon_cot_datacenter/index.html): Sonnet, datacenter scenario, thinking on, no rational agent involved, private info kept private
 - [five-seat-live-preview-v5](./five-seat-live-preview-v5/index.html): early live preview of the five-seat campaign (Sonnet, no rational agent, private info) — superseded by the complete hubs above
-- [p2_Qwen3-8B_all_llm_b2](./p2_Qwen3-8B_all_llm_b2/index.html): Qwen 8B, Many rollouts, no rational agent involved, private info kept private
+- [p2_Qwen3-8B_all_llm_b2](./p2_Qwen3-8B_all_llm_b2/index.html): Qwen 8B, many rollouts, no rational agent involved, private info kept private (clean `_b2` re-run, re-rendered with the current viewer)
 - [grpoeval_lam1_step24_xgame_private](./grpoeval_lam1_step24_xgame_private/index.html): eval rollouts of the fairness-GRPO λ=1 checkpoint on unseen private-info games
+
+## De-contamination and the clean re-baseline (July 2026)
+
+The original P2 open-weight campaign was contaminated by a harness bug: on swallowed GPU errors the batched engine silently fabricated placeholder turns that parsed as clean no-ops (26.2% of all turns; up to 100% of single cells). The full story is section B7 of the writeup and research notes 0015/0016; these pages show it and the corrected results.
+
+- [decontamination_Qwen3-8B_all_llm](./decontamination_Qwen3-8B_all_llm/index.html): **the visual proof** — contaminated episodes (red "NOT GENERATED" badges on every fabricated turn) paired against the clean re-run of the same game/seed. Lead pair: 20 of 25 turns never generated, no-deal → deal, welfare 0 → 348.
+- Clean seat-swap comparisons (rational agent in the exact same seat, both sides 0.0% fabricated): [seatswap_reverse_rseat1_b2](./seatswap_reverse_rseat1_b2/index.html), [seatswap_reverse_Qwen3-4B_rseat4_b2](./seatswap_reverse_Qwen3-4B_rseat4_b2/index.html), [seatswap_reverse_Qwen3-8B_rseat0_b2](./seatswap_reverse_Qwen3-8B_rseat0_b2/index.html), [seatswap_p2_mixed_b2](./seatswap_p2_mixed_b2/index.html). Post-cleanup verdict: the rational seat's *capture* advantage survives on every slot; the "repairs deal-closing" claim did not (it was mostly the artifact suppressing the baseline).
+- [apibehav_sonnet5_thinkoff](./apibehav_sonnet5_thinkoff/index.html) and [apibehav_haiku45_thinkoff](./apibehav_haiku45_thinkoff/index.html): the frontier-API headline cells (thinking off, matched to the open-weight protocol) behind the "Claudes close more deals but distribute them worse" result.
+- [ultimatum_giveaway](./ultimatum_giveaway/index.html): the ultimatum-game preset — a one-flag situation swap on the same harness.
+
+## Paper and data
+
+- **Writeup (54pp PDF):** [writeup_rational_agents.pdf](./writeup_rational_agents.pdf) — the full program record on clean data, including the B7 contamination post-mortem and every published-vs-clean correction.
+- **Public datasets:** [2026.RA.Negotiation-Campaigns](https://huggingface.co/datasets/siddharthmb/2026.RA.Negotiation-Campaigns) (frozen P1–P4 record, 55GB) · [2026.RA.Divergence-DPO-Pairs](https://huggingface.co/datasets/siddharthmb/2026.RA.Divergence-DPO-Pairs) (12,761 turn-level oracle preference pairs) · [2026.RA.Frontier-and-Scale-Cells](https://huggingface.co/datasets/siddharthmb/2026.RA.Frontier-and-Scale-Cells) (frontier-API + 32B + framing + the clean `rebaseline_b2` campaign, 1.06GB). Note the two older datasets predate the contamination audit — screen episodes with `interlens.arena.engine.gen_failures()`, not `parse_ok`.

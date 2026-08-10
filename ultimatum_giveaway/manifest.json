@@ -1,0 +1,18 @@
+{
+ "run": "/nlp/scr/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2",
+ "out_dir": "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway",
+ "n_episodes": 9,
+ "index": "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/index.html",
+ "failures": [],
+ "pages": [
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-09aea74a46.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-4fc4457ce9.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-5b0a8bfa8c.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-7152b3c2b6.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-72da6edc90.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-aae12ac9af.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-c485ddabc8.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-cb15f2c0db.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/ultimatum_giveaway/scorable_negotiation-moves_chat-e4bc72b70e.html"
+ ]
+}

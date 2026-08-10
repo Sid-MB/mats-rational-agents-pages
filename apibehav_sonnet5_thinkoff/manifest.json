@@ -1,0 +1,17 @@
+{
+ "run": "/nlp/scr/siddharth/ii_mats/rational_agents/apibehav_sonnet5_thinkoff_5seed",
+ "out_dir": ".claude/products/episode_viz/apibehav_sonnet5_thinkoff",
+ "n_episodes": 8,
+ "index": ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/index.html",
+ "failures": [],
+ "pages": [
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-163c0292a3.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-34a3c65acc.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-3638322c9b.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-3d726dde4e.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-4e4b1aa861.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-4efe61df75.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-57415854eb.html",
+  ".claude/products/episode_viz/apibehav_sonnet5_thinkoff/scorable_negotiation-moves_chat-6166f4bb15.html"
+ ]
+}

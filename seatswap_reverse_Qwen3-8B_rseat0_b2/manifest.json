@@ -1,0 +1,28 @@
+{
+ "report": {
+  "left_run": "/nlp/scr/siddharth/ii_mats/rational_agents/p2_Qwen3-8B_all_llm_b2",
+  "right_run": "/nlp/scr/siddharth/ii_mats/rational_agents/p3reverse_Qwen3-8B_rseat0",
+  "pair_fields": [
+   "instance_id",
+   "seed",
+   "arm"
+  ],
+  "select": "deal-flip",
+  "n_left": 120,
+  "n_right": 120,
+  "n_matched_keys": 120,
+  "n_candidate_pairs": 29,
+  "n_comparisons": 3,
+  "unmatched_left": [],
+  "unmatched_right": [],
+  "uneven_multiplicity": {}
+ },
+ "out_dir": "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_reverse_Qwen3-8B_rseat0_b2",
+ "n_comparisons": 3,
+ "index": "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_reverse_Qwen3-8B_rseat0_b2/index.html",
+ "pages": [
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_reverse_Qwen3-8B_rseat0_b2/compare-scorable_negotiation-moves_chat-99624e71fc--scorable_negotiation-moves_chat-f92fc3bfd2.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_reverse_Qwen3-8B_rseat0_b2/compare-scorable_negotiation-moves_chat-854e2191a2--scorable_negotiation-moves_chat-d2280e6a8b.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_reverse_Qwen3-8B_rseat0_b2/compare-scorable_negotiation-moves_chat-c5055e3ec4--scorable_negotiation-moves_chat-b7f1ace6d2.html"
+ ]
+}

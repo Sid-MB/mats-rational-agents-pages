@@ -1,0 +1,651 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>scorable_negotiation-moves_chat-5b0a8bfa8c — episode</title><style>
+:root{
+ color-scheme:light;
+ --surface-1:#fcfcfb; --plane:#f9f9f7; --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+ --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
+ --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+ --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --critical:#d03b3b; --up:#006300;
+}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){
+ color-scheme:dark;
+ --surface-1:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+ --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+ --s1:#3987e5; --s2:#d95926; --s3:#199e70; --up:#0ca30c;
+}}
+:root[data-theme="dark"]{
+ color-scheme:dark;
+ --surface-1:#1a1a19; --plane:#0d0d0d; --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+ --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+ --s1:#3987e5; --s2:#d95926; --s3:#199e70; --up:#0ca30c;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+ font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:1560px;margin:0 auto;padding:20px}
+h1{font-size:1.3rem;margin:0 0 4px} h2{font-size:1rem;margin:0 0 10px;letter-spacing:.01em}
+h3{font-size:.9rem;margin:14px 0 6px;color:var(--ink-2)}
+a{color:var(--s1)} code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85em}
+.card{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;padding:14px;margin-bottom:14px}
+.sub{color:var(--ink-2);font-size:.87rem}
+.muted{color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.pill{border:1px solid var(--ring);border-radius:999px;padding:2px 9px;font-size:.78rem;color:var(--ink-2);
+ background:var(--plane);white-space:nowrap}
+.pill b{color:var(--ink);font-weight:600}
+.badge{border-radius:4px;padding:1px 6px;font-size:.72rem;font-weight:600;border:1px solid var(--ring)}
+.badge.llm{color:var(--s1)} .badge.policy{color:var(--s3)} .badge.advocate{color:var(--s2)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:14px}
+.tile{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;padding:10px 12px}
+.tile .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.tile .v{font-size:1.45rem;font-weight:600;margin-top:2px}
+.tile .n{font-size:.75rem;color:var(--ink-2)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:14px;align-items:start}
+aside{position:sticky;top:14px;max-height:calc(100vh - 28px);overflow-y:auto}
+table{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:4px 7px;border-bottom:1px solid var(--grid)}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.03em}
+tr.hi td{background:color-mix(in oklab,var(--s1) 12%,transparent)}
+.neg{color:var(--critical)} .pos{color:var(--up)} .zero{color:var(--muted)}
+details{margin:6px 0;border:1px solid var(--ring);border-radius:8px;background:var(--plane)}
+details>summary{cursor:pointer;padding:6px 10px;font-size:.83rem;color:var(--ink-2);list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"\25B8  ";color:var(--muted)}
+details[open]>summary::before{content:"\25BE  "}
+details>summary:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
+details .body{padding:2px 10px 10px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:6px 0;background:var(--surface-1);
+ border:1px solid var(--grid);border-radius:6px;padding:8px;font-size:.8rem;max-height:460px;overflow:auto}
+.msgrole{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:8px}
+button,select{font:inherit;font-size:.83rem;color:var(--ink);background:var(--surface-1);
+ border:1px solid var(--ring);border-radius:7px;padding:5px 10px;cursor:pointer}
+button[aria-pressed="true"]{border-color:var(--s1);color:var(--s1)}
+button:focus-visible,select:focus-visible{outline:2px solid var(--s1);outline-offset:1px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 2px;font-size:.79rem;color:var(--ink-2)}
+.legend span{display:flex;align-items:center;gap:5px}
+.swatch{width:10px;height:10px;border-radius:50%;border:2px solid var(--surface-1);flex:none}
+.swatch.sq{border-radius:2px} .swatch.di{border-radius:2px;transform:rotate(45deg)}
+.chartwrap{overflow-x:auto}
+svg{display:block;max-width:100%;height:auto;touch-action:pan-y}
+svg text{fill:var(--ink-2);font-size:11px;font-family:system-ui,sans-serif}
+svg .gridline{stroke:var(--grid);stroke-width:1}
+svg .axisline{stroke:var(--axis);stroke-width:1}
+svg .lab{fill:var(--ink);font-size:10px;font-weight:600;paint-order:stroke;
+ stroke:var(--surface-1);stroke-width:3px;stroke-linejoin:round}
+svg .dot{fill:var(--muted);opacity:.35}
+svg .front{fill:none;stroke:var(--ink-2);stroke-width:1.5;opacity:.75}
+svg .envfill{fill:var(--ink-2);opacity:.07} svg .envline{fill:none;stroke:var(--ink-2);stroke-width:2;opacity:.35}
+svg .mark{stroke:var(--surface-1);stroke-width:2;cursor:pointer}
+svg .path1{fill:none;stroke:var(--s1);stroke-width:2;opacity:.85}
+svg .path2{fill:none;stroke:var(--s2);stroke-width:2;opacity:.85}
+svg .hitrow:hover{fill:var(--ink);opacity:.05}
+svg .sel{stroke:var(--ink);stroke-width:2.5}
+.detail{margin-top:10px;border-top:1px solid var(--grid);padding-top:10px;min-height:76px}
+.detail .hd{font-weight:600;margin-bottom:4px}
+.meter{position:relative;height:9px;background:var(--grid);border-radius:5px;overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;border-radius:5px;display:block}
+.meter i.ok{background:var(--s3)} .meter i.bad{background:var(--critical)}
+.meter u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink)}
+.turn{border:1px solid var(--ring);border-radius:10px;background:var(--surface-1);padding:11px 13px;margin-bottom:11px}
+.turn.divergent{border-color:var(--s2);border-left-width:4px}
+.turn.sel{border-color:var(--s1);border-left-width:4px}
+.turnhd{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.turnhd .who{font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:9px}
+.col{border:1px solid var(--grid);border-radius:8px;padding:8px 10px;background:var(--plane)}
+.col .hd{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:3px}
+.col.acted{border-top:2px solid var(--s1)} .col.oracle{border-top:2px solid var(--s2)}
+.act{font-weight:600;font-size:.9rem}
+.deal{font-size:.8rem;color:var(--ink-2);margin-top:3px}
+.msg{border-left:3px solid var(--grid);padding-left:9px;margin:7px 0;font-size:.88rem}
+.gap{border:1px dashed var(--axis);border-radius:8px;padding:8px 10px;font-size:.82rem;color:var(--ink-2);
+ background:var(--plane)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.two>div{min-width:0}
+.colhd{font-weight:600;padding:6px 10px;border-radius:8px;background:var(--plane);border:1px solid var(--ring);
+ margin-bottom:10px;position:sticky;top:0;z-index:2}
+.colhd.a{border-top:3px solid var(--s1)} .colhd.b{border-top:3px solid var(--s2)}
+.divmark{border-top:2px dashed var(--s2);color:var(--s2);font-size:.78rem;font-weight:600;
+ text-align:center;margin:14px 0;padding-top:5px}
+.warn{border-left:4px solid var(--warn);padding:8px 12px;background:var(--surface-1);border-radius:8px;
+ font-size:.85rem;margin-bottom:12px}
+.warn b{color:var(--ink)}
+@media (max-width:1180px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none}}
+@media (max-width:760px){.cols,.two{grid-template-columns:1fr}}
+@media print{aside,button,select{display:none}.card{break-inside:avoid}}
+</style></head><body><main><h1>scorable_negotiation — <code>scorable_negotiation-moves_chat-5b0a8bfa8c</code></h1>
+<div class='pills'><span class='pill'>model <b>Qwen3-4B</b></span><span class='pill'>arm <b>moves_chat</b></span><span class='pill'>cell <b>base</b></span><span class='pill'>seed <b>2</b></span><span class='pill'>level <b>0</b></span><span class='pill'>status <b>done</b></span><span class='pill'>instance <b>scorable_negotiation-L0-25859b5883</b></span><span class='pill'>170 tok out</span></div><div class='sub'>source records: <a href='file:///nlp/scr/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2'>run</a> · <a href='file:///juice2/scr2/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2/episodes/scorable_negotiation/base/moves_chat/Qwen3-4B/L0/scorable_negotiation-moves_chat-5b0a8bfa8c.json'>episode</a> · <a href='file:///juice2/scr2/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2/instances/scorable_negotiation-L0-25859b5883.json'>instance</a></div>
+<div class='tiles'><div class='tile'><div class='k'>outcome</div><div class='v'>deal</div><div class='n'>consensus</div></div><div class='tile'><div class='k'>primary</div><div class='v'>1.000</div><div class='n'>ceiling 1.000</div></div><div class='tile'><div class='k'>joint welfare</div><div class='v'>10.0</div><div class='n'>sum of surpluses</div></div><div class='tile'><div class='k'>worst-off</div><div class='v'><span class='pos'>0.0</span></div><div class='n'>min surplus (ESW)</div></div><div class='tile'><div class='k'>Nash welfare</div><div class='v'>0.0</div><div class='n'>geometric mean; 0 if any party below τ</div></div><div class='tile'><div class='k'>Gini</div><div class='v'>0.500</div><div class='n'>0 = equal surplus split</div></div><div class='tile'><div class='k'>below threshold</div><div class='v'><span class='zero'>0</span></div><div class='n'>none</div></div></div>
+<div class='layout'><div>
+<section class='card' id='frontier'><h2>Where every deal sits, and where this episode went</h2>
+ <div class='sub'>Six parties means a deal's utility vector has six dimensions, so the chart plots the two summaries
+ that carry the normative content, both scale-invariant: joint welfare (mean normalized surplus) across, and the
+ worst-off party's normalized surplus up. Up and to the right is better for everyone. Hover or click any deal for
+ the full per-party breakdown; click a numbered move to jump to that turn.</div>
+ <div class='legend'><span><i class='swatch' style='background:var(--s1)'></i>the model&#x27;s play (numbered, in order)</span><span><i class='swatch sq' style='background:var(--s1)'></i>the deal that closed</span><span><i class='swatch' style='background:var(--s2)'></i>oracle recommendation</span><span><i class='swatch' style='background:var(--s3)'></i>solution concept (starred, labelled)</span><span><i class='swatch di' style='background:var(--s3)'></i>a party's individually-best deal</span><span><i class='swatch' style='background:var(--ink-2)'></i>Pareto-frontier deal</span><span><i class='swatch' style='background:var(--muted)'></i>dominated deal</span></div>
+ <div id='chart'></div>
+ <div class='bar'><button id='table-toggle' aria-pressed='false'>Show the numbers as a table</button></div>
+ <div id='chart-table' hidden><table><thead><tr><th>reference point</th><th>deal #</th><th>joint welfare</th><th>min surplus</th><th>USW</th><th>ESW</th><th>Pareto</th><th>can close</th></tr></thead><tbody><tr><td><b>NBS</b> <span class='muted'>nash</span></td><td>5</td><td>0.500</td><td>0.500</td><td>10.0</td><td>5.0</td><td>yes</td><td>yes</td></tr><tr><td><b>KS</b> <span class='muted'>kalai smorodinsky</span></td><td>5</td><td>0.500</td><td>0.500</td><td>10.0</td><td>5.0</td><td>yes</td><td>yes</td></tr><tr><td><b>EGAL</b> <span class='muted'>egalitarian · not scale-invariant</span></td><td>5</td><td>0.500</td><td>0.500</td><td>10.0</td><td>5.0</td><td>yes</td><td>yes</td></tr><tr><td><b>UTIL</b> <span class='muted'>utilitarian · not scale-invariant</span></td><td>0</td><td>0.500</td><td>0.000</td><td>10.0</td><td>0.0</td><td>yes</td><td>yes</td></tr><tr><td><b>MNW</b> <span class='muted'>max nash welfare</span></td><td>5</td><td>0.500</td><td>0.500</td><td>10.0</td><td>5.0</td><td>yes</td><td>yes</td></tr><tr><td><b>best for Proposer</b> <span class='muted'>party 0 · surplus 10.0</span></td><td>10</td><td>0.500</td><td>0.000</td><td>10.0</td><td>0.0</td><td>yes</td><td>yes</td></tr><tr><td><b>best for Responder</b> <span class='muted'>party 1 · surplus 10.0</span></td><td>0</td><td>0.500</td><td>0.000</td><td>10.0</td><td>0.0</td><td>yes</td><td>yes</td></tr></tbody></table></div>
+ <div class='detail' id='detail'></div></section><section class='card'><h2>Per-turn regret against the rational agent</h2>
+ <div class='sub'>Each bar is the oracle's value of its own best move minus its value of the move the seat played,
+ in that oracle's units — the centipawn-loss analogue. Click a bar to jump to the turn.</div>
+ <div class='bar'><label class='sub'>counterfactual oracle <select id='oracle-select'><option value="bestresponse">bestresponse</option><option value="acceptance">acceptance</option><option value="threshold">threshold</option></select></label></div><div id='regret'></div></section>
+<section class='card'><h2>System prompts (2 distinct)</h2><div class='sub'>Exactly what each seat was conditioned on, de-duplicated. Per-turn user prompts are on each turn card below.</div><details><summary>System prompt for Avery — 1 turn(s), reconstructed</summary><div class='body'><pre>You are one of 2 parties negotiating a single multi-issue agreement. Exactly one option must be chosen for every issue; the chosen options together form the deal.
+
+Parties at the table:
+- Avery
+- Blake
+
+Issues (choose exactly one option each):
+- Split: P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10
+
+Protocol: turns are taken in a fixed rotation (Avery, Blake); the party who tables the opening proposal rotates from round to round. There are 1 rounds of turns in total.
+A deal closes only when every party still at the table has formally ACCEPTed the SAME standing offer. A party may WALK to leave for good and take its no-deal outcome.
+
+
+Information: every party&#x27;s score sheet is common knowledge and is listed below — there is no private information, so any inefficiency is a pure negotiation failure.
+
+All parties&#x27; score sheets (common knowledge):
+Avery (threshold 0):
+- Split: P0=0, P1=1, P2=2, P3=3, P4=4, P5=5, P6=6, P7=7, P8=8, P9=9, P10=10
+
+Blake (threshold 0):
+- Split: P0=10, P1=9, P2=8, P3=7, P4=6, P5=5, P6=4, P7=3, P8=2, P9=1, P10=0
+
+=== PRIVATE — yours alone; never reveal these numbers verbatim ===
+You are Avery.
+Your secret score sheet (points you get for each option):
+- Split: P0=0, P1=1, P2=2, P3=3, P4=4, P5=5, P6=6, P7=7, P8=8, P9=9, P10=10
+Your acceptance threshold: 0 points. A deal scoring below this is worse for you than no deal at all.
+Your total for a deal is the sum of your points for the chosen options.
+
+On your turn, reply with EXACTLY ONE fenced JSON object and nothing outside it:
+```json
+{&quot;scratchpad&quot;: &quot;...&quot;, &quot;message&quot;: &quot;...&quot;, &quot;action&quot;: &quot;propose&quot;, &quot;deal&quot;: {&quot;&lt;Issue&gt;&quot;: &quot;&lt;Option&gt;&quot;, ...}}
+```
+Fields:
+- &quot;scratchpad&quot; (optional): private notes to yourself. NEVER shown to any other party. Reason here freely — writing here is not speaking and costs you nothing.
+- &quot;message&quot; (optional): a short statement spoken aloud to every party (cheap talk — it does not bind you). Do NOT put your private score numbers here.
+- &quot;action&quot; (required): a string naming exactly one formal move this turn. With its parameters as siblings:
+    - &quot;propose&quot; + &quot;deal&quot;: {every issue -&gt; one option} — tables a complete package; the mediator gives it an offer id (P1, P2, ...) and records you as supporting it.
+    - &quot;accept&quot; + &quot;offer_id&quot;: &quot;&lt;id&gt;&quot; — formally accept a specific live offer by its id. A deal closes ONLY when every other still-active party has accepted the SAME live offer, so your accept is a real vote.
+    - &quot;reject&quot; + &quot;offer_id&quot;: &quot;&lt;id&gt;&quot; — formally reject a specific live offer.
+    - &quot;walk&quot; — leave the table permanently; you take the no-deal outcome and no further turns.
+    - &quot;none&quot; — make no formal move this turn (you may still speak, if the message channel is open). Omitting the action entirely means the same.
+
+Worked example — tabling a package while making your case:
+```json
+{&quot;scratchpad&quot;: &quot;Option B on Site is my best; I can give on Timeline.&quot;, &quot;message&quot;: &quot;I can back a package built on Site=B if the timeline stays tight.&quot;, &quot;action&quot;: &quot;propose&quot;, &quot;deal&quot;: {&quot;Site&quot;: &quot;B&quot;, &quot;Timeline&quot;: &quot;Tight&quot;}}
+```
+Worked example — accepting a live offer by id:
+```json
+{&quot;message&quot;: &quot;P2 clears my bar. I accept.&quot;, &quot;action&quot;: &quot;accept&quot;, &quot;offer_id&quot;: &quot;P2&quot;}
+```
+
+Rules of the road:
+- Your acceptance threshold is private. A deal scoring below it is worse for you than no deal — never propose or accept a package below your threshold.
+- Accepts MUST name a live offer id; &quot;I accept&quot; with no id does nothing.
+- Reply with ONLY the fenced JSON object.</pre></div></details><details><summary>System prompt for Blake — 1 turn(s), reconstructed</summary><div class='body'><pre>You are one of 2 parties negotiating a single multi-issue agreement. Exactly one option must be chosen for every issue; the chosen options together form the deal.
+
+Parties at the table:
+- Avery
+- Blake
+
+Issues (choose exactly one option each):
+- Split: P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10
+
+Protocol: turns are taken in a fixed rotation (Avery, Blake); the party who tables the opening proposal rotates from round to round. There are 1 rounds of turns in total.
+A deal closes only when every party still at the table has formally ACCEPTed the SAME standing offer. A party may WALK to leave for good and take its no-deal outcome.
+
+
+Information: every party&#x27;s score sheet is common knowledge and is listed below — there is no private information, so any inefficiency is a pure negotiation failure.
+
+All parties&#x27; score sheets (common knowledge):
+Avery (threshold 0):
+- Split: P0=0, P1=1, P2=2, P3=3, P4=4, P5=5, P6=6, P7=7, P8=8, P9=9, P10=10
+
+Blake (threshold 0):
+- Split: P0=10, P1=9, P2=8, P3=7, P4=6, P5=5, P6=4, P7=3, P8=2, P9=1, P10=0
+
+=== PRIVATE — yours alone; never reveal these numbers verbatim ===
+You are Blake.
+Your secret score sheet (points you get for each option):
+- Split: P0=10, P1=9, P2=8, P3=7, P4=6, P5=5, P6=4, P7=3, P8=2, P9=1, P10=0
+Your acceptance threshold: 0 points. A deal scoring below this is worse for you than no deal at all.
+Your total for a deal is the sum of your points for the chosen options.
+
+On your turn, reply with EXACTLY ONE fenced JSON object and nothing outside it:
+```json
+{&quot;scratchpad&quot;: &quot;...&quot;, &quot;message&quot;: &quot;...&quot;, &quot;action&quot;: &quot;propose&quot;, &quot;deal&quot;: {&quot;&lt;Issue&gt;&quot;: &quot;&lt;Option&gt;&quot;, ...}}
+```
+Fields:
+- &quot;scratchpad&quot; (optional): private notes to yourself. NEVER shown to any other party. Reason here freely — writing here is not speaking and costs you nothing.
+- &quot;message&quot; (optional): a short statement spoken aloud to every party (cheap talk — it does not bind you). Do NOT put your private score numbers here.
+- &quot;action&quot; (required): a string naming exactly one formal move this turn. With its parameters as siblings:
+    - &quot;propose&quot; + &quot;deal&quot;: {every issue -&gt; one option} — tables a complete package; the mediator gives it an offer id (P1, P2, ...) and records you as supporting it.
+    - &quot;accept&quot; + &quot;offer_id&quot;: &quot;&lt;id&gt;&quot; — formally accept a specific live offer by its id. A deal closes ONLY when every other still-active party has accepted the SAME live offer, so your accept is a real vote.
+    - &quot;reject&quot; + &quot;offer_id&quot;: &quot;&lt;id&gt;&quot; — formally reject a specific live offer.
+    - &quot;walk&quot; — leave the table permanently; you take the no-deal outcome and no further turns.
+    - &quot;none&quot; — make no formal move this turn (you may still speak, if the message channel is open). Omitting the action entirely means the same.
+
+Worked example — tabling a package while making your case:
+```json
+{&quot;scratchpad&quot;: &quot;Option B on Site is my best; I can give on Timeline.&quot;, &quot;message&quot;: &quot;I can back a package built on Site=B if the timeline stays tight.&quot;, &quot;action&quot;: &quot;propose&quot;, &quot;deal&quot;: {&quot;Site&quot;: &quot;B&quot;, &quot;Timeline&quot;: &quot;Tight&quot;}}
+```
+Worked example — accepting a live offer by id:
+```json
+{&quot;message&quot;: &quot;P2 clears my bar. I accept.&quot;, &quot;action&quot;: &quot;accept&quot;, &quot;offer_id&quot;: &quot;P2&quot;}
+```
+
+Rules of the road:
+- Your acceptance threshold is private. A deal scoring below it is worse for you than no deal — never propose or accept a package below your threshold.
+- Accepts MUST name a live offer id; &quot;I accept&quot; with no id does nothing.
+- Reply with ONLY the fenced JSON object.</pre></div></details></section>
+<section class='card'><h2>Transcript — what the model did, and what a rational agent would have done</h2>
+ <div class='sub'>Every panel is expandable: the reasoning recorded for the turn, the exact prompt the seat saw,
+ the raw turn text, and every action each oracle scored with its value.</div>
+ <div id='turns'></div></section>
+</div><aside>
+<section class='card'><h2>Who is at the table</h2>
+ <table><thead><tr><th>seat</th><th>party</th><th>threshold τ</th><th>ideal surplus</th><th>realized</th></tr></thead>
+ <tbody><tr><td>Avery <span class='badge llm'>llm</span></td><td class='muted'>Proposer</td><td>0.0</td><td>10.0</td><td>0.0</td></tr><tr><td>Blake <span class='badge llm'>llm</span></td><td class='muted'>Responder</td><td>0.0</td><td>10.0</td><td>10.0</td></tr></tbody></table>
+ <div class='sub muted'>Seat occupant kinds: table=all_llm</div></section>
+<section class='card'><h2>Protocol</h2><div class='pills'>
+ <span class='pill'>rounds <b>1</b></span>
+ <span class='pill'>information <b>full</b></span>
+ <span class='pill'>cheap talk <b>off</b></span>
+ <span class='pill'>veto <b>none</b></span>
+ <span class='pill'>min accept <b>unanimity</b></span>
+ <span class='pill'>discount δ <b>1.000</b></span>
+ <span class='pill'>breakdown risk <b>0.000</b></span>
+ </div>
+ <table><thead><tr><th>issue</th><th>options</th></tr></thead><tbody><tr><td>Split</td><td class='muted'>P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10</td></tr></tbody></table></section>
+<section class='card'><h2>Size of the problem</h2>
+ <table><tbody>
+ <tr><td>deals in the space</td><td>11</td></tr>
+ <tr><td>on the Pareto frontier</td><td>11</td></tr>
+ <tr><td>acceptable to everyone (IR)</td><td>11</td></tr>
+ <tr><td>acceptable AND efficient</td><td>11</td></tr>
+ <tr><td>acceptable but wasteful</td><td>0.000</td></tr>
+ <tr><td>score-sheet overlap (IoU)</td><td>0.818</td></tr>
+ </tbody></table>
+ <div class='sub muted'>Solution concepts were stored for this page.</div></section>
+<section class='card'><h2>Private score sheets</h2>
+ <div class='sub'>What each party is secretly optimizing. Never shown to the other seats.</div><details><summary>Private score sheet — Proposer (threshold 0.0)</summary><div class='body'><table><thead><tr><th>issue</th><th>P0</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th><th>P7</th><th>P8</th><th>P9</th><th>P10</th></tr></thead><tbody><tr><td>Split</td><td>0.0</td><td>1.0</td><td>2.0</td><td>3.0</td><td>4.0</td><td>5.0</td><td>6.0</td><td>7.0</td><td>8.0</td><td>9.0</td><td>10.0</td></tr></tbody></table></div></details><details><summary>Private score sheet — Responder (threshold 0.0)</summary><div class='body'><table><thead><tr><th>issue</th><th>P0</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th><th>P7</th><th>P8</th><th>P9</th><th>P10</th></tr></thead><tbody><tr><td>Split</td><td>10.0</td><td>9.0</td><td>8.0</td><td>7.0</td><td>6.0</td><td>5.0</td><td>4.0</td><td>3.0</td><td>2.0</td><td>1.0</td><td>0.0</td></tr></tbody></table></div></details></section>
+<section class='card'><h2>Prompt provenance</h2>
+ <div class='sub'>0 of 2 turns carry the exact view recorded at
+ generation time; 2 were re-derived by replay through today's prompt code and are
+ labelled as reconstructed wherever they appear.
+ </div></section>
+</aside></div></main><script type="application/json" id="viz-payload">{"kind":"episode","episode":{"episode_id":"scorable_negotiation-moves_chat-5b0a8bfa8c","scenario":"scorable_negotiation","arm":"moves_chat","model":"Qwen3-4B","level":0,"instance_id":"scorable_negotiation-L0-25859b5883","seed":2,"cell":"base","cell_cfg":{"single_shot":true,"fixed_proposer":true,"cell":"base"},"status":"done","rounds_used":2,"tokens_in":0,"tokens_out":170,"cost_usd":0.0,"gen_config":{"participant":"QwenModelParticipant","model":"Qwen3-4B","temperature":0.8,"top_p":0.95,"max_new_tokens":512},"error":null,"schema_version":"v1.0"},"seats":[{"name":"Avery","role":"Proposer","variant":"","party":0,"kind":"llm"},{"name":"Blake","role":"Responder","variant":"","party":1,"kind":"llm"}],"seat_kind_source":{"source":"manifest","detail":"table=all_llm"},"turns":[{"idx":0,"round":2,"phase":"final_proposal","seat":"Avery","party":0,"kind":"llm","action":{"atype":"propose","label":"PROPOSE","deal_named":{"Split":"P0"},"deal_index":0,"offer":null,"message":"I will propose the Split option P0, which gives me exactly 0 points, meeting my threshold.","syntax_error":null},"parse_ok":true,"content":"```json\n{\"scratchpad\": \"No offers have been tabled yet. I will propose a deal that meets my threshold of 0 points. Since my score sheet is aligned with the Split options, I will propose the Split option that gives me the minimum score of 0.\", \"message\": \"I will propose the Split option P0, which gives me exactly 0 points, meeting my threshold.\", \"action\": \"propose\", \"deal\": {\"Split\": \"P0\"}}\n```","reasoning":"No offers have been tabled yet. I will propose a deal that meets my threshold of 0 points. Since my score sheet is aligned with the Split options, I will propose the Split option that gives me the minimum score of 0.","reasoning_provenance":"none","n_tokens_out":101,"n_tokens_in":0,"cap":2560,"stop_reason":null,"view":[{"role":"system","content":"You are one of 2 parties negotiating a single multi-issue agreement. Exactly one option must be chosen for every issue; the chosen options together form the deal.\n\nParties at the table:\n- Avery\n- Blake\n\nIssues (choose exactly one option each):\n- Split: P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10\n\nProtocol: turns are taken in a fixed rotation (Avery, Blake); the party who tables the opening proposal rotates from round to round. There are 1 rounds of turns in total.\nA deal closes only when every party still at the table has formally ACCEPTed the SAME standing offer. A party may WALK to leave for good and take its no-deal outcome.\n\n\nInformation: every party's score sheet is common knowledge and is listed below — there is no private information, so any inefficiency is a pure negotiation failure.\n\nAll parties' score sheets (common knowledge):\nAvery (threshold 0):\n- Split: P0=0, P1=1, P2=2, P3=3, P4=4, P5=5, P6=6, P7=7, P8=8, P9=9, P10=10\n\nBlake (threshold 0):\n- Split: P0=10, P1=9, P2=8, P3=7, P4=6, P5=5, P6=4, P7=3, P8=2, P9=1, P10=0\n\n=== PRIVATE — yours alone; never reveal these numbers verbatim ===\nYou are Avery.\nYour secret score sheet (points you get for each option):\n- Split: P0=0, P1=1, P2=2, P3=3, P4=4, P5=5, P6=6, P7=7, P8=8, P9=9, P10=10\nYour acceptance threshold: 0 points. A deal scoring below this is worse for you than no deal at all.\nYour total for a deal is the sum of your points for the chosen options.\n\nOn your turn, reply with EXACTLY ONE fenced JSON object and nothing outside it:\n```json\n{\"scratchpad\": \"...\", \"message\": \"...\", \"action\": \"propose\", \"deal\": {\"<Issue>\": \"<Option>\", ...}}\n```\nFields:\n- \"scratchpad\" (optional): private notes to yourself. NEVER shown to any other party. Reason here freely — writing here is not speaking and costs you nothing.\n- \"message\" (optional): a short statement spoken aloud to every party (cheap talk — it does not bind you). Do NOT put your private score numbers here.\n- \"action\" (required): a string naming exactly one formal move this turn. With its parameters as siblings:\n    - \"propose\" + \"deal\": {every issue -> one option} — tables a complete package; the mediator gives it an offer id (P1, P2, ...) and records you as supporting it.\n    - \"accept\" + \"offer_id\": \"<id>\" — formally accept a specific live offer by its id. A deal closes ONLY when every other still-active party has accepted the SAME live offer, so your accept is a real vote.\n    - \"reject\" + \"offer_id\": \"<id>\" — formally reject a specific live offer.\n    - \"walk\" — leave the table permanently; you take the no-deal outcome and no further turns.\n    - \"none\" — make no formal move this turn (you may still speak, if the message channel is open). Omitting the action entirely means the same.\n\nWorked example — tabling a package while making your case:\n```json\n{\"scratchpad\": \"Option B on Site is my best; I can give on Timeline.\", \"message\": \"I can back a package built on Site=B if the timeline stays tight.\", \"action\": \"propose\", \"deal\": {\"Site\": \"B\", \"Timeline\": \"Tight\"}}\n```\nWorked example — accepting a live offer by id:\n```json\n{\"message\": \"P2 clears my bar. I accept.\", \"action\": \"accept\", \"offer_id\": \"P2\"}\n```\n\nRules of the road:\n- Your acceptance threshold is private. A deal scoring below it is worse for you than no deal — never propose or accept a package below your threshold.\n- Accepts MUST name a live offer id; \"I accept\" with no id does nothing.\n- Reply with ONLY the fenced JSON object."},{"role":"user","content":"[Mediator] The rounds are over with no agreement, Avery. Make your FINAL move: either table one last complete proposal for an immediate up/down vote, or walk.\nLive offers on the table: none yet.\nReply with one fenced JSON object: {\"action\": \"propose\", \"deal\": {all issues}} or {\"action\": \"walk\"}.\n```json\n{\"negotiation_state\": {\"seat\": 0, \"round\": 1, \"deadline\": 1, \"offers\": {}, \"standing\": null, \"received\": [], \"received_by_opponent\": {}, \"my_offers\": [], \"must_vote\": false}}\n```"}],"view_source":"reconstructed","oracles":{"threshold":{"oracle":"threshold","chosen_value":0.0,"best_value":0.0,"divergence":0.0,"flags":[],"best_label":"WALK","best_deal_index":null,"action_values":[{"label":"WALK","deal":null,"value":0.0},{"label":"PROPOSE","deal":[0],"value":0.0}],"extra":{"any_ir_violation":false},"counterfactual":false},"acceptance":{"oracle":"acceptance","chosen_value":5.0,"best_value":5.0,"divergence":0.0,"flags":[],"best_label":"WALK","best_deal_index":null,"action_values":[{"label":"WALK","deal":null,"value":5.0},{"label":"PROPOSE","deal":[0],"value":5.0}],"extra":{"reservation":5.0,"rounds_left":1,"best_offer_surplus":null},"counterfactual":false},"bestresponse":{"oracle":"bestresponse","chosen_value":0.0,"best_value":10.0,"divergence":10.0,"flags":[],"best_label":"PROPOSE","best_deal_index":10,"action_values":[{"label":"WALK","deal":null,"value":0.0},{"label":"PROPOSE","deal":[0],"value":0.0},{"label":"PROPOSE","deal":[10],"value":10.0}],"extra":{"best_response_deal":[10],"best_response_value":10.0,"continuation":0.0,"rounds_left":1},"counterfactual":true}},"deal":{"index":0,"named":{"Split":"P0"},"u":[0.0,10.0],"s":[0.0,10.0],"xn":[0.0,1.0],"wx":0.5,"wy":0.0,"pareto":1,"ir":1,"feasible":1,"d_frontier":0.0},"deal_welfare":{"usw":10.0,"esw":0.0,"nsw_geomean":0.0,"n_below_threshold":0}},{"idx":1,"round":2,"phase":"final_vote","seat":"Blake","party":1,"kind":"llm","action":{"atype":"accept","label":"ACCEPT P1","deal_named":null,"deal_index":null,"offer":"P1","message":"I can accept P1 as it meets my threshold.","syntax_error":null},"parse_ok":true,"content":"```json\n{\"scratchpad\": \"Avery proposed P0 for Split, which gives me 10 points. I can accept this offer as it meets my threshold of 0.\", \"message\": \"I can accept P1 as it meets my threshold.\", \"action\": \"accept\", \"offer_id\": \"P1\"}\n```","reasoning":"Avery proposed P0 for Split, which gives me 10 points. I can accept this offer as it meets my threshold of 0.","reasoning_provenance":"none","n_tokens_out":69,"n_tokens_in":0,"cap":2048,"stop_reason":null,"view":[{"role":"system","content":"You are one of 2 parties negotiating a single multi-issue agreement. Exactly one option must be chosen for every issue; the chosen options together form the deal.\n\nParties at the table:\n- Avery\n- Blake\n\nIssues (choose exactly one option each):\n- Split: P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10\n\nProtocol: turns are taken in a fixed rotation (Avery, Blake); the party who tables the opening proposal rotates from round to round. There are 1 rounds of turns in total.\nA deal closes only when every party still at the table has formally ACCEPTed the SAME standing offer. A party may WALK to leave for good and take its no-deal outcome.\n\n\nInformation: every party's score sheet is common knowledge and is listed below — there is no private information, so any inefficiency is a pure negotiation failure.\n\nAll parties' score sheets (common knowledge):\nAvery (threshold 0):\n- Split: P0=0, P1=1, P2=2, P3=3, P4=4, P5=5, P6=6, P7=7, P8=8, P9=9, P10=10\n\nBlake (threshold 0):\n- Split: P0=10, P1=9, P2=8, P3=7, P4=6, P5=5, P6=4, P7=3, P8=2, P9=1, P10=0\n\n=== PRIVATE — yours alone; never reveal these numbers verbatim ===\nYou are Blake.\nYour secret score sheet (points you get for each option):\n- Split: P0=10, P1=9, P2=8, P3=7, P4=6, P5=5, P6=4, P7=3, P8=2, P9=1, P10=0\nYour acceptance threshold: 0 points. A deal scoring below this is worse for you than no deal at all.\nYour total for a deal is the sum of your points for the chosen options.\n\nOn your turn, reply with EXACTLY ONE fenced JSON object and nothing outside it:\n```json\n{\"scratchpad\": \"...\", \"message\": \"...\", \"action\": \"propose\", \"deal\": {\"<Issue>\": \"<Option>\", ...}}\n```\nFields:\n- \"scratchpad\" (optional): private notes to yourself. NEVER shown to any other party. Reason here freely — writing here is not speaking and costs you nothing.\n- \"message\" (optional): a short statement spoken aloud to every party (cheap talk — it does not bind you). Do NOT put your private score numbers here.\n- \"action\" (required): a string naming exactly one formal move this turn. With its parameters as siblings:\n    - \"propose\" + \"deal\": {every issue -> one option} — tables a complete package; the mediator gives it an offer id (P1, P2, ...) and records you as supporting it.\n    - \"accept\" + \"offer_id\": \"<id>\" — formally accept a specific live offer by its id. A deal closes ONLY when every other still-active party has accepted the SAME live offer, so your accept is a real vote.\n    - \"reject\" + \"offer_id\": \"<id>\" — formally reject a specific live offer.\n    - \"walk\" — leave the table permanently; you take the no-deal outcome and no further turns.\n    - \"none\" — make no formal move this turn (you may still speak, if the message channel is open). Omitting the action entirely means the same.\n\nWorked example — tabling a package while making your case:\n```json\n{\"scratchpad\": \"Option B on Site is my best; I can give on Timeline.\", \"message\": \"I can back a package built on Site=B if the timeline stays tight.\", \"action\": \"propose\", \"deal\": {\"Site\": \"B\", \"Timeline\": \"Tight\"}}\n```\nWorked example — accepting a live offer by id:\n```json\n{\"message\": \"P2 clears my bar. I accept.\", \"action\": \"accept\", \"offer_id\": \"P2\"}\n```\n\nRules of the road:\n- Your acceptance threshold is private. A deal scoring below it is worse for you than no deal — never propose or accept a package below your threshold.\n- Accepts MUST name a live offer id; \"I accept\" with no id does nothing.\n- Reply with ONLY the fenced JSON object."},{"role":"user","content":"[Avery]\nI will propose the Split option P0, which gives me exactly 0 points, meeting my threshold.\n```json\n{\"action\": \"propose\", \"deal\": {\"Split\": \"P0\"}}\n```\n\n[Mediator] Round 2 of 1. It is your turn, Blake.\nLive offers on the table:\n  P1: Split=P0 (worth 10 to you) — you get 10 total (your threshold 0, surplus +10) — accepted by: Avery\nThis is the FINAL up/down vote on P1.\nSpeak to the table and/or take one formal action, as one fenced JSON object.\n```json\n{\"negotiation_state\": {\"seat\": 1, \"round\": 1, \"deadline\": 1, \"offers\": {\"P1\": [0]}, \"standing\": \"P1\", \"received\": [[0]], \"received_by_opponent\": {\"0\": [[0]]}, \"my_offers\": [], \"must_vote\": true}}\n```"}],"view_source":"reconstructed","oracles":{"threshold":{"oracle":"threshold","chosen_value":10.0,"best_value":10.0,"divergence":0.0,"flags":[],"best_label":"ACCEPT P1","best_deal_index":null,"action_values":[{"label":"WALK","deal":null,"value":0.0},{"label":"ACCEPT P1","deal":null,"value":10.0},{"label":"REJECT P1","deal":null,"value":0.0}],"extra":{"any_ir_violation":false},"counterfactual":false},"acceptance":{"oracle":"acceptance","chosen_value":10.0,"best_value":10.0,"divergence":0.0,"flags":["should_accept"],"best_label":"ACCEPT P1","best_deal_index":null,"action_values":[{"label":"WALK","deal":null,"value":5.0},{"label":"ACCEPT P1","deal":null,"value":10.0},{"label":"REJECT P1","deal":null,"value":5.0}],"extra":{"reservation":5.0,"rounds_left":1,"best_offer_surplus":10.0},"counterfactual":false},"bestresponse":{"oracle":"bestresponse","chosen_value":10.0,"best_value":10.0,"divergence":0.0,"flags":[],"best_label":"ACCEPT P1","best_deal_index":10,"action_values":[{"label":"WALK","deal":null,"value":0.0},{"label":"ACCEPT P1","deal":null,"value":10.0},{"label":"REJECT P1","deal":null,"value":0.0}],"extra":{"best_response_deal":[10],"best_response_value":10.0,"continuation":0.0,"rounds_left":1},"counterfactual":true}}}],"trajectory":[{"turn_idx":0,"ordinal":1,"seat":"Avery","kind":"llm","index":0,"atype":"propose"}],"outcome":{"primary":1.0,"success":true,"deal":true,"finalized_by":"consensus","empty_ir":false,"arm":"moves_chat","info":"full","chat":true,"cell":"base","usw":10.0,"esw":0.0,"nsw":0.0,"gini":0.5,"per_party_surplus":[0.0,10.0],"realized_surplus":[0.0,10.0],"walked":[],"ir_violations":[],"n_ir_violations":0,"ceiling_surplus":10.0,"syntax_errors":0,"legality_errors":0,"economic_errors":0,"offers":{"P1":{"Split":"P0"}},"offer_scores":{"P1":[0.0,10.0]},"support_final":{"P1":["Avery","Blake"]},"closing_offer":"P1","deal_named":{"Split":"P0"},"deal_index":0,"deal_geometry":{"index":0,"named":{"Split":"P0"},"u":[0.0,10.0],"s":[0.0,10.0],"xn":[0.0,1.0],"wx":0.5,"wy":0.0,"pareto":1,"ir":1,"feasible":1,"d_frontier":0.0},"nsw_geomean":0.0},"oracle_names":["acceptance","bestresponse","threshold"],"counterfactual_oracles":["bestresponse"],"annotation_summary":null,"annotations_source":null,"views":{"stored":0,"reconstructed":2,"n_turns":2,"reconstructed_pre_retry":0},"game":{"issues":[{"name":"Split","options":["P0","P1","P2","P3","P4","P5","P6","P7","P8","P9","P10"]}],"shape":[11],"strides":[1],"n_parties":2,"parties":["Proposer","Responder"],"thresholds":[0.0,0.0],"sheets":[{"agent":"Proposer","threshold":0.0,"values":[[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0]]},{"agent":"Responder","threshold":0.0,"values":[[10.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0,1.0,0.0]]}],"protocol":{"rounds":1,"info":"full","chat":false,"proposer":0,"veto_seats":[],"min_accept":null,"discount":1.0,"breakdown_risk":0.0,"constraint":null},"meta":{"preset":"ultimatum","pie":10.0,"n_options":11},"ceiling":1.0,"floor":1.0,"counts":{"deal_space_size":11,"pareto_count":11,"ir_count":11,"ir_pareto_count":11,"ir_pareto_fraction":1.0,"dominated_acceptable_fraction":0.0,"empty_ir":false,"sparsity":0.09090909090909091,"pairwise_iou":0.8181818181818182,"max_feasible_joint_surplus":10.0},"ideal_surplus":[10.0,10.0],"deals":{"n":11,"wx":[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],"wy":[0.0,0.1,0.2,0.3,0.4,0.5,0.4,0.3,0.2,0.1,0.0],"u":[[0.0,10.0],[1.0,9.0],[2.0,8.0],[3.0,7.0],[4.0,6.0],[5.0,5.0],[6.0,4.0],[7.0,3.0],[8.0,2.0],[9.0,1.0],[10.0,0.0]],"s":[[0.0,10.0],[1.0,9.0],[2.0,8.0],[3.0,7.0],[4.0,6.0],[5.0,5.0],[6.0,4.0],[7.0,3.0],[8.0,2.0],[9.0,1.0],[10.0,0.0]],"xn":[[0.0,1.0],[0.1,0.9],[0.2,0.8],[0.3,0.7],[0.4,0.6],[0.5,0.5],[0.6,0.4],[0.7,0.3],[0.8,0.2],[0.9,0.1],[1.0,0.0]],"pareto":[1,1,1,1,1,1,1,1,1,1,1],"ir":[1,1,1,1,1,1,1,1,1,1,1],"feasible":[1,1,1,1,1,1,1,1,1,1,1],"d_frontier":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]},"envelope":[[0.5,0.5]],"solutions":{"nash":{"concept":"nash","index":5,"deal":[5],"named":{"Split":"P5"},"utilities":[5.0,5.0],"surpluses":[5.0,5.0],"ties":[5],"note":"","scale_invariant":true,"label":"NBS"},"kalai_smorodinsky":{"concept":"kalai_smorodinsky","index":5,"deal":[5],"named":{"Split":"P5"},"utilities":[5.0,5.0],"surpluses":[5.0,5.0],"ties":[5],"note":"","scale_invariant":true,"label":"KS"},"egalitarian":{"concept":"egalitarian","index":5,"deal":[5],"named":{"Split":"P5"},"utilities":[5.0,5.0],"surpluses":[5.0,5.0],"ties":[5],"note":"","scale_invariant":false,"label":"EGAL"},"utilitarian":{"concept":"utilitarian","index":0,"deal":[0],"named":{"Split":"P0"},"utilities":[0.0,10.0],"surpluses":[0.0,10.0],"ties":[0,1,2,3,4,5,6,7,8,9,10],"note":"","scale_invariant":false,"label":"UTIL"},"max_nash_welfare":{"concept":"max_nash_welfare","index":5,"deal":[5],"named":{"Split":"P5"},"utilities":[5.0,5.0],"surpluses":[5.0,5.0],"ties":[5],"note":"","scale_invariant":true,"label":"MNW"}},"solutions_source":"stored","party_best":[{"party":0,"agent":"Proposer","index":10,"surplus":10.0},{"party":1,"agent":"Responder","index":0,"surplus":10.0}]},"manifest":{"run_name":"ultimatum_llm_smoke_v2","invocation":["run.py","--run-name","ultimatum_llm_smoke_v2","--game","ultimatum","--table","all_llm","--models","Qwen/Qwen3-4B","--model-thinking","off","--arm","moves_chat","--seeds","0","1","2","--oracles","threshold","acceptance","bestresponse"],"table":"all_llm","arms":["moves_chat"],"policies":["boulware","conceder","bayes-rational"],"models":["Qwen/Qwen3-4B"],"oracles":["threshold","acceptance","bestresponse"],"scaffold":"canonical","info":"full","provenance":null},"paths":{"run":"/nlp/scr/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2","episode":"/juice2/scr2/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2/episodes/scorable_negotiation/base/moves_chat/Qwen3-4B/L0/scorable_negotiation-moves_chat-5b0a8bfa8c.json","instance":"/juice2/scr2/siddharth/ii_mats/rational_agents/ultimatum_llm_smoke_v2/instances/scorable_negotiation-L0-25859b5883.json"}}</script><script>
+const PAYLOAD = JSON.parse(document.getElementById("viz-payload").textContent);
+const E = (s) => String(s ?? "").replace(/[&<>"']/g, c => (
+  {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const N = (v, d = 2) => (typeof v === "number" && isFinite(v)) ? v.toFixed(d) : "—";
+const SIGN = (v, d = 2) => (typeof v === "number" && isFinite(v)) ? (v >= 0 ? "+" : "") + v.toFixed(d) : "—";
+const CLS = (v, better = 1) => (typeof v !== "number" || v === 0) ? "zero" : ((v > 0) === (better >= 0) ? "pos" : "neg");
+const el = (html) => { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; };
+
+/* ---------------------------------------------------------------- game helpers --- */
+function dealNamed(game, index) {
+  if (!game || index === null || index === undefined) return null;
+  const out = {}; let rest = index;
+  const strides = game.strides;
+  game.issues.forEach((iss, j) => { out[iss.name] = iss.options[Math.floor(rest / strides[j]) % iss.options.length]; });
+  return out;
+}
+function dealSummary(game, index) {
+  const named = dealNamed(game, index);
+  return named ? Object.entries(named).map(([k, v]) => k + "=" + v).join(", ") : "—";
+}
+function seatName(game, party) { return (PAYLOAD.seatNames || game.parties)[party] || game.parties[party]; }
+
+/* Per-party breakdown of one deal: utility, threshold, surplus, and share of that party's ideal. This is the
+   "how does EACH party feel about this proposal" panel the frontier chart opens on hover. */
+function dealDetail(game, index, title, extra) {
+  if (index === null || index === undefined) return `<div class="sub">Hover or click a deal on the chart.</div>`;
+  const d = game.deals, s = d.s[index], u = d.u[index], xn = d.xn[index];
+  const usw = s.reduce((a, b) => a + b, 0), esw = Math.min(...s);
+  const below = s.filter(v => v < 0).length;
+  const rows = game.parties.map((p, i) => {
+    const ok = s[i] >= 0, w = Math.max(0, Math.min(1, xn[i]));
+    return `<tr><td>${E(seatName(game, i))} <span class="muted">${E(p)}</span></td>
+      <td>${N(u[i], 1)}</td><td class="muted">${N(game.thresholds[i], 1)}</td>
+      <td class="${ok ? "pos" : "neg"}">${SIGN(s[i], 1)}</td>
+      <td style="width:82px"><span class="meter"><i class="${ok ? "ok" : "bad"}" style="width:${(w * 100).toFixed(1)}%"></i></span></td>
+      <td>${N(xn[i] * 100, 0)}%</td></tr>`;
+  }).join("");
+  return `<div class="hd">${E(title)} <span class="muted">deal #${index}</span></div>
+   <div class="sub">${E(dealSummary(game, index))}</div>
+   <div class="pills">
+     <span class="pill">joint welfare <b>${N(usw, 1)}</b></span>
+     <span class="pill">worst-off <b class="${esw >= 0 ? "pos" : "neg"}">${SIGN(esw, 1)}</b></span>
+     <span class="pill">${d.pareto[index] ? "on the Pareto frontier" : "below the frontier by <b>" + N(d.d_frontier[index], 3) + "</b>"}</span>
+     <span class="pill">${d.feasible[index] ? "can close under the protocol" : "<b>cannot close</b> (agreement rule)"}</span>
+     ${below ? `<span class="pill"><b class="neg">${below}</b> part${below === 1 ? "y" : "ies"} below threshold</span>` : ""}
+     ${extra ? `<span class="pill">${extra}</span>` : ""}
+   </div>
+   <table><thead><tr><th>party</th><th>utility</th><th>threshold</th><th>surplus</th><th>vs ideal</th><th></th></tr></thead>
+   <tbody>${rows}</tbody></table>`;
+}
+
+/* ---------------------------------------------------------------- frontier chart --- */
+/* One marker of a given shape, centred on (x, y). `attrs` is the attribute string and `inner` the child markup
+   (the <title> that gives every mark a native tooltip), so the element is built once with its content rather
+   than being patched afterwards. */
+function shapeAt(kind, x, y, r, cls, attrs, inner) {
+  const open = (tag, geom) => `<${tag} class="${cls}" ${geom} ${attrs}>${inner}</${tag}>`;
+  if (kind === "diamond")
+    return open("rect", `x="${x - r}" y="${y - r}" width="${2 * r}" height="${2 * r}" transform="rotate(45 ${x} ${y})"`);
+  if (kind === "square")
+    return open("rect", `x="${x - r}" y="${y - r}" width="${2 * r}" height="${2 * r}" rx="2"`);
+  if (kind === "star") {
+    let p = "";
+    for (let i = 0; i < 10; i++) {
+      const rad = (i % 2 ? r * 0.46 : r * 1.15), a = -Math.PI / 2 + i * Math.PI / 5;
+      p += `${(x + rad * Math.cos(a)).toFixed(2)},${(y + rad * Math.sin(a)).toFixed(2)} `;
+    }
+    return open("polygon", `points="${p.trim()}"`);
+  }
+  return open("circle", `cx="${x}" cy="${y}" r="${r}"`);
+}
+
+/* Draw the deal cloud, the efficient envelope, the reference marks, and one or two play trajectories.
+   `marks` entries: {index, kind:'star'|'diamond'|'circle'|'square', color:'s1'|'s2'|'s3', label, title, series}. */
+function frontierChart(host, game, marks, paths, onPick) {
+  const W = 760, H = 470, m = { l: 54, r: 18, t: 14, b: 46 };
+  const d = game.deals;
+  const xmax = Math.max(0.001, Math.max(...d.wx)), ymax = Math.max(0.001, Math.max(...d.wy));
+  const nice = (v) => Math.ceil(v * 20) / 20;
+  const XM = nice(xmax * 1.04), YM = nice(ymax * 1.06);
+  const px = (v) => m.l + (v / XM) * (W - m.l - m.r);
+  const py = (v) => H - m.b - (v / YM) * (H - m.t - m.b);
+  let s = [];
+  for (let i = 0; i <= 5; i++) {
+    const gx = XM * i / 5, gy = YM * i / 5;
+    s.push(`<line class="gridline" x1="${m.l}" x2="${W - m.r}" y1="${py(gy).toFixed(1)}" y2="${py(gy).toFixed(1)}"/>`);
+    s.push(`<line class="gridline" y1="${m.t}" y2="${H - m.b}" x1="${px(gx).toFixed(1)}" x2="${px(gx).toFixed(1)}"/>`);
+    s.push(`<text x="${m.l - 8}" y="${(py(gy) + 4).toFixed(1)}" text-anchor="end">${(gy * 100).toFixed(0)}%</text>`);
+    s.push(`<text x="${px(gx).toFixed(1)}" y="${H - m.b + 16}" text-anchor="middle">${(gx * 100).toFixed(0)}%</text>`);
+  }
+  s.push(`<line class="axisline" x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}"/>`);
+  s.push(`<line class="axisline" x1="${m.l}" x2="${m.l}" y1="${m.t}" y2="${H - m.b}"/>`);
+  s.push(`<text x="${(m.l + W - m.r) / 2}" y="${H - 8}" text-anchor="middle">joint welfare — mean normalized surplus →</text>`);
+  s.push(`<text transform="rotate(-90 14 ${(m.t + H - m.b) / 2})" x="14" y="${(m.t + H - m.b) / 2}" text-anchor="middle">worst-off party — min normalized surplus →</text>`);
+  // efficient envelope: shaded achievable region + its boundary
+  if (game.envelope && game.envelope.length > 1) {
+    const pts = game.envelope.map(([x, y]) => `${px(x).toFixed(1)},${py(y).toFixed(1)}`).join(" ");
+    const first = game.envelope[0], last = game.envelope[game.envelope.length - 1];
+    s.push(`<polygon class="envfill" points="${px(first[0]).toFixed(1)},${py(0).toFixed(1)} ${pts} ${px(last[0]).toFixed(1)},${py(0).toFixed(1)}"/>`);
+    s.push(`<polyline class="envline" points="${pts}"/>`);
+  }
+  // the deal cloud: dominated deals muted, frontier deals ringed
+  for (let i = 0; i < d.n; i++) {
+    if (d.pareto[i]) continue;
+    s.push(`<circle class="dot" cx="${px(d.wx[i]).toFixed(1)}" cy="${py(d.wy[i]).toFixed(1)}" r="2"/>`);
+  }
+  for (let i = 0; i < d.n; i++) {
+    if (!d.pareto[i]) continue;
+    s.push(`<circle class="front" cx="${px(d.wx[i]).toFixed(1)}" cy="${py(d.wy[i]).toFixed(1)}" r="3.2"/>`);
+  }
+  // trajectories, drawn under the marks
+  (paths || []).forEach(p => {
+    if (p.indices.length < 2) return;
+    s.push(`<polyline class="${p.cls}" points="${p.indices.map(i => `${px(d.wx[i]).toFixed(1)},${py(d.wy[i]).toFixed(1)}`).join(" ")}"/>`);
+  });
+  marks.forEach((mk, k) => {
+    const x = px(d.wx[mk.index]), y = py(d.wy[mk.index]), r = mk.r || 6.5;
+    const tip = E(mk.title || mk.label || "");
+    s.push(shapeAt(mk.kind, x, y, r, "mark",
+      `fill="var(--${mk.color})" data-mark="${k}" tabindex="0" role="button" aria-label="${tip}"`,
+      `<title>${tip}</title>`));
+    if (mk.label) s.push(`<text class="lab" x="${(x + (mk.dx ?? 9)).toFixed(1)}" y="${(y + (mk.dy ?? -8)).toFixed(1)}">${E(mk.label)}</text>`);
+  });
+  // the full-cloud hover anchor, drawn last so it sits on top; positioned + revealed on hover, never intercepts
+  s.push('<circle class="sel hoverpt" r="5" fill="none" style="pointer-events:none;opacity:0"></circle>');
+  host.innerHTML = `<div class="chartwrap"><svg viewBox="0 0 ${W} ${H}" role="img"
+    aria-label="Deal space in a scale-invariant two-dimensional embedding: joint welfare against the worst-off party's surplus. Hover anywhere to inspect the nearest deal; the marked deals also take keyboard focus.">${s.join("")}</svg></div>`;
+  host.querySelectorAll("[data-mark]").forEach(node => {
+    const mk = marks[Number(node.dataset.mark)];
+    const fire = () => onPick(mk);
+    node.addEventListener("mouseenter", fire);
+    node.addEventListener("focus", fire);
+    node.addEventListener("click", () => onPick(mk, true));
+  });
+  /* Full-cloud inspection: EVERY one of the |D| deals is hoverable, not only the marked ones. Rather than attach
+     a listener to each of thousands of dots, one handler on the svg finds the nearest deal to the pointer in plot
+     coordinates and opens its per-party breakdown; a faint ring anchors it. A mark is the event target when the
+     pointer is on it, so we defer to the mark's own (richer, titled) hover and skip the generic pick there. */
+  const svg = host.querySelector("svg");
+  const ring = svg.querySelector("circle.hoverpt");
+  let lastIdx = -1;
+  const nearest = (evt) => {
+    const box = svg.getBoundingClientRect();
+    if (!box.width || !box.height) return -1;
+    const vx = (evt.clientX - box.left) * (W / box.width), vy = (evt.clientY - box.top) * (H / box.height);
+    let bi = -1, bd = 1e18;
+    for (let i = 0; i < d.n; i++) {
+      const ex = px(d.wx[i]) - vx, ey = py(d.wy[i]) - vy, q = ex * ex + ey * ey;
+      if (q < bd) { bd = q; bi = i; }
+    }
+    return bd <= 22 * 22 ? bi : -1;   // only snap within a comfortable radius, so empty regions clear the hover
+  };
+  const clearRing = () => { ring.style.opacity = "0"; lastIdx = -1; };
+  svg.addEventListener("mousemove", (evt) => {
+    if (evt.target.closest("[data-mark]")) { clearRing(); return; }   // a mark owns its own hover
+    const i = nearest(evt);
+    if (i < 0) { clearRing(); return; }
+    ring.setAttribute("cx", px(d.wx[i]).toFixed(1)); ring.setAttribute("cy", py(d.wy[i]).toFixed(1));
+    ring.style.opacity = "1";
+    if (i !== lastIdx) { lastIdx = i; onPick({ index: i, role: "deal", title: "deal #" + i }); }
+  });
+  svg.addEventListener("mouseleave", clearRing);
+  svg.addEventListener("click", (evt) => {
+    if (evt.target.closest("[data-mark]")) return;
+    const i = nearest(evt);
+    if (i >= 0) onPick({ index: i, role: "deal", title: "deal #" + i }, true);
+  });
+}
+
+/* --------------------------------------------------------------- regret strip --- */
+/* One series (per-turn regret against the selected oracle), so no legend: the title names it. Non-zero bars are
+   direct-labelled; hover carries the chosen/best values the regret is a difference of. */
+function regretChart(host, turns, oracle, onPick) {
+  const rows = turns.map(t => ({ t, o: (t.oracles || {})[oracle] })).filter(r => r.o && typeof r.o.divergence === "number");
+  if (!rows.length) { host.innerHTML = `<div class="gap">No <code>${E(oracle)}</code> verdicts on this episode's turns.</div>`; return; }
+  const W = 760, H = 168, m = { l: 46, r: 12, t: 12, b: 34 };
+  const max = Math.max(1e-9, ...rows.map(r => r.o.divergence));
+  const bw = Math.max(3, Math.min(26, (W - m.l - m.r) / rows.length - 3));
+  const bx = (i) => m.l + (i + 0.5) * ((W - m.l - m.r) / rows.length);
+  const by = (v) => H - m.b - (v / max) * (H - m.t - m.b);
+  let s = [];
+  for (let i = 0; i <= 4; i++) {
+    const gy = max * i / 4;
+    s.push(`<line class="gridline" x1="${m.l}" x2="${W - m.r}" y1="${by(gy).toFixed(1)}" y2="${by(gy).toFixed(1)}"/>`);
+    s.push(`<text x="${m.l - 7}" y="${(by(gy) + 4).toFixed(1)}" text-anchor="end">${N(gy, max < 5 ? 2 : 0)}</text>`);
+  }
+  s.push(`<line class="axisline" x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}"/>`);
+  rows.forEach((r, i) => {
+    const h = Math.max(r.o.divergence > 0 ? 2 : 0, (H - m.b) - by(r.o.divergence));
+    const x = bx(i) - bw / 2;
+    s.push(`<rect class="mark" x="${x.toFixed(1)}" y="${(H - m.b - h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}"
+      rx="${Math.min(4, bw / 2).toFixed(1)}" fill="var(--s2)" data-turn="${r.t.idx}" tabindex="0" role="button"
+      aria-label="turn ${r.t.idx} ${E(r.t.seat)} regret ${N(r.o.divergence, 2)}"><title>turn ${r.t.idx} · ${E(r.t.seat)}
+ · chose ${N(r.o.chosen_value, 2)} · oracle best ${N(r.o.best_value, 2)} · regret ${N(r.o.divergence, 2)}</title></rect>`);
+    if (r.o.divergence > max * 0.06) s.push(`<text class="lab" x="${bx(i).toFixed(1)}" y="${(H - m.b - h - 5).toFixed(1)}" text-anchor="middle">${N(r.o.divergence, max < 5 ? 2 : 0)}</text>`);
+    if (rows.length <= 30) s.push(`<text x="${bx(i).toFixed(1)}" y="${H - m.b + 15}" text-anchor="middle">${r.t.idx}</text>`);
+  });
+  s.push(`<text x="${(m.l + W - m.r) / 2}" y="${H - 4}" text-anchor="middle">turn index</text>`);
+  host.innerHTML = `<div class="chartwrap"><svg viewBox="0 0 ${W} ${H}" role="img"
+    aria-label="Per-turn regret against the ${E(oracle)} oracle, in that oracle's value units.">${s.join("")}</svg></div>`;
+  host.querySelectorAll("[data-turn]").forEach(n => n.addEventListener("click", () => onPick(Number(n.dataset.turn))));
+}
+
+/* A one-line provenance note naming the annotation vintage the post-hoc oracle values were read from
+   (`annotations` = the original scoring pass, `annotations_v1` = a re-annotated set such as the oracle
+   seat-binding fix), so an auditor always sees WHICH counterfactual they are reading. Empty when no counterfactual
+   oracle is present or the values came from the episode's own inline records rather than an annotation store. */
+function annProvenance(source, oracles) {
+  if (!source || !(oracles && oracles.length)) return "";
+  return `<div class="sub muted annprov">Rational-agent counterfactual (${oracles.map(E).join(", ")}) read from the <code>${E(source)}</code> annotation set.</div>`;
+}
+
+/* ------------------------------------------------------------------- transcript --- */
+function viewPanel(t) {
+  const label = { stored: "exactly as recorded at generation time",
+                  reconstructed: "RE-DERIVED by replay through the current prompt code — not a byte record of what the model saw",
+                  reconstructed_pre_retry: "RE-DERIVED, and INCOMPLETE: this turn was a retry after a malformed response, and the repair instruction the model actually saw is not recoverable from the record — what follows is the FIRST attempt's prompt",
+                  absent: "not recorded" }[t.view_source] || t.view_source;
+  if (!t.view) return `<details><summary>Prompt the seat saw — ${E(label)}</summary><div class="body">
+    <div class="gap">This episode predates per-turn view capture and could not be reconstructed, so the exact prompt is unavailable. The game setup, protocol, and this seat's private sheet are in the side panel; do not treat them as the literal prompt text.</div></div></details>`;
+  const msgs = t.view.map(msg => `<div class="msgrole">${E(msg.role)}</div><pre>${E(msg.content)}</pre>`).join("");
+  return `<details><summary>Prompt the seat saw — ${t.view.length} message(s), ${E(t.view_source)}</summary>
+    <div class="body"><div class="sub">${E(label)}</div>${msgs}</div></details>`;
+}
+
+function oracleColumn(t, game, oracle) {
+  const o = (t.oracles || {})[oracle];
+  if (!o) return `<div class="col oracle"><div class="hd">rational agent (${E(oracle)})</div>
+    <div class="gap">This run carries no <code>${E(oracle)}</code> verdict for this turn, so there is no counterfactual to compare against.</div></div>`;
+  const reg = o.divergence;
+  return `<div class="col oracle"><div class="hd">rational agent would (${E(oracle)})</div>
+    <div class="act">${E(o.best_label)}</div>
+    ${o.best_deal_index !== null && o.best_deal_index !== undefined
+      ? `<div class="deal"><a href="#" data-deal="${o.best_deal_index}">${E(dealSummary(game, o.best_deal_index))}</a></div>` : ""}
+    <table><tbody>
+      <tr><td>oracle value of the model's move</td><td>${N(o.chosen_value)}</td></tr>
+      <tr><td>oracle value of its own best</td><td>${N(o.best_value)}</td></tr>
+      <tr class="${typeof reg === "number" && reg > 0 ? "hi" : ""}"><td><b>regret</b></td>
+        <td class="${CLS(reg === 0 ? 0 : -reg)}"><b>${SIGN(reg === null || reg === undefined ? null : -reg)}</b></td></tr>
+    </tbody></table>
+    ${o.flags && o.flags.length ? `<div class="pills">${o.flags.map(f => `<span class="pill"><b class="neg">${E(f)}</b></span>`).join("")}</div>` : ""}</div>`;
+}
+
+function turnCard(t, game, oracle, opts) {
+  const a = t.action || {};
+  const dealLink = a.deal_index !== null && a.deal_index !== undefined
+    ? `<div class="deal"><a href="#" data-deal="${a.deal_index}">${E(dealSummary(game, a.deal_index))}</a></div>`
+    : (a.deal_named ? `<div class="deal neg">proposal did not resolve to a legal deal: ${E(JSON.stringify(a.deal_named))}</div>` : "");
+  const w = t.deal_welfare;
+  const oracles = Object.keys(t.oracles || {});
+  return `<article class="turn" id="turn-${t.idx}" data-turnidx="${t.idx}">
+   <div class="turnhd">
+     <span class="who">[${t.idx}] ${E(t.seat)} <span class="badge ${E(t.kind)}">${E(t.kind)}</span></span>
+     <span class="sub">${E(t.phase)} · round ${t.round}${t.n_tokens_out ? " · " + t.n_tokens_out + " tok out" : ""}${t.parse_ok ? "" : " · <b class='neg'>parse error</b>"}</span>
+   </div>
+   ${opts.showCounterfactual ? `<div class="cols">
+     <div class="col acted"><div class="hd">the model acted</div><div class="act">${E(a.label || a.atype)}</div>${dealLink}
+       ${w ? `<div class="pills"><span class="pill">USW <b>${N(w.usw, 1)}</b></span><span class="pill">worst-off <b class="${w.esw >= 0 ? "pos" : "neg"}">${SIGN(w.esw, 1)}</b></span>${w.n_below_threshold ? `<span class="pill"><b class="neg">${w.n_below_threshold}</b> below τ</span>` : ""}</div>` : ""}</div>
+     ${oracleColumn(t, game, oracle)}</div>`
+    : `<div class="act">${E(a.label || a.atype)}</div>${dealLink}`}
+   ${a.message ? `<div class="msg">${E(a.message)}</div>` : ""}
+   ${a.syntax_error ? `<div class="gap neg">syntax error: ${E(a.syntax_error)}</div>` : ""}
+   ${t.reasoning ? `<details><summary>Reasoning / scratchpad — provenance ${E(t.reasoning_provenance)}</summary>
+      <div class="body"><pre>${E(t.reasoning)}</pre></div></details>`
+     : `<div class="sub muted">No reasoning recorded (provenance ${E(t.reasoning_provenance)}). Do not impute it.</div>`}
+   ${viewPanel(t)}
+   ${t.content ? `<details><summary>Raw turn text as the table saw it</summary><div class="body"><pre>${E(t.content)}</pre></div></details>` : ""}
+   ${oracles.length ? `<details><summary>All oracle verdicts (${oracles.length}) and every action they scored</summary><div class="body">
+      ${oracles.map(name => {
+        const o = t.oracles[name];
+        return `<h3>${E(name)}</h3><table><thead><tr><th>action the oracle scored</th><th>value</th></tr></thead><tbody>
+         ${o.action_values.map(av => `<tr><td>${E(av.label)}${av.deal ? ` <span class="muted">${E(JSON.stringify(av.deal))}</span>` : ""}</td><td>${N(av.value)}</td></tr>`).join("")}
+         </tbody></table>
+         <div class="pills"><span class="pill">chose <b>${N(o.chosen_value)}</b></span><span class="pill">best <b>${N(o.best_value)}</b></span>
+         <span class="pill">regret <b>${N(o.divergence)}</b></span>${Object.entries(o.extra || {}).map(([k, v]) =>
+           `<span class="pill">${E(k)} <b>${E(typeof v === "number" ? N(v, 3) : JSON.stringify(v))}</b></span>`).join("")}</div>`;
+      }).join("")}</div></details>` : ""}
+  </article>`;
+}
+
+
+const P = PAYLOAD, G = P.game;
+PAYLOAD.seatNames = (P.seats || []).map(s => s.name);
+let ORACLE = (P.counterfactual_oracles[0] || P.oracle_names[0] || "");
+let SELECTED = null;
+
+function buildMarks() {
+  if (!G) return [];
+  const marks = [];
+  Object.entries(G.solutions).forEach(([name, pt]) => marks.push({
+    index: pt.index, kind: "star", color: "s3", label: pt.label, r: 7,
+    title: `${pt.label} — ${name}${pt.scale_invariant ? " (scale-invariant)" : " (NOT scale-invariant across private scales)"}`,
+    role: "solution", concept: name }));
+  G.party_best.forEach(pb => marks.push({
+    index: pb.index, kind: "diamond", color: "s3", r: 5,
+    title: `best efficient deal for ${seatName(G, pb.party)} (${pb.agent}) — surplus ${pb.surplus}`,
+    role: "party_best", party: pb.party }));
+  P.turns.forEach(t => {
+    const o = (t.oracles || {})[ORACLE];
+    if (o && o.best_deal_index !== null && o.best_deal_index !== undefined)
+      marks.push({ index: o.best_deal_index, kind: "circle", color: "s2", r: 4.5, role: "oracle",
+        title: `${ORACLE} oracle's deal at turn ${t.idx} (${t.seat})`, turn: t.idx });
+  });
+  P.trajectory.forEach(p => marks.push({
+    index: p.index, kind: "circle", color: "s1", r: 6.5, label: String(p.ordinal), dx: 8, dy: -7,
+    title: `move ${p.ordinal}: ${p.seat} ${p.atype} at turn ${p.turn_idx}`, role: "proposal", turn: p.turn_idx }));
+  if (P.outcome.deal_index !== null && P.outcome.deal_index !== undefined)
+    marks.push({ index: P.outcome.deal_index, kind: "square", color: "s1", r: 8, label: "AGREED", dx: 10, dy: 4,
+      title: "the deal that closed", role: "agreed" });
+  return marks;
+}
+
+function pick(mk, clicked) {
+  SELECTED = mk;
+  const extra = mk.role === "solution" ? `solution concept <b>${E(mk.label)}</b>`
+    : mk.role === "oracle" ? `<b>${E(ORACLE)}</b> oracle's recommendation`
+    : mk.role === "proposal" ? `move <b>${mk.label}</b> on the table`
+    : mk.role === "agreed" ? "<b>the deal that closed</b>" : "";
+  document.getElementById("detail").innerHTML = dealDetail(G, mk.index, mk.title || "deal", extra);
+  document.querySelectorAll(".turn").forEach(n => n.classList.remove("sel"));
+  if (clicked && mk.turn !== undefined) {
+    const node = document.getElementById("turn-" + mk.turn);
+    if (node) { node.classList.add("sel"); node.scrollIntoView({ behavior: "smooth", block: "center" }); }
+  }
+}
+
+function drawChart() {
+  if (!G) return;
+  const marks = buildMarks();
+  frontierChart(document.getElementById("chart"), G, marks,
+    [{ cls: "path1", indices: P.trajectory.map(p => p.index) }], pick);
+}
+
+function drawTurns() {
+  const showCf = Boolean(ORACLE);
+  document.getElementById("turns").innerHTML =
+    annProvenance(P.annotations_source, P.counterfactual_oracles) +
+    P.turns.map(t => turnCard(t, G, ORACLE, { showCounterfactual: showCf })).join("");
+  document.querySelectorAll("[data-deal]").forEach(a => a.addEventListener("click", ev => {
+    ev.preventDefault();
+    pick({ index: Number(a.dataset.deal), title: "deal referenced from the transcript" });
+    document.getElementById("frontier").scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
+}
+
+function drawRegret() {
+  if (!P.oracle_names.length) return;
+  regretChart(document.getElementById("regret"), P.turns, ORACLE, idx => {
+    const node = document.getElementById("turn-" + idx);
+    if (node) { document.querySelectorAll(".turn").forEach(n => n.classList.remove("sel")); node.classList.add("sel"); node.scrollIntoView({ behavior: "smooth", block: "center" }); }
+  });
+}
+
+const sel = document.getElementById("oracle-select");
+if (sel) sel.addEventListener("change", ev => { ORACLE = ev.target.value; drawChart(); drawRegret(); drawTurns(); });
+const tbl = document.getElementById("table-toggle");
+if (tbl) tbl.addEventListener("click", () => {
+  const on = tbl.getAttribute("aria-pressed") !== "true";
+  tbl.setAttribute("aria-pressed", String(on));
+  document.getElementById("chart-table").hidden = !on;
+});
+drawChart(); drawRegret(); drawTurns();
+/* Open on the deal that closed; with no deal, open on the Nash bargaining solution as the normative anchor. */
+if (G) {
+  const nbs = G.solutions.nash || Object.values(G.solutions)[0];
+  pick(P.outcome.deal_index !== null && P.outcome.deal_index !== undefined
+    ? { index: P.outcome.deal_index, role: "agreed", title: "the deal that closed" }
+    : { index: nbs.index, role: "solution", label: nbs.label, title: "Nash bargaining solution — no deal closed" });
+}
+</script></body></html>

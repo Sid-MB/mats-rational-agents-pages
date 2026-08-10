@@ -1,0 +1,28 @@
+{
+ "report": {
+  "left_run": "/nlp/scr/siddharth/ii_mats/rational_agents/p2_Qwen3-4B_all_llm_b2",
+  "right_run": "/nlp/scr/siddharth/ii_mats/rational_agents/p2_Qwen3-4B_mixed",
+  "pair_fields": [
+   "instance_id",
+   "seed",
+   "arm"
+  ],
+  "select": "deal-flip",
+  "n_left": 120,
+  "n_right": 120,
+  "n_matched_keys": 120,
+  "n_candidate_pairs": 30,
+  "n_comparisons": 3,
+  "unmatched_left": [],
+  "unmatched_right": [],
+  "uneven_multiplicity": {}
+ },
+ "out_dir": "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_p2_mixed_b2",
+ "n_comparisons": 3,
+ "index": "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_p2_mixed_b2/index.html",
+ "pages": [
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_p2_mixed_b2/compare-scorable_negotiation-moves_chat-9bef460de8--scorable_negotiation-moves_chat-d2dc28747f.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_p2_mixed_b2/compare-scorable_negotiation-moves_only-11c8dd382f--scorable_negotiation-moves_only-e90bd354a0.html",
+  "/juice2/u/siddharth/ii_mats/.claude/products/episode_viz/seatswap_p2_mixed_b2/compare-scorable_negotiation-moves_chat-b31e049a24--scorable_negotiation-moves_chat-2e1372887d.html"
+ ]
+}
