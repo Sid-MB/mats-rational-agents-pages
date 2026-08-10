@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rung R1 — a payload written into the attention K/V, against text and against nothing</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink); font:15px/1.5 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:900px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 8px 24px rgba(29,58,43,.06); }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .links a span { display:block; color:var(--muted); font-weight:400; font-size:13px; margin-top:5px; }
+    .finding { border-left:4px solid var(--accent); padding:10px 14px; background:#eef7f1; margin:10px 0; border-radius:0 8px 8px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    code { background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13px; }
+    dl { margin:0; } dt { font-weight:650; margin-top:10px; } dd { margin:2px 0 0; color:var(--muted); }
+  </style>
+</head>
+<body><main>
+  <h1>Rung R1 — a payload written into the attention K/V, against text and against nothing</h1>
+  <p class="lede">Four arms × 24 parameter sets × 10 seeds = 960 episodes on Qwen3-8B, 0 of 17,717 turns fabricated. The question is whether a known-useful payload delivered <em>through the attention mechanism</em> — never through the prompt — changes what a frozen model does. It does: <strong>69% of the prompt-text ceiling</strong>, where the identical information at the input embedding was a measured zero.</p>
+
+  <h2>What a reader should look for</h2>
+  <p class="finding"><strong>The opening offer.</strong> Turn 1 is where the whole effect lives. The candidate reaches the table as the first formal proposal in <strong>62.1%</strong> of text episodes, <strong>20.4%</strong> of K/V episodes, and <strong>0%</strong> of both the no-advice control and note 0027's input-level soft-token channel.</p>
+  <p class="finding">The two K/V arms and the no-advice control send the model a <strong>byte-identical prompt</strong>. Everything that differs is written straight into every layer's <code>k_proj</code>/<code>v_proj</code> output at 38 reserved positions, so scrolling the transcripts will not show you the intervention — you can only see what it did. That is what makes the side-by-side worth reading: same game, same seed, same words in, different behaviour out.</p>
+  <p class="finding"><strong>The scratchpad barely mentions it.</strong> Under 1.4% of K/V turns refer to a candidate package at all, against 0.0% in the control that literally has none. The model acts on the payload far more often than it talks about it.</p>
+
+  <h2>The arms</h2>
+  <section class="card"><dl>
+    <dt><code>A_text</code></dt><dd>the Nash-bargaining candidate package delivered as ordinary prompt text — the ceiling</dd>
+    <dt><code>KV_inject</code></dt><dd>the same candidate written as per-layer, per-head keys and values at 38 reserved positions; the prompt is unchanged</dd>
+    <dt><code>KV_shuffled</code></dt><dd>the identical encoder fed a deliberately mis-drawn deal — same capacity, wrong content</dd>
+    <dt><code>C_none</code></dt><dd>token-matched no-advice control; its advice block says <code>UNSPECIFIED</code></dd>
+  </dl></section>
+
+  <h2>Per-arm rates</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Arm</th><th>Episodes</th><th>Normalized Nash welfare</th><th>Deal rate</th><th>Opening offer is the candidate</th><th>Malformed</th></tr></thead>
+      <tbody>
+        <tr><td><code>A_text</code></td><td>240</td><td>0.3896</td><td>0.9708</td><td>0.6208</td><td>0.0083</td></tr>
+        <tr><td><code>KV_inject</code></td><td>240</td><td>0.3037</td><td>0.9125</td><td>0.2042</td><td>0.0375</td></tr>
+        <tr><td><code>KV_shuffled</code></td><td>240</td><td>0.2107</td><td>0.9167</td><td>0.2125</td><td>0.1208</td></tr>
+        <tr><td><code>C_none</code></td><td>240</td><td>0.1155</td><td>0.9167</td><td>0.0000</td><td>0.0458</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h2>Headline contrasts</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Contrast</th><th>Estimate [95% CI]</th><th>Pairs</th><th>Clusters</th></tr></thead>
+      <tbody>
+        <tr><td>K/V channel vs no advice (primary)</td><td>+0.1882 [+0.1497, +0.2266]</td><td>240</td><td>24</td></tr>
+        <tr><td>K/V channel vs shuffled content (isolation)</td><td>+0.0930 [+0.0474, +0.1390]</td><td>240</td><td>24</td></tr>
+        <tr><td>K/V channel vs the same package as prompt text</td><td>-0.0859 [-0.1364, -0.0332]</td><td>240</td><td>24</td></tr>
+        <tr><td>Prompt text vs no advice (replication anchor)</td><td>+0.2741 [+0.2168, +0.3272]</td><td>240</td><td>24</td></tr>
+        <tr><td>Deal rate, channel vs no advice (safety)</td><td>-0.0042 [-0.0583, +0.0500]</td><td>240</td><td>24</td></tr>
+        <tr><td>Below-threshold agreements, channel vs no advice (safety)</td><td>-0.3750 [-0.4708, -0.2792]</td><td>240</td><td>24</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <p class="small">Paired on (parameter set, seed) so a difference is always between two episodes of the same game at the same seed; intervals resample whole parameter sets as clusters (10000 draws, base seed 20260801). Recomputed from the campaign's episode table by <code>tom/qkv/build_qkv_paired_viewer.py</code> and checked against the frozen <code>results.json</code>, not transcribed from it.</p>
+  <p class="small">One of four preregistered gates fails and is reported as failing: deal-rate non-inferiority, at a point estimate of roughly one fewer closed deal in 240, misses the −0.05 bar on interval width.</p>
+
+  <h2>Open the paired transcripts</h2>
+  <div class="links">
+    <a href="kv_vs_none/index.html">K/V injection vs no advice — the invisible intervention<span>The primary contrast, and the one to open first. Identical prompts on both sides; the left seat tables the injected candidate as its opening offer and the right seat, which was never given it, does not. — 10 matched pairs, selected by <code>candidate-tabled</code>.</span></a>
+    <a href="kv_vs_text/index.html">K/V injection vs the same package as prompt text<span>The channel comparison. Text reaches the table three times more often; these are the games where the two delivery routes ended furthest apart on welfare. — 6 matched pairs, selected by <code>largest-effect</code>.</span></a>
+    <a href="kv_vs_shuffled/index.html">K/V injection vs shuffled content — capacity held fixed<span>The isolation control. One encoder, one prefix width, one placeholder run: the only difference is whether the injected deal is the right one. — 6 matched pairs, selected by <code>largest-effect</code>.</span></a>
+  </div>
+  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. The campaign holds 960 episodes; these views render the pairs each strategy names, not all of them.</p>
+
+  <h2>The full record</h2>
+  <div class="links">
+    <a href="../writeup_tom_lane.pdf">Lane writeup (PDF, 28pp)<span>The attention-interface ladder is chapter §7, Amendments 2 and 3 included.</span></a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.QKV-Attention-Interface">Public dataset<span>2026.RA.QKV-Attention-Interface — every rung's tables and narrative.</span></a>
+    <a href="../">All rational-agent runs<span>Back to the index of published campaigns.</span></a>
+  </div>
+  <p class="small">Full methodology, the preregistration, the gate verdicts and a 19-entry controls-catches ledger live in research note 0029 (<code>experiments/rational_agents/research-notes/0029-qkv-attention-interface.md</code>) in the project repository.</p>
+</main></body>
+</html>

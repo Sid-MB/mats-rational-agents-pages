@@ -27,6 +27,17 @@ The original P2 open-weight campaign was contaminated by a harness bug: on swall
 - [apibehav_sonnet5_thinkoff](./apibehav_sonnet5_thinkoff/index.html) and [apibehav_haiku45_thinkoff](./apibehav_haiku45_thinkoff/index.html): the frontier-API headline cells (thinking off, matched to the open-weight protocol) behind the "Claudes close more deals but distribute them worse" result.
 - [ultimatum_giveaway](./ultimatum_giveaway/index.html): the ultimatum-game preset — a one-flag situation swap on the same harness.
 
+<!-- [implement: rational_agents new transformer feature] 2026-08-09 — Agent V, session id 617b6f67-2120-4239-a51c-1c0b0f3a762f. The Q/K/V attention-interface paired viewers. Built by experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py. -->
+
+## Writing into the attention mechanism instead of the prompt (August 2026)
+
+A known-useful payload — the exact Nash-bargaining candidate package, worth **+0.2741 normalized Nash welfare** as ordinary prompt text — delivered instead as per-layer, per-head keys and values at 38 reserved positions. The injected arms and the no-advice control receive a **byte-identical prompt**, so nothing in these transcripts shows you the intervention; you can only see what it did. Full record: research note 0029 and §7 of the [lane writeup](./writeup_tom_lane.pdf).
+
+- [qkv_r1_kv_vs_text_b1](./qkv_r1_kv_vs_text_b1/index.html): the **headline rung** — four arms × 24 parameter sets × 10 seeds = 960 episodes on Qwen3-8B, 0 of 17,717 turns fabricated. Per-layer K/V injection is worth **+0.1882 [+0.1497, +0.2266]** against the token-matched no-advice arm, **69% of the prompt-text ceiling**, where the identical information delivered as input-level virtual tokens was a measured zero. It is content and not capacity: the same encoder fed a deliberately mis-drawn deal does significantly worse (**+0.0930 [+0.0474, +0.1390]**). Three paired views — against no advice, against text, against shuffled content — with the act the whole effect runs through visible at turn 1: opening-offer tabling of the delivered candidate runs **62.1% text / 20.4% K/V / 0% no-advice**.
+- [qkv_p_placement_b1](./qkv_p_placement_b1/index.html): the **placement rung** — five arms, 1,200 episodes, asking whether the channel works because the model's queries already look at the site being written. Writing the payload at *real advice text* still works (**+0.1429 [+0.1008, +0.1855]**) but is **worse** than writing it at a reserved placeholder (**−0.0373 [−0.0723, −0.0029]**), so site salience is eliminated and the original configuration is locally optimal among everything tested. Four paired views, including the arm's formatting cost: it ends **30 percentage points [+20.4, +40.4]** more episodes malformed than its own control.
+
+Each landing page carries its arms, its per-arm rates and its headline contrasts recomputed from the campaign's episode table through the campaign's own instance-cluster bootstrap, checked against the frozen `results.json` rather than transcribed from it.
+
 ## Paper and data
 
 - **Writeup (106pp PDF):** [writeup_rational_agents.pdf](./writeup_rational_agents.pdf) — the full program record on clean data, including the B7 contamination post-mortem and every published-vs-clean correction.

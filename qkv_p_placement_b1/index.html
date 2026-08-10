@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rung P — does it matter where in the sequence the payload is written?</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink); font:15px/1.5 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:900px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 8px 24px rgba(29,58,43,.06); }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .links a span { display:block; color:var(--muted); font-weight:400; font-size:13px; margin-top:5px; }
+    .finding { border-left:4px solid var(--accent); padding:10px 14px; background:#eef7f1; margin:10px 0; border-radius:0 8px 8px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    code { background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13px; }
+    dl { margin:0; } dt { font-weight:650; margin-top:10px; } dd { margin:2px 0 0; color:var(--muted); }
+  </style>
+</head>
+<body><main>
+  <h1>Rung P — does it matter where in the sequence the payload is written?</h1>
+  <p class="lede">Amendment 3's placement rung: five arms × 24 parameter sets × 10 seeds = 1,200 episodes. If the K/V channel works because the model's queries already attend to the site being written, then writing at <em>real advice text</em> should beat writing at a reserved placeholder. It does not — so site salience is eliminated and R1's configuration is locally optimal among everything the ladder tested.</p>
+
+  <h2>What a reader should look for</h2>
+  <p class="finding"><strong>The opening offer, again.</strong> Tabling runs <strong>60.4%</strong> (text), <strong>14.2%</strong> (R1 site), <strong>8.8%</strong> (real-text site), <strong>0%</strong> (no advice) — the placement arm is the weaker of the two injection sites on exactly the act the effect runs through.</p>
+  <p class="finding">The two K/V arms and the no-advice control send the model a <strong>byte-identical prompt</strong>. Everything that differs is written straight into every layer's <code>k_proj</code>/<code>v_proj</code> output at 38 reserved positions, so scrolling the transcripts will not show you the intervention — you can only see what it did. That is what makes the side-by-side worth reading: same game, same seed, same words in, different behaviour out.</p>
+  <p class="finding"><strong>Malformed episodes.</strong> The formatting cost is real and is the reason for the fourth view below: the placement arm ends episodes malformed far more often than its own control, in games where the control is fine.</p>
+
+  <h2>The arms</h2>
+  <section class="card"><dl>
+    <dt><code>A_text</code></dt><dd>the candidate as ordinary prompt text — the ceiling, re-measured on this panel</dd>
+    <dt><code>KV_r1</code></dt><dd>rung R1's configuration re-run here: injection at the reserved placeholder site</dd>
+    <dt><code>KV_place</code></dt><dd>the placement arm — the same payload written at the positions of <em>real</em> advice text</dd>
+    <dt><code>KV_place_shuffled</code></dt><dd>the placement arm's isolation control: same site, mis-drawn deal</dd>
+    <dt><code>C_none</code></dt><dd>token-matched no-advice control</dd>
+  </dl></section>
+
+  <h2>Per-arm rates</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Arm</th><th>Episodes</th><th>Normalized Nash welfare</th><th>Deal rate</th><th>Opening offer is the candidate</th><th>Malformed</th></tr></thead>
+      <tbody>
+        <tr><td><code>A_text</code></td><td>240</td><td>0.3734</td><td>0.9833</td><td>0.6042</td><td>0.0083</td></tr>
+        <tr><td><code>KV_r1</code></td><td>240</td><td>0.2983</td><td>0.9292</td><td>0.1417</td><td>0.0833</td></tr>
+        <tr><td><code>KV_place</code></td><td>240</td><td>0.2610</td><td>0.8417</td><td>0.0875</td><td>0.3500</td></tr>
+        <tr><td><code>KV_place_shuffled</code></td><td>240</td><td>0.1887</td><td>0.8083</td><td>0.1250</td><td>0.4250</td></tr>
+        <tr><td><code>C_none</code></td><td>240</td><td>0.1181</td><td>0.9292</td><td>0.0000</td><td>0.0500</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h2>Headline contrasts</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Contrast</th><th>Estimate [95% CI]</th><th>Pairs</th><th>Clusters</th></tr></thead>
+      <tbody>
+        <tr><td>Placement injection vs no advice (primary)</td><td>+0.1429 [+0.1008, +0.1855]</td><td>240</td><td>24</td></tr>
+        <tr><td>Placement vs the R1 placeholder site</td><td>-0.0373 [-0.0723, -0.0029]</td><td>240</td><td>24</td></tr>
+        <tr><td>Placement vs shuffled content (isolation)</td><td>+0.0723 [+0.0277, +0.1165]</td><td>240</td><td>24</td></tr>
+        <tr><td>Placement vs the same package as prompt text</td><td>-0.1124 [-0.1667, -0.0608]</td><td>240</td><td>24</td></tr>
+        <tr><td>R1 site vs no advice (replication anchor)</td><td>+0.1802 [+0.1380, +0.2205]</td><td>240</td><td>24</td></tr>
+        <tr><td>Prompt text vs no advice (replication anchor)</td><td>+0.2553 [+0.2016, +0.3042]</td><td>240</td><td>24</td></tr>
+        <tr><td>Deal rate, placement vs no advice (safety)</td><td>-0.0875 [-0.1458, -0.0292]</td><td>240</td><td>24</td></tr>
+        <tr><td>Malformed episodes, placement vs no advice (safety)</td><td>+0.3000 [+0.2042, +0.4042]</td><td>240</td><td>24</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <p class="small">Paired on (parameter set, seed) so a difference is always between two episodes of the same game at the same seed; intervals resample whole parameter sets as clusters (10000 draws, base seed 20260804). Recomputed from the campaign's episode table by <code>tom/qkv/build_qkv_paired_viewer.py</code> and checked against the frozen <code>results.json</code>, not transcribed from it.</p>
+
+
+  <h2>Open the paired transcripts</h2>
+  <div class="links">
+    <a href="place_vs_none/index.html">Placement injection vs no advice — the invisible intervention<span>The primary contrast. Same prompt on both sides; the left seat has the candidate written into its attention at the positions real advice text would have occupied. — 10 matched pairs, selected by <code>candidate-tabled</code>.</span></a>
+    <a href="place_vs_r1/index.html">Writing at real text vs writing at the reserved placeholder<span>The rung&#x27;s own question. Site salience predicted the real-text site would win; it loses, and these are the games where the two sites ended furthest apart. — 6 matched pairs, selected by <code>largest-effect</code>.</span></a>
+    <a href="place_vs_text/index.html">Placement injection vs the same package as prompt text<span>The channel comparison on this panel: the gap between a retrieved payload and a read one. — 6 matched pairs, selected by <code>largest-effect</code>.</span></a>
+    <a href="place_malformed/index.html">The formatting cost — malformed episodes<span>Injection buys behaviour and pays formatting. These are episodes the placement arm ended malformed while the no-advice control, same game and seed, did not. — 6 matched pairs, selected by <code>malformed</code>.</span></a>
+  </div>
+  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. The campaign holds 1200 episodes; these views render the pairs each strategy names, not all of them.</p>
+
+  <h2>The full record</h2>
+  <div class="links">
+    <a href="../writeup_tom_lane.pdf">Lane writeup (PDF, 28pp)<span>The attention-interface ladder is chapter §7, Amendments 2 and 3 included.</span></a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.QKV-Attention-Interface">Public dataset<span>2026.RA.QKV-Attention-Interface — every rung's tables and narrative.</span></a>
+    <a href="../">All rational-agent runs<span>Back to the index of published campaigns.</span></a>
+  </div>
+  <p class="small">Full methodology, the preregistration, the gate verdicts and a 19-entry controls-catches ledger live in research note 0029 (<code>experiments/rational_agents/research-notes/0029-qkv-attention-interface.md</code>) in the project repository.</p>
+</main></body>
+</html>

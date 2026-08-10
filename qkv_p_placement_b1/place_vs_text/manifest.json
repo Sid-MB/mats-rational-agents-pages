@@ -1,0 +1,38 @@
+{
+ "report": {
+  "left_run": "/nlp/scr/siddharth/ii_mats/rational_agents/tom_qkv_v1/p/campaign/KV_place",
+  "right_run": "/nlp/scr/siddharth/ii_mats/rational_agents/tom_qkv_v1/p/campaign/A_text",
+  "pair_fields": [
+   "instance_id",
+   "seed",
+   "arm"
+  ],
+  "select": "largest-effect",
+  "n_left": 240,
+  "n_right": 240,
+  "n_matched_keys": 240,
+  "n_candidate_pairs": 240,
+  "n_comparisons": 6,
+  "unmatched_left": [],
+  "unmatched_right": [],
+  "uneven_multiplicity": {}
+ },
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text",
+ "n_comparisons": 6,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/index.html",
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/compare-scorable_negotiation-moves_only-e44d06730e--scorable_negotiation-moves_only-b2ebd2271a.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/compare-scorable_negotiation-moves_only-16d993a18a--scorable_negotiation-moves_only-7ef27a3318.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/compare-scorable_negotiation-moves_only-bffe131f11--scorable_negotiation-moves_only-a2833350ff.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/compare-scorable_negotiation-moves_only-dd72942f15--scorable_negotiation-moves_only-9e99562e79.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/compare-scorable_negotiation-moves_only-ceb001f02d--scorable_negotiation-moves_only-416b243566.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_text/compare-scorable_negotiation-moves_only-ff6804cb90--scorable_negotiation-moves_only-35442dd5c9.html"
+ ],
+ "selection": {
+  "built_by": "experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py",
+  "rung": "qkv_p_placement_b1",
+  "view": "place_vs_text",
+  "strategy": "largest-effect",
+  "note": "Pairs were chosen by the named strategy off the campaign's stored episodes, then rendered from a symlink view of exactly those episodes with the visualizer's own select='first'."
+ }
+}

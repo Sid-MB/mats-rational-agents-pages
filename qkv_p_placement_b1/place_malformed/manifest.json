@@ -1,0 +1,38 @@
+{
+ "report": {
+  "left_run": "/nlp/scr/siddharth/ii_mats/rational_agents/tom_qkv_v1/p/campaign/KV_place",
+  "right_run": "/nlp/scr/siddharth/ii_mats/rational_agents/tom_qkv_v1/p/campaign/C_none",
+  "pair_fields": [
+   "instance_id",
+   "seed",
+   "arm"
+  ],
+  "select": "malformed",
+  "n_left": 240,
+  "n_right": 240,
+  "n_matched_keys": 240,
+  "n_candidate_pairs": 240,
+  "n_comparisons": 6,
+  "unmatched_left": [],
+  "unmatched_right": [],
+  "uneven_multiplicity": {}
+ },
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed",
+ "n_comparisons": 6,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/index.html",
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/compare-scorable_negotiation-moves_only-e188e3237f--scorable_negotiation-moves_only-eb0b11b8dd.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/compare-scorable_negotiation-moves_only-9dc819436d--scorable_negotiation-moves_only-8d0407c21b.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/compare-scorable_negotiation-moves_only-b81e805cb7--scorable_negotiation-moves_only-900efd82fc.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/compare-scorable_negotiation-moves_only-9c0a2e3f9c--scorable_negotiation-moves_only-73facc1eff.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/compare-scorable_negotiation-moves_only-d2d030b32b--scorable_negotiation-moves_only-e344778e83.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_malformed/compare-scorable_negotiation-moves_only-5c5fc42f78--scorable_negotiation-moves_only-78066e3785.html"
+ ],
+ "selection": {
+  "built_by": "experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py",
+  "rung": "qkv_p_placement_b1",
+  "view": "place_malformed",
+  "strategy": "malformed",
+  "note": "Pairs were chosen by the named strategy off the campaign's stored episodes, then rendered from a symlink view of exactly those episodes with the visualizer's own select='first'."
+ }
+}
