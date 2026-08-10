@@ -6,6 +6,8 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | arm | lineup | seeded | variant | episodes | immediate accept | deal rate | P(final==seeded) | normalized score | seats accepting |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|
+| `all_llm__ceiling_vote` | all_llm | ceiling | vote | 120 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | all_llm | placebo | vote | 120 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.678 [0.640, 0.713] | 1.000 [1.000, 1.000] |
 | `all_llm__unseeded` | all_llm | none | continue | 120 | 0.000 [0.000, 0.000] | 0.958 [0.925, 0.992] | 0.000 [0.000, 0.000] | 0.873 [0.833, 0.911] | 0.000 [0.000, 0.000] |
 | `all_oracle__ceiling_continue` | all_oracle | ceiling | continue | 120 | 0.325 [0.217, 0.433] | 0.783 [0.700, 0.867] | 0.325 [0.217, 0.433] | 0.716 [0.638, 0.792] | 0.450 [0.347, 0.557] |
 | `all_oracle__ceiling_continue_ballot_fixed` | all_oracle | ceiling | continue | 120 | 0.325 [0.217, 0.433] | 1.000 [1.000, 1.000] | 0.450 [0.325, 0.575] | 0.924 [0.901, 0.946] | 0.503 [0.388, 0.622] |
@@ -27,6 +29,7 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | treatment | reference | immediate accept | deal rate | P(final==seeded) | normalized score |
 |---|---|---:|---:|---:|---:|
+| `all_llm__ceiling_vote` | `all_llm__placebo_vote` | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.322 [0.287, 0.360] |
 | `all_oracle__ceiling_continue` | `all_oracle__placebo_continue` | 0.250 [0.142, 0.358] | 0.083 [-0.017, 0.200] | 0.250 [0.142, 0.358] | 0.088 [-0.008, 0.203] |
 | `all_oracle__ceiling_continue_ballot_fixed` | `all_oracle__placebo_continue_ballot_fixed` | 0.250 [0.142, 0.358] | 0.000 [0.000, 0.000] | 0.283 [0.183, 0.383] | 0.047 [0.016, 0.088] |
 | `all_oracle__ceiling_vote` | `all_oracle__placebo_vote` | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.322 [0.287, 0.360] |
@@ -43,6 +46,8 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | arm | deals | deal rate | below-thr. accept | worst-off z | worst-off share | norm. Gini | norm. Nash welf. | max share |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `all_llm__ceiling_vote` | 120/120 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 0.232 [0.164, 0.302] | 0.063 [0.046, 0.080] | 0.231 [0.203, 0.259] | 0.507 [0.388, 0.612] | 0.287 [0.276, 0.298] |
+| `all_llm__placebo_vote` | 120/120 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 0.119 [0.086, 0.154] | 0.045 [0.034, 0.057] | 0.330 [0.299, 0.366] | 0.287 [0.215, 0.358] | 0.372 [0.350, 0.399] |
 | `all_llm__unseeded` | 115/120 | 0.958 [0.925, 0.992] | 0.000 [0.000, 0.000] | 0.257 [0.206, 0.307] | 0.077 [0.064, 0.090] | 0.223 [0.199, 0.247] | 0.535 [0.457, 0.603] | 0.299 [0.287, 0.309] |
 | `all_oracle__ceiling_continue` | 94/120 | 0.783 [0.700, 0.867] | 0.000 [0.000, 0.000] | 0.191 [0.143, 0.239] | 0.056 [0.044, 0.067] | 0.269 [0.245, 0.293] | 0.467 [0.374, 0.547] | 0.313 [0.300, 0.326] |
 | `all_oracle__ceiling_continue_ballot_fixed` | 120/120 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 0.183 [0.132, 0.238] | 0.053 [0.040, 0.066] | 0.273 [0.244, 0.298] | 0.438 [0.341, 0.527] | 0.312 [0.298, 0.325] |
@@ -64,6 +69,18 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | arm | z bin | seat-turns | accepts on first move | ever accepts |
 |---|---|---:|---:|---:|
+| `all_llm__ceiling_vote` | [0.00, 0.10) | 65 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__ceiling_vote` | [0.10, 0.20) | 40 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__ceiling_vote` | [0.20, 0.35) | 75 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__ceiling_vote` | [0.35, 0.50) | 100 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__ceiling_vote` | [0.50, 0.75) | 170 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__ceiling_vote` | [0.75, 1.01) | 150 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | [0.00, 0.10) | 126 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | [0.10, 0.20) | 74 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | [0.20, 0.35) | 125 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | [0.35, 0.50) | 100 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | [0.50, 0.75) | 133 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| `all_llm__placebo_vote` | [0.75, 1.01) | 42 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
 | `all_oracle__ceiling_continue` | [0.00, 0.10) | 65 | 0.646 [0.509, 0.762] | 0.662 [0.509, 0.800] |
 | `all_oracle__ceiling_continue` | [0.10, 0.20) | 40 | 0.200 [0.075, 0.350] | 0.225 [0.100, 0.375] |
 | `all_oracle__ceiling_continue` | [0.20, 0.35) | 75 | 0.387 [0.213, 0.553] | 0.400 [0.213, 0.588] |

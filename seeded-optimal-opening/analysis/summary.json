@@ -55,6 +55,16 @@
    "cell_id": "all_oracle__placebo_continue_ballot_fixed",
    "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/oraclefix_placebo_continue",
    "n_episodes": 120
+  },
+  {
+   "cell_id": "all_llm__ceiling_vote",
+   "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/fiveseed_opus_v3__all_llm__ceiling_vote_attempt03",
+   "n_episodes": 120
+  },
+  {
+   "cell_id": "all_llm__placebo_vote",
+   "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/fiveseed_opus_v3__all_llm__placebo_vote_attempt03",
+   "n_episodes": 120
   }
  ],
  "seeded_offer_manifest": "/juice2/u/siddharth/ii_mats/experiments/rational_agents/seeded_offer_manifest_v1.json",
@@ -64,6 +74,92 @@
   "clusters": "24 bank instances, seeds resampled together"
  },
  "headline": [
+  {
+   "arm": "all_llm__ceiling_vote",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_llm",
+   "seeded_offer": "ceiling",
+   "protocol_variant": "vote",
+   "immediate_accept": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_llm",
+   "seeded_offer": "placebo",
+   "protocol_variant": "vote",
+   "immediate_accept": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.67789,
+    "ci_low": 0.640115,
+    "ci_high": 0.7134702916666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
   {
    "arm": "all_llm__unseeded",
    "n_episodes": 120,
@@ -754,6 +850,106 @@
   }
  ],
  "basket": [
+  {
+   "arm": "all_llm__ceiling_vote",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_llm",
+   "seeded_offer": "ceiling",
+   "protocol_variant": "vote",
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.2316927993465146,
+    "ci_low": 0.16416931236658275,
+    "ci_high": 0.3016251542588082,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.06340530806592577,
+    "ci_low": 0.04621342066542662,
+    "ci_high": 0.08016618817726619,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.23120207602399725,
+    "ci_low": 0.20280895838626992,
+    "ci_high": 0.2590949029239802,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.5072264305135828,
+    "ci_low": 0.3883416987943586,
+    "ci_high": 0.6124490673641668,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.28726963907752484,
+    "ci_low": 0.27619591012535444,
+    "ci_high": 0.2976835637218877,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_llm",
+   "seeded_offer": "placebo",
+   "protocol_variant": "vote",
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.11903506625939292,
+    "ci_low": 0.08580777875848901,
+    "ci_high": 0.15377106371105428,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.045328681122431234,
+    "ci_low": 0.03383035904415395,
+    "ci_high": 0.05688932357966242,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.33033094020978787,
+    "ci_low": 0.2989408521174521,
+    "ci_high": 0.36633293216444196,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.28744261624920875,
+    "ci_low": 0.2152629861022006,
+    "ci_high": 0.3582367411777551,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.3718388644394814,
+    "ci_low": 0.34967173458834483,
+    "ci_high": 0.39931775432883027,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
   {
    "arm": "all_llm__unseeded",
    "n_episodes": 120,
@@ -1557,6 +1753,45 @@
  ],
  "contrasts": [
   {
+   "treatment": "all_llm__ceiling_vote",
+   "reference": "all_llm__placebo_vote",
+   "immediate_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.32211,
+    "ci_low": 0.2865297083333333,
+    "ci_high": 0.35988499999999995,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "treatment": "all_oracle__ceiling_continue",
    "reference": "all_oracle__placebo_continue",
    "immediate_accept": {
@@ -1987,6 +2222,246 @@
   }
  ],
  "vote_curve": [
+  {
+   "arm": "all_llm__ceiling_vote",
+   "z_low": 0.0,
+   "z_high": 0.1,
+   "n_seat_turns": 65,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 65,
+    "n_instances": 11
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 65,
+    "n_instances": 11
+   }
+  },
+  {
+   "arm": "all_llm__ceiling_vote",
+   "z_low": 0.1,
+   "z_high": 0.2,
+   "n_seat_turns": 40,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 40,
+    "n_instances": 8
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 40,
+    "n_instances": 8
+   }
+  },
+  {
+   "arm": "all_llm__ceiling_vote",
+   "z_low": 0.2,
+   "z_high": 0.35,
+   "n_seat_turns": 75,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 75,
+    "n_instances": 12
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 75,
+    "n_instances": 12
+   }
+  },
+  {
+   "arm": "all_llm__ceiling_vote",
+   "z_low": 0.35,
+   "z_high": 0.5,
+   "n_seat_turns": 100,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 100,
+    "n_instances": 15
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 100,
+    "n_instances": 15
+   }
+  },
+  {
+   "arm": "all_llm__ceiling_vote",
+   "z_low": 0.5,
+   "z_high": 0.75,
+   "n_seat_turns": 170,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 170,
+    "n_instances": 19
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 170,
+    "n_instances": 19
+   }
+  },
+  {
+   "arm": "all_llm__ceiling_vote",
+   "z_low": 0.75,
+   "z_high": 1.01,
+   "n_seat_turns": 150,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 150,
+    "n_instances": 17
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 150,
+    "n_instances": 17
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "z_low": 0.0,
+   "z_high": 0.1,
+   "n_seat_turns": 126,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 126,
+    "n_instances": 24
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 126,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "z_low": 0.1,
+   "z_high": 0.2,
+   "n_seat_turns": 74,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 74,
+    "n_instances": 19
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 74,
+    "n_instances": 19
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "z_low": 0.2,
+   "z_high": 0.35,
+   "n_seat_turns": 125,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 125,
+    "n_instances": 24
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 125,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "z_low": 0.35,
+   "z_high": 0.5,
+   "n_seat_turns": 100,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 100,
+    "n_instances": 22
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 100,
+    "n_instances": 22
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "z_low": 0.5,
+   "z_high": 0.75,
+   "n_seat_turns": 133,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 133,
+    "n_instances": 24
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 133,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_llm__placebo_vote",
+   "z_low": 0.75,
+   "z_high": 1.01,
+   "n_seat_turns": 42,
+   "first_move_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 42,
+    "n_instances": 16
+   },
+   "ever_accepts_seed": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 42,
+    "n_instances": 16
+   }
+  },
   {
    "arm": "all_oracle__ceiling_continue",
    "z_low": 0.0,
