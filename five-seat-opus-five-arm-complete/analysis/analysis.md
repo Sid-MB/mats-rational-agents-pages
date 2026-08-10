@@ -2,15 +2,15 @@
 
 All intervals are 95% instance-clustered bootstrap intervals; no-deal scores zero.
 
-| logical arm | n | normalized score [95% CI] | deal rate [95% CI] | paired score gain vs all-LLM | among-deals mean score (median, IQR) |
-|---|---:|---:|---:|---:|---:|
-| all_llm | 120 | 0.873 [0.833, 0.910] | 0.958 [0.925, 0.992] | reference | 0.911 (0.946, [0.838, 1.000]) n=115 |
-| one_rational | 120 | 0.686 [0.613, 0.759] | 0.767 [0.692, 0.842] | -0.186 [-0.267, -0.106] | 0.895 (0.931, [0.825, 1.000]) n=92 |
-| one_oracle | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 |
-| all_rational | 120 | 0.189 [0.110, 0.278] | 0.233 [0.133, 0.342] | -0.684 [-0.786, -0.580] | 0.809 (0.830, [0.699, 0.922]) n=28 |
-| all_oracle | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] | 0.904 (0.963, [0.841, 1.000]) n=105 |
+| logical arm | n | normalized score [95% CI] | deal rate [95% CI] | paired score gain vs all-LLM | among-deals mean score (median, IQR) | among-deals per-party z: mean [95% CI], median, IQR |
+|---|---:|---:|---:|---:|---:|---:|
+| all_llm | 120 | 0.873 [0.833, 0.910] | 0.958 [0.925, 0.992] | reference | 0.911 (0.946, [0.838, 1.000]) n=115 | 0.653 [0.620, 0.690], 0.667, [0.433, 1.000] |
+| one_rational | 120 | 0.686 [0.613, 0.759] | 0.767 [0.692, 0.842] | -0.186 [-0.267, -0.106] | 0.895 (0.931, [0.825, 1.000]) n=92 | 0.639 [0.605, 0.675], 0.657, [0.431, 1.000] |
+| one_oracle | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 | 0.654 [0.618, 0.691], 0.688, [0.360, 1.000] |
+| all_rational | 120 | 0.189 [0.110, 0.278] | 0.233 [0.133, 0.342] | -0.684 [-0.786, -0.580] | 0.809 (0.830, [0.699, 0.922]) n=28 | 0.554 [0.512, 0.611], 0.567, [0.329, 0.762] |
+| all_oracle | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] | 0.904 (0.963, [0.841, 1.000]) n=105 | 0.643 [0.614, 0.673], 0.674, [0.316, 1.000] |
 
-The among-deals column conditions on a closed deal (per-arm deal counts beside it — the standing censoring caveat applies: each arm's closed set is self-selected, and a low-deal-rate arm's column describes a different, easier subset of games). Four of five arms land within 0.016 of each other among deals (0.895–0.911); only `all_rational` is materially lower (0.809, and the widest IQR at 0.223), so essentially the entire between-arm spread of the unconditional headline column is the deal-rate column, not deal quality.
+Both among-deals columns condition on a closed deal (per-arm deal counts beside them — the standing censoring caveat applies: each arm's closed set is self-selected, and a low-deal-rate arm's column describes a different, easier subset of games). The score column is the episode-level ceiling-normalized score; the per-party z column pools party-observations (each closed deal contributes its five z_i = (u_i − τ_i)/c_i; no per-deal averaging first), with an instance-clustered bootstrap CI on the mean and plain empirical quartiles. Four of five arms land within 0.016 of each other on among-deals score (0.895–0.911) and within 0.015 on per-party z (0.639–0.654); only `all_rational` is materially lower on both (0.809 score, 0.554 z, the widest IQRs), so essentially the entire between-arm spread of the unconditional headline column is the deal-rate column, not deal quality.
 
 Direct all-rational minus one-rational paired normalized-score effect: -0.498 [-0.590, -0.404] (positive favors five rational agents).
 
@@ -61,6 +61,17 @@ Every column below is computed over closed deals only, so `deal rate` is carried
 
 Lower is better for below-threshold accept, dist-NBS, dist-KS, Gini, and max share; higher is better for worst-off z, worst-off share, and normalized Nash welfare. An equal split puts worst-off share at 0.200 and max share at 0.200.
 
+### Per-party normalized surplus among closed deals (added 2026-08-10)
+
+Pooling: party-observations — each closed deal contributes its five z_i as five observations (no per-deal averaging first). The mean carries an instance-clustered bootstrap CI; the quartiles are plain empirical quantiles of the same pooled distribution, descriptive only. Conditional on a closed deal, so read beside the arm's deal rate.
+
+| arm | deals | deal rate | per-party z mean [95% CI] | median | IQR |
+|---|---:|---:|---:|---:|---:|
+| `all_llm` | 115/120 | 0.958 | 0.653 [0.620, 0.690] | 0.667 | [0.433, 1.000] |
+| `one_rational` | 92/120 | 0.767 | 0.639 [0.605, 0.675] | 0.657 | [0.431, 1.000] |
+| `one_oracle` | 61/120 | 0.508 | 0.654 [0.618, 0.691] | 0.688 | [0.360, 1.000] |
+| `all_rational` | 28/120 | 0.233 | 0.554 [0.512, 0.611] | 0.567 | [0.329, 0.762] |
+| `all_oracle` | 105/120 | 0.875 | 0.643 [0.614, 0.673] | 0.674 | [0.316, 1.000] |
 
 ### Unconditional companions
 
