@@ -40,6 +40,21 @@
    "cell_id": "all_oracle__placebo_continue",
    "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/fiveseed_opus_v2__all_oracle__placebo_continue",
    "n_episodes": 120
+  },
+  {
+   "cell_id": "all_oracle__unseeded_ballot_fixed",
+   "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/oraclefix_none_continue",
+   "n_episodes": 120
+  },
+  {
+   "cell_id": "all_oracle__ceiling_continue_ballot_fixed",
+   "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/oraclefix_ceiling_continue",
+   "n_episodes": 120
+  },
+  {
+   "cell_id": "all_oracle__placebo_continue_ballot_fixed",
+   "run": "/juice2/scr2/siddharth/ii_mats/rational_agents/oraclefix_placebo_continue",
+   "n_episodes": 120
   }
  ],
  "seeded_offer_manifest": "/juice2/u/siddharth/ii_mats/experiments/rational_agents/seeded_offer_manifest_v1.json",
@@ -136,6 +151,49 @@
    }
   },
   {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_oracle",
+   "seeded_offer": "ceiling",
+   "protocol_variant": "continue",
+   "immediate_accept": {
+    "estimate": 0.325,
+    "ci_low": 0.21666666666666667,
+    "ci_high": 0.43333333333333335,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.45,
+    "ci_low": 0.325,
+    "ci_high": 0.575,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.9238599999999999,
+    "ci_low": 0.9012188333333334,
+    "ci_high": 0.9460537708333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.5033333333333334,
+    "ci_low": 0.3882916666666667,
+    "ci_high": 0.6216666666666666,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "arm": "all_oracle__ceiling_vote",
    "n_episodes": 120,
    "n_deals": 120,
@@ -222,6 +280,49 @@
    }
   },
   {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_oracle",
+   "seeded_offer": "placebo",
+   "protocol_variant": "continue",
+   "immediate_accept": {
+    "estimate": 0.075,
+    "ci_low": 0.03333333333333333,
+    "ci_high": 0.11666666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.16666666666666666,
+    "ci_low": 0.075,
+    "ci_high": 0.275,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.8766725,
+    "ci_low": 0.8417972083333332,
+    "ci_high": 0.9073425833333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.2233333333333333,
+    "ci_low": 0.12666666666666665,
+    "ci_high": 0.3333333333333333,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "arm": "all_oracle__placebo_vote",
    "n_episodes": 120,
    "n_deals": 120,
@@ -296,6 +397,49 @@
     "estimate": 0.7907200000000001,
     "ci_low": 0.7348483541666667,
     "ci_high": 0.8429902499999998,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_oracle__unseeded_ballot_fixed",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_oracle",
+   "seeded_offer": "none",
+   "protocol_variant": "continue",
+   "immediate_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.9068575,
+    "ci_low": 0.8798025,
+    "ci_high": 0.9332413541666666,
     "n": 120,
     "n_instances": 24
    },
@@ -711,6 +855,56 @@
    }
   },
   {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_oracle",
+   "seeded_offer": "ceiling",
+   "protocol_variant": "continue",
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.1827051298823736,
+    "ci_low": 0.132059255071726,
+    "ci_high": 0.23836497361602965,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.05289588244432545,
+    "ci_low": 0.04009928837355295,
+    "ci_high": 0.06586901573216013,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.27265460578016404,
+    "ci_low": 0.2441764466456611,
+    "ci_high": 0.29841077774776936,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.43766442752696527,
+    "ci_low": 0.34139817029051606,
+    "ci_high": 0.527178812072976,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.31214808550284945,
+    "ci_low": 0.2979956411509863,
+    "ci_high": 0.324917507495217,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "arm": "all_oracle__ceiling_vote",
    "n_episodes": 120,
    "n_deals": 120,
@@ -811,6 +1005,56 @@
    }
   },
   {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_oracle",
+   "seeded_offer": "placebo",
+   "protocol_variant": "continue",
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.17164751640767778,
+    "ci_low": 0.12696590216960502,
+    "ci_high": 0.22034410049382522,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.050539138017344866,
+    "ci_low": 0.03915326836250376,
+    "ci_high": 0.06198780170795561,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.29494958144607614,
+    "ci_low": 0.2622750125504803,
+    "ci_high": 0.329156809002816,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.42465644300575983,
+    "ci_low": 0.3385198667955118,
+    "ci_high": 0.5049983253464736,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.3302936500617199,
+    "ci_low": 0.3109820068525856,
+    "ci_high": 0.35204965685126843,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "arm": "all_oracle__placebo_vote",
    "n_episodes": 120,
    "n_deals": 120,
@@ -907,6 +1151,56 @@
     "ci_low": 0.3044796562714365,
     "ci_high": 0.3337820401571311,
     "n": 105,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_oracle__unseeded_ballot_fixed",
+   "n_episodes": 120,
+   "n_deals": 120,
+   "logical_table": "all_oracle",
+   "seeded_offer": "none",
+   "protocol_variant": "continue",
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.1664140067203309,
+    "ci_low": 0.11803433904019618,
+    "ci_high": 0.2222152911747718,
+    "n": 120,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.0484048449564163,
+    "ci_low": 0.036470418564819744,
+    "ci_high": 0.06121168847107559,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.2854855910779398,
+    "ci_low": 0.2539192106154174,
+    "ci_high": 0.31472038415729103,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.405530944848298,
+    "ci_low": 0.31436232323476637,
+    "ci_high": 0.49537325830850903,
+    "n": 120,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.31912538492110715,
+    "ci_low": 0.3023565845013252,
+    "ci_high": 0.3358187036364567,
+    "n": 120,
     "n_instances": 24
    }
   },
@@ -1302,6 +1596,45 @@
    }
   },
   {
+   "treatment": "all_oracle__ceiling_continue_ballot_fixed",
+   "reference": "all_oracle__placebo_continue_ballot_fixed",
+   "immediate_accept": {
+    "estimate": 0.25,
+    "ci_low": 0.14166666666666666,
+    "ci_high": 0.35833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.2833333333333333,
+    "ci_low": 0.18333333333333332,
+    "ci_high": 0.38333333333333336,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.0471875,
+    "ci_low": 0.015972187500000002,
+    "ci_high": 0.08795458333333331,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.28,
+    "ci_low": 0.18995833333333334,
+    "ci_high": 0.3716666666666667,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "treatment": "all_oracle__ceiling_vote",
    "reference": "all_oracle__placebo_vote",
    "immediate_accept": {
@@ -1458,6 +1791,45 @@
    }
   },
   {
+   "treatment": "all_oracle__ceiling_continue_ballot_fixed",
+   "reference": "all_oracle__unseeded_ballot_fixed",
+   "immediate_accept": {
+    "estimate": 0.325,
+    "ci_low": 0.21666666666666667,
+    "ci_high": 0.43333333333333335,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.45,
+    "ci_low": 0.325,
+    "ci_high": 0.575,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.0170025,
+    "ci_low": 0.005321541666666665,
+    "ci_high": 0.0315166875,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.5033333333333334,
+    "ci_low": 0.3882916666666667,
+    "ci_high": 0.6216666666666666,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
    "treatment": "all_oracle__placebo_continue",
    "reference": "all_oracle__unseeded",
    "immediate_accept": {
@@ -1492,6 +1864,45 @@
     "estimate": 0.18000000000000002,
     "ci_low": 0.11,
     "ci_high": 0.25833333333333336,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  {
+   "treatment": "all_oracle__placebo_continue_ballot_fixed",
+   "reference": "all_oracle__unseeded_ballot_fixed",
+   "immediate_accept": {
+    "estimate": 0.075,
+    "ci_low": 0.03333333333333333,
+    "ci_high": 0.11666666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "deal_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "final_is_seeded": {
+    "estimate": 0.16666666666666666,
+    "ci_low": 0.075,
+    "ci_high": 0.275,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": -0.030185,
+    "ci_low": -0.06863708333333333,
+    "ci_high": -0.002857270833333335,
+    "n": 120,
+    "n_instances": 24
+   },
+   "seed_accept_fraction": {
+    "estimate": 0.22333333333333333,
+    "ci_low": 0.12666666666666665,
+    "ci_high": 0.3333333333333333,
     "n": 120,
     "n_instances": 24
    }
@@ -1692,6 +2103,126 @@
     "estimate": 0.5133333333333333,
     "ci_low": 0.36428571428571427,
     "ci_high": 0.6518518518518519,
+    "n": 150,
+    "n_instances": 17
+   }
+  },
+  {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "z_low": 0.0,
+   "z_high": 0.1,
+   "n_seat_turns": 65,
+   "first_move_accepts_seed": {
+    "estimate": 0.6461538461538462,
+    "ci_low": 0.509090909090909,
+    "ci_high": 0.7625,
+    "n": 65,
+    "n_instances": 11
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.7384615384615385,
+    "ci_low": 0.6,
+    "ci_high": 0.8625,
+    "n": 65,
+    "n_instances": 11
+   }
+  },
+  {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "z_low": 0.1,
+   "z_high": 0.2,
+   "n_seat_turns": 40,
+   "first_move_accepts_seed": {
+    "estimate": 0.2,
+    "ci_low": 0.075,
+    "ci_high": 0.35,
+    "n": 40,
+    "n_instances": 8
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.35,
+    "ci_low": 0.15,
+    "ci_high": 0.575,
+    "n": 40,
+    "n_instances": 8
+   }
+  },
+  {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "z_low": 0.2,
+   "z_high": 0.35,
+   "n_seat_turns": 75,
+   "first_move_accepts_seed": {
+    "estimate": 0.38666666666666666,
+    "ci_low": 0.21333333333333335,
+    "ci_high": 0.5529411764705883,
+    "n": 75,
+    "n_instances": 12
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.44,
+    "ci_low": 0.25333333333333335,
+    "ci_high": 0.6352941176470588,
+    "n": 75,
+    "n_instances": 12
+   }
+  },
+  {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "z_low": 0.35,
+   "z_high": 0.5,
+   "n_seat_turns": 100,
+   "first_move_accepts_seed": {
+    "estimate": 0.34,
+    "ci_low": 0.21052631578947367,
+    "ci_high": 0.4740972222222219,
+    "n": 100,
+    "n_instances": 15
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.43,
+    "ci_low": 0.28421052631578947,
+    "ci_high": 0.5789473684210527,
+    "n": 100,
+    "n_instances": 15
+   }
+  },
+  {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "z_low": 0.5,
+   "z_high": 0.75,
+   "n_seat_turns": 170,
+   "first_move_accepts_seed": {
+    "estimate": 0.37058823529411766,
+    "ci_low": 0.26666666666666666,
+    "ci_high": 0.46978001257071006,
+    "n": 170,
+    "n_instances": 19
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.5058823529411764,
+    "ci_low": 0.3759939393939394,
+    "ci_high": 0.6285714285714286,
+    "n": 170,
+    "n_instances": 19
+   }
+  },
+  {
+   "arm": "all_oracle__ceiling_continue_ballot_fixed",
+   "z_low": 0.75,
+   "z_high": 1.01,
+   "n_seat_turns": 150,
+   "first_move_accepts_seed": {
+    "estimate": 0.44666666666666666,
+    "ci_low": 0.31333333333333335,
+    "ci_high": 0.5655172413793104,
+    "n": 150,
+    "n_instances": 17
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.52,
+    "ci_low": 0.37037037037037035,
+    "ci_high": 0.65625,
     "n": 150,
     "n_instances": 17
    }
@@ -1918,6 +2449,126 @@
   },
   {
    "arm": "all_oracle__placebo_continue",
+   "z_low": 0.75,
+   "z_high": 1.01,
+   "n_seat_turns": 42,
+   "first_move_accepts_seed": {
+    "estimate": 0.19047619047619047,
+    "ci_low": 0.07894736842105263,
+    "ci_high": 0.29411764705882354,
+    "n": 42,
+    "n_instances": 16
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.2857142857142857,
+    "ci_low": 0.14634146341463414,
+    "ci_high": 0.40816326530612246,
+    "n": 42,
+    "n_instances": 16
+   }
+  },
+  {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "z_low": 0.0,
+   "z_high": 0.1,
+   "n_seat_turns": 126,
+   "first_move_accepts_seed": {
+    "estimate": 0.24603174603174602,
+    "ci_low": 0.1504424778761062,
+    "ci_high": 0.3283582089552239,
+    "n": 126,
+    "n_instances": 24
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.36507936507936506,
+    "ci_low": 0.19,
+    "ci_high": 0.5232696566998891,
+    "n": 126,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "z_low": 0.1,
+   "z_high": 0.2,
+   "n_seat_turns": 74,
+   "first_move_accepts_seed": {
+    "estimate": 0.17567567567567569,
+    "ci_low": 0.08333333333333333,
+    "ci_high": 0.2686710677382317,
+    "n": 74,
+    "n_instances": 19
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.1891891891891892,
+    "ci_low": 0.08641443167305236,
+    "ci_high": 0.29411764705882354,
+    "n": 74,
+    "n_instances": 19
+   }
+  },
+  {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "z_low": 0.2,
+   "z_high": 0.35,
+   "n_seat_turns": 125,
+   "first_move_accepts_seed": {
+    "estimate": 0.08,
+    "ci_low": 0.030861823361823363,
+    "ci_high": 0.1452991452991453,
+    "n": 125,
+    "n_instances": 24
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.144,
+    "ci_low": 0.04347155126140634,
+    "ci_high": 0.29565731926935934,
+    "n": 125,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "z_low": 0.35,
+   "z_high": 0.5,
+   "n_seat_turns": 100,
+   "first_move_accepts_seed": {
+    "estimate": 0.09,
+    "ci_low": 0.03,
+    "ci_high": 0.16092880978865393,
+    "n": 100,
+    "n_instances": 22
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.15,
+    "ci_low": 0.058823529411764705,
+    "ci_high": 0.25,
+    "n": 100,
+    "n_instances": 22
+   }
+  },
+  {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
+   "z_low": 0.5,
+   "z_high": 0.75,
+   "n_seat_turns": 133,
+   "first_move_accepts_seed": {
+    "estimate": 0.13533834586466165,
+    "ci_low": 0.05303030303030303,
+    "ci_high": 0.23577235772357724,
+    "n": 133,
+    "n_instances": 24
+   },
+   "ever_accepts_seed": {
+    "estimate": 0.21804511278195488,
+    "ci_low": 0.10923987776928953,
+    "ci_high": 0.34108988556662967,
+    "n": 133,
+    "n_instances": 24
+   }
+  },
+  {
+   "arm": "all_oracle__placebo_continue_ballot_fixed",
    "z_low": 0.75,
    "z_high": 1.01,
    "n_seat_turns": 42,
@@ -2538,7 +3189,7 @@
   }
  ],
  "figures": [
-  "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/5f67cd4e/tmp/free_arms_full/seeded_offer.png",
-  "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/5f67cd4e/tmp/free_arms_full/seeded_offer.pdf"
+  ".claude/products/seeded-optimal-opening/analysis_with_ballot_fix/seeded_offer.png",
+  ".claude/products/seeded-optimal-opening/analysis_with_ballot_fix/seeded_offer.pdf"
  ]
 }
