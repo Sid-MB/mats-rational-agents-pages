@@ -2,13 +2,15 @@
 
 All intervals are 95% instance-clustered bootstrap intervals; no-deal scores zero.
 
-| logical arm | n | normalized score [95% CI] | deal rate [95% CI] | paired score gain vs all-LLM |
-|---|---:|---:|---:|---:|
-| all_llm | 120 | 0.873 [0.833, 0.910] | 0.958 [0.925, 0.992] | reference |
-| one_rational | 120 | 0.686 [0.613, 0.759] | 0.767 [0.692, 0.842] | -0.186 [-0.267, -0.106] |
-| one_oracle | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] |
-| all_rational | 120 | 0.189 [0.110, 0.278] | 0.233 [0.133, 0.342] | -0.684 [-0.786, -0.580] |
-| all_oracle | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] |
+| logical arm | n | normalized score [95% CI] | deal rate [95% CI] | paired score gain vs all-LLM | among-deals mean score (median, IQR) |
+|---|---:|---:|---:|---:|---:|
+| all_llm | 120 | 0.873 [0.833, 0.910] | 0.958 [0.925, 0.992] | reference | 0.911 (0.946, [0.838, 1.000]) n=115 |
+| one_rational | 120 | 0.686 [0.613, 0.759] | 0.767 [0.692, 0.842] | -0.186 [-0.267, -0.106] | 0.895 (0.931, [0.825, 1.000]) n=92 |
+| one_oracle | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 |
+| all_rational | 120 | 0.189 [0.110, 0.278] | 0.233 [0.133, 0.342] | -0.684 [-0.786, -0.580] | 0.809 (0.830, [0.699, 0.922]) n=28 |
+| all_oracle | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] | 0.904 (0.963, [0.841, 1.000]) n=105 |
+
+The among-deals column conditions on a closed deal (per-arm deal counts beside it — the standing censoring caveat applies: each arm's closed set is self-selected, and a low-deal-rate arm's column describes a different, easier subset of games). Four of five arms land within 0.016 of each other among deals (0.895–0.911); only `all_rational` is materially lower (0.809, and the widest IQR at 0.223), so essentially the entire between-arm spread of the unconditional headline column is the deal-rate column, not deal quality.
 
 Direct all-rational minus one-rational paired normalized-score effect: -0.498 [-0.590, -0.404] (positive favors five rational agents).
 
