@@ -7,32 +7,36 @@
    "seed",
    "arm"
   ],
-  "select": "largest-effect",
+  "select": "anchor",
   "n_left": 240,
   "n_right": 240,
   "n_matched_keys": 240,
   "n_candidate_pairs": 240,
-  "n_comparisons": 6,
+  "n_comparisons": 10,
   "unmatched_left": [],
   "unmatched_right": [],
   "uneven_multiplicity": {}
  },
  "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1",
- "n_comparisons": 6,
+ "n_comparisons": 10,
  "index": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/index.html",
  "pages": [
-  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-a8a6ced001--scorable_negotiation-moves_only-d1e63aee18.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-752941ac5b--scorable_negotiation-moves_only-8a6e3bf5f4.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-891f4a97e4--scorable_negotiation-moves_only-109ae1986d.html",
   "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-3539158bb5--scorable_negotiation-moves_only-c8d8442bb9.html",
-  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-64546a027e--scorable_negotiation-moves_only-3f83b738f8.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-362bf95c28--scorable_negotiation-moves_only-9b836d0587.html",
   "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-dd72942f15--scorable_negotiation-moves_only-a2977992bf.html",
-  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-ceb001f02d--scorable_negotiation-moves_only-eaf117a85e.html",
-  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-ff6804cb90--scorable_negotiation-moves_only-3fe67e0ab7.html"
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-672638aba6--scorable_negotiation-moves_only-e86c40b5dc.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-a5c9732e70--scorable_negotiation-moves_only-b136159871.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-643e62d10b--scorable_negotiation-moves_only-ee1a0e4679.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-f6ed289b41--scorable_negotiation-moves_only-9c0c7e1a95.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_p_placement_b1/place_vs_r1/compare-scorable_negotiation-moves_only-f426513b5c--scorable_negotiation-moves_only-44f6055c4a.html"
  ],
  "selection": {
   "built_by": "experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py",
   "rung": "qkv_p_placement_b1",
   "view": "place_vs_r1",
-  "strategy": "largest-effect",
+  "strategy": "anchor",
   "note": "Pairs were chosen by the named strategy off the campaign's stored episodes, then rendered from a symlink view of exactly those episodes with the visualizer's own select='first'."
  }
 }
