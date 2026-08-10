@@ -1,0 +1,1951 @@
+{
+ "schema": "five-seat-fairness-basket-v1",
+ "reference": "all_llm",
+ "arms": [
+  "all_llm",
+  "one_rational",
+  "one_oracle",
+  "all_rational",
+  "all_oracle"
+ ],
+ "n_bootstrap": 10000,
+ "seed": 20260809,
+ "n_episodes": {
+  "all_llm": 120,
+  "one_rational": 120,
+  "one_oracle": 120,
+  "all_rational": 120,
+  "all_oracle": 120
+ },
+ "n_deals": {
+  "all_llm": 115,
+  "one_rational": 92,
+  "one_oracle": 61,
+  "all_rational": 28,
+  "all_oracle": 105
+ },
+ "levels": {
+  "all_llm": {
+   "deal_rate": {
+    "estimate": 0.9583333333333334,
+    "ci_low": 0.925,
+    "ci_high": 0.9833333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 115,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.25662751078488905,
+    "ci_low": 0.20660835047918574,
+    "ci_high": 0.30600756625601455,
+    "n": 115,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.07733378037747124,
+    "ci_low": 0.06372168254261014,
+    "ci_high": 0.08964987629498626,
+    "n": 115,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.46360609046022655,
+    "ci_low": 0.3565226072213674,
+    "ci_high": 0.5826609489932553,
+    "n": 115,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.39841757139287376,
+    "ci_low": 0.3159915975593445,
+    "ci_high": 0.4740919744695105,
+    "n": 115,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.22312596428528939,
+    "ci_low": 0.19971159081455367,
+    "ci_high": 0.24672232651727338,
+    "n": 115,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.5347356494115132,
+    "ci_low": 0.45934698095845394,
+    "ci_high": 0.6015353499949824,
+    "n": 115,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.29899227726399724,
+    "ci_low": 0.28754462333382413,
+    "ci_high": 0.30927339521265834,
+    "n": 115,
+    "n_instances": 24
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.8726133333333334,
+    "ci_low": 0.8327347083333333,
+    "ci_high": 0.9104252291666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.5124549973527001,
+    "ci_low": 0.4301153246627236,
+    "ci_high": 0.586181608900662,
+    "n": 120,
+    "n_instances": 24
+   },
+   "justified_walk": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 5,
+    "n_instances": 5
+   },
+   "missed_deal": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 5,
+    "n_instances": 5
+   },
+   "ir_margin_of_no_deal": {
+    "estimate": 0.2305128205128205,
+    "ci_low": 0.05384615384615384,
+    "ci_high": 0.40717948717948715,
+    "n": 5,
+    "n_instances": 5
+   }
+  },
+  "one_rational": {
+   "deal_rate": {
+    "estimate": 0.7666666666666667,
+    "ci_low": 0.6833333333333333,
+    "ci_high": 0.8416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 92,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.23923924245411646,
+    "ci_low": 0.19683072717163422,
+    "ci_high": 0.28224996743845204,
+    "n": 92,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.0725120810975585,
+    "ci_low": 0.06097860651045568,
+    "ci_high": 0.08370679860351421,
+    "n": 92,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.44434457646545117,
+    "ci_low": 0.34251356481754514,
+    "ci_high": 0.5676758504505426,
+    "n": 92,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.41411311378312343,
+    "ci_low": 0.3323445296545228,
+    "ci_high": 0.49140176345459324,
+    "n": 92,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.23136952807084968,
+    "ci_low": 0.2087369470730114,
+    "ci_high": 0.2545594254167545,
+    "n": 92,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.5063123982328782,
+    "ci_low": 0.43981796588074573,
+    "ci_high": 0.5641182063092108,
+    "n": 92,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.30102142748483496,
+    "ci_low": 0.28908559020113483,
+    "ci_high": 0.3133682464419921,
+    "n": 92,
+    "n_instances": 24
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.6864258333333334,
+    "ci_low": 0.6125244166666667,
+    "ci_high": 0.7606728333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.38817283864520663,
+    "ci_low": 0.3200574611095578,
+    "ci_high": 0.45228780607010843,
+    "n": 120,
+    "n_instances": 24
+   },
+   "justified_walk": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 28,
+    "n_instances": 17
+   },
+   "missed_deal": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 28,
+    "n_instances": 17
+   },
+   "ir_margin_of_no_deal": {
+    "estimate": 0.3432439165619196,
+    "ci_low": 0.22079647397565216,
+    "ci_high": 0.46032524493968746,
+    "n": 28,
+    "n_instances": 17
+   }
+  },
+  "one_oracle": {
+   "deal_rate": {
+    "estimate": 0.5083333333333333,
+    "ci_low": 0.4166666666666667,
+    "ci_high": 0.6,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 61,
+    "n_instances": 23
+   },
+   "worst_off": {
+    "estimate": 0.18745561379263206,
+    "ci_low": 0.13057104950721893,
+    "ci_high": 0.24803656245060837,
+    "n": 61,
+    "n_instances": 23
+   },
+   "worst_off_share": {
+    "estimate": 0.0539648259724275,
+    "ci_low": 0.040083071719022055,
+    "ci_high": 0.06815663117354516,
+    "n": 61,
+    "n_instances": 23
+   },
+   "dist_to_nbs": {
+    "estimate": 0.5486833382362237,
+    "ci_low": 0.4211516304093474,
+    "ci_high": 0.6890123363476066,
+    "n": 61,
+    "n_instances": 23
+   },
+   "dist_to_ks": {
+    "estimate": 0.47903252110179634,
+    "ci_low": 0.3663485179083905,
+    "ci_high": 0.5872183492723194,
+    "n": 61,
+    "n_instances": 23
+   },
+   "normalized_gini": {
+    "estimate": 0.2722136558547562,
+    "ci_low": 0.241435588947856,
+    "ci_high": 0.3022485201607826,
+    "n": 61,
+    "n_instances": 23
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.47186334385611284,
+    "ci_low": 0.3857355973854749,
+    "ci_high": 0.5508460900057042,
+    "n": 61,
+    "n_instances": 23
+   },
+   "max_share": {
+    "estimate": 0.31433290995151064,
+    "ci_low": 0.2975890022079455,
+    "ci_high": 0.3327135791361755,
+    "n": 61,
+    "n_instances": 23
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.46072500000000005,
+    "ci_low": 0.3768906041666667,
+    "ci_high": 0.5479259166666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.2398638664601907,
+    "ci_low": 0.17322770184862143,
+    "ci_high": 0.3117123530183243,
+    "n": 120,
+    "n_instances": 24
+   },
+   "justified_walk": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 59,
+    "n_instances": 23
+   },
+   "missed_deal": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 59,
+    "n_instances": 23
+   },
+   "ir_margin_of_no_deal": {
+    "estimate": 0.3670926198658816,
+    "ci_low": 0.28485231548740203,
+    "ci_high": 0.43998918839159823,
+    "n": 59,
+    "n_instances": 23
+   }
+  },
+  "all_rational": {
+   "deal_rate": {
+    "estimate": 0.23333333333333334,
+    "ci_low": 0.13333333333333333,
+    "ci_high": 0.3416666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 28,
+    "n_instances": 14
+   },
+   "worst_off": {
+    "estimate": 0.14694344596801961,
+    "ci_low": 0.10277973891405223,
+    "ci_high": 0.19436100475353346,
+    "n": 28,
+    "n_instances": 14
+   },
+   "worst_off_share": {
+    "estimate": 0.05224324367491081,
+    "ci_low": 0.03743994830704269,
+    "ci_high": 0.06737766341088748,
+    "n": 28,
+    "n_instances": 14
+   },
+   "dist_to_nbs": {
+    "estimate": 0.5995994212802717,
+    "ci_low": 0.4997858176694715,
+    "ci_high": 0.6796781512666987,
+    "n": 28,
+    "n_instances": 14
+   },
+   "dist_to_ks": {
+    "estimate": 0.5897606666492755,
+    "ci_low": 0.520696106253425,
+    "ci_high": 0.6487571656266502,
+    "n": 28,
+    "n_instances": 14
+   },
+   "normalized_gini": {
+    "estimate": 0.2606935627315637,
+    "ci_low": 0.23841425650619627,
+    "ci_high": 0.28292756312641415,
+    "n": 28,
+    "n_instances": 14
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.40783781598662144,
+    "ci_low": 0.31631314866100474,
+    "ci_high": 0.4849954848827147,
+    "n": 28,
+    "n_instances": 14
+   },
+   "max_share": {
+    "estimate": 0.31364014160553955,
+    "ci_low": 0.29899385144477997,
+    "ci_high": 0.3265161495559122,
+    "n": 28,
+    "n_instances": 14
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.18885833333333338,
+    "ci_low": 0.1109945625,
+    "ci_high": 0.2776496041666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.09516215706354499,
+    "ci_low": 0.05037852437035143,
+    "ci_high": 0.14536570809198895,
+    "n": 120,
+    "n_instances": 24
+   },
+   "justified_walk": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 92,
+    "n_instances": 23
+   },
+   "missed_deal": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 92,
+    "n_instances": 23
+   },
+   "ir_margin_of_no_deal": {
+    "estimate": 0.3631886152489443,
+    "ci_low": 0.285458998992857,
+    "ci_high": 0.43594435365406176,
+    "n": 92,
+    "n_instances": 23
+   }
+  },
+  "all_oracle": {
+   "deal_rate": {
+    "estimate": 0.875,
+    "ci_low": 0.8166666666666667,
+    "ci_high": 0.925,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 105,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": 0.171502430027302,
+    "ci_low": 0.12794727602235606,
+    "ci_high": 0.21571713710708426,
+    "n": 105,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": 0.05042552652512653,
+    "ci_low": 0.0391869910652422,
+    "ci_high": 0.06114111708124006,
+    "n": 105,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.6207211666435756,
+    "ci_low": 0.523046637049288,
+    "ci_high": 0.7361810872506525,
+    "n": 105,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.5447858885777985,
+    "ci_low": 0.4584117520035013,
+    "ci_high": 0.6303605885730293,
+    "n": 105,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.2828620917098212,
+    "ci_low": 0.25800171877652056,
+    "ci_high": 0.30847771455111633,
+    "n": 105,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": 0.42235645713337105,
+    "ci_low": 0.34021541199638194,
+    "ci_high": 0.497740887402987,
+    "n": 105,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.31907463506902306,
+    "ci_low": 0.3048126428927125,
+    "ci_high": 0.33379880562389547,
+    "n": 105,
+    "n_instances": 24
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": 0.7907200000000001,
+    "ci_low": 0.7337484374999999,
+    "ci_high": 0.8422704583333332,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": 0.3695618999916998,
+    "ci_low": 0.2863907898136205,
+    "ci_high": 0.4502309865834517,
+    "n": 120,
+    "n_instances": 24
+   },
+   "justified_walk": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 15,
+    "n_instances": 12
+   },
+   "missed_deal": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 15,
+    "n_instances": 12
+   },
+   "ir_margin_of_no_deal": {
+    "estimate": 0.3738382745419049,
+    "ci_low": 0.25232619924897354,
+    "ci_high": 0.47816148269551706,
+    "n": 15,
+    "n_instances": 12
+   }
+  }
+ },
+ "paired_minus_reference": {
+  "one_rational": {
+   "deal_rate": {
+    "estimate": -0.19166666666666668,
+    "ci_low": -0.275,
+    "ci_high": -0.10833333333333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 90,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": -0.010511324890106739,
+    "ci_low": -0.04255100952906662,
+    "ci_high": 0.01971453343067167,
+    "n": 90,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": -0.004126056934631155,
+    "ci_low": -0.01489076831454836,
+    "ci_high": 0.00558583432885778,
+    "n": 90,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": -0.04831218602726004,
+    "ci_low": -0.13794809667651867,
+    "ci_high": 0.04316372862164221,
+    "n": 90,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": -0.012480152104404563,
+    "ci_low": -0.09722806978288345,
+    "ci_high": 0.0704278657761775,
+    "n": 90,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.004812690536127199,
+    "ci_low": -0.015932041148208082,
+    "ci_high": 0.025852960756011917,
+    "n": 90,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": -0.023579400570546343,
+    "ci_low": -0.06563801328322207,
+    "ci_high": 0.013136600902372546,
+    "n": 90,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.0004958005576147857,
+    "ci_low": -0.008701878109738695,
+    "ci_high": 0.010019547970605178,
+    "n": 90,
+    "n_instances": 24
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": -0.1861875,
+    "ci_low": -0.26643779166666665,
+    "ci_high": -0.10526654166666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": -0.12428215870749343,
+    "ci_low": -0.1881174687529279,
+    "ci_high": -0.06526620244080925,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "one_oracle": {
+   "deal_rate": {
+    "estimate": -0.45,
+    "ci_low": -0.5416666666666666,
+    "ci_high": -0.35,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 56,
+    "n_instances": 22
+   },
+   "worst_off": {
+    "estimate": -0.069978316528893,
+    "ci_low": -0.11526796349728072,
+    "ci_high": -0.02947534716307395,
+    "n": 56,
+    "n_instances": 22
+   },
+   "worst_off_share": {
+    "estimate": -0.02366968896122452,
+    "ci_low": -0.03913416512072669,
+    "ci_high": -0.010287766048152997,
+    "n": 56,
+    "n_instances": 22
+   },
+   "dist_to_nbs": {
+    "estimate": 0.07222204491125066,
+    "ci_low": -0.010456429681427555,
+    "ci_high": 0.15925913752563378,
+    "n": 56,
+    "n_instances": 22
+   },
+   "dist_to_ks": {
+    "estimate": 0.0858961073658959,
+    "ci_low": 0.006112570208330927,
+    "ci_high": 0.16956693189705993,
+    "n": 56,
+    "n_instances": 22
+   },
+   "normalized_gini": {
+    "estimate": 0.048089367455200024,
+    "ci_low": 0.019375946756022045,
+    "ci_high": 0.08118035576685544,
+    "n": 56,
+    "n_instances": 22
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": -0.06784111760204185,
+    "ci_low": -0.13251432670898564,
+    "ci_high": -0.014076784039712784,
+    "n": 56,
+    "n_instances": 22
+   },
+   "max_share": {
+    "estimate": 0.01796155469362104,
+    "ci_low": 0.004319937569353788,
+    "ci_high": 0.03434880229212443,
+    "n": 56,
+    "n_instances": 22
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": -0.4118883333333333,
+    "ci_low": -0.49516310416666665,
+    "ci_high": -0.3205910208333334,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": -0.2725911308925093,
+    "ci_low": -0.34348703106993356,
+    "ci_high": -0.19856450452850785,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_rational": {
+   "deal_rate": {
+    "estimate": -0.725,
+    "ci_low": -0.8333333333333334,
+    "ci_high": -0.6083333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 28,
+    "n_instances": 14
+   },
+   "worst_off": {
+    "estimate": -0.09601933058200689,
+    "ci_low": -0.16342573048294362,
+    "ci_high": -0.02434925865025404,
+    "n": 28,
+    "n_instances": 14
+   },
+   "worst_off_share": {
+    "estimate": -0.028237270199012482,
+    "ci_low": -0.050840661409651454,
+    "ci_high": -0.005457447313703002,
+    "n": 28,
+    "n_instances": 14
+   },
+   "dist_to_nbs": {
+    "estimate": 0.07613537727454613,
+    "ci_low": -0.07889226696044642,
+    "ci_high": 0.25444127895741897,
+    "n": 28,
+    "n_instances": 14
+   },
+   "dist_to_ks": {
+    "estimate": 0.11884514841560789,
+    "ci_low": -0.0242248928566769,
+    "ci_high": 0.29540419783091426,
+    "n": 28,
+    "n_instances": 14
+   },
+   "normalized_gini": {
+    "estimate": 0.03064648220408337,
+    "ci_low": -0.00347122701135036,
+    "ci_high": 0.06831991844975267,
+    "n": 28,
+    "n_instances": 14
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": -0.10288294566010638,
+    "ci_low": -0.19600908216423008,
+    "ci_high": -0.026211589200274752,
+    "n": 28,
+    "n_instances": 14
+   },
+   "max_share": {
+    "estimate": 0.006212406645721159,
+    "ci_low": -0.012709316362332234,
+    "ci_high": 0.022257993484733837,
+    "n": 28,
+    "n_instances": 14
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": -0.6837549999999999,
+    "ci_low": -0.7854839166666666,
+    "ci_high": -0.5802898958333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": -0.4172928402891551,
+    "ci_low": -0.5090030332324634,
+    "ci_high": -0.328382894266642,
+    "n": 120,
+    "n_instances": 24
+   }
+  },
+  "all_oracle": {
+   "deal_rate": {
+    "estimate": -0.08333333333333333,
+    "ci_low": -0.15,
+    "ci_high": -0.016666666666666666,
+    "n": 120,
+    "n_instances": 24
+   },
+   "below_threshold_accept": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 101,
+    "n_instances": 24
+   },
+   "worst_off": {
+    "estimate": -0.07540664402600043,
+    "ci_low": -0.11789908552350155,
+    "ci_high": -0.03312266948038098,
+    "n": 101,
+    "n_instances": 24
+   },
+   "worst_off_share": {
+    "estimate": -0.02390872538428344,
+    "ci_low": -0.03688332684838533,
+    "ci_high": -0.011518544175812407,
+    "n": 101,
+    "n_instances": 24
+   },
+   "dist_to_nbs": {
+    "estimate": 0.1515420152467399,
+    "ci_low": 0.0651098462217751,
+    "ci_high": 0.24298495990984306,
+    "n": 101,
+    "n_instances": 24
+   },
+   "dist_to_ks": {
+    "estimate": 0.15698001260897873,
+    "ci_low": 0.07077967239365554,
+    "ci_high": 0.24758475072550343,
+    "n": 101,
+    "n_instances": 24
+   },
+   "normalized_gini": {
+    "estimate": 0.05499082669964803,
+    "ci_low": 0.031060701920038923,
+    "ci_high": 0.08025889867517136,
+    "n": 101,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare_conditional": {
+    "estimate": -0.11232694375183633,
+    "ci_low": -0.17091296925893487,
+    "ci_high": -0.059998490812368854,
+    "n": 101,
+    "n_instances": 24
+   },
+   "max_share": {
+    "estimate": 0.01873360823221541,
+    "ci_low": 0.006239902900351485,
+    "ci_high": 0.032160522056522575,
+    "n": 101,
+    "n_instances": 24
+   },
+   "below_threshold_episode": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_primary": {
+    "estimate": -0.08189333333333332,
+    "ci_low": -0.14648660416666665,
+    "ci_high": -0.02122120833333332,
+    "n": 120,
+    "n_instances": 24
+   },
+   "normalized_nash_welfare": {
+    "estimate": -0.14289309736100028,
+    "ci_low": -0.2078243279636128,
+    "ci_high": -0.08099174613628286,
+    "n": 120,
+    "n_instances": 24
+   }
+  }
+ },
+ "all_instances_feasible": true,
+ "instance_geometry": [
+  {
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "difficulty_scalar": 0.694187,
+   "difficulty_tags": "hard;no-clear-win-win;pivotal-seat;small-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 5,
+   "feasible_all_ir": true,
+   "ir_margin": 0.0
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-712ba36a4f",
+   "difficulty_scalar": 0.706191,
+   "difficulty_tags": "hard;no-clear-win-win;pivotal-seat",
+   "n_deals": 256,
+   "n_ir_deals": 4,
+   "feasible_all_ir": true,
+   "ir_margin": 0.0
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-9a673abad3",
+   "difficulty_scalar": 0.699699,
+   "difficulty_tags": "hard;high-conflict;pivotal-seat",
+   "n_deals": 256,
+   "n_ir_deals": 9,
+   "feasible_all_ir": true,
+   "ir_margin": 0.08620689655172414
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-9a1b1c0960",
+   "difficulty_scalar": 0.689368,
+   "difficulty_tags": "hard;pivotal-seat",
+   "n_deals": 256,
+   "n_ir_deals": 8,
+   "feasible_all_ir": true,
+   "ir_margin": 0.18421052631578946
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-103cef6017",
+   "difficulty_scalar": 0.638165,
+   "difficulty_tags": "medium;small-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 15,
+   "feasible_all_ir": true,
+   "ir_margin": 0.2692307692307692
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-1fc37540c8",
+   "difficulty_scalar": 0.676476,
+   "difficulty_tags": "high-conflict;large-frontier;medium;no-clear-win-win",
+   "n_deals": 256,
+   "n_ir_deals": 17,
+   "feasible_all_ir": true,
+   "ir_margin": 0.3103448275862069
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-32200851b2",
+   "difficulty_scalar": 0.562257,
+   "difficulty_tags": "easy;high-conflict",
+   "n_deals": 256,
+   "n_ir_deals": 47,
+   "feasible_all_ir": true,
+   "ir_margin": 0.32926829268292684
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-996daa4124",
+   "difficulty_scalar": 0.61343,
+   "difficulty_tags": "easy;large-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 22,
+   "feasible_all_ir": true,
+   "ir_margin": 0.3333333333333333
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-d49e5fe070",
+   "difficulty_scalar": 0.672467,
+   "difficulty_tags": "medium;small-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 5,
+   "feasible_all_ir": true,
+   "ir_margin": 0.36
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-611ee402f7",
+   "difficulty_scalar": 0.55854,
+   "difficulty_tags": "easy",
+   "n_deals": 256,
+   "n_ir_deals": 43,
+   "feasible_all_ir": true,
+   "ir_margin": 0.417910447761194
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-df1e479b72",
+   "difficulty_scalar": 0.63001,
+   "difficulty_tags": "medium;small-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 21,
+   "feasible_all_ir": true,
+   "ir_margin": 0.43103448275862066
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-a8641f6c33",
+   "difficulty_scalar": 0.651538,
+   "difficulty_tags": "medium;small-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 8,
+   "feasible_all_ir": true,
+   "ir_margin": 0.43333333333333335
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-19dae4b672",
+   "difficulty_scalar": 0.62258,
+   "difficulty_tags": "high-conflict;medium",
+   "n_deals": 256,
+   "n_ir_deals": 27,
+   "feasible_all_ir": true,
+   "ir_margin": 0.4387755102040816
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-65113008ad",
+   "difficulty_scalar": 0.624796,
+   "difficulty_tags": "medium",
+   "n_deals": 256,
+   "n_ir_deals": 29,
+   "feasible_all_ir": true,
+   "ir_margin": 0.43902439024390244
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "difficulty_scalar": 0.561029,
+   "difficulty_tags": "easy;large-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 45,
+   "feasible_all_ir": true,
+   "ir_margin": 0.4523809523809524
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-adac68f4ac",
+   "difficulty_scalar": 0.642993,
+   "difficulty_tags": "large-frontier;medium",
+   "n_deals": 256,
+   "n_ir_deals": 17,
+   "feasible_all_ir": true,
+   "ir_margin": 0.4666666666666667
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-0aa50f7b83",
+   "difficulty_scalar": 0.679768,
+   "difficulty_tags": "hard;high-conflict;large-frontier;no-clear-win-win",
+   "n_deals": 256,
+   "n_ir_deals": 14,
+   "feasible_all_ir": true,
+   "ir_margin": 0.46875
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-a483b0d80d",
+   "difficulty_scalar": 0.546303,
+   "difficulty_tags": "easy",
+   "n_deals": 256,
+   "n_ir_deals": 40,
+   "feasible_all_ir": true,
+   "ir_margin": 0.4727272727272727
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-a9097927ce",
+   "difficulty_scalar": 0.551691,
+   "difficulty_tags": "easy",
+   "n_deals": 256,
+   "n_ir_deals": 37,
+   "feasible_all_ir": true,
+   "ir_margin": 0.4827586206896552
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-8a29217702",
+   "difficulty_scalar": 0.68927,
+   "difficulty_tags": "hard;high-conflict;no-clear-win-win;small-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 4,
+   "feasible_all_ir": true,
+   "ir_margin": 0.49122807017543857
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-46e1252af7",
+   "difficulty_scalar": 0.684076,
+   "difficulty_tags": "hard;pivotal-seat",
+   "n_deals": 256,
+   "n_ir_deals": 8,
+   "feasible_all_ir": true,
+   "ir_margin": 0.49230769230769234
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-aabb4d986b",
+   "difficulty_scalar": 0.614162,
+   "difficulty_tags": "easy",
+   "n_deals": 256,
+   "n_ir_deals": 22,
+   "feasible_all_ir": true,
+   "ir_margin": 0.4959349593495935
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-282034699c",
+   "difficulty_scalar": 0.600081,
+   "difficulty_tags": "easy;large-frontier",
+   "n_deals": 256,
+   "n_ir_deals": 27,
+   "feasible_all_ir": true,
+   "ir_margin": 0.55
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-d9a0ef3c04",
+   "difficulty_scalar": 0.7161,
+   "difficulty_tags": "hard;no-clear-win-win;pivotal-seat",
+   "n_deals": 256,
+   "n_ir_deals": 5,
+   "feasible_all_ir": true,
+   "ir_margin": 0.651685393258427
+  }
+ ],
+ "bank_margin_by_tag": {
+  "easy": {
+   "n_instances": 8,
+   "mean_ir_margin": 0.44178923486561605,
+   "min_ir_margin": 0.32926829268292684
+  },
+  "hard": {
+   "n_instances": 8,
+   "mean_ir_margin": 0.29679857232613394,
+   "min_ir_margin": 0.0
+  },
+  "high-conflict": {
+   "n_instances": 6,
+   "mean_ir_margin": 0.35409559953339637,
+   "min_ir_margin": 0.08620689655172414
+  },
+  "large-frontier": {
+   "n_instances": 6,
+   "mean_ir_margin": 0.4302459633278599,
+   "min_ir_margin": 0.3103448275862069
+  },
+  "medium": {
+   "n_instances": 8,
+   "mean_ir_margin": 0.3935512475029476,
+   "min_ir_margin": 0.2692307692307692
+  },
+  "no-clear-win-win": {
+   "n_instances": 6,
+   "mean_ir_margin": 0.32033471517001205,
+   "min_ir_margin": 0.0
+  },
+  "pivotal-seat": {
+   "n_instances": 6,
+   "mean_ir_margin": 0.2357350847389388,
+   "min_ir_margin": 0.0
+  },
+  "small-frontier": {
+   "n_instances": 6,
+   "mean_ir_margin": 0.330804442583027,
+   "min_ir_margin": 0.0
+  }
+ },
+ "walk_by_tag": {
+  "all_llm": {
+   "easy": {
+    "n_no_deal": 2,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.44166666666666665
+   },
+   "hard": {
+    "n_no_deal": 2,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.0
+   },
+   "high-conflict": {
+    "n_no_deal": 0,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": NaN
+   },
+   "large-frontier": {
+    "n_no_deal": 2,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.44166666666666665
+   },
+   "medium": {
+    "n_no_deal": 1,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.2692307692307692
+   },
+   "no-clear-win-win": {
+    "n_no_deal": 2,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.0
+   },
+   "pivotal-seat": {
+    "n_no_deal": 2,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.0
+   },
+   "small-frontier": {
+    "n_no_deal": 2,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.1346153846153846
+   }
+  },
+  "one_rational": {
+   "easy": {
+    "n_no_deal": 6,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.411338766538169
+   },
+   "hard": {
+    "n_no_deal": 16,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.27746280363555487
+   },
+   "high-conflict": {
+    "n_no_deal": 6,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.3254813710228754
+   },
+   "large-frontier": {
+    "n_no_deal": 7,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.4438350340136055
+   },
+   "medium": {
+    "n_no_deal": 6,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.4505653677226427
+   },
+   "no-clear-win-win": {
+    "n_no_deal": 11,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.30966021092055984
+   },
+   "pivotal-seat": {
+    "n_no_deal": 13,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.22986143983215387
+   },
+   "small-frontier": {
+    "n_no_deal": 6,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.3078039927404718
+   }
+  },
+  "one_oracle": {
+   "easy": {
+    "n_no_deal": 20,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.4277853988063245
+   },
+   "hard": {
+    "n_no_deal": 21,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.28303135656823536
+   },
+   "high-conflict": {
+    "n_no_deal": 13,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.3937972125342885
+   },
+   "large-frontier": {
+    "n_no_deal": 15,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.4342610837438424
+   },
+   "medium": {
+    "n_no_deal": 18,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.397727672668199
+   },
+   "no-clear-win-win": {
+    "n_no_deal": 17,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.30134453810072737
+   },
+   "pivotal-seat": {
+    "n_no_deal": 15,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.20574682317213772
+   },
+   "small-frontier": {
+    "n_no_deal": 14,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.30261323068945567
+   }
+  },
+  "all_rational": {
+   "easy": {
+    "n_no_deal": 20,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.42783676535022835
+   },
+   "hard": {
+    "n_no_deal": 39,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.30440879212936817
+   },
+   "high-conflict": {
+    "n_no_deal": 26,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.3544311947248365
+   },
+   "large-frontier": {
+    "n_no_deal": 22,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.42616388640095537
+   },
+   "medium": {
+    "n_no_deal": 33,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.39347498190463465
+   },
+   "no-clear-win-win": {
+    "n_no_deal": 28,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.3321320224112198
+   },
+   "pivotal-seat": {
+    "n_no_deal": 29,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.2438638807644195
+   },
+   "small-frontier": {
+    "n_no_deal": 26,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.32134240416384774
+   }
+  },
+  "all_oracle": {
+   "easy": {
+    "n_no_deal": 6,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.4248603419755648
+   },
+   "hard": {
+    "n_no_deal": 5,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.27791553661371565
+   },
+   "high-conflict": {
+    "n_no_deal": 4,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.2958797480304149
+   },
+   "large-frontier": {
+    "n_no_deal": 1,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.4523809523809524
+   },
+   "medium": {
+    "n_no_deal": 4,
+    "n_episodes": 40,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.41720859580165115
+   },
+   "no-clear-win-win": {
+    "n_no_deal": 4,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.3258426966292135
+   },
+   "pivotal-seat": {
+    "n_no_deal": 5,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.27791553661371565
+   },
+   "small-frontier": {
+    "n_no_deal": 3,
+    "n_episodes": 30,
+    "justified_walks": 0,
+    "mean_ir_margin": 0.2636781609195402
+   }
+  }
+ },
+ "margin_vs_no_deal_rate": {
+  "all_llm": {
+   "pearson_r": -0.46490335738860106,
+   "ci_low": -0.8231415110480709,
+   "ci_high": 0.08922968287703967,
+   "n_instances": 24
+  },
+  "one_rational": {
+   "pearson_r": -0.2492323190001127,
+   "ci_low": -0.6984654747678015,
+   "ci_high": 0.3083499966431045,
+   "n_instances": 24
+  },
+  "one_oracle": {
+   "pearson_r": -0.1396721151073083,
+   "ci_low": -0.5159657115489842,
+   "ci_high": 0.3080315747022848,
+   "n_instances": 24
+  },
+  "all_rational": {
+   "pearson_r": -0.25578659513352464,
+   "ci_low": -0.544670415394607,
+   "ci_high": 0.08202613376003876,
+   "n_instances": 24
+  },
+  "all_oracle": {
+   "pearson_r": -0.01962438558821405,
+   "ci_low": -0.43766978268775064,
+   "ci_high": 0.3801127923885465,
+   "n_instances": 24
+  }
+ },
+ "no_deal_scatter": {
+  "all_llm": [
+   [
+    0.0,
+    0.2
+   ],
+   [
+    0.0,
+    0.2
+   ],
+   [
+    0.08620689655172414,
+    0.0
+   ],
+   [
+    0.18421052631578946,
+    0.0
+   ],
+   [
+    0.2692307692307692,
+    0.2
+   ],
+   [
+    0.3103448275862069,
+    0.0
+   ],
+   [
+    0.32926829268292684,
+    0.0
+   ],
+   [
+    0.3333333333333333,
+    0.2
+   ],
+   [
+    0.36,
+    0.0
+   ],
+   [
+    0.417910447761194,
+    0.0
+   ],
+   [
+    0.43103448275862066,
+    0.0
+   ],
+   [
+    0.43333333333333335,
+    0.0
+   ],
+   [
+    0.4387755102040816,
+    0.0
+   ],
+   [
+    0.43902439024390244,
+    0.0
+   ],
+   [
+    0.4523809523809524,
+    0.0
+   ],
+   [
+    0.4666666666666667,
+    0.0
+   ],
+   [
+    0.46875,
+    0.0
+   ],
+   [
+    0.4727272727272727,
+    0.0
+   ],
+   [
+    0.4827586206896552,
+    0.0
+   ],
+   [
+    0.49122807017543857,
+    0.0
+   ],
+   [
+    0.49230769230769234,
+    0.0
+   ],
+   [
+    0.4959349593495935,
+    0.0
+   ],
+   [
+    0.55,
+    0.2
+   ],
+   [
+    0.651685393258427,
+    0.0
+   ]
+  ],
+  "one_rational": [
+   [
+    0.0,
+    0.4
+   ],
+   [
+    0.0,
+    0.6
+   ],
+   [
+    0.08620689655172414,
+    0.4
+   ],
+   [
+    0.18421052631578946,
+    0.4
+   ],
+   [
+    0.2692307692307692,
+    0.0
+   ],
+   [
+    0.3103448275862069,
+    0.0
+   ],
+   [
+    0.32926829268292684,
+    0.2
+   ],
+   [
+    0.3333333333333333,
+    0.2
+   ],
+   [
+    0.36,
+    0.0
+   ],
+   [
+    0.417910447761194,
+    0.2
+   ],
+   [
+    0.43103448275862066,
+    0.2
+   ],
+   [
+    0.43333333333333335,
+    0.2
+   ],
+   [
+    0.4387755102040816,
+    0.0
+   ],
+   [
+    0.43902439024390244,
+    0.2
+   ],
+   [
+    0.4523809523809524,
+    0.4
+   ],
+   [
+    0.4666666666666667,
+    0.6
+   ],
+   [
+    0.46875,
+    0.2
+   ],
+   [
+    0.4727272727272727,
+    0.0
+   ],
+   [
+    0.4827586206896552,
+    0.2
+   ],
+   [
+    0.49122807017543857,
+    0.4
+   ],
+   [
+    0.49230769230769234,
+    0.2
+   ],
+   [
+    0.4959349593495935,
+    0.0
+   ],
+   [
+    0.55,
+    0.0
+   ],
+   [
+    0.651685393258427,
+    0.6
+   ]
+  ],
+  "one_oracle": [
+   [
+    0.0,
+    0.6
+   ],
+   [
+    0.0,
+    0.8
+   ],
+   [
+    0.08620689655172414,
+    0.2
+   ],
+   [
+    0.18421052631578946,
+    0.6
+   ],
+   [
+    0.2692307692307692,
+    0.6
+   ],
+   [
+    0.3103448275862069,
+    0.2
+   ],
+   [
+    0.32926829268292684,
+    0.6
+   ],
+   [
+    0.3333333333333333,
+    0.4
+   ],
+   [
+    0.36,
+    0.4
+   ],
+   [
+    0.417910447761194,
+    0.6
+   ],
+   [
+    0.43103448275862066,
+    0.6
+   ],
+   [
+    0.43333333333333335,
+    0.2
+   ],
+   [
+    0.4387755102040816,
+    0.4
+   ],
+   [
+    0.43902439024390244,
+    0.6
+   ],
+   [
+    0.4523809523809524,
+    1.0
+   ],
+   [
+    0.4666666666666667,
+    0.6
+   ],
+   [
+    0.46875,
+    0.8
+   ],
+   [
+    0.4727272727272727,
+    0.4
+   ],
+   [
+    0.4827586206896552,
+    0.6
+   ],
+   [
+    0.49122807017543857,
+    0.4
+   ],
+   [
+    0.49230769230769234,
+    0.2
+   ],
+   [
+    0.4959349593495935,
+    0.4
+   ],
+   [
+    0.55,
+    0.0
+   ],
+   [
+    0.651685393258427,
+    0.6
+   ]
+  ],
+  "all_rational": [
+   [
+    0.0,
+    0.8
+   ],
+   [
+    0.0,
+    1.0
+   ],
+   [
+    0.08620689655172414,
+    1.0
+   ],
+   [
+    0.18421052631578946,
+    1.0
+   ],
+   [
+    0.2692307692307692,
+    0.8
+   ],
+   [
+    0.3103448275862069,
+    0.8
+   ],
+   [
+    0.32926829268292684,
+    0.6
+   ],
+   [
+    0.3333333333333333,
+    0.6
+   ],
+   [
+    0.36,
+    1.0
+   ],
+   [
+    0.417910447761194,
+    0.8
+   ],
+   [
+    0.43103448275862066,
+    1.0
+   ],
+   [
+    0.43333333333333335,
+    0.4
+   ],
+   [
+    0.4387755102040816,
+    0.8
+   ],
+   [
+    0.43902439024390244,
+    0.8
+   ],
+   [
+    0.4523809523809524,
+    0.6
+   ],
+   [
+    0.4666666666666667,
+    1.0
+   ],
+   [
+    0.46875,
+    1.0
+   ],
+   [
+    0.4727272727272727,
+    0.0
+   ],
+   [
+    0.4827586206896552,
+    0.6
+   ],
+   [
+    0.49122807017543857,
+    1.0
+   ],
+   [
+    0.49230769230769234,
+    1.0
+   ],
+   [
+    0.4959349593495935,
+    0.4
+   ],
+   [
+    0.55,
+    0.4
+   ],
+   [
+    0.651685393258427,
+    1.0
+   ]
+  ],
+  "all_oracle": [
+   [
+    0.0,
+    0.2
+   ],
+   [
+    0.0,
+    0.2
+   ],
+   [
+    0.08620689655172414,
+    0.2
+   ],
+   [
+    0.18421052631578946,
+    0.0
+   ],
+   [
+    0.2692307692307692,
+    0.0
+   ],
+   [
+    0.3103448275862069,
+    0.0
+   ],
+   [
+    0.32926829268292684,
+    0.4
+   ],
+   [
+    0.3333333333333333,
+    0.0
+   ],
+   [
+    0.36,
+    0.2
+   ],
+   [
+    0.417910447761194,
+    0.0
+   ],
+   [
+    0.43103448275862066,
+    0.2
+   ],
+   [
+    0.43333333333333335,
+    0.0
+   ],
+   [
+    0.4387755102040816,
+    0.2
+   ],
+   [
+    0.43902439024390244,
+    0.2
+   ],
+   [
+    0.4523809523809524,
+    0.2
+   ],
+   [
+    0.4666666666666667,
+    0.0
+   ],
+   [
+    0.46875,
+    0.0
+   ],
+   [
+    0.4727272727272727,
+    0.2
+   ],
+   [
+    0.4827586206896552,
+    0.4
+   ],
+   [
+    0.49122807017543857,
+    0.0
+   ],
+   [
+    0.49230769230769234,
+    0.0
+   ],
+   [
+    0.4959349593495935,
+    0.0
+   ],
+   [
+    0.55,
+    0.0
+   ],
+   [
+    0.651685393258427,
+    0.4
+   ]
+  ]
+ },
+ "plots": [
+  "/tmp/user/24430/claude-24430/-juice2-u-siddharth-ii-mats/e0a0c169-760e-4f47-aed3-e33a204f332a/scratchpad/basket_full/fairness_basket.png",
+  "/tmp/user/24430/claude-24430/-juice2-u-siddharth-ii-mats/e0a0c169-760e-4f47-aed3-e33a204f332a/scratchpad/basket_full/fairness_basket.pdf"
+ ]
+}
