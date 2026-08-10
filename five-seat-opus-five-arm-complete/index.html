@@ -36,12 +36,30 @@
       <tbody>
         <tr><td>Five Opus LLMs</td><td>0.8726 [0.8328, 0.9104]</td><td>115 / 120</td><td>0.9583 [0.9250, 0.9917]</td></tr>
         <tr><td>Four Opus + one rational</td><td>0.6864 [0.6132, 0.7594]</td><td>92 / 120</td><td>0.7667 [0.6917, 0.8417]</td></tr>
-        <tr><td>Four Opus + one oracle</td><td>0.4607 [0.3771, 0.5436]</td><td>61 / 120</td><td>0.5083 [0.4167, 0.6000]</td></tr>
+        <tr><td>Four Opus + one oracle <em>(spoiled ballot &mdash; re-run in flight)</em></td><td>0.4607 [0.3771, 0.5436]</td><td>61 / 120</td><td>0.5083 [0.4167, 0.6000]</td></tr>
         <tr><td>Five rational agents</td><td>0.1889 [0.1098, 0.2782]</td><td>28 / 120</td><td>0.2333 [0.1333, 0.3417]</td></tr>
-        <tr><td>Five oracle agents</td><td>0.7907 [0.7343, 0.8417]</td><td>105 / 120</td><td>0.8750 [0.8167, 0.9250]</td></tr>
+        <tr><td>Five oracle agents <em>(spoiled ballot &mdash; superseded)</em></td><td>0.7907 [0.7343, 0.8417]</td><td>105 / 120</td><td>0.8750 [0.8167, 0.9250]</td></tr>
+        <tr><td><strong>Five oracle agents &mdash; ballot repaired</strong></td><td><strong>0.9069 [0.8803, 0.9325]</strong></td><td><strong>120 / 120</strong></td><td><strong>1.0000 [1.0000, 1.0000]</strong></td></tr>
       </tbody>
     </table>
   </section>
+
+  <div class="finding" style="border-left-color:#b45309;background:#fdf6ec">
+    <strong>Erratum (2026-08-10) &mdash; the oracle arms' closure numbers are a spoiled ballot.</strong>
+    The omniscient seat cast its forced-final vote on whichever live offer it valued most instead of the one
+    offer under the up/down vote; the protocol rejected that as a legality error, the seat repeated itself on
+    its single retry, and the turn was recorded as a <em>pass</em>. That consumed <strong>94 of 107</strong>
+    (87.9%) of the five-oracle arm's forced-final turns &mdash; touching <strong>every one</strong> of its 15
+    no-deals &mdash; and 114 of 334 in the one-oracle arm (57 of its 59). The Opus and rational arms are
+    unaffected. Repaired and re-run on the identical games, the five-oracle arm closes
+    <strong>every game</strong> and its paired score against all-LLM flips from &minus;0.082 to
+    <strong>+0.034 [+0.001, +0.074]</strong>. The distributional finding survives and sharpens: it now closes
+    <em>more</em> often than all-LLM (+0.042 [+0.017, +0.075]) and still splits worse on every column. Full
+    account in research note 0045 (repair commit <code>ca20157</code>); details in
+    <a href="analysis/analysis.md">analysis.md</a> and the
+    <a href="../seeded-optimal-opening/index.html">seeded-optimal-opening hub</a>. The one-oracle re-run needs
+    API budget and is in flight.
+  </div>
 
   <h2>Headline comparison</h2>
   <p class="finding"><strong>Five rational minus one rational:</strong> −0.4976 normalized score, 95% CI [−0.5901, −0.4036], and −53.3 percentage points of deal rate, 95% CI [−62.5, −43.3]. One rational agent was much less brittle than an entirely rational table, but five Opus agents still performed best.</p>

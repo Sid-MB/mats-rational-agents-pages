@@ -1,14 +1,34 @@
 # Five-seat private-information campaign
 
+> ## ⚠ ERRATUM (2026-08-10) — the oracle arms' CLOSURE numbers on this page are measured on an agent with a spoiled ballot
+>
+> The omniscient seat cast its **forced-final** vote on whichever live offer it valued most instead of the one
+> offer under the up/down vote. The protocol rejects that as a legality error, the seat repeats itself on its
+> single retry, and the turn is recorded as a **pass** — a silent abstention. It consumed **94 of 107 (87.9%)**
+> of `all_oracle`'s forced-final turns, touching **every one** of its 15 no-deals, and **114 of 334 (34.1%)** of
+> `one_oracle`'s, touching 57 of its 59. The `all_llm`, `one_rational` and `all_rational` arms are unaffected
+> (`all_rational` 0 of 476 — its terminal vote reads the standing offer).
+>
+> Re-running `all_oracle` on the identical 120 games with the ballot repaired: **deal rate 0.875 → 1.000**,
+> **score 0.791 → 0.907**, paired score gain vs all-LLM **−0.082 → +0.034 [+0.001, +0.074]** — a sign flip.
+> Rows below marked *(spoiled ballot)* are kept as the record of what was computed; the **repaired** rows are
+> the ones to read. `one_oracle`'s re-run needs API budget and is in flight; its rows are flagged but not yet
+> corrected.
+>
+> Full account: research note **0045**; repair commit `ca20157`. The distributional finding is unchanged —
+> see the fairness-basket erratum in note 0043 — and is in fact cleaner, because the repaired `all_oracle`
+> now closes **more** often than all-LLM (+0.042 [+0.017, +0.075]) and still splits worse on every column.
+
 All intervals are 95% instance-clustered bootstrap intervals; no-deal scores zero.
 
 | logical arm | n | normalized score [95% CI] | deal rate [95% CI] | paired score gain vs all-LLM | among-deals mean score (median, IQR) | among-deals per-party z: mean [95% CI], median, IQR |
 |---|---:|---:|---:|---:|---:|---:|
 | all_llm | 120 | 0.873 [0.833, 0.910] | 0.958 [0.925, 0.992] | reference | 0.911 (0.946, [0.838, 1.000]) n=115 | 0.653 [0.620, 0.690], 0.667, [0.433, 1.000] |
 | one_rational | 120 | 0.686 [0.613, 0.759] | 0.767 [0.692, 0.842] | -0.186 [-0.267, -0.106] | 0.895 (0.931, [0.825, 1.000]) n=92 | 0.639 [0.605, 0.675], 0.657, [0.431, 1.000] |
-| one_oracle | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 | 0.654 [0.618, 0.691], 0.688, [0.360, 1.000] |
+| one_oracle *(spoiled ballot; re-run in flight)* | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 | 0.654 [0.618, 0.691], 0.688, [0.360, 1.000] |
 | all_rational | 120 | 0.189 [0.110, 0.278] | 0.233 [0.133, 0.342] | -0.684 [-0.786, -0.580] | 0.809 (0.830, [0.699, 0.922]) n=28 | 0.554 [0.512, 0.611], 0.567, [0.329, 0.762] |
-| all_oracle | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] | 0.904 (0.963, [0.841, 1.000]) n=105 | 0.643 [0.614, 0.673], 0.674, [0.316, 1.000] |
+| all_oracle *(spoiled ballot — superseded)* | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] | 0.904 (0.963, [0.841, 1.000]) n=105 | 0.643 [0.614, 0.673], 0.674, [0.316, 1.000] |
+| **all_oracle — ballot repaired** | 120 | **0.907 [0.880, 0.933]** | **1.000 [1.000, 1.000]** | **+0.034 [+0.001, +0.074]** | 0.907 (0.982, [0.843, 1.000]) n=120 | 0.645 [0.611, 0.681], 0.684, [0.310, 1.000] |
 
 Both among-deals columns condition on a closed deal (per-arm deal counts beside them — the standing censoring caveat applies: each arm's closed set is self-selected, and a low-deal-rate arm's column describes a different, easier subset of games). The score column is the episode-level ceiling-normalized score; the per-party z column pools party-observations (each closed deal contributes its five z_i = (u_i − τ_i)/c_i; no per-deal averaging first), with an instance-clustered bootstrap CI on the mean and plain empirical quartiles. Four of five arms land within 0.016 of each other on among-deals score (0.895–0.911) and within 0.015 on per-party z (0.639–0.654); only `all_rational` is materially lower on both (0.809 score, 0.554 z, the widest IQRs), so essentially the entire between-arm spread of the unconditional headline column is the deal-rate column, not deal quality.
 
@@ -57,7 +77,8 @@ Every column below is computed over closed deals only, so `deal rate` is carried
 | `one_rational` | 120 | 0.767 [0.683, 0.842] | 0.000 [0.000, 0.000] | 0.239 [0.197, 0.282] | 0.073 [0.061, 0.084] | 0.444 [0.343, 0.568] | 0.414 [0.332, 0.491] | 0.231 [0.209, 0.255] | 0.506 [0.440, 0.564] | 0.301 [0.289, 0.313] |
 | `one_oracle` | 120 | 0.508 [0.417, 0.600] | 0.000 [0.000, 0.000] | 0.187 [0.131, 0.248] | 0.054 [0.040, 0.068] | 0.549 [0.421, 0.689] | 0.479 [0.366, 0.587] | 0.272 [0.241, 0.302] | 0.472 [0.386, 0.551] | 0.314 [0.298, 0.333] |
 | `all_rational` | 120 | 0.233 [0.133, 0.342] | 0.000 [0.000, 0.000] | 0.147 [0.103, 0.194] | 0.052 [0.037, 0.067] | 0.600 [0.500, 0.680] | 0.590 [0.521, 0.649] | 0.261 [0.238, 0.283] | 0.408 [0.316, 0.485] | 0.314 [0.299, 0.327] |
-| `all_oracle` | 120 | 0.875 [0.817, 0.925] | 0.000 [0.000, 0.000] | 0.172 [0.128, 0.216] | 0.050 [0.039, 0.061] | 0.621 [0.523, 0.736] | 0.545 [0.458, 0.630] | 0.283 [0.258, 0.308] | 0.422 [0.340, 0.498] | 0.319 [0.305, 0.334] |
+| `all_oracle` *(spoiled ballot — superseded)* | 120 | 0.875 [0.817, 0.925] | 0.000 [0.000, 0.000] | 0.172 [0.128, 0.216] | 0.050 [0.039, 0.061] | 0.621 [0.523, 0.736] | 0.545 [0.458, 0.630] | 0.283 [0.258, 0.308] | 0.422 [0.340, 0.498] | 0.319 [0.305, 0.334] |
+| **`all_oracle` — ballot repaired** | 120 | **1.000 [1.000, 1.000]** | 0.000 [0.000, 0.000] | 0.166 [0.118, 0.220] | 0.048 [0.037, 0.061] | 0.631 [0.520, 0.756] | 0.549 [0.449, 0.649] | 0.285 [0.256, 0.314] | 0.406 [0.316, 0.491] | 0.319 [0.303, 0.336] |
 
 Lower is better for below-threshold accept, dist-NBS, dist-KS, Gini, and max share; higher is better for worst-off z, worst-off share, and normalized Nash welfare. An equal split puts worst-off share at 0.200 and max share at 0.200.
 
