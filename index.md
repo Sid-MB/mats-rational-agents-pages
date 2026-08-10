@@ -8,6 +8,12 @@ The main campaign per the "what I want to see" brief: **five-seat scorable negot
 - [five-seat-robustness-opus-abstract-complete](./five-seat-robustness-opus-abstract-complete/index.html): robustness subset 1 — same design with **no datacenter framing** (abstract issue/option labels), still private-info Opus.
 - [five-seat-qwen3-8b-robustness-complete](./five-seat-qwen3-8b-robustness-complete/index.html): robustness subset 2 — same design on **Qwen3-8B** (open-weight), private info.
 
+<!-- [implement: rational_agents orig (results review)--optimal on the table] 2026-08-10 — the seeded-optimal-opening hub. -->
+
+## Putting the best deal on the table before anyone speaks (August 2026)
+
+- [seeded-optimal-opening](./seeded-optimal-opening/index.html): the five-arm campaign left open whether the computable lineups' closure failures are a **search** failure or a **judgment** failure, so this experiment deletes the search problem — a neutral non-voting facilitator tables the instance's **ceiling deal** (the package the campaign's normalized score calls 1.0) before any seat speaks, with a mediocre-but-signable **placebo** as the control. Headline: it fixes nobody's closure problem. The private Bayesian lineup closes **0.233** of its games with the optimum standing all game, against **0.233** with nothing tabled (paired 0.000 [−0.050, +0.050]); the omniscient lineup clearly *recognizes* the deal (immediate acceptance **0.325** vs **0.075** for the placebo, paired +0.250 [+0.142, +0.358]) and yet closes **fewer** deals than with an empty table (−0.092 [−0.158, −0.033]). The two families also refuse for different reasons: Bayesian seats refuse in proportion to how thin their own slice is, omniscient seats refuse on continuation value — so the weakest seats accept most readily. Research note 0045; the model-free arms are complete and gated, the Opus arms are in flight.
+
 ## Earlier runs
 
 - [apibehav_mixed_rat0_sonnet5_thinkon](./apibehav_mixed_rat0_sonnet5_thinkon/index.html): Sonnet negotiation where one out of the five agents is a rational agent and the other four are normal LLMs. Note the following:
