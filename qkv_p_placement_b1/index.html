@@ -79,20 +79,24 @@
   </section>
   <p class="small">Paired on (parameter set, seed) so a difference is always between two episodes of the same game at the same seed; intervals resample whole parameter sets as clusters (10000 draws, base seed 20260804). Recomputed from the campaign's episode table by <code>tom/qkv/build_qkv_paired_viewer.py</code> and checked against the frozen <code>results.json</code>, not transcribed from it.</p>
 
-
   <h2>Open the paired transcripts</h2>
   <div class="links">
     <a href="place_vs_r1/index.html">Writing at real text vs writing at the reserved placeholder<span>The rung&#x27;s own question, and the one to open first. Same game, same seed, same prompt, same payload — only the positions it is written at differ. Site salience predicted the real-text site would win; it loses. — 10 matched pairs, chosen by the shared anchor set — games where the two injection sites disagreed on whether the candidate reached the table.</span></a>
     <a href="place_vs_none/index.html">The same ten games against no advice at all<span>The third arm on the identical ten games as the view above, so the two read together as a three-way: what each injection site did, against a seat that was given nothing. — 10 matched pairs, chosen by the shared anchor set — games where the two injection sites disagreed on whether the candidate reached the table.</span></a>
-    <a href="place_vs_text/index.html">Placement injection vs the same package as prompt text<span>The channel comparison on this panel: the gap between a retrieved payload and a read one. — 6 matched pairs, chosen by strategy largest-effect.</span></a>
-    <a href="place_malformed/index.html">The formatting cost — malformed episodes<span>Injection buys behaviour and pays formatting. These are episodes the placement arm ended malformed while the no-advice control, same game and seed, did not. — 6 matched pairs, chosen by strategy malformed.</span></a>
+    <a href="place_vs_text/index.html">Placement injection vs the same package as prompt text<span>The channel comparison on this panel: the gap between a retrieved payload and a read one. — 6 matched pairs, chosen by the games where the two arms&#x27; welfare ended furthest apart.</span></a>
+    <a href="place_malformed/index.html">The formatting cost — malformed episodes<span>Injection buys behaviour and pays formatting. These are episodes the placement arm ended malformed while the no-advice control, same game and seed, did not. — 6 matched pairs, chosen by the games the left arm ended malformed while the right arm did not.</span></a>
   </div>
-  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. The campaign holds 1200 episodes; these views render the pairs each strategy names, not all of them.</p>
+  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. This panel holds 1200 episodes; these views render the pairs each strategy names, not all of them.</p>
+
+
 
   <h2>The full record</h2>
   <div class="links">
-    <a href="../writeup_tom_lane.pdf">Lane writeup (PDF, 28pp)<span>The attention-interface ladder is chapter §7, Amendments 2 and 3 included.</span></a>
-    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.QKV-Attention-Interface">Public dataset<span>2026.RA.QKV-Attention-Interface — every rung's tables and narrative.</span></a>
+    <a href="../writeup_tom_lane.pdf">Lane writeup (PDF, 32pp)<span>The attention-interface ladder is chapter §7, Amendments 2 through 5 included.</span></a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.QKV-Attention-Interface">Public dataset<span>2026.RA.QKV-Attention-Interface — every rung&#x27;s tables and narrative.</span></a>
+    <a href="../qkv_r1_kv_vs_text_b1/index.html">Rung R1 — the headline K/V rung<span>Qwen3-8B, four arms: the channel at 69% of the prompt-text ceiling where input-level virtual tokens were zero.</span></a>
+    <a href="../qkv_u1_parity_b1/index.html">Rung U1 — train the writer on the act, not on restatability<span>The uptake gap closes: 0.853 of the text ceiling, and the difference to text is no longer resolvable.</span></a>
+    <a href="../qkv_g_generality_b1/index.html">Rung G — the same recipe on two other models<span>Olmo-3-7B-Instruct and Qwen3-4B: the channel ports across family, scale and attention architecture.</span></a>
     <a href="../">All rational-agent runs<span>Back to the index of published campaigns.</span></a>
   </div>
   <p class="small">Full methodology, the preregistration, the gate verdicts and a 19-entry controls-catches ledger live in research note 0029 (<code>experiments/rational_agents/research-notes/0029-qkv-attention-interface.md</code>) in the project repository.</p>

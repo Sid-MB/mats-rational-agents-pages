@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rung G — the same recipe on two other models</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink); font:15px/1.5 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:900px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 8px 24px rgba(29,58,43,.06); }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .links a span { display:block; color:var(--muted); font-weight:400; font-size:13px; margin-top:5px; }
+    .finding { border-left:4px solid var(--accent); padding:10px 14px; background:#eef7f1; margin:10px 0; border-radius:0 8px 8px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    code { background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13px; }
+    dl { margin:0; } dt { font-weight:650; margin-top:10px; } dd { margin:2px 0 0; color:var(--muted); }
+  </style>
+</head>
+<body><main>
+  <h1>Rung G — the same recipe on two other models</h1>
+  <p class="lede">Amendment 5 asks the scope question the ladder had never stated: every headline number came from one model, Qwen/Qwen3-8B. Rung R1's recipe was re-run <strong>verbatim</strong> — only <code>--model</code> changed — on <strong>Olmo-3-7B-Instruct</strong> (different pretraining family, no grouped-query attention, hybrid sliding/full attention) and <strong>Qwen3-4B</strong> (same family, half the scale), each with its own text anchor and no-advice control, each preceded by a mechanics gate run on the real GPU. Both models pass all four preregistered gates: the mechanism ports across family, scale and attention architecture.</p>
+
+  <h2>What a reader should look for</h2>
+  <p class="finding"><strong>Two models, two panels, never one control.</strong> Each model carries its own <code>A_text_g</code> and <code>C_none_g</code> arms, because a shared control would price which model negotiates better rather than whether the channel works. Only the within-panel ratio is comparable across models.</p>
+  <p class="finding"><strong>Olmo reaches its own text arm — and the ceiling it reaches is a weak one.</strong> Channel vs text is <strong>−0.0031 [−0.0343, +0.0273]</strong>, the closest the ladder has come to text on any model; but Olmo's own text anchor is <strong>+0.0801</strong> against Qwen3-8B's +0.26 in the same design, so the bar it clears is low. The pattern across three models is inverse: the weaker a model's response to prose advice, the closer the K/V channel comes to matching it.</p>
+  <p class="finding"><strong>Every safety readout on Olmo improves.</strong> The deal rate <em>rises</em> +0.0750 [+0.0042, +0.1458] — the only gate-relevant deal-rate improvement anywhere in the ladder — and malformed episodes <em>fall</em> −0.1250 [−0.1917, −0.0583], on a model that ends 41.3% of its no-advice episodes malformed.</p>
+  <p class="finding"><strong>At 4B, prompt text works without tabling.</strong> Text tabling collapses from 62.5% at 8B to <strong>15.8%</strong> at 4B while its welfare effect falls only about a quarter (+0.1991 against +0.26). The act the whole text effect ran through at 8B is not what carries it at 4B — the last view is that, in transcripts.</p>
+  <p class="finding">The two K/V arms and the no-advice control send the model a <strong>byte-identical prompt</strong>. Everything that differs is written straight into every layer's <code>k_proj</code>/<code>v_proj</code> output at 38 reserved positions, so scrolling the transcripts will not show you the intervention — you can only see what it did. That is what makes the side-by-side worth reading: same game, same seed, same words in, different behaviour out.</p>
+  <p class="finding"><strong>The isolation gate on Qwen3-4B passes by essentially nothing</strong> (+0.0386 [<strong>+0.0002</strong>, +0.0759]), and its mis-drawn arm also beats no advice (+0.0444 [+0.0095, +0.0798]), so more than half the primary effect is bought by a plan being present at all rather than by the candidate's identity. Content-specificity here is "not refuted", not "demonstrated".</p>
+
+  <h2>Olmo-3-7B-Instruct — a different pretraining family and a different attention architecture</h2>
+  <p class="lede">960 episodes (24 held-out games × 10 seeds × 4 arms), 0 fabricated turns of 20,776 attempted. Olmo-3 has <strong>no grouped-query attention</strong> (32 KV heads, 32 layers) and a <strong>hybrid stack</strong> of 8 full-attention layers plus 24 sliding-window ones at width 4096 — so before any encoder trained, a mechanics gate proved on the real GPU that re-injecting a span's own captured K/V leaves the logits <strong>bit-identical</strong> (max abs delta 0.0000) while a magnitude-matched perturbation of the same tensors moves them by ~11.9. Holding Amendment 5's recipe fixed rather than its capacity gives this model a 67.5M-parameter encoder against Qwen3-4B's 19.1M; that is disclosed, not corrected.</p>
+
+  <h3>The arms</h3>
+  <section class="card"><dl>
+    <dt><code>A_text_g</code></dt><dd>the candidate package as ordinary prompt text — Olmo's own ceiling</dd>
+    <dt><code>KV_g</code></dt><dd>the same candidate written as per-layer K/V at 38 reserved positions; the prompt is unchanged</dd>
+    <dt><code>KV_g_shuffled</code></dt><dd>the identical encoder fed a mis-drawn deal — same capacity, wrong content</dd>
+    <dt><code>C_none_g</code></dt><dd>token-matched no-advice control</dd>
+  </dl></section>
+
+  <h3>Per-arm rates</h3>
+  <section class="card">
+    <table>
+      <thead><tr><th>Arm</th><th>Episodes</th><th>Normalized Nash welfare</th><th>Deal rate</th><th>Opening offer is the candidate</th><th>Malformed</th></tr></thead>
+      <tbody>
+        <tr><td><code>A_text_g</code></td><td>240</td><td>0.1522</td><td>0.7583</td><td>0.1375</td><td>0.3167</td></tr>
+        <tr><td><code>KV_g</code></td><td>240</td><td>0.1491</td><td>0.7667</td><td>0.0167</td><td>0.2875</td></tr>
+        <tr><td><code>KV_g_shuffled</code></td><td>240</td><td>0.1056</td><td>0.7167</td><td>0.0292</td><td>0.3333</td></tr>
+        <tr><td><code>C_none_g</code></td><td>240</td><td>0.0720</td><td>0.6917</td><td>0.0000</td><td>0.4125</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h3>Headline contrasts</h3>
+  <section class="card">
+    <table>
+      <thead><tr><th>Contrast</th><th>Estimate [95% CI]</th><th>Pairs</th><th>Clusters</th></tr></thead>
+      <tbody>
+        <tr><td>K/V channel vs no advice (primary)</td><td>+0.0771 [+0.0505, +0.1022]</td><td>240</td><td>24</td></tr>
+        <tr><td>K/V channel vs shuffled content (isolation)</td><td>+0.0435 [+0.0151, +0.0726]</td><td>240</td><td>24</td></tr>
+        <tr><td>K/V channel vs the same package as prompt text</td><td>-0.0031 [-0.0343, +0.0273]</td><td>240</td><td>24</td></tr>
+        <tr><td>Prompt text vs no advice (this model&#x27;s own ceiling)</td><td>+0.0801 [+0.0444, +0.1166]</td><td>240</td><td>24</td></tr>
+        <tr><td>The mis-drawn arm vs no advice</td><td>+0.0336 [+0.0040, +0.0653]</td><td>240</td><td>24</td></tr>
+        <tr><td>Deal rate, channel vs no advice (safety)</td><td>+0.0750 [+0.0042, +0.1458]</td><td>240</td><td>24</td></tr>
+        <tr><td>Below-threshold agreements, channel vs no advice (safety)</td><td>-0.1333 [-0.2042, -0.0583]</td><td>240</td><td>24</td></tr>
+        <tr><td>Malformed episodes, channel vs no advice (reported)</td><td>-0.1250 [-0.1917, -0.0583]</td><td>240</td><td>24</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Fraction of this model&#x27;s own prompt-text effect the channel reaches: <strong>0.9615</strong> [0.6484, 1.5401] — the two contrasts resampled from the same instance clusters in each draw, so the interval accounts for them moving together.</p>
+  </section>
+  <p class="small">Paired on (parameter set, seed) so a difference is always between two episodes of the same game at the same seed; intervals resample whole parameter sets as clusters (10000 draws, base seed 20260804). Recomputed from the campaign's episode table by <code>tom/qkv/build_qkv_paired_viewer.py</code> and checked against the frozen <code>results.json</code>, not transcribed from it.</p>
+
+  <h3>Open the paired transcripts</h3>
+  <div class="links">
+    <a href="olmo_kv_vs_none/index.html">Olmo — the channel against no advice<span>The primary contrast, and the one to open first. Byte-identical prompts; everything that differs was written into every layer&#x27;s keys and values at 38 reserved positions of a model with no grouped-query attention and a hybrid sliding/full attention stack. — 10 matched pairs, chosen by the shared anchor set — the ten games where the channel and the no-advice control ended furthest apart on welfare.</span></a>
+    <a href="olmo_kv_vs_text/index.html">Olmo — the same ten games against prompt text<span>The identical cell list as the view above, so the two read together as a three-way: what the channel did, what the same package as prose did, and what a seat given nothing did, at the same game and seed. On this model the two delivery routes are statistically indistinguishable — against a text ceiling that is itself weak. — 10 matched pairs, chosen by the shared anchor set — the ten games where the channel and the no-advice control ended furthest apart on welfare.</span></a>
+  </div>
+  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. This panel holds 960 episodes; these views render the pairs each strategy names, not all of them.</p>
+
+  <h2>Qwen3-4B — same family, half the scale, and prompt text stops working through tabling</h2>
+  <p class="lede">960 episodes, 0 fabricated turns of 23,821 attempted, mechanics gate passed at max abs logit delta 0.0000 with its perturbation placebo moving the logits by ~30.5. This model is far more prone to malformed episodes than Qwen3-8B in every arm (33.8% of no-advice episodes against R1's 4.6%), so its endpoints are measured on a noticeably less well-behaved policy and cross-scale comparisons of <em>levels</em> should be read as characterizing rather than estimating.</p>
+
+  <h3>The arms</h3>
+  <section class="card"><dl>
+    <dt><code>A_text_g</code></dt><dd>the candidate package as ordinary prompt text — Qwen3-4B's own ceiling</dd>
+    <dt><code>KV_g</code></dt><dd>the same candidate written as per-layer K/V at 38 reserved positions; the prompt is unchanged</dd>
+    <dt><code>KV_g_shuffled</code></dt><dd>the identical encoder fed a mis-drawn deal — same capacity, wrong content</dd>
+    <dt><code>C_none_g</code></dt><dd>token-matched no-advice control</dd>
+  </dl></section>
+
+  <h3>Per-arm rates</h3>
+  <section class="card">
+    <table>
+      <thead><tr><th>Arm</th><th>Episodes</th><th>Normalized Nash welfare</th><th>Deal rate</th><th>Opening offer is the candidate</th><th>Malformed</th></tr></thead>
+      <tbody>
+        <tr><td><code>A_text_g</code></td><td>240</td><td>0.3119</td><td>1.0000</td><td>0.1583</td><td>0.1500</td></tr>
+        <tr><td><code>KV_g</code></td><td>240</td><td>0.1958</td><td>0.9625</td><td>0.0375</td><td>0.2625</td></tr>
+        <tr><td><code>KV_g_shuffled</code></td><td>240</td><td>0.1572</td><td>0.9583</td><td>0.0500</td><td>0.3250</td></tr>
+        <tr><td><code>C_none_g</code></td><td>240</td><td>0.1128</td><td>0.9750</td><td>0.0000</td><td>0.3375</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h3>Headline contrasts</h3>
+  <section class="card">
+    <table>
+      <thead><tr><th>Contrast</th><th>Estimate [95% CI]</th><th>Pairs</th><th>Clusters</th></tr></thead>
+      <tbody>
+        <tr><td>K/V channel vs no advice (primary)</td><td>+0.0830 [+0.0344, +0.1309]</td><td>240</td><td>24</td></tr>
+        <tr><td>K/V channel vs shuffled content (isolation)</td><td>+0.0386 [+0.0002, +0.0759]</td><td>240</td><td>24</td></tr>
+        <tr><td>K/V channel vs the same package as prompt text</td><td>-0.1161 [-0.1597, -0.0688]</td><td>240</td><td>24</td></tr>
+        <tr><td>Prompt text vs no advice (this model&#x27;s own ceiling)</td><td>+0.1991 [+0.1650, +0.2355]</td><td>240</td><td>24</td></tr>
+        <tr><td>The mis-drawn arm vs no advice</td><td>+0.0444 [+0.0095, +0.0798]</td><td>240</td><td>24</td></tr>
+        <tr><td>Deal rate, channel vs no advice (safety)</td><td>-0.0125 [-0.0375, +0.0125]</td><td>240</td><td>24</td></tr>
+        <tr><td>Below-threshold agreements, channel vs no advice (safety)</td><td>-0.2042 [-0.3083, -0.0958]</td><td>240</td><td>24</td></tr>
+        <tr><td>Malformed episodes, channel vs no advice (reported)</td><td>-0.0750 [-0.1542, +0.0042]</td><td>240</td><td>24</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Fraction of this model&#x27;s own prompt-text effect the channel reaches: <strong>0.4169</strong> [0.1818, 0.6362] — the two contrasts resampled from the same instance clusters in each draw, so the interval accounts for them moving together.</p>
+  </section>
+  <p class="small">Paired on (parameter set, seed) so a difference is always between two episodes of the same game at the same seed; intervals resample whole parameter sets as clusters (10000 draws, base seed 20260804). Recomputed from the campaign's episode table by <code>tom/qkv/build_qkv_paired_viewer.py</code> and checked against the frozen <code>results.json</code>, not transcribed from it.</p>
+
+  <h3>Open the paired transcripts</h3>
+  <div class="links">
+    <a href="qwen4b_kv_vs_none/index.html">Qwen3-4B — the channel against no advice<span>The primary contrast at half the headline model&#x27;s scale, on the ten games where the channel and its control ended furthest apart. — 10 matched pairs, chosen by the shared anchor set — the ten games where the channel and the no-advice control ended furthest apart on welfare.</span></a>
+    <a href="qwen4b_kv_vs_text/index.html">Qwen3-4B — the same ten games against prompt text<span>The same cell list as the view above. This is the one model where the channel is still clearly below its own text arm. — 10 matched pairs, chosen by the shared anchor set — the ten games where the channel and the no-advice control ended furthest apart on welfare.</span></a>
+    <a href="qwen4b_text_without_tabling/index.html">Qwen3-4B — prompt text helping without ever tabling the candidate<span>The rung&#x27;s most surprising finding, isolated. These are games where the text arm &lt;em&gt;never&lt;/em&gt; put the delivered package on the table and still ended far above the no-advice control. At 8B, tabling was the act the entire prompt-text effect ran through; at 4B the rate collapses fourfold and the welfare effect only falls by about a quarter. — 8 matched pairs, chosen by the games the left arm won on welfare without ever tabling its delivered candidate.</span></a>
+  </div>
+  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. This panel holds 960 episodes; these views render the pairs each strategy names, not all of them.</p>
+
+  <p class="small">Olmo&#x27;s 24 sliding-window layers can carry the injected positions out of view on long turns while its 8 full-attention layers still see them. This was registered before any encoder trained, as one-directional (it can only attenuate a channel effect, never manufacture one), and measured afterwards from the campaign&#x27;s own transcripts: 19.8% of 20,776 generated turns exceeded the window, essentially arm-uniform (18.7%–21.4%). It gates nothing and is irrelevant to a positive result.</p>
+  <p class="small">The two encoders differ in capacity because Amendment 5 froze the recipe rather than the parameter count: Olmo&#x27;s lack of grouped-query attention multiplies the per-row payload, giving 67.5M parameters against Qwen3-4B&#x27;s 19.1M. A like-for-like capacity comparison across models is not available from this design.</p>
+
+  <h2>The full record</h2>
+  <div class="links">
+    <a href="../writeup_tom_lane.pdf">Lane writeup (PDF, 32pp)<span>The attention-interface ladder is chapter §7, Amendments 2 through 5 included.</span></a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.QKV-Attention-Interface">Public dataset<span>2026.RA.QKV-Attention-Interface — every rung&#x27;s tables and narrative.</span></a>
+    <a href="../qkv_r1_kv_vs_text_b1/index.html">Rung R1 — the headline K/V rung<span>Qwen3-8B, four arms: the channel at 69% of the prompt-text ceiling where input-level virtual tokens were zero.</span></a>
+    <a href="../qkv_p_placement_b1/index.html">Rung P — where in the sequence the payload is written<span>Writing at real advice text loses to a reserved placeholder, so site salience is eliminated.</span></a>
+    <a href="../qkv_u1_parity_b1/index.html">Rung U1 — train the writer on the act, not on restatability<span>The uptake gap closes: 0.853 of the text ceiling, and the difference to text is no longer resolvable.</span></a>
+    <a href="../">All rational-agent runs<span>Back to the index of published campaigns.</span></a>
+  </div>
+  <p class="small">Amendment 5's preregistration, both mechanics gates, the four gate verdicts per model and the window-occupancy measurement are in research note 0046 (<code>experiments/rational_agents/research-notes/0046-qkv-uptake-and-generality.md</code>); the ladder's first five rungs are note 0029.</p>
+</main></body>
+</html>

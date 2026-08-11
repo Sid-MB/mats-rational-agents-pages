@@ -35,6 +35,7 @@
  "selection": {
   "built_by": "experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py",
   "rung": "qkv_p_placement_b1",
+  "panel": "p",
   "view": "place_vs_none",
   "strategy": "anchor",
   "note": "Pairs were chosen by the named strategy off the campaign's stored episodes, then rendered from a symlink view of exactly those episodes with the visualizer's own select='first'."

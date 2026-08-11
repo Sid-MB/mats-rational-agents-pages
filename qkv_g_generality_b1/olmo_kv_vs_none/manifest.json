@@ -1,0 +1,43 @@
+{
+ "report": {
+  "left_run": "/nlp/scr/siddharth/ii_mats/rational_agents/tom_qkv_v1/g/olmo3_7b/campaign/KV_g",
+  "right_run": "/nlp/scr/siddharth/ii_mats/rational_agents/tom_qkv_v1/g/olmo3_7b/campaign/C_none_g",
+  "pair_fields": [
+   "instance_id",
+   "seed",
+   "arm"
+  ],
+  "select": "anchor",
+  "n_left": 240,
+  "n_right": 240,
+  "n_matched_keys": 240,
+  "n_candidate_pairs": 240,
+  "n_comparisons": 10,
+  "unmatched_left": [],
+  "unmatched_right": [],
+  "uneven_multiplicity": {}
+ },
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none",
+ "n_comparisons": 10,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/index.html",
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-17e65dd16a--scorable_negotiation-moves_only-caa48bed0d.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-21367a57cd--scorable_negotiation-moves_only-f2b00b16d8.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-f9fb4ec830--scorable_negotiation-moves_only-d1d64908eb.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-01f3038c18--scorable_negotiation-moves_only-a5c14e55a0.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-ad456bcec3--scorable_negotiation-moves_only-d03b3439fc.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-f580dbef9e--scorable_negotiation-moves_only-536308dce1.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-2968a5c81b--scorable_negotiation-moves_only-364a2ed31c.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-1ba99fcd09--scorable_negotiation-moves_only-c6c596e63b.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-f656845e5b--scorable_negotiation-moves_only-169ee33da8.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/qkv_g_generality_b1/olmo_kv_vs_none/compare-scorable_negotiation-moves_only-622fd3fce1--scorable_negotiation-moves_only-b2e301d0e7.html"
+ ],
+ "selection": {
+  "built_by": "experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py",
+  "rung": "qkv_g_generality_b1",
+  "panel": "olmo",
+  "view": "olmo_kv_vs_none",
+  "strategy": "anchor",
+  "note": "Pairs were chosen by the named strategy off the campaign's stored episodes, then rendered from a symlink view of exactly those episodes with the visualizer's own select='first'."
+ }
+}

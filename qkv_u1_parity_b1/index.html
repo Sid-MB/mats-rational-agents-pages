@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rung U1 — train the writer on the act, and the channel catches prompt text</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink); font:15px/1.5 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:900px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 8px 24px rgba(29,58,43,.06); }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .links a span { display:block; color:var(--muted); font-weight:400; font-size:13px; margin-top:5px; }
+    .finding { border-left:4px solid var(--accent); padding:10px 14px; background:#eef7f1; margin:10px 0; border-radius:0 8px 8px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    code { background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13px; }
+    dl { margin:0; } dt { font-weight:650; margin-top:10px; } dd { margin:2px 0 0; color:var(--muted); }
+  </style>
+</head>
+<body><main>
+  <h1>Rung U1 — train the writer on the act, and the channel catches prompt text</h1>
+  <p class="lede">Amendment 4's uptake rung: five arms × 24 held-out games × 10 seeds = 1,200 episodes on Qwen3-8B, 0 fabricated turns of 21,606 attempted. For five rungs the K/V channel was <em>reconstruction-perfect but under-acted-on</em> — the model could restate the injected deal on 96–100% of held-out games and still tabled it three times less often than the same deal read as prose. Nothing on the injection side closed that gap. This rung changes the <strong>encoder's training objective</strong> instead: train the writer on the opening-proposal action rather than on restatability, and the channel reaches <strong>0.853 [0.706, 1.030]</strong> of this panel's prompt-text ceiling, against rung R1's 0.69.</p>
+
+  <h2>What a reader should look for</h2>
+  <p class="finding"><strong>The parity claim, stated at the strength the interval supports.</strong> The channel is <strong>−0.0386 [−0.0829, +0.0075]</strong> against prompt text — this panel cannot distinguish the two. That is <em>not</em> "the gap is closed": Amendment 4's registered bar was ≥0.90 of the text ceiling, the point estimate (0.853) sits below it and the interval contains it, so parity is <strong>neither excluded nor established</strong>.</p>
+  <p class="finding"><strong>The opening offer.</strong> Tabling of the delivered candidate runs <strong>62.5%</strong> (text), <strong>35.4%</strong> (act-trained channel), <strong>29.6%</strong> (its mis-drawn twin), <strong>16.7%</strong> (rung R1's channel), <strong>0%</strong> (no advice). Changing only what the encoder was trained to produce more than doubled the rate at the identical site and width.</p>
+  <p class="finding">The two K/V arms and the no-advice control send the model a <strong>byte-identical prompt</strong>. Everything that differs is written straight into every layer's <code>k_proj</code>/<code>v_proj</code> output at 38 reserved positions, so scrolling the transcripts will not show you the intervention — you can only see what it did. That is what makes the side-by-side worth reading: same game, same seed, same words in, different behaviour out.</p>
+  <p class="finding"><strong>Tabling is not an isolation endpoint, and the third view shows why.</strong> The mis-drawn arm tables its own wrong package at 29.6% against the treatment arm's 35.4% — nearly as often — while welfare separates them by <strong>+0.1348 [+0.0889, +0.1792]</strong>. The channel raises the <em>rate</em> of the act content-independently; only whether the act was worth taking is content-specific.</p>
+  <p class="finding"><strong>The cost, shown rather than mentioned.</strong> The act-trained arms end <strong>21.7%</strong> (treatment) and <strong>27.9%</strong> (mis-drawn twin) of episodes malformed against <strong>6.3%</strong> for no advice — and this panel's <code>KV_r1</code> arm, same site and width, costs nothing detectable (+0.0208 [−0.0333, +0.0750]). The cost tracks the <em>objective</em>, not the injection site, and it is payload-independent. The last view is that cost, unedited.</p>
+
+  <h2>The arms</h2>
+  <section class="card"><dl>
+    <dt><code>A_text</code></dt><dd>the Nash-bargaining candidate package as ordinary prompt text — this panel's ceiling</dd>
+    <dt><code>KV_u1</code></dt><dd>the same candidate written as per-layer K/V at 38 reserved positions, by an encoder trained on the <em>opening-proposal action</em> that names it</dd>
+    <dt><code>KV_u1_shuffled</code></dt><dd>the identical U1 encoder fed a deliberately mis-drawn deal — same capacity, same objective, wrong content</dd>
+    <dt><code>KV_r1</code></dt><dd>rung R1's encoder, re-run here: same site, same width, trained instead to make the payload <em>restatable</em></dd>
+    <dt><code>C_none</code></dt><dd>token-matched no-advice control; its advice block says <code>UNSPECIFIED</code></dd>
+  </dl></section>
+
+  <h2>Per-arm rates</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Arm</th><th>Episodes</th><th>Normalized Nash welfare</th><th>Deal rate</th><th>Opening offer is the candidate</th><th>Malformed</th></tr></thead>
+      <tbody>
+        <tr><td><code>A_text</code></td><td>240</td><td>0.3978</td><td>0.9792</td><td>0.6250</td><td>0.0208</td></tr>
+        <tr><td><code>KV_u1</code></td><td>240</td><td>0.3592</td><td>0.9458</td><td>0.3542</td><td>0.2167</td></tr>
+        <tr><td><code>KV_u1_shuffled</code></td><td>240</td><td>0.2243</td><td>0.9250</td><td>0.2958</td><td>0.2792</td></tr>
+        <tr><td><code>KV_r1</code></td><td>240</td><td>0.2626</td><td>0.9500</td><td>0.1667</td><td>0.0833</td></tr>
+        <tr><td><code>C_none</code></td><td>240</td><td>0.1359</td><td>0.9042</td><td>0.0000</td><td>0.0625</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h2>Headline contrasts</h2>
+  <section class="card">
+    <table>
+      <thead><tr><th>Contrast</th><th>Estimate [95% CI]</th><th>Pairs</th><th>Clusters</th></tr></thead>
+      <tbody>
+        <tr><td>Act-trained channel vs no advice (primary)</td><td>+0.2232 [+0.1792, +0.2670]</td><td>240</td><td>24</td></tr>
+        <tr><td>Act-trained channel vs its mis-drawn twin (isolation)</td><td>+0.1348 [+0.0889, +0.1792]</td><td>240</td><td>24</td></tr>
+        <tr><td>Act-trained channel vs rung R1&#x27;s restatability-trained one (uptake)</td><td>+0.0966 [+0.0508, +0.1424]</td><td>240</td><td>24</td></tr>
+        <tr><td>Act-trained channel vs the same package as prompt text</td><td>-0.0386 [-0.0829, +0.0075]</td><td>240</td><td>24</td></tr>
+        <tr><td>Prompt text vs no advice (this panel&#x27;s ceiling)</td><td>+0.2619 [+0.2153, +0.3081]</td><td>240</td><td>24</td></tr>
+        <tr><td>Rung R1&#x27;s channel vs no advice (replication anchor)</td><td>+0.1267 [+0.0846, +0.1695]</td><td>240</td><td>24</td></tr>
+        <tr><td>The mis-drawn twin vs no advice</td><td>+0.0884 [+0.0542, +0.1240]</td><td>240</td><td>24</td></tr>
+        <tr><td>Deal rate, channel vs no advice (safety)</td><td>+0.0417 [-0.0042, +0.0833]</td><td>240</td><td>24</td></tr>
+        <tr><td>Below-threshold agreements, channel vs no advice (safety)</td><td>-0.3458 [-0.4333, -0.2542]</td><td>240</td><td>24</td></tr>
+        <tr><td>Malformed episodes, channel vs no advice (safety)</td><td>+0.1542 [+0.0708, +0.2417]</td><td>240</td><td>24</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Fraction of this panel&#x27;s prompt-text effect the act-trained channel reaches: <strong>0.8525</strong> [0.7058, 1.0298] — the two contrasts resampled from the same instance clusters in each draw, so the interval accounts for them moving together.</p>
+  </section>
+  <p class="small">Paired on (parameter set, seed) so a difference is always between two episodes of the same game at the same seed; intervals resample whole parameter sets as clusters (10000 draws, base seed 20260804). Recomputed from the campaign's episode table by <code>tom/qkv/build_qkv_paired_viewer.py</code> and checked against the frozen <code>results.json</code>, not transcribed from it.</p>
+
+  <h2>Open the paired transcripts</h2>
+  <div class="links">
+    <a href="u1_vs_text/index.html">The channel against prompt text — the parity claim, made visible<span>The rung&#x27;s headline and the one to open first. Same game, same seed, same candidate: on the left it was written into the attention K/V and never appears in the prompt; on the right it was read as prose. These are the games where both routes produced the same act and landed closest together. — 10 matched pairs, chosen by the games where BOTH arms opened on the candidate their own cell delivered and the outcomes ended closest together.</span></a>
+    <a href="u1_vs_r1/index.html">What changing the writer&#x27;s objective did<span>Identical architecture, identical site, identical width — the left encoder was trained on the opening proposal, the right one on restating the payload. These are games the act-trained channel opened on the candidate and rung R1&#x27;s channel did not. — 10 matched pairs, chosen by the games where the left arm opened on the delivered candidate and the right arm did not, ranked by welfare gap.</span></a>
+    <a href="u1_vs_shuffled/index.html">The mis-drawn twin, tabling its wrong deal<span>The isolation control, and the rung&#x27;s sharpest lesson. The U1 objective taught the encoder to make the model table &lt;em&gt;whatever is encoded&lt;/em&gt;, so the mis-drawn arm opens on its own wrong package almost as often as the treatment arm opens on the right one. These are the games where both did — and where only the welfare tells them apart. — 8 matched pairs, chosen by the games where BOTH arms opened on the candidate their own cell delivered and the outcomes ended furthest apart.</span></a>
+    <a href="u1_vs_none/index.html">The channel against no advice at all<span>The primary contrast. Byte-identical prompts on both sides; the left seat tables the injected candidate as its opening offer and the right seat, which was never given it, does not. — 10 matched pairs, chosen by the games where the left arm opened on the delivered candidate and the right arm did not, ranked by welfare gap.</span></a>
+    <a href="u1_malformed/index.html">What the objective cost — malformed episodes<span>The act-trained encoder buys behaviour and pays formatting, and this panel&#x27;s own &lt;code&gt;KV_r1&lt;/code&gt; arm shows the cost is the objective&#x27;s rather than the site&#x27;s. These are episodes the channel arm ended malformed while the no-advice control, same game and seed, did not. — 6 matched pairs, chosen by the games the left arm ended malformed while the right arm did not.</span></a>
+  </div>
+  <p class="small">Each pair is the same game at the same seed under two arms, with the first behavioural divergence marked and both trajectories on one shared frontier. This panel holds 1200 episodes; these views render the pairs each strategy names, not all of them.</p>
+
+  <p class="small">Rung U2 — the other half of Amendment 4, which asked whether uptake is a reader skill — never reached this campaign: its LoRA adapter learned to read the channel (+0.19 held-out tabling logprob per token at reconstruction 1.0000) but blew its frozen no-channel drift bound by 18.5× and 74× at both licensed configurations, so its three arms were withdrawn before any scored shard. Reader-side uptake is untested, not refuted.</p>
+  <p class="small">The fourth replication of rung R1&#x27;s arm is the softest of four (+0.1267 [+0.0846, +0.1695] here, against +0.1882, +0.1722 and +0.1802 elsewhere), so the uptake contrast against it is measured at the generous end.</p>
+
+  <h2>The full record</h2>
+  <div class="links">
+    <a href="../writeup_tom_lane.pdf">Lane writeup (PDF, 32pp)<span>The attention-interface ladder is chapter §7, Amendments 2 through 5 included.</span></a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.QKV-Attention-Interface">Public dataset<span>2026.RA.QKV-Attention-Interface — every rung&#x27;s tables and narrative.</span></a>
+    <a href="../qkv_r1_kv_vs_text_b1/index.html">Rung R1 — the headline K/V rung<span>Qwen3-8B, four arms: the channel at 69% of the prompt-text ceiling where input-level virtual tokens were zero.</span></a>
+    <a href="../qkv_p_placement_b1/index.html">Rung P — where in the sequence the payload is written<span>Writing at real advice text loses to a reserved placeholder, so site salience is eliminated.</span></a>
+    <a href="../qkv_g_generality_b1/index.html">Rung G — the same recipe on two other models<span>Olmo-3-7B-Instruct and Qwen3-4B: the channel ports across family, scale and attention architecture.</span></a>
+    <a href="../">All rational-agent runs<span>Back to the index of published campaigns.</span></a>
+  </div>
+  <p class="small">Amendment 4's preregistration, the five gate verdicts, rung U2's failed reader guard and controls-catches ledger entries 20–22 are in research note 0046 (<code>experiments/rational_agents/research-notes/0046-qkv-uptake-and-generality.md</code>); the ladder's first five rungs are note 0029.</p>
+</main></body>
+</html>

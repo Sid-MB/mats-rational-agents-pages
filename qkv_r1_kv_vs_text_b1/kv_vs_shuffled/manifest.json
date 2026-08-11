@@ -31,6 +31,7 @@
  "selection": {
   "built_by": "experiments/rational_agents/tom/qkv/build_qkv_paired_viewer.py",
   "rung": "qkv_r1_kv_vs_text_b1",
+  "panel": "r1",
   "view": "kv_vs_shuffled",
   "strategy": "largest-effect",
   "note": "Pairs were chosen by the named strategy off the campaign's stored episodes, then rendered from a symlink view of exactly those episodes with the visualizer's own select='first'."
