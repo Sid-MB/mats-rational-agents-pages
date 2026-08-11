@@ -1,5 +1,36 @@
 # Ten-arm fairness-led comparison
 
+> ## ⚠ ERRATUM (2026-08-10) — the two `OmniscientBestResponsePolicy` arms on this page (`one_oracle`, `all_oracle`) are measured on an agent with a spoiled ballot
+>
+> That agent cast its **forced-final** vote on whichever live offer it valued most instead of on the one offer
+> under the up/down vote. The protocol rejects that as a legality error, the seat spends its single retry
+> repeating itself, and the turn is recorded as a **pass** — a silent abstention. It consumed 114 of 334
+> forced-final turns in `one_oracle` and 94 of 107 in `all_oracle`. Every other arm on this page — `all_llm`,
+> `one_rational`, `all_rational`, `all_selfish_dp_oracle` and all four fairness arms — is **clean** (0
+> mismatches over 9,589 re-derived turns; the fairness and DP arms are a different, composed policy).
+> Fixed in commit `ca20157`, which postdates this campaign.
+>
+> **Corrected values, from the preregistered fresh-bank replication (research note 0039) and the ballot-repaired
+> re-run (note 0045):**
+>
+> | published here (spoiled) | repaired |
+> |---|---|
+> | `one_oracle` − `all_llm` utilitarian **−0.412** | **−0.068** [−0.136, −0.001] |
+> | `one_oracle` deal rate 0.508 (−0.450 paired) | ~8 points below `all_llm`, not 45 (0.558 → **0.892** on identical games) |
+> | `one_fairness_oracle` − `one_oracle` utilitarian **+0.389** | correspondingly inflated — not the size of the objective swap |
+> | `all_oracle` deal rate 0.875 (−0.083 paired) | **1.000** (+0.042 [+0.017, +0.075]) — all 15 no-deals were spoiled ballots |
+> | "information amplifies motive", interaction +0.378 | **+0.019 [−0.052, +0.091]** — contains zero; **claim withdrawn** |
+>
+> What survives: a quarter-size interaction on the welfare coordinate (NNW +0.071 at one seat, +0.137 at five),
+> and the reading that **information's first-order effect is agreement (motive-neutral) while motive decides
+> distribution**. The `all_oracle` distributional finding survives and *sharpens* — repaired, it closes more
+> often than all-LLM and still splits worse on every column.
+>
+> Nothing below is deleted; the numbers are the record of what was computed. Do not quote the affected rows
+> unqualified, and never pool spoiled with repaired cells. Sources of record: research notes **0039**, **0045**,
+> **0043**.
+
+
 Reference arm for every paired contrast: `all_selfish_dp_oracle`. Intervals are 10000 cluster-bootstrap resamples over the 24 parameter sets (their five seeds resampled together). Paired contrasts join on `(instance_id, episode_seed)`; no-deal scores zero.
 
 

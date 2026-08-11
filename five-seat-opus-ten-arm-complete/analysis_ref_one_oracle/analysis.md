@@ -1,5 +1,22 @@
 # Ten-arm fairness-led comparison
 
+> ## ⚠ ERRATUM (2026-08-10) — EVERY contrast on this page is anchored on `one_oracle`, which is the spoiled-ballot arm
+>
+> `OmniscientBestResponsePolicy` silently abstained on 114 of 334 forced-final ballots in this arm (it voted on
+> its favourite live offer rather than the one under the up/down vote, took a legality error, and was recorded
+> as a pass). **This page's reference arm is therefore a defective agent, and every row on it — including the
+> headline `one_fairness_oracle` − `one_oracle` = +0.389 utilitarian / +0.425 deal rate — is inflated by that
+> defect.** On a preregistered fresh-bank replication with the ballot repaired, the paired
+> `one_oracle` − `all_llm` effect is **−0.068 [−0.136, −0.001]** rather than −0.412, and the
+> information × motive interaction the +0.389 row was used to argue is **+0.019 [−0.052, +0.091]** — it
+> contains zero, and that claim is **withdrawn**. Fixed in commit `ca20157`, which postdates this campaign.
+>
+> The page is kept intact as the record of what was computed. Read it only against research notes **0039**
+> (replication verdict) and **0045** (the gate that found the defect); the un-anchored table set in
+> [`../analysis/analysis.md`](../analysis/analysis.md) does not depend on this reference arm except in its two
+> oracle rows.
+
+
 Reference arm for every paired contrast: `one_oracle`. Intervals are 10000 cluster-bootstrap resamples over the 24 parameter sets (their five seeds resampled together). Paired contrasts join on `(instance_id, episode_seed)`; no-deal scores zero.
 
 

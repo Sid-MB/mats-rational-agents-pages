@@ -12,7 +12,23 @@ table{border-collapse:collapse;width:100%;margin:22px 0;background:white}th,td{p
 </style>
 <h1>Qwen3-8B private negotiation subset</h1>
 <p class="lede">Nine whole-threshold parameter sets × two matched seeds per arm. All LLM seats use Qwen3-8B with native thinking, datacenter framing, public persuasive chat, private score sheets, and unanimity. Each arm has 18/18 validated episodes.</p>
-<p class="note"><strong>Result so far:</strong> one rational seat was statistically indistinguishable from all-Qwen play (−0.036 score; interval crosses zero). One omniscient oracle seat improved score by +0.449, with the entire clustered interval above zero. This is an exploratory small subset, not the 120-episode Opus confirmatory campaign.</p>
+
+<div style="border-left:5px solid #b45309;background:rgba(180,83,9,.09);padding:14px 16px;border-radius:10px;margin:18px 0">
+<strong>&#9888; Erratum (2026-08-10) &mdash; the <em>one oracle</em> arm on this page carries a spoiled ballot.</strong>
+<p>The omniscient seat (<code>OmniscientBestResponsePolicy</code>) cast its <strong>forced-final</strong> vote on
+whichever live offer it valued most instead of on the one offer under the up/down vote; the protocol rejected
+that as a legality error, the seat spent its single retry repeating itself, and the turn was recorded as a
+<em>pass</em> &mdash; a silent abstention. Fixed in commit <code>ca20157</code>, which postdates this campaign,
+so <strong>every number for the oracle arm below is measured on a defective agent</strong> and its closure
+figures in particular are not a negotiation result. The all-LLM and one-rational arms are unaffected.</p>
+<p><strong>This subset has not been re-run</strong>, so no corrected figure is offered here. For the size of
+the correction where it <em>was</em> measured: on the frozen Opus campaign, repairing the ballot moves the
+five-oracle arm's deal rate from 0.875 to <strong>1.000</strong>, and on a fresh-bank replication the
+one-oracle paired score against all-LLM is <strong>&minus;0.068</strong> rather than &minus;0.412. Full account
+in research notes <strong>0045</strong>, <strong>0039</strong> and <strong>0043</strong>; see the
+<a href="../five-seat-opus-five-arm-complete/index.html">five-arm hub</a> erratum.</p>
+</div>
+<p class="note"><strong>Result so far:</strong> one rational seat was statistically indistinguishable from all-Qwen play (−0.036 score; interval crosses zero). One omniscient oracle seat improved score by +0.449, with the entire clustered interval above zero &mdash; <strong>but see the erratum above: that seat's ballot was spoiled, and this subset has not been re-run.</strong> This is an exploratory small subset, not the 120-episode Opus confirmatory campaign.</p>
 <div class="chart">
 <svg viewBox="0 0 900 255" role="img" aria-label="Mean normalized score and 95 percent parameter-clustered intervals for three Qwen3-8B arms">
 <line class="grid" x1="185" y1="28" x2="185" y2="215"/><line class="grid" x1="321" y1="28" x2="321" y2="215"/><line class="grid" x1="457" y1="28" x2="457" y2="215"/><line class="grid" x1="593" y1="28" x2="593" y2="215"/><line class="grid" x1="729" y1="28" x2="729" y2="215"/><line class="grid" x1="865" y1="28" x2="865" y2="215"/>
@@ -27,13 +43,13 @@ table{border-collapse:collapse;width:100%;margin:22px 0;background:white}th,td{p
 <tbody>
 <tr><td>All Qwen LLMs</td><td>0.361 [0.137, 0.615]</td><td>0.389 [0.167, 0.667]</td><td>reference</td></tr>
 <tr><td>One rational</td><td>0.325 [0.118, 0.531]</td><td>0.333 [0.111, 0.556]</td><td>−0.036 [−0.364, 0.292]</td></tr>
-<tr><td>One oracle</td><td>0.810 [0.639, 0.941]</td><td>0.833 [0.667, 1.000]</td><td>+0.449 [0.209, 0.692]</td></tr>
+<tr><td>One oracle <em>(spoiled ballot &mdash; see erratum)</em></td><td>0.810 [0.639, 0.941]</td><td>0.833 [0.667, 1.000]</td><td>+0.449 [0.209, 0.692]</td></tr>
 </tbody>
 </table>
 <div class="links">
 <div class="card"><h2>All Qwen LLMs</h2><p>Five Qwen3-8B seats.</p><a href="all_llm_visualizations/index.html">Open 18 visualizers</a><br><a href="all_llm_transcripts/index.html">Open transcripts</a></div>
 <div class="card"><h2>One rational</h2><p>Rotating private-information rational seat.</p><a href="one_rational_visualizations/index.html">Open 18 visualizers</a><br><a href="one_rational_transcripts/index.html">Open transcripts</a></div>
-<div class="card"><h2>One oracle</h2><p>Rotating omniscient oracle seat.</p><a href="one_oracle_visualizations/index.html">Open 18 visualizers</a><br><a href="one_oracle_transcripts/index.html">Open transcripts</a></div>
+<div class="card"><h2>One oracle</h2><p>Rotating omniscient oracle seat. <em>Spoiled ballot &mdash; see the erratum above.</em></p><a href="one_oracle_visualizations/index.html">Open 18 visualizers</a><br><a href="one_oracle_transcripts/index.html">Open transcripts</a></div>
 </div>
 <p><small>Intervals use 10,000 bootstrap samples clustered by the nine parameter sets, keeping both seeds together. Every episode page includes turn-level rational and oracle counterfactual annotations.</small></p>
 </html>
