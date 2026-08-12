@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Was it the rational agent, or was it the veto? 4-of-5 majority arms</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink);
+           font:15px/1.55 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:860px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px;
+            box-shadow:0 8px 24px rgba(29,58,43,.06); overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .finding { border-left:4px solid var(--accent); padding:12px 16px; background:#eef7f1; border-radius:0 10px 10px 0; }
+    .warn { border-left:4px solid #b45309; padding:12px 16px; background:#fdf6ec; border-radius:0 10px 10px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); background:white; }
+</style>
+</head>
+<body><main>
+  <h1>Was it the rational agent, or was it the veto?</h1>
+  <p class="lede">The frozen five-seat campaign found that replacing one of five Claude Opus 5 seats with a
+  computable rational agent costs the table -0.186 [-0.266, -0.105] of
+  normalized score, almost entirely through closure. Every episode of that campaign ran under
+  <strong>unanimity</strong> &mdash; the rule that gives that single seat a <strong>veto</strong>. These two
+  arms re-run both lineups under a <strong>4-of-5 majority</strong> rule and change nothing else: same 24
+  parameter sets, same five seeds, same model, thinking, framing, deadline and rotating proposer. Every
+  episode pairs with a frozen episode on <code>(instance&nbsp;id,&nbsp;seed)</code>, so the estimand is a
+  difference in differences.</p>
+
+  <div class="finding"><strong>Mostly the veto &mdash; but not entirely.</strong> Under unanimity the rational seat costs the table -0.186 [-0.266, -0.105] of normalized score. Under a 4-of-5 rule, where its lone rejection no longer blocks, the same treatment costs -0.056 [-0.091, -0.025]. Removing the veto therefore erases <strong>70%</strong> of the published effect (+0.130 [+0.053, +0.208]) &mdash; so most of it was the power to block rather than how the seat negotiates. But the remainder is not zero: its interval still excludes zero, so a real part of the cost survives losing the veto and belongs to the negotiation itself.</div>
+
+  <h2>Arms</h2>
+  <section class="card"><table><thead><tr><th>Arm</th><th>Normalized score [95% CI]</th><th>Deal rate [95% CI]</th><th>Below-threshold outcome</th></tr></thead><tbody><tr><td><code>all_llm</code><div class='small'>five Opus seats, unanimity (5 of 5 must accept)</div></td><td>0.873 [0.833, 0.912]</td><td>0.958 [0.925, 0.992]</td><td>0.000 [0.000, 0.000]</td></tr><tr><td><code>one_rational</code><div class='small'>4 Opus + 1 private Bayesian-rational seat, unanimity</div></td><td>0.686 [0.613, 0.761]</td><td>0.767 [0.683, 0.842]</td><td>0.000 [0.000, 0.000]</td></tr><tr><td><code><strong>all_llm_quorum_4</strong></code> <em style="color:#176b4d;background:#eef7f1;padding:1px 7px;border-radius:99px;font-style:normal;font-size:12px">this arm</em><div class='small'>five Opus seats, MAJORITY (4 of 5)</div></td><td>0.924 [0.902, 0.946]</td><td>1.000 [1.000, 1.000]</td><td>0.242 [0.133, 0.358]</td></tr><tr><td><code><strong>one_rational_quorum_4</strong></code> <em style="color:#176b4d;background:#eef7f1;padding:1px 7px;border-radius:99px;font-style:normal;font-size:12px">this arm</em><div class='small'>4 Opus + 1 private Bayesian-rational seat, MAJORITY (4 of 5)</div></td><td>0.868 [0.824, 0.909]</td><td>0.983 [0.958, 1.000]</td><td>0.375 [0.258, 0.500]</td></tr></tbody></table></section>
+  <p class="small">A no-deal scores zero. Intervals are 95% cluster bootstraps over the 24 parameter sets,
+  each set's five seeds resampled together.</p>
+
+  <h2>The difference in differences</h2>
+  <p class="lede">The treated seat's cost, measured under each rule, and the difference between them. A DiD
+  that cancels the unanimity column means the cost was the power to block; a DiD indistinguishable from zero
+  means it was not.</p>
+  <section class="card"><table><thead><tr><th>Metric</th><th><code>one_rational</code> &minus; <code>all_llm</code><br><span class='small'>under unanimity</span></th><th>the same contrast<br><span class='small'>under 4-of-5</span></th><th>difference in differences</th></tr></thead><tbody><tr><td>normalized score (primary)</td><td>-0.186 [-0.266, -0.105]</td><td>-0.056 [-0.091, -0.025]</td><td>+0.130 [+0.053, +0.208]</td></tr><tr><td>deal rate</td><td>-0.192 [-0.275, -0.108]</td><td>-0.017 [-0.042, +0.000]</td><td>+0.175 [+0.092, +0.258]</td></tr><tr><td>below-threshold outcome rate</td><td>+0.000 [+0.000, +0.000]</td><td>+0.133 [+0.025, +0.242]</td><td>+0.133 [+0.025, +0.242]</td></tr><tr><td>normalized Nash welfare</td><td>-0.124 [-0.187, -0.065]</td><td>-0.089 [-0.139, -0.038]</td><td>+0.035 [-0.052, +0.124]</td></tr><tr><td>worst-off z (among deals)</td><td>-0.011 [-0.043, +0.021]</td><td>-0.590 [-1.626, -0.048]</td><td>-0.348 [-1.102, +0.042]</td></tr><tr><td>normalized Gini (among deals)</td><td>+0.005 [-0.015, +0.026]</td><td>+0.076 [+0.037, +0.122]</td><td>+0.032 [-0.013, +0.073]</td></tr><tr><td>max share (among deals)</td><td>+0.000 [-0.009, +0.010]</td><td>+0.038 [+0.017, +0.063]</td><td>+0.018 [-0.008, +0.041]</td></tr></tbody></table></section>
+
+  <h2>What the rule alone did to each lineup</h2>
+  <p class="lede">The protocol's own main effect, which separates &ldquo;the treated seat stopped
+  mattering&rdquo; from &ldquo;everything closes more easily once four names suffice&rdquo;.</p>
+  <section class="card"><table><thead><tr><th>Lineup, majority minus unanimity</th><th>Normalized score</th><th>Deal rate</th><th>Below-threshold outcome</th></tr></thead><tbody><tr><td><code>all_llm</code></td><td>+0.052 [+0.005, +0.099]</td><td>+0.042 [+0.008, +0.075]</td><td>+0.242 [+0.133, +0.367]</td></tr><tr><td><code>one_rational</code></td><td>+0.182 [+0.119, +0.248]</td><td>+0.217 [+0.150, +0.292]</td><td>+0.375 [+0.258, +0.492]</td></tr></tbody></table></section>
+
+  <div class="warn">
+    <strong>Majority closure removes a guarantee unanimity was providing for free.</strong> The frozen
+    campaign reports a below-threshold accept rate of exactly 0.000 across 401 deals in five arms. That is
+    true <em>because of the rule, not because of the agents</em>: a party below its walk-away threshold
+    refuses, and under unanimity its refusal blocks. At 4-of-5 four seats can close over the fifth's
+    objection, and nothing stops the resulting deal leaving that seat below its threshold. Registered in
+    advance as this arm's most likely positive finding (note 0049). Measured here:
+    <strong>230 deals closed over a seat's head, 74 of them leaving that seat below its
+    threshold.</strong> The IR-clean result must not be carried across this protocol change.
+  </div>
+
+  <h2>The outvoted seat</h2>
+  <p class="lede">A <strong>quorum close</strong> is a deal that passed without every seat's support; the
+  <strong>outvoted seat</strong> is the seat absent from the closing package's support. Because accepts
+  accumulate across offers in this protocol, silence is not refusal &mdash; so the last column separates a
+  seat that formally rejected the package that passed (a deal closed over an objection) from one that simply
+  never acted on it.</p>
+  <section class="card"><table><thead><tr><th>Arm</th><th>Deals</th><th>Closed over a seat</th><th>Outvoted seat below threshold</th><th>Outvoted seat's z</th><th>Outvoted seat dissented</th></tr></thead><tbody><tr><td><code>all_llm</code></td><td>115</td><td>0</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr><tr><td><code>one_rational</code></td><td>92</td><td>0</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr><tr><td><code>all_llm_quorum_4</code></td><td>120</td><td>118</td><td>0.246 [0.134, 0.370]</td><td>0.164 [0.108, 0.221]</td><td>0.059 [0.017, 0.109]</td></tr><tr><td><code>one_rational_quorum_4</code></td><td>118</td><td>112</td><td>0.402 [0.276, 0.527]</td><td>0.056 [-0.010, 0.122]</td><td>0.054 [0.018, 0.091]</td></tr></tbody></table></section>
+
+  <h2>Did the rational seat change its behaviour, or only its leverage?</h2><p class='lede'>The section below reconciles this arm with the sibling moves-only control. What separates their two explanations is whether the seat behaves differently when only the <em>price</em> of withholding agreement is removed: an unchanged reject share while the table closes over it means the veto explained the price and something upstream explained the behaviour.</p><p class='lede'>Both columns are shown because <strong>the veto is exercisable passively</strong>: under unanimity a seat blocks just as effectively by never accepting as by rejecting. On the frozen unanimity arm this seat rejects almost nothing and simply withholds agreement, so a reject-only reading would call it cooperative.</p><section class='card'><table><thead><tr><th>Arm</th><th>Treated seat's reject share</th><th>Accept share</th><th>Outvoted</th><th>Left below threshold</th></tr></thead><tbody><tr><td><code>one_rational</code></td><td>0.027 [0.015, 0.040]</td><td>0.351 [0.312, 0.391]</td><td>0.000 [0.000, 0.000]</td><td>0.000 [0.000, 0.000]</td></tr><tr><td><code>one_rational_quorum_4</code></td><td>0.000 [0.000, 0.000]</td><td>0.313 [0.267, 0.358]</td><td>0.542 [0.470, 0.615]</td><td>0.203 [0.134, 0.271]</td></tr></tbody></table></section>
+
+  <h2>How this fits the tools-matched moves-only control</h2><p class='lede'>The rational seat differs from an LLM seat in at least two ways at once: it cannot use the message channel, and under unanimity its withholding of agreement is decisive. These sit at different points on <strong>one causal chain</strong> &mdash; no channel, so it never converges with the table's forming consensus, so it withholds agreement late; unanimity, so that lone withholding voids the episode. Channel access is the upstream <em>candidate</em> explanation of <em>why</em> it fails to agree; veto power is the downstream explanation of <em>why that failure costs the full &minus;0.186</em>. Both interventions can therefore each act on the gap without contradicting one another, and neither lane's result subsumes the other's.</p><p class='lede'>The two halves at their measured strengths, deliberately not averaged:</p><ul class='lede'><li><strong>Upstream, measured by the moves-only control:</strong> closing the cheap-talk channel for all five seats <strong>reproduces the gap in full</strong> &mdash; a mute all-Opus table and the one-rational table are statistically indistinguishable, &minus;0.023 [&minus;0.118, +0.064] on normalized score.</li><li><strong>Downstream, measured here:</strong> removing the veto <strong>erases 70% of the gap</strong> (+0.130 [+0.053, +0.208]) and leaves a small but significant residual of -0.056 [-0.091, -0.025]. <strong>Partial, and reported as partial.</strong></li></ul><p class='lede'>Two cautions belong with this. Muting all five seats is <em>not</em> the same intervention as the rational seat's asymmetric muteness, so that contrast bounds the value of the channel rather than isolating the asymmetry &mdash; which is why channel access stays a <em>candidate</em> upstream explanation and is not promoted to explaining the seat. And the joint cell that would disentangle them, <code>one_rational &times; quorum_4 &times; moves_only</code>, <strong>has not been run</strong> and is named as future work in both notes.</p>
+
+  <h2>Everything behind the page</h2>
+  <div class="links">
+    <a href="analysis/did.md">Difference-in-differences (markdown)</a>
+    <a href="analysis/did_summary.json">Machine-readable DiD summary</a>
+    <a href="analysis/outvoted.md">Outvoted-seat endpoints (markdown)</a>
+    <a href="analysis/outvoted_rows.csv">Per-episode outvoted rows (CSV)</a>
+    <a href="all_llm_quorum_4/index.html">Per-episode transcripts: <code>all_llm_quorum_4</code></a><a href="one_rational_quorum_4/index.html">Per-episode transcripts: <code>one_rational_quorum_4</code></a>
+    <a href="../five-seat-opus-five-arm-complete/index.html">The frozen five-arm campaign</a>
+    <a href="../five-seat-opus-moves-only-control-complete/index.html">The tools-matched moves-only control</a>
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Five-Seat-Majority-Quorum">Dataset on Hugging Face</a>
+  </div>
+  <p class="small">Full preregistration, endpoints and adjudication: research note 0049 (executing note 0047
+  arm C) in the <code>ii_mats</code> repository. A sibling lane asks the same question about a different piece
+  of the protocol &mdash; whether the published cost is really about which seats were allowed to talk &mdash;
+  and the two readings are reconciled in the notes.</p>
+</main></body>
+</html>
