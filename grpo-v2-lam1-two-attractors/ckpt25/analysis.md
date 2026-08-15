@@ -41,22 +41,20 @@ Struck-through numbers are the preregistered VOID marking: the cell's deal rate 
 |---|---|---|
 | divide_dollar | interpretable | deal rate held within the viability floor |
 | primary | VOID | deal rate -0.226 is more than 0.1 below base; closure-conditional metrics are not interpretable |
-| prose | VOID | deal rate -0.231 is more than 0.1 below base; closure-conditional metrics are not interpretable |
+| prose | VOID | deal rate -0.224 is more than 0.1 below base; closure-conditional metrics are not interpretable |
 | rationaltable | interpretable | deal rate held within the viability floor |
-| story_abstract | VOID | deal rate -0.258 is more than 0.1 below base; closure-conditional metrics are not interpretable |
-| story_datacenter | VOID | deal rate -0.320 is more than 0.1 below base; closure-conditional metrics are not interpretable |
-| story_festival | VOID | deal rate -0.244 is more than 0.1 below base; closure-conditional metrics are not interpretable |
+| story_abstract | VOID | deal rate -0.285 is more than 0.1 below base; closure-conditional metrics are not interpretable |
+| story_datacenter | VOID | deal rate -0.308 is more than 0.1 below base; closure-conditional metrics are not interpretable |
+| story_festival | VOID | deal rate -0.265 is more than 0.1 below base; closure-conditional metrics are not interpretable |
 | ultimatum | interpretable | deal rate held within the viability floor |
 
 ## Partial cells
 
 These cells scored the trained arm on fewer than 95% of the baseline's episodes. Completion bias is unbounded — read them as mid-flight samples, not results.
 
-- `prose`: 247 of 480 episodes scored (51%) — **296 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
-- `rationaltable`: 820 of 960 episodes scored (85%) — **960 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
-- `story_abstract`: 233 of 480 episodes scored (49%) — **285 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
-- `story_datacenter`: 200 of 480 episodes scored (42%) — **417 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
-- `story_festival`: 168 of 480 episodes scored (35%) — **480 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
+- `prose`: 295 of 480 episodes scored (61%) — **296 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
+- `story_abstract`: 284 of 480 episodes scored (59%) — **285 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
+- `story_datacenter`: 416 of 480 episodes scored (87%) — **417 episodes are on disk today**, so this row is a snapshot of a bank that has since grown; re-analysis, not re-running, is what would settle it
 
 ## Every evaluated cell
 
@@ -103,19 +101,19 @@ the held-out scorable bank -- 24 unseen parameter sets x {full, private} x 10 se
 ### `prose`
 
 the north-star transfer cell: the same games with no machine-readable score sheet, only prose
-(480 baseline vs 247 trained episodes; closure-conditional metrics **VOID**)
+(480 baseline vs 295 trained episodes; closure-conditional metrics **VOID**)
 
 | metric | base | checkpoint 25 | trained − base [95% CI] | support |
 |---|---|---|---|---|
-| deal rate | 0.735 | 0.547 | -0.231 [-0.316, -0.140] | 247 pairs / 25 clusters |
-| normalized Nash welfare (unconditional) | 0.611 | 0.430 | -0.217 [-0.296, -0.135] | 247 pairs / 25 clusters |
-| below-threshold rate | 0.246 | 0.008 | -0.279 [-0.360, -0.204] | 247 pairs / 25 clusters |
-| at-cap rate | 0.510 | 0.474 | +0.045 [-0.036, +0.121] | 247 pairs / 25 clusters |
-| among-IR rate | 0.256 | 0.198 | -0.028 [-0.113, +0.053] | 247 pairs / 25 clusters |
-| NNW among IR deals | ~~0.871~~ | ~~0.832~~ | ~~-0.003 [-0.047, +0.035]~~ | ~~19 pairs / 10 clusters~~ |
-| Gini | ~~0.267~~ | ~~0.229~~ | ~~-0.056 [-0.089, -0.022]~~ | ~~247 pairs / 25 clusters~~ |
-| worst-off share | ~~-0.013~~ | ~~0.014~~ | ~~+0.032 [+0.019, +0.044]~~ | ~~106 pairs / 24 clusters~~ |
-| max share | 0.339 | 0.363 | -- | -- |
+| deal rate | 0.735 | 0.522 | -0.224 [-0.297, -0.151] | 295 pairs / 30 clusters |
+| normalized Nash welfare (unconditional) | 0.611 | 0.414 | -0.203 [-0.269, -0.136] | 295 pairs / 30 clusters |
+| below-threshold rate | 0.246 | 0.010 | -0.268 [-0.335, -0.203] | 295 pairs / 30 clusters |
+| at-cap rate | 0.510 | 0.495 | +0.037 [-0.034, +0.110] | 295 pairs / 30 clusters |
+| among-IR rate | 0.256 | 0.207 | -0.031 [-0.107, +0.045] | 295 pairs / 30 clusters |
+| NNW among IR deals | ~~0.871~~ | ~~0.829~~ | ~~-0.010 [-0.056, +0.032]~~ | ~~25 pairs / 14 clusters~~ |
+| Gini | ~~0.267~~ | ~~0.215~~ | ~~-0.056 [-0.082, -0.029]~~ | ~~295 pairs / 30 clusters~~ |
+| worst-off share | ~~-0.013~~ | ~~0.015~~ | ~~+0.033 [+0.020, +0.046]~~ | ~~118 pairs / 30 clusters~~ |
+| max share | 0.339 | 0.359 | -- | -- |
 | generation failures | 0.000 | 0.000 | -- | -- |
 
 [Browse all 776 episode transcripts for this cell](episodes/prose/index.html). Source run directories: `baseline` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_baseline_prose`; `trained` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_lam1_checkpoint-25_prose`.
@@ -123,19 +121,19 @@ the north-star transfer cell: the same games with no machine-readable score shee
 ### `rationaltable`
 
 the exploitability guard -- the trained seat against five computable rational agents
-(960 baseline vs 820 trained episodes; closure-conditional metrics **interpretable**)
+(960 baseline vs 960 trained episodes; closure-conditional metrics **interpretable**)
 
 | metric | base | checkpoint 25 | trained − base [95% CI] | support |
 |---|---|---|---|---|
-| deal rate | 0.720 | 0.716 | -0.023 [-0.056, +0.007] | 820 pairs / 41 clusters |
-| normalized Nash welfare (unconditional) | 0.613 | 0.609 | -0.017 [-0.046, +0.008] | 820 pairs / 41 clusters |
-| below-threshold rate | 0.013 | 0.005 | -0.010 [-0.022, +0.000] | 820 pairs / 41 clusters |
-| at-cap rate | 0.951 | 0.893 | -0.052 [-0.079, -0.028] | 820 pairs / 41 clusters |
-| among-IR rate | 0.511 | 0.560 | +0.006 [-0.028, +0.038] | 820 pairs / 41 clusters |
-| NNW among IR deals | 0.869 | 0.874 | +0.002 [-0.002, +0.005] | 419 pairs / 34 clusters |
-| Gini | 0.241 | 0.239 | -0.008 [-0.018, +0.003] | 820 pairs / 41 clusters |
-| worst-off share | 0.032 | 0.037 | +0.001 [-0.001, +0.004] | 557 pairs / 41 clusters |
-| max share | 0.316 | 0.316 | -- | -- |
+| deal rate | 0.720 | 0.708 | -0.011 [-0.040, +0.017] | 960 pairs / 48 clusters |
+| normalized Nash welfare (unconditional) | 0.613 | 0.606 | -0.007 [-0.031, +0.017] | 960 pairs / 48 clusters |
+| below-threshold rate | 0.013 | 0.004 | -0.008 [-0.019, +0.000] | 960 pairs / 48 clusters |
+| at-cap rate | 0.951 | 0.897 | -0.054 [-0.079, -0.033] | 960 pairs / 48 clusters |
+| among-IR rate | 0.511 | 0.527 | +0.016 [-0.014, +0.044] | 960 pairs / 48 clusters |
+| NNW among IR deals | 0.869 | 0.876 | +0.001 [-0.002, +0.005] | 454 pairs / 38 clusters |
+| Gini | 0.241 | 0.235 | -0.006 [-0.015, +0.003] | 960 pairs / 48 clusters |
+| worst-off share | 0.032 | 0.035 | +0.002 [-0.000, +0.004] | 639 pairs / 47 clusters |
+| max share | 0.316 | 0.314 | -- | -- |
 | generation failures | 0.000 | 0.000 | -- | -- |
 
 [Browse all 1920 episode transcripts for this cell](episodes/rationaltable/index.html). Source run directories: `baseline` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_baseline_rationaltable`; `trained` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_lam1_checkpoint-25_rationaltable`.
@@ -143,19 +141,19 @@ the exploitability guard -- the trained seat against five computable rational ag
 ### `story_abstract`
 
 story transfer with abstract issue/option labels (no domain skin)
-(480 baseline vs 233 trained episodes; closure-conditional metrics **VOID**)
+(480 baseline vs 284 trained episodes; closure-conditional metrics **VOID**)
 
 | metric | base | checkpoint 25 | trained − base [95% CI] | support |
 |---|---|---|---|---|
-| deal rate | 0.802 | 0.545 | -0.258 [-0.342, -0.170] | 233 pairs / 24 clusters |
-| normalized Nash welfare (unconditional) | 0.611 | 0.405 | -0.197 [-0.252, -0.138] | 233 pairs / 24 clusters |
-| below-threshold rate | 0.260 | 0.030 | -0.219 [-0.288, -0.155] | 233 pairs / 24 clusters |
-| at-cap rate | 0.325 | 0.481 | +0.150 [+0.079, +0.223] | 233 pairs / 24 clusters |
-| among-IR rate | 0.319 | 0.275 | -0.069 [-0.133, -0.008] | 233 pairs / 24 clusters |
-| NNW among IR deals | ~~0.837~~ | ~~0.806~~ | ~~-0.045 [-0.086, -0.001]~~ | ~~47 pairs / 16 clusters~~ |
-| Gini | ~~0.304~~ | ~~0.214~~ | ~~-0.087 [-0.124, -0.049]~~ | ~~233 pairs / 24 clusters~~ |
-| worst-off share | ~~-0.029~~ | ~~0.009~~ | ~~+0.011 [-0.006, +0.031]~~ | ~~107 pairs / 22 clusters~~ |
-| max share | 0.368 | 0.358 | -- | -- |
+| deal rate | 0.802 | 0.514 | -0.285 [-0.362, -0.207] | 284 pairs / 29 clusters |
+| normalized Nash welfare (unconditional) | 0.611 | 0.383 | -0.217 [-0.267, -0.167] | 284 pairs / 29 clusters |
+| below-threshold rate | 0.260 | 0.032 | -0.246 [-0.313, -0.179] | 284 pairs / 29 clusters |
+| at-cap rate | 0.325 | 0.507 | +0.176 [+0.106, +0.250] | 284 pairs / 29 clusters |
+| among-IR rate | 0.319 | 0.261 | -0.056 [-0.110, -0.004] | 284 pairs / 29 clusters |
+| NNW among IR deals | ~~0.837~~ | ~~0.798~~ | ~~-0.045 [-0.084, -0.007]~~ | ~~52 pairs / 17 clusters~~ |
+| Gini | ~~0.304~~ | ~~0.202~~ | ~~-0.098 [-0.132, -0.064]~~ | ~~284 pairs / 29 clusters~~ |
+| worst-off share | ~~-0.029~~ | ~~0.009~~ | ~~+0.018 [-0.000, +0.040]~~ | ~~124 pairs / 27 clusters~~ |
+| max share | 0.368 | 0.360 | -- | -- |
 | generation failures | 0.000 | 0.000 | -- | -- |
 
 [Browse all 765 episode transcripts for this cell](episodes/story_abstract/index.html). Source run directories: `baseline` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_baseline_story_abstract`; `trained` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_lam1_checkpoint-25_story_abstract`.
@@ -163,19 +161,19 @@ story transfer with abstract issue/option labels (no domain skin)
 ### `story_datacenter`
 
 story transfer with the datacenter skin
-(480 baseline vs 200 trained episodes; closure-conditional metrics **VOID**)
+(480 baseline vs 416 trained episodes; closure-conditional metrics **VOID**)
 
 | metric | base | checkpoint 25 | trained − base [95% CI] | support |
 |---|---|---|---|---|
-| deal rate | 0.808 | 0.495 | -0.320 [-0.420, -0.230] | 200 pairs / 20 clusters |
-| normalized Nash welfare (unconditional) | 0.616 | 0.404 | -0.213 [-0.290, -0.143] | 200 pairs / 20 clusters |
-| below-threshold rate | 0.246 | 0.010 | -0.210 [-0.290, -0.140] | 200 pairs / 20 clusters |
-| at-cap rate | 0.325 | 0.510 | +0.220 [+0.140, +0.310] | 200 pairs / 20 clusters |
-| among-IR rate | 0.331 | 0.360 | -0.050 [-0.115, +0.010] | 200 pairs / 20 clusters |
-| NNW among IR deals | ~~0.832~~ | ~~0.831~~ | ~~-0.011 [-0.039, +0.021]~~ | ~~42 pairs / 15 clusters~~ |
-| Gini | ~~0.295~~ | ~~0.176~~ | ~~-0.120 [-0.160, -0.082]~~ | ~~200 pairs / 20 clusters~~ |
-| worst-off share | ~~-0.016~~ | ~~0.031~~ | ~~+0.042 [+0.015, +0.085]~~ | ~~79 pairs / 20 clusters~~ |
-| max share | 0.360 | 0.330 | -- | -- |
+| deal rate | 0.808 | 0.510 | -0.308 [-0.382, -0.238] | 416 pairs / 42 clusters |
+| normalized Nash welfare (unconditional) | 0.616 | 0.411 | -0.210 [-0.270, -0.156] | 416 pairs / 42 clusters |
+| below-threshold rate | 0.246 | 0.017 | -0.219 [-0.276, -0.161] | 416 pairs / 42 clusters |
+| at-cap rate | 0.325 | 0.476 | +0.168 [+0.094, +0.243] | 416 pairs / 42 clusters |
+| among-IR rate | 0.331 | 0.315 | -0.029 [-0.075, +0.014] | 416 pairs / 42 clusters |
+| NNW among IR deals | ~~0.832~~ | ~~0.824~~ | ~~-0.003 [-0.022, +0.019]~~ | ~~74 pairs / 26 clusters~~ |
+| Gini | ~~0.295~~ | ~~0.185~~ | ~~-0.113 [-0.143, -0.085]~~ | ~~416 pairs / 42 clusters~~ |
+| worst-off share | ~~-0.016~~ | ~~0.019~~ | ~~+0.033 [+0.012, +0.058]~~ | ~~178 pairs / 40 clusters~~ |
+| max share | 0.360 | 0.342 | -- | -- |
 | generation failures | 0.000 | 0.000 | -- | -- |
 
 [Browse all 897 episode transcripts for this cell](episodes/story_datacenter/index.html). Source run directories: `baseline` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_baseline_story_datacenter`; `trained` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_lam1_checkpoint-25_story_datacenter`.
@@ -183,19 +181,19 @@ story transfer with the datacenter skin
 ### `story_festival`
 
 story transfer with the festival skin
-(480 baseline vs 168 trained episodes; closure-conditional metrics **VOID**)
+(480 baseline vs 480 trained episodes; closure-conditional metrics **VOID**)
 
 | metric | base | checkpoint 25 | trained − base [95% CI] | support |
 |---|---|---|---|---|
-| deal rate | 0.835 | 0.571 | -0.244 [-0.327, -0.163] | 168 pairs / 17 clusters |
-| normalized Nash welfare (unconditional) | 0.649 | 0.461 | -0.181 [-0.266, -0.109] | 168 pairs / 17 clusters |
-| below-threshold rate | 0.208 | 0.006 | -0.155 [-0.217, -0.095] | 168 pairs / 17 clusters |
-| at-cap rate | 0.304 | 0.423 | +0.125 [+0.030, +0.223] | 168 pairs / 17 clusters |
-| among-IR rate | 0.342 | 0.292 | -0.101 [-0.190, -0.012] | 168 pairs / 17 clusters |
-| NNW among IR deals | ~~0.821~~ | ~~0.878~~ | ~~+0.041 [-0.022, +0.092]~~ | ~~30 pairs / 10 clusters~~ |
-| Gini | ~~0.304~~ | ~~0.232~~ | ~~-0.068 [-0.108, -0.027]~~ | ~~168 pairs / 17 clusters~~ |
-| worst-off share | ~~-0.005~~ | ~~0.015~~ | ~~+0.007 [-0.003, +0.018]~~ | ~~83 pairs / 16 clusters~~ |
-| max share | 0.344 | 0.351 | -- | -- |
+| deal rate | 0.835 | 0.571 | -0.265 [-0.321, -0.210] | 480 pairs / 48 clusters |
+| normalized Nash welfare (unconditional) | 0.649 | 0.464 | -0.185 [-0.236, -0.139] | 480 pairs / 48 clusters |
+| below-threshold rate | 0.208 | 0.008 | -0.200 [-0.233, -0.163] | 480 pairs / 48 clusters |
+| at-cap rate | 0.304 | 0.421 | +0.117 [+0.056, +0.177] | 480 pairs / 48 clusters |
+| among-IR rate | 0.342 | 0.317 | -0.025 [-0.083, +0.033] | 480 pairs / 48 clusters |
+| NNW among IR deals | ~~0.821~~ | ~~0.850~~ | ~~+0.024 [-0.007, +0.053]~~ | ~~85 pairs / 31 clusters~~ |
+| Gini | ~~0.304~~ | ~~0.216~~ | ~~-0.088 [-0.111, -0.065]~~ | ~~480 pairs / 48 clusters~~ |
+| worst-off share | ~~-0.005~~ | ~~0.021~~ | ~~+0.019 [+0.010, +0.030]~~ | ~~239 pairs / 47 clusters~~ |
+| max share | 0.344 | 0.340 | -- | -- |
 | generation failures | 0.000 | 0.000 | -- | -- |
 
 [Browse all 960 episode transcripts for this cell](episodes/story_festival/index.html). Source run directories: `baseline` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_baseline_story_festival`; `trained` → `/nlp/scr/siddharth/ii_mats/rational_agents/grpov2eval_lam1_checkpoint-25_story_festival`.

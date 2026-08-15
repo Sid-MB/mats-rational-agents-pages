@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Two degenerate attractors of one RL run — fairness-GRPO v2, λ=1.0</title><style>
+<title>Two degenerate attractors of one RL run — fairness-GRPO v2, λ=1.0, with the λ=0 control</title><style>
 :root { color-scheme: light; --ink:#1b1f2a; --muted:#5f6a7d; --line:#dbe0e8; --accent:#2f4f8f; --warn:#a3402a; --paper:#f6f7fa; }
 * { box-sizing:border-box; }
 body { margin:0; background:linear-gradient(140deg,#eef1f7,#faf8f3); color:var(--ink); font:15px/1.55 ui-sans-serif,system-ui,sans-serif; }
@@ -40,6 +40,9 @@ pushed under its walk-away. At checkpoint 25 the number is clean because the pol
 the responder <em>precisely</em> on its threshold. At checkpoint 50 it is clean because the policy will not sign
 anything at all. Neither is fair; the metric cannot tell them apart, and it cannot tell either of them from
 success.</p>
+<p class="lede">A third arm decides whose fault that is. Paid only for its own outcome, so that walking away
+costs the seat that walks, the policy <em>keeps</em> closing deals — which places the collapse in the reward
+rather than in the training method. <a href="#lambda-frontier">Jump to the λ-frontier and its control →</a></p>
 
 <div class="pair">
 <div class="card"><span class="eyebrow">attractor 1 — boundary extraction</span>
@@ -96,6 +99,61 @@ reads 0.000 at <strong>every single rung</strong>, through both regimes.</p>
 <p class="lede">Each preset is a single game cluster, so these are directions rather than intervals. Fair
 references: equal split is 0.500 max share on the ultimatum and 0.333 on divide-the-dollar.</p>
 
+<h2 id="lambda-frontier">The control that says which of these is the reward's fault</h2>
+<p class="lede">Everything above is one arm of a three-arm frontier, and on its own it cannot say <em>why</em>
+the policy stops closing deals. Two explanations fit it equally well. The first blames the <strong>reward</strong>:
+under λ=1.0 a seat is paid the whole table's welfare, and walking away is <em>table-neutral</em> — every seat
+receives the same fixed no-deal constant — so escaping a hard game is free while signing a bad one is not. The
+second blames the <strong>method</strong>: perhaps GRPO on this negotiation simply finds "stop agreeing" whatever
+it is paid for. A λ=0 arm, paid only for its own take so that the walk is charged to the seat that takes it,
+separates them, and it was <a href="https://github.com/Sid-MB/ii_mats/blob/main/experiments/rational_agents/research-notes/0050-lam0-selfish-control-prereg.md">preregistered in note 0050</a> with that prediction filed
+before any training step existed: <em>if the mechanism story is right, λ=0 must not collapse.</em></p>
+
+<div class="finding">
+<p><strong>It does not collapse.</strong> Through both completed rungs the λ=0 deal-rate loss stays inside the
+campaign's 0.10 viability floor, while λ=1.0 has already broken it by rung 10 — same bank, same pairing, same
+instrument. The collapse belongs to the objective, not to the optimizer.</p>
+<div class="card scroll"><table><thead><tr><th>arm</th><th>rung 5</th><th>rung 10</th><th>rung 15</th></tr></thead><tbody><tr><td>λ=1.0 (all table welfare)</td><td>-0.052 [-0.081, -0.021]</td><td>-0.143 [-0.184, -0.099] VOID</td><td>-0.147 [-0.197, -0.095] VOID</td></tr><tr><td>λ=0.5 (half own outcome)</td><td>-0.058 [-0.089, -0.028]</td><td>-0.046 [-0.075, -0.015]</td><td>-0.058 [-0.098, -0.021]</td></tr><tr><td>λ=0 (all own outcome)</td><td>-0.028 [-0.054, -0.001]</td><td>-0.075 [-0.111, -0.036]</td><td>-0.266 [-0.333, -0.195] PARTIAL VOID</td></tr></tbody></table></div>
+<p><strong>PARTIAL</strong> marks the λ=0 endpoint, whose evaluation was <em>stopped for cost, not for
+outcome</em>: that policy ran at 2–4 episodes per hour per GPU against 25+ for every earlier checkpoint, so it
+was terminated with 346 of an intended 576 episodes scored. It is not a
+completed rung and nothing here rests on it. <strong>VOID</strong> marks a rung past the viability floor, whose
+closure-conditional metrics the analyzer stamps uninterpretable rather than favourable.</p>
+</div>
+
+<h3>The two arms lose their deals in opposite ways</h3>
+<p class="lede">Held-out primary bank, rung 10, trained minus base. <code>walk</code> and <code>expiry</code>
+partition the no-deal episodes into "a seat walked away" and "nobody walked, the clock ran out";
+<code>at_cap</code> counts episodes that used the full 30-round budget, closed deals included, so it measures
+how <em>long</em> a negotiation runs rather than whether it failed.</p>
+<div class="card scroll"><table><thead><tr><th>arm</th><th>Δ walk rate</th><th>Δ expiry rate</th><th>Δ at-cap rate</th><th>Δ below-threshold</th><th>Δ max share</th></tr></thead><tbody><tr><td>λ=1.0</td><td>+0.064 [+0.035, +0.092]</td><td>+0.079 [+0.045, +0.113]</td><td>-0.186 [-0.230, -0.145]</td><td>-0.207 [-0.243, -0.172]</td><td>-0.007 [-0.024, +0.009]</td></tr><tr><td>λ=0.5</td><td>-0.001 [-0.018, +0.017]</td><td>+0.047 [+0.022, +0.072]</td><td>-0.126 [-0.168, -0.082]</td><td>-0.155 [-0.198, -0.111]</td><td>-0.027 [-0.040, -0.015]</td></tr><tr><td>λ=0</td><td>-0.029 [-0.045, -0.015]</td><td>+0.104 [+0.071, +0.138]</td><td>+0.272 [+0.232, +0.314]</td><td>+0.008 [-0.032, +0.048]</td><td>-0.008 [-0.021, +0.006]</td></tr></tbody></table></div>
+<p>λ=1.0 walks <strong>more</strong> than the untrained base (0.064) and finishes
+<strong>sooner</strong> (-0.186 at-cap). λ=0 walks <strong>less</strong>
+(-0.029) and grinds <strong>far longer</strong> (0.272 at-cap). That sign
+flip on the walk column, between the arm paid for the table and the arm paid for itself, is the mechanism in
+its most direct form: <strong>make the walk free to the payer and the policy takes it; charge the walk to the
+payer and the policy stops taking it</strong> — and loses its deals a different way instead.</p>
+
+<h3>What λ=0 does <em>not</em> buy, and the third attractor it hints at</h3>
+<div class="card"><ul>
+<li><strong>No fairness.</strong> Pricing the walk to the seat removes the refusal attractor and moves no
+distributional metric: at rung 10 the below-threshold rate and capture concentration are flat in both
+directions. Closure is preserved; nothing is redistributed.</li>
+<li><strong>A different endpoint, not a better one.</strong> On the partial rung-15 sample nearly every episode
+uses its entire round budget while the walk rate does not move at all — the policy holds out rather than
+leaves. That is neither λ=1.0's refusal nor the extraction race note 0050 registered as its third possible
+outcome: capture concentration and the below-threshold rate both move the wrong way for a race.</li>
+<li><strong>The stop was not random, and its bias is stated.</strong> Killing an evaluation mid-flight keeps the
+episodes that <em>finished first</em>, and episodes finish late by grinding to no deal — so that cell
+overstates closure and understates the at-cap and expiry rises. The one column biased the other way is the
+walk rate, since walks end episodes early, and it is still flat. That is why "the endpoint is not refusing"
+is the one thing the partial sample supports well.</li>
+<li><strong>One limitation, named rather than argued away.</strong> The λ=0 rungs ran on rented A100s while the
+baseline they are paired against was produced on the cluster's a6000 fleet; the λ&gt;0 comparators share the
+baseline's environment. A same-environment base re-run is the outstanding fix, and until it exists the λ=0
+contrast carries an unmeasured environment term that the two arms beside it do not.</li>
+</ul></div>
+
 <h2>What this does and does not say</h2>
 <div class="card"><ul>
 <li><strong>It is not a metric edge case.</strong> Both rungs were produced by ordinary optimization of a
@@ -120,6 +178,13 @@ for the record rather than omitted.</li>
 <li>Public dataset: <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Fairness-GRPO">2026.RA.Fairness-GRPO</a></li>
 <li>Frozen eval summaries: <code>eval_step5.json, eval_ckpt10.json, eval_ckpt15.json, eval_ckpt25.json, eval_r25_ckpt40.json, eval_r25_ckpt45.json, eval_r25_ckpt50.json</code> under
     <code>experiments/rational_agents/results/fairness_grpo_v2/</code></li>
+<li>λ=0 control (preregistration + adjudication, the owning record for that arm):
+    <a href="https://github.com/Sid-MB/ii_mats/blob/main/experiments/rational_agents/research-notes/0050-lam0-selfish-control-prereg.md">0050 — the λ=0 selfish control</a>; training run
+    <a href="https://wandb.ai/siddharth-stanford/rational_agents_fairness_grpo/runs/gh0lvazn">grpo_v2_lam0</a>; episodes and telemetry in
+    <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Fairness-GRPO-v2">2026.RA.Fairness-GRPO-v2</a> under <code>lam0/</code></li>
+<li>Frontier summaries (all three arms on one instrument):
+    <code>eval_lambda_frontier_walkexpiry.json</code>, <code>eval_lam0_ckpt{5,10}_walkexpiry.json</code>,
+    <code>eval_lam0_ckpt15_partial.json</code></li>
 <li>Per-checkpoint analyses: <a href="ckpt25/index.html">checkpoint 25</a>
     (<a href="ckpt25/analysis.md">markdown</a>) · <a href="ckpt50/index.html">checkpoint 50</a>
     (<a href="ckpt50/analysis.md">markdown</a>)</li>
