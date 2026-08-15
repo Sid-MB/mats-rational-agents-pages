@@ -163,3 +163,48 @@ Per-arm Pearson correlation between an instance's IR margin and its no-deal rate
 | `one_oracle` | -0.140 [-0.516, 0.308] | 24 |
 | `all_rational` | -0.256 [-0.545, 0.082] | 24 |
 | `all_oracle` | -0.020 [-0.438, 0.380] | 24 |
+
+---
+
+## Per-seat capture (2026-08-14, research note 0053) — what the computable seat takes for itself
+
+*Appended by the results-review lane. Descriptive re-analysis of the frozen episodes plus two matched arms that already existed; no API calls, $0 spend. Nothing above this line is rewritten. Full account: research note **0053**; script `analyze_per_seat_capture.py`.*
+
+The table above is a table-level view, and one seat is 20% of a five-way split — an occupant taking a tenth more of its own feasible surplus moves the table's Gini by about a hundredth, inside the intervals reported here. This section reads the same episodes at the **seat** level. The rotating computable chair is a function of `(bank position, episode seed)` and not of the arm, so pairing on `(instance, seed)` pairs chairs automatically (checked: 120 keys, 0 with a disagreeing seat index; and in all 360 computable-seat episodes the chair the schedule names is exactly the seat that generated zero output tokens).
+
+Coordinate: z_i = (u_i − τ_i)/c_i, c_i the party's best surplus on the individually rational set. Intervals are 95% instance-clustered bootstraps (10,000 resamples). **Conditional** columns keep only games both arms closed; **unconditional** columns score a no-deal as 0 over all 120 — a party that reaches no agreement receives exactly its threshold.
+
+### Paired against `all_llm`, identical games
+
+| arm | seat z (cond.) | seat z (uncond.) | seat share of table gain | seat − co-player, same episode | co-player z (uncond.) | deal rate | pairs (cond.) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `all_llm_moves_only` *(channel closed)* | -0.044 [-0.109, +0.014] | **-0.174 [-0.267, -0.091]** | -0.012 [-0.035, +0.010] | -0.037 [-0.118, +0.039] | **-0.148 [-0.243, -0.061]** | **-0.200 [-0.317, -0.092]** | 89 |
+| `one_rational` | +0.038 [-0.027, +0.101] | **-0.110 [-0.193, -0.026]** | +0.014 [-0.009, +0.036] | +0.055 [-0.031, +0.135] | **-0.143 [-0.205, -0.082]** | **-0.192 [-0.275, -0.108]** | 90 |
+| `one_oracle` *(spoiled ballot)* | **+0.147 [+0.044, +0.266]** | **-0.223 [-0.298, -0.151]** | **+0.055 [+0.020, +0.097]** | **+0.184 [+0.055, +0.335]** | **-0.311 [-0.376, -0.237]** | **-0.450 [-0.550, -0.350]** | 56 |
+| `one_oracle_repaired` | +0.083 [-0.005, +0.164] | +0.061 [-0.029, +0.144] | **+0.032 [+0.003, +0.059]** | +0.110 [-0.001, +0.214] | **-0.054 [-0.099, -0.011]** | -0.042 [-0.100, +0.017] | 106 |
+
+An equal five-way split puts seat share at 0.200. In levels the chair occupied by an LLM sits at **0.204** — within a rounding error of equal — and every computable occupant sits above it (0.216 rational, 0.241 repaired-oracle, 0.257 spoiled-oracle). **The conditional and unconditional columns disagree in sign for three of four arms**: conditionally the seat does well in the deals it signs, unconditionally it signs too few. Any quotation of a number from this table has to say which convention it is.
+
+### Paired against the channel-matched mute control, and this is the reading that matters
+
+The computable seat structurally **cannot use the public message channel** the four LLM seats have, so a contrast against `all_llm` changes two things at once. Re-anchoring on `all_llm_moves_only` (note 0044's channel-closed arm — same bank, same seeds, same model) is the closest available channel match.
+
+| arm | seat z (cond.) | seat z (uncond.) | seat − co-player | co-player z (uncond.) | deal rate | pairs (cond.) |
+|---|---:|---:|---:|---:|---:|---:|
+| `one_rational` | +0.051 [-0.039, +0.138] | +0.064 [-0.017, +0.150] | +0.054 [-0.066, +0.165] | +0.005 [-0.065, +0.081] | +0.008 [-0.092, +0.108] | 76 |
+| `one_oracle_repaired` | **+0.115 [+0.021, +0.213]** | **+0.235 [+0.130, +0.345]** | **+0.140 [+0.024, +0.258]** | **+0.094 [+0.015, +0.186]** | **+0.158 [+0.058, +0.275]** | 86 |
+
+**The rational seat's resolved unconditional deficit above is fully accounted for by the microphone** — against a reference that also cannot speak, every column straddles zero. **The omniscient seat's extraction is not**: it resolves on both conventions, and its co-players are *better* off than in the mute table, because it also closes 0.158 more of the games. Caveat stated rather than buried: that control mutes all five seats, not only the rotating one, so it bounds the confound rather than removing it.
+
+**Unified reading: seat-level extraction here is bought by information, not by rationality, and it is invisible at the table because it is small and because the arm's headline is dominated by closure.** Note 0022's older Sonnet result — the Bayesian anchor taking **+0.128** more seat-0 capture, in the same unconditional convention — does not replicate at five seats against Opus (−0.110, opposite sign, interval excluding zero), and against a channel-matched reference the extraction attributable to the decision rule is zero. Commensurability, measured rather than asserted: 0022 divides by each party's *unconstrained* maximum surplus while these columns divide by its maximum over the *individually rational* set, which on this bank is 0.717 of the former on average — so translating −0.110 into 0022's units makes it smaller in magnitude, not larger, and leaves the sign alone.
+
+### The `one_oracle` re-run flagged "in flight" in the erratum above has landed
+
+`onefix_one_oracle_repaired` — same bank v1, same seeds 0–4, 120/120 done, gate G3 clean (0 mismatches over 531 turns), $148.75 against the frozen arm's $152.15 and the same 17 refusals.
+
+| `one_oracle` | deal rate | normalized score | paired score vs all-LLM | worst-off z | norm. Gini | max share | pairs |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| as published *(spoiled)* | 0.508 [0.417, 0.600] | 0.461 [0.377, 0.544] | **-0.412 [-0.493, -0.323]** | -0.070 [-0.115, -0.029] | +0.048 [+0.019, +0.081] | +0.018 [+0.004, +0.034] | 56 |
+| **ballot repaired** | **0.917 [0.850, 0.967]** | **0.829 [0.767, 0.884]** | **-0.044 [-0.103, +0.013]** | -0.060 [-0.092, -0.033] | +0.043 [+0.025, +0.065] | +0.015 [+0.005, +0.027] | 106 |
+
+**The published "one omniscient seat costs the table 45 points of deal rate and 41 points of score" is almost entirely the spoiled ballot** — repaired, neither contrast excludes zero. The distributional finding survives on a nearly doubled pair set and is better resolved than before. Together with the `all_oracle` erratum above, that is now the whole oracle story: **the oracle arms never had a closure problem, and they always had a distribution problem.**
