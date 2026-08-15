@@ -77,6 +77,27 @@
     gradient these five arms trace is information, not computability.</strong> Every computable arm still splits
     worse than all-LLM at every composition. Recomputed basket over both repaired arms:
     <a href="analysis/fairness_basket_ballot_repaired_both_oracles.md">fairness_basket_ballot_repaired_both_oracles.md</a>.
+    <br><br>
+    <strong>A repaired arm is a different agent from the frozen arm of the same name.</strong> The two rows are
+    never pooled, averaged, or substituted for one another; contrasts are paired on the identical
+    (instance, seed) games, bank, framing and protocol, but the arms are unpaired in time.
+    <br><br>
+    <strong>Whose ballots were dropped, split by seat occupant</strong> &mdash; a bare count across arms would
+    attribute model errors to the harness and vice versa. Final-vote turns rejected for naming an offer other
+    than the one under vote:
+    <table style="margin-top:.6em">
+      <thead><tr><th>arm</th><th>computable seat</th><th>LLM seats</th></tr></thead>
+      <tbody>
+        <tr><td>all-LLM</td><td>&mdash;</td><td>3 / 31</td></tr>
+        <tr><td>one-rational</td><td>0 / 53</td><td>1 / 206</td></tr>
+        <tr><td><strong>one-oracle</strong></td><td><strong>114 / 116</strong></td><td>0 / 218</td></tr>
+        <tr><td>all-rational</td><td>0 / 476</td><td>&mdash;</td></tr>
+        <tr><td><strong>all-oracle</strong></td><td><strong>94 / 107</strong></td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+    Every dropped ballot in the two oracle arms is the computable seat's; every one elsewhere is an LLM seat's,
+    at two orders of magnitude lower a rate and from a different cause (a model naming a wrong offer id). The
+    three non-oracle arms do not carry this defect.
   </div>
 
   <h2>Headline comparison</h2>
