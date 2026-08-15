@@ -15,6 +15,14 @@
 > the ones to read. `one_oracle`'s re-run needs API budget and is in flight; its rows are flagged but not yet
 > corrected.
 >
+> **Superseded 2026-08-14 — that re-run has landed**, and its numbers are in
+> [the section at the bottom of this page](#the-one_oracle-re-run-flagged-in-flight-in-the-erratum-above-has-landed):
+> deal rate 0.508 → **0.917**, paired score −0.412 → **−0.044**, no longer resolved, with the distributional
+> deficit surviving on a nearly doubled pair set. **With both oracle arms repaired the campaign's ordering is
+> all_oracle > all_llm > one_oracle > one_rational > all_rational — only the private-information Bayesian
+> agents collapse, so the gradient these five arms trace is information, not computability.** Recomputed
+> basket over both repaired arms: [fairness_basket_ballot_repaired_both_oracles.md](fairness_basket_ballot_repaired_both_oracles.md).
+>
 > Full account: research note **0045**; repair commit `ca20157`. The distributional finding is unchanged —
 > see the fairness-basket erratum in note 0043 — and is in fact cleaner, because the repaired `all_oracle`
 > now closes **more** often than all-LLM (+0.042 [+0.017, +0.075]) and still splits worse on every column.
@@ -25,7 +33,8 @@ All intervals are 95% instance-clustered bootstrap intervals; no-deal scores zer
 |---|---:|---:|---:|---:|---:|---:|
 | all_llm | 120 | 0.873 [0.833, 0.910] | 0.958 [0.925, 0.992] | reference | 0.911 (0.946, [0.838, 1.000]) n=115 | 0.653 [0.620, 0.690], 0.667, [0.433, 1.000] |
 | one_rational | 120 | 0.686 [0.613, 0.759] | 0.767 [0.692, 0.842] | -0.186 [-0.267, -0.106] | 0.895 (0.931, [0.825, 1.000]) n=92 | 0.639 [0.605, 0.675], 0.657, [0.431, 1.000] |
-| one_oracle *(spoiled ballot; re-run in flight)* | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 | 0.654 [0.618, 0.691], 0.688, [0.360, 1.000] |
+| one_oracle *(spoiled ballot — superseded)* | 120 | 0.461 [0.377, 0.544] | 0.508 [0.417, 0.600] | -0.412 [-0.493, -0.323] | 0.906 (0.979, [0.854, 1.000]) n=61 | 0.654 [0.618, 0.691], 0.688, [0.360, 1.000] |
+| **one_oracle — ballot repaired** | 120 | **0.829 [0.767, 0.884]** | **0.917 [0.850, 0.967]** | **-0.044 [-0.104, +0.011]** | 0.904 (0.961, [0.829, 1.000]) n=110 | 0.649 [0.612, 0.689], 0.687, [0.341, 1.000] |
 | all_rational | 120 | 0.189 [0.110, 0.278] | 0.233 [0.133, 0.342] | -0.684 [-0.786, -0.580] | 0.809 (0.830, [0.699, 0.922]) n=28 | 0.554 [0.512, 0.611], 0.567, [0.329, 0.762] |
 | all_oracle *(spoiled ballot — superseded)* | 120 | 0.791 [0.734, 0.842] | 0.875 [0.817, 0.925] | -0.082 [-0.146, -0.022] | 0.904 (0.963, [0.841, 1.000]) n=105 | 0.643 [0.614, 0.673], 0.674, [0.316, 1.000] |
 | **all_oracle — ballot repaired** | 120 | **0.907 [0.880, 0.933]** | **1.000 [1.000, 1.000]** | **+0.034 [+0.001, +0.074]** | 0.907 (0.982, [0.843, 1.000]) n=120 | 0.645 [0.611, 0.681], 0.684, [0.310, 1.000] |

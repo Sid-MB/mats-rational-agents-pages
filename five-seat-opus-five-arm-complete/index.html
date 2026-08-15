@@ -36,7 +36,8 @@
       <tbody>
         <tr><td>Five Opus LLMs</td><td>0.8726 [0.8328, 0.9104]</td><td>115 / 120</td><td>0.9583 [0.9250, 0.9917]</td></tr>
         <tr><td>Four Opus + one rational</td><td>0.6864 [0.6132, 0.7594]</td><td>92 / 120</td><td>0.7667 [0.6917, 0.8417]</td></tr>
-        <tr><td>Four Opus + one oracle <em>(spoiled ballot &mdash; re-run in flight)</em></td><td>0.4607 [0.3771, 0.5436]</td><td>61 / 120</td><td>0.5083 [0.4167, 0.6000]</td></tr>
+        <tr><td>Four Opus + one oracle <em>(spoiled ballot &mdash; superseded)</em></td><td>0.4607 [0.3771, 0.5436]</td><td>61 / 120</td><td>0.5083 [0.4167, 0.6000]</td></tr>
+        <tr><td><strong>Four Opus + one oracle &mdash; ballot repaired</strong></td><td><strong>0.8290 [0.7669, 0.8838]</strong></td><td><strong>110 / 120</strong></td><td><strong>0.9167 [0.8500, 0.9667]</strong></td></tr>
         <tr><td>Five rational agents</td><td>0.1889 [0.1098, 0.2782]</td><td>28 / 120</td><td>0.2333 [0.1333, 0.3417]</td></tr>
         <tr><td>Five oracle agents <em>(spoiled ballot &mdash; superseded)</em></td><td>0.7907 [0.7343, 0.8417]</td><td>105 / 120</td><td>0.8750 [0.8167, 0.9250]</td></tr>
         <tr><td><strong>Five oracle agents &mdash; ballot repaired</strong></td><td><strong>0.9069 [0.8803, 0.9325]</strong></td><td><strong>120 / 120</strong></td><td><strong>1.0000 [1.0000, 1.0000]</strong></td></tr>
@@ -57,8 +58,25 @@
     <em>more</em> often than all-LLM (+0.042 [+0.017, +0.075]) and still splits worse on every column. Full
     account in research note 0045 (repair commit <code>ca20157</code>); details in
     <a href="analysis/analysis.md">analysis.md</a> and the
-    <a href="../seeded-optimal-opening/index.html">seeded-optimal-opening hub</a>. The one-oracle re-run needs
-    API budget and is in flight.
+    <a href="../seeded-optimal-opening/index.html">seeded-optimal-opening hub</a>.
+  </div>
+
+  <div class="finding" style="border-left-color:#b45309;background:#fdf6ec">
+    <strong>Erratum, part 2 (2026-08-14) &mdash; the one-oracle re-run landed, and it changes this campaign's
+    headline shape.</strong>
+    Repaired and re-run on the identical 120 games, the one-oracle arm goes from
+    <strong>0.508 to 0.917</strong> deal rate and <strong>0.461 to 0.829</strong> score, and both of its paired
+    effects against all-LLM go to null: deal rate &minus;0.450 &rarr; <strong>&minus;0.042
+    [&minus;0.100, +0.017]</strong>, score &minus;0.412 &rarr; <strong>&minus;0.044 [&minus;0.104, +0.011]</strong>.
+    52 episodes flip from no-deal to deal and 3 flip the other way. What survives is the distributional cost,
+    unchanged in size and now on 106 paired closed games instead of 56 (worst-off z &minus;0.060
+    [&minus;0.092, &minus;0.033], Gini +0.043 [+0.025, +0.065]).
+    <strong>With both oracle arms repaired the ordering is all-oracle &gt; all-LLM &gt; one-oracle &gt;
+    one-rational &gt; all-rational, so the published reading &mdash; computable agents collapse, worse the more
+    of them there are &mdash; does not survive: only the private-information Bayesian agents collapse, and the
+    gradient these five arms trace is information, not computability.</strong> Every computable arm still splits
+    worse than all-LLM at every composition. Recomputed basket over both repaired arms:
+    <a href="analysis/fairness_basket_ballot_repaired_both_oracles.md">fairness_basket_ballot_repaired_both_oracles.md</a>.
   </div>
 
   <h2>Headline comparison</h2>

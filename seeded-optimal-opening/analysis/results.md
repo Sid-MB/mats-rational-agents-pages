@@ -6,6 +6,7 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | arm | lineup | seeded | variant | episodes | immediate accept | deal rate | P(final==seeded) | normalized score | seats accepting |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|
+| `all_llm__ceiling_continue` | all_llm | ceiling | continue | 120 | 0.000 [0.000, 0.000] | 0.958 [0.908, 1.000] | 0.383 [0.242, 0.533] | 0.875 [0.814, 0.929] | 0.463 [0.353, 0.572] |
 | `all_llm__ceiling_vote` | all_llm | ceiling | vote | 120 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
 | `all_llm__placebo_vote` | all_llm | placebo | vote | 120 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.678 [0.640, 0.713] | 1.000 [1.000, 1.000] |
 | `all_llm__unseeded` | all_llm | none | continue | 120 | 0.000 [0.000, 0.000] | 0.958 [0.925, 0.992] | 0.000 [0.000, 0.000] | 0.873 [0.833, 0.911] | 0.000 [0.000, 0.000] |
@@ -35,6 +36,7 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 | `all_oracle__ceiling_vote` | `all_oracle__placebo_vote` | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.322 [0.287, 0.360] |
 | `all_rational__ceiling_continue` | `all_rational__placebo_continue` | 0.000 [0.000, 0.000] | -0.025 [-0.075, 0.025] | 0.017 [-0.025, 0.075] | -0.024 [-0.063, 0.014] |
 | `all_rational__ceiling_vote` | `all_rational__placebo_vote` | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.322 [0.287, 0.360] |
+| `all_llm__ceiling_continue` | `all_llm__unseeded` | 0.000 [0.000, 0.000] | 0.000 [-0.050, 0.042] | 0.383 [0.242, 0.533] | 0.003 [-0.047, 0.052] |
 | `all_oracle__ceiling_continue` | `all_oracle__unseeded` | 0.325 [0.217, 0.433] | -0.092 [-0.158, -0.033] | 0.325 [0.217, 0.433] | -0.075 [-0.136, -0.019] |
 | `all_oracle__ceiling_continue_ballot_fixed` | `all_oracle__unseeded_ballot_fixed` | 0.325 [0.217, 0.433] | 0.000 [0.000, 0.000] | 0.450 [0.325, 0.575] | 0.017 [0.005, 0.032] |
 | `all_oracle__placebo_continue` | `all_oracle__unseeded` | 0.075 [0.033, 0.117] | -0.175 [-0.275, -0.083] | 0.075 [0.033, 0.117] | -0.163 [-0.258, -0.077] |
@@ -46,6 +48,7 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | arm | deals | deal rate | below-thr. accept | worst-off z | worst-off share | norm. Gini | norm. Nash welf. | max share |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `all_llm__ceiling_continue` | 115/120 | 0.958 [0.908, 1.000] | 0.000 [0.000, 0.000] | 0.269 [0.214, 0.326] | 0.080 [0.066, 0.094] | 0.214 [0.189, 0.239] | 0.553 [0.479, 0.617] | 0.296 [0.283, 0.307] |
 | `all_llm__ceiling_vote` | 120/120 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 0.232 [0.164, 0.302] | 0.063 [0.046, 0.080] | 0.231 [0.203, 0.259] | 0.507 [0.388, 0.612] | 0.287 [0.276, 0.298] |
 | `all_llm__placebo_vote` | 120/120 | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 0.119 [0.086, 0.154] | 0.045 [0.034, 0.057] | 0.330 [0.299, 0.366] | 0.287 [0.215, 0.358] | 0.372 [0.350, 0.399] |
 | `all_llm__unseeded` | 115/120 | 0.958 [0.925, 0.992] | 0.000 [0.000, 0.000] | 0.257 [0.206, 0.307] | 0.077 [0.064, 0.090] | 0.223 [0.199, 0.247] | 0.535 [0.457, 0.603] | 0.299 [0.287, 0.309] |
@@ -69,6 +72,12 @@ Immediate acceptance = every seat's first move of the episode is an ACCEPT of th
 
 | arm | z bin | seat-turns | accepts on first move | ever accepts |
 |---|---|---:|---:|---:|
+| `all_llm__ceiling_continue` | [0.00, 0.10) | 65 | 0.000 [0.000, 0.000] | 0.277 [0.091, 0.462] |
+| `all_llm__ceiling_continue` | [0.10, 0.20) | 40 | 0.000 [0.000, 0.000] | 0.400 [0.175, 0.600] |
+| `all_llm__ceiling_continue` | [0.20, 0.35) | 75 | 0.000 [0.000, 0.000] | 0.293 [0.157, 0.427] |
+| `all_llm__ceiling_continue` | [0.35, 0.50) | 100 | 0.050 [0.011, 0.095] | 0.500 [0.333, 0.640] |
+| `all_llm__ceiling_continue` | [0.50, 0.75) | 170 | 0.018 [0.000, 0.038] | 0.529 [0.346, 0.691] |
+| `all_llm__ceiling_continue` | [0.75, 1.01) | 150 | 0.333 [0.192, 0.448] | 0.547 [0.444, 0.644] |
 | `all_llm__ceiling_vote` | [0.00, 0.10) | 65 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
 | `all_llm__ceiling_vote` | [0.10, 0.20) | 40 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
 | `all_llm__ceiling_vote` | [0.20, 0.35) | 75 | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
