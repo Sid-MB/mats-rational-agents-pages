@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Uncapping the advocate &mdash; note 0054 beside note 0009</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink);
+           font:15px/1.55 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:860px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px;
+            box-shadow:0 8px 24px rgba(29,58,43,.06); overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .finding { border-left:4px solid var(--accent); padding:12px 16px; background:#eef7f1; border-radius:0 10px 10px 0; }
+    .warn { border-left:4px solid #b45309; padding:12px 16px; background:#fdf6ec; border-radius:0 10px 10px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); background:white; }
+</style>
+</head>
+<body><main>
+
+<h1>The advocate, judged on turns that happened</h1>
+<p class="lede">Note 0008 froze a design and a three-part gate for a question the programme keeps returning to:
+can a <strong>planner-guided advocate</strong> &mdash; a computable negotiator that optimizes one seat's captured
+surplus from that seat's own private sheet and the public record only &mdash; produce trajectories good enough to
+train on? <a href="https://github.com/Sid-MB/ii_mats/blob/main/experiments/rational_agents/research-notes/0009-realistic-advocate-viability-results.md">Note 0009</a> ran it on thinking-ON Qwen3-8B at the protocol's
+2,048-token per-turn cap and failed all three gates. This page is the same frozen design re-run with
+<strong>exactly one deviation</strong>: the cap raised to 32,768, which on this model cannot be reached without
+first overrunning the context window. Bank, seeds, cells, model, scaffold, arm, gates, bootstrap seed and
+analysis code are 0009's, unchanged. Methodology and full adjudication:
+<a href="https://github.com/Sid-MB/ii_mats/blob/main/experiments/rational_agents/research-notes/0054-advocate-viability-uncapped-rerun.md">research note 0054</a>.</p>
+
+<div class="warn"><strong>The two vintages are never pooled.</strong> 0009's episodes and this rerun's episodes
+are different protocol versions of one design, so every table below prints them as
+<em>separate columns</em> and no figure on this page averages across them. In the public corpus the
+<code>experiment-name</code> column (<code>advocate_v1_*</code> versus <code>advocate_v2_uncapped_*</code>) is
+what a consumer filters on.</div>
+
+<div class="finding"><strong>0009's verdict survives the rerun; its evidence does not.</strong> Uncapped, the
+intervention still fails all three frozen gates (0 of 3 pass). But it was previously being judged
+on a corpus in which <strong>71%&ndash;74% of every turn was destroyed by the cap</strong>,
+and removing the cap roughly <strong>doubled the agreement rate</strong>
+(0.438 &rarr;
+0.812 in the raw arm) and table welfare
+(0.454 &rarr;
+0.843) on the identical 16 games. The failed gate
+is now a statement about the advocate rather than about the protocol.</div>
+
+<h2>1. The censorship the rerun existed to remove, measured</h2>
+<p class="lede">One script (<code>audit_empty_turns.py</code>), the same signatures, over all six cells. A turn
+is <em>truncated</em> when it stops at the cap, and <em>empty after <code>strip_think</code></em> when the whole
+budget was spent inside an unterminated <code>&lt;think&gt;</code> and the engine substituted a placeholder that
+parses cleanly and passes every gate.</p>
+<div class='card'><table><thead><tr><th>vintage and cell</th><th>turns</th><th>truncated</th><th>empty after <code>strip_think</code></th><th>non-action</th><th>generation failed</th><th>p99 tokens</th><th>max tokens</th></tr></thead><tbody><tr><td>0054 uncapped &mdash; raw baseline<span class='small'> cap 32,768</span></td><td>196</td><td>0.000</td><td>0.000</td><td>0.015</td><td>0.000</td><td>6,329</td><td>6,634</td></tr><tr><td>0054 uncapped &mdash; guided seat 0<span class='small'> cap 32,768</span></td><td>226</td><td>0.000</td><td>0.000</td><td>0.040</td><td>0.000</td><td>6,475</td><td>6,912</td></tr><tr><td>0054 uncapped &mdash; guided seat 1<span class='small'> cap 32,768</span></td><td>252</td><td>0.000</td><td>0.000</td><td>0.044</td><td>0.000</td><td>6,885</td><td>7,798</td></tr><tr><td>0009 frozen cap &mdash; raw baseline<span class='small'> cap 2,048 / 2,560</span></td><td>329</td><td>0.708</td><td>0.669</td><td>0.714</td><td>0.000</td><td>2,275</td><td>2,535</td></tr><tr><td>0009 frozen cap &mdash; guided seat 0<span class='small'> cap 2,048 / 2,560</span></td><td>365</td><td>0.737</td><td>0.715</td><td>0.737</td><td>0.000</td><td>2,382</td><td>2,419</td></tr><tr><td>0009 frozen cap &mdash; guided seat 1<span class='small'> cap 2,048 / 2,560</span></td><td>377</td><td>0.735</td><td>0.716</td><td>0.737</td><td>0.000</td><td>2,503</td><td>2,552</td></tr></tbody></table></div>
+<p class="lede"><strong>Roughly 71%&ndash;74% of every turn in the published 0009 corpus
+was a cap-destroyed placeholder, and uncapped it is 0.000 in all three cells.</strong> Generation
+failure is 0.000 in both vintages, so none of this was engine failure &mdash; it was budget burn. The longest
+turn produced anywhere in the 96 uncapped episodes is 7,798 tokens against the
+32,768 ceiling, so the new cap is uncapped in effect rather than a new censoring threshold; and with the p99
+above 6,000, the old cap was not clipping a thin tail, it was clipping the ordinary turn.</p>
+<div class="warn"><strong>The validation lesson, which generalises past this experiment.</strong> 0009 reported
+1,071/1,071 turns with full native reasoning and read that as a clean corpus. A turn that spends its entire
+budget inside an unterminated <code>&lt;think&gt;</code> satisfies &ldquo;native reasoning persistence&rdquo;
+perfectly. <strong>Persistence and completion are orthogonal, and only one of them was being measured</strong>
+&mdash; so a gate on the first certifies nothing about the second, and any thinking-ON open-weight cell run at
+the frozen caps should be assumed censored at this rate until its own census says otherwise.</div>
+
+<h2>2. The frozen gates, old vintage beside new</h2>
+<p class="lede">Preregistered in 0008 and unmodified for the rerun: the intervention is viable as an
+RL-example generator only if the focal-surplus interval's lower bound is above zero and neither the
+agreement-rate nor the welfare interval's lower bound falls below &minus;0.05. Intervals are 95% bootstraps
+over the 16 hidden-score games with all of a game's episodes
+resampled together, at 10,000 draws.</p>
+<div class='card'><table><thead><tr><th>guided &minus; raw, paired</th><th>0054 uncapped</th><th>0009 frozen cap</th><th>frozen gate</th></tr></thead><tbody><tr><td>Focal normalized surplus</td><td>+0.021 [-0.096, +0.154]</td><td>-0.006 [-0.149, +0.135]</td><td><strong>FAIL</strong><span class='small'>lower bound &gt; 0</span></td></tr><tr><td>Agreement rate</td><td>-0.031 [-0.172, +0.125]</td><td>+0.000 [-0.203, +0.219]</td><td><strong>FAIL</strong><span class='small'>lower bound &ge; &minus;0.05</span></td></tr><tr><td>Normalized table welfare</td><td>-0.074 [-0.224, +0.094]</td><td>-0.008 [-0.231, +0.217]</td><td><strong>FAIL</strong><span class='small'>lower bound &ge; &minus;0.05</span></td></tr><tr><td>Opponent normalized surplus</td><td>-0.094 [-0.202, +0.007]</td><td>-0.001 [-0.105, +0.107]</td><td>descriptive<span class='small'>no gate &mdash; the safety constraint is on table welfare, and this row is what says whether a focal gain was taken from the other party</span></td></tr></tbody></table></div>
+<p class="lede"><strong>All three gates fail again, and the primary point estimate changed sign without
+changing the verdict.</strong> Focal surplus moved from
+-0.006 [-0.149, +0.135] to +0.021 [-0.096, +0.154] &mdash; the
+direction the intervention wants &mdash; on an interval a quarter of the scale wide that contains zero
+comfortably. Reading a sign change off two point estimates whose intervals almost entirely overlap is exactly
+the error this programme has already made and withdrawn once, so <strong>no thinking-room effect on focal
+capture is claimed here</strong>; the claim is only that the estimate is now measured on turns that happened.
+By focal seat the effect is neither a seat artefact nor resolved either way:</p>
+<div class='card'><table><thead><tr><th>focal-surplus effect by seat</th><th>0054 uncapped</th><th>0009 frozen cap</th></tr></thead><tbody><tr><td>focal seat 0</td><td>+0.073 [-0.083, +0.248]</td><td>+0.006 [-0.252, +0.258]</td></tr><tr><td>focal seat 1</td><td>-0.031 [-0.213, +0.158]</td><td>-0.019 [-0.135, +0.095]</td></tr></tbody></table></div>
+
+<h2>3. The unpreregistered result that matters most: the game itself changed</h2>
+<div class='card'><table><thead><tr><th></th><th colspan='2'>0054 uncapped</th><th colspan='2'>0009 frozen cap</th></tr><tr><th>absolute level</th><th>raw</th><th>guided</th><th>raw</th><th>guided</th></tr></thead><tbody><tr><td>agreement rate</td><td>0.812</td><td>0.781</td><td>0.438</td><td>0.438</td></tr><tr><td>focal normalized surplus</td><td>0.422</td><td>0.442</td><td>0.227</td><td>0.221</td></tr><tr><td>opponent normalized surplus</td><td>0.422</td><td>0.327</td><td>0.227</td><td>0.226</td></tr><tr><td>normalized table welfare</td><td>0.843</td><td>0.770</td><td>0.454</td><td>0.446</td></tr></tbody></table></div>
+<p class="lede"><strong>Uncapping nearly doubled every absolute level in the game</strong> on the same bank,
+the same seeds and the same solver-verified hidden scores. Raw Qwen3-8B closes
+81% of these negotiations when allowed to finish a thought
+and 44% when it is not. This reframes a conclusion 0009 drew
+from its own data: it read a 0.438 agreement rate as a hard negotiation environment in which guidance created
+14 agreements and lost 14, but the uncapped corpus says most of those missed deals were not hard bargains
+&mdash; they were conversations in which one side said nothing. Episode length moves the same way and confirms
+it: 196 / 226 / 252 turns uncapped against
+329 / 365 / 377 for the same 32 episodes per cell
+&mdash; fewer turns, far more said in each, and about twice the closure.</p>
+
+<h2>4. Extraction, not expansion &mdash; a signal 0009 could not see</h2>
+<div class='card'><table><thead><tr><th>matched-pair mechanism</th><th>0054 uncapped</th><th>0009 frozen cap</th></tr></thead><tbody><tr><td>pairs where both conditions closed</td><td>43</td><td>14</td></tr><tr><td>of those, focal up <em>and</em> opponent down (transfer)</td><td>10</td><td>1</td></tr><tr><td>of those, both parties improved (logrolling)</td><td>0</td><td>0</td></tr><tr><td>deals guidance created</td><td>7</td><td>14</td></tr><tr><td>deals guidance lost</td><td>9</td><td>14</td></tr></tbody></table></div>
+<p class="lede">With 43 comparable deals instead of
+14, the mechanism becomes legible, and it is <strong>transfer</strong>:
+opponent surplus falls by -0.094 [-0.202, +0.007] &mdash; a hair from
+resolving negative &mdash; while focal surplus rises by +0.021 [-0.096, +0.154].
+10 pairs are focal-up/opponent-down and
+<strong>0</strong> improve both sides, so the advocate's effect on
+a deal that closes either way is to move value across the table rather than to find the logroll &mdash; which is
+precisely why the welfare noninferiority gate fails while the focal estimate turns positive. This is
+descriptive, on 43 pairs, with no preregistration behind it: a hypothesis
+for the next design, not a result.</p>
+
+<h2>5. Hidden-preference recovery: still negligible</h2>
+<div class='card'><table><thead><tr><th>hidden-preference recovery diagnostic</th><th>0054 uncapped</th><th>0009 frozen cap</th></tr></thead><tbody><tr><td>opponent proposals observed by the focal final decision</td><td>2.23</td><td>1.08</td></tr><tr><td>issue-pairwise ranking accuracy</td><td>0.466</td><td>0.448</td></tr><tr><td>gain over the exact prior</td><td>+0.029</td><td>+0.010</td></tr><tr><td>posterior mass gain on the true top issue</td><td>+0.002</td><td>+0.004</td></tr><tr><td>reservation-threshold absolute error</td><td>0.053</td><td>0.049</td></tr><tr><td>threshold error reduction</td><td>-0.005</td><td>-0.000</td></tr></tbody></table></div>
+<p class="lede">Uncapping <strong>doubled the evidence the planner gets</strong>
+(1.08 &rarr;
+2.23 opponent proposals observed before the
+focal decision) because the negotiations actually progress, and it bought essentially nothing: ranking gain is
++0.029 over the exact prior, top-issue mass gain is
++0.002, and threshold error is still slightly
+<em>worse</em> than the prior. 0009's diagnosis stands and is now better supported: two public proposals do not
+identify a hidden type under this posterior, and the fix is an advocate that <em>seeks</em> information rather
+than one that waits for more of it.</p>
+
+<h2>6. Validity</h2>
+<div class='card'><table><thead><tr><th>uncapped cell</th><th>episodes</th><th>turns</th><th>full native reasoning</th><th>planner-conditioned turns</th><th>per-turn cap</th><th>validator</th></tr></thead><tbody><tr><td>raw baseline<span class='small'><code>advocate_v2_uncapped_baseline</code></span></td><td>32</td><td>196</td><td>196 (100%)</td><td>0</td><td>32,768</td><td>valid</td></tr><tr><td>guided seat 0<span class='small'><code>advocate_v2_uncapped_seat0</code></span></td><td>32</td><td>226</td><td>226 (100%)</td><td>113</td><td>32,768</td><td>valid</td></tr><tr><td>guided seat 1<span class='small'><code>advocate_v2_uncapped_seat1</code></span></td><td>32</td><td>252</td><td>252 (100%)</td><td>128</td><td>32,768</td><td>valid</td></tr></tbody></table></div>
+<p class="lede">Every cell passed <code>validate_advocate_run.py</code> at exactly 32 <code>done</code>
+episodes with 32 Markdown and 32 HTML transcripts, the frozen bank's 16 instance ids, seeds
+<code>[0, 1]</code>, exact model-conditioned views on every turn, and planner advice on exactly the focal
+seat's turns and nowhere else. Syntax errors are zero in both arms; the guided arm carries
+1 economic error out of its guided turns, recorded
+in <code>episodes.csv</code> rather than screened out. Fabrication is 0.000 throughout.</p>
+
+<h2>The forest plot</h2>
+<div class="card"><img src="analysis/viability_forest.png"
+     alt="Paired guided-minus-raw effects with 95% instance-bootstrap intervals, all spanning zero"></div>
+
+<h2>Matched pairs you can read</h2>
+<p class="lede">The pairs below are the largest-effect matched comparisons: the same game, the same seed, the
+same focal seat, with and without the planner, rendered side by side with the first behavioural divergence
+marked and both trajectories on one shared frontier. They are a curated handful &mdash; the full
+96-episode corpus with all 64 comparisons and every
+transcript is on <a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Negotiation-Campaigns/tree/main/realistic_advocate_viability_uncapped_v2">Hugging Face</a>, because the published site has a size
+ceiling this page respects.</p>
+<div class='card'><table><thead><tr><th>matched pair (guided vs raw, same game and seed)</th><th>focal &Delta;</th><th>opponent &Delta;</th><th>welfare &Delta;</th><th>deal</th></tr></thead><tbody><tr><td><a href='guided-seat0/compare-scorable_negotiation-moves_chat-998da0647e--scorable_negotiation-moves_chat-fdaf1b3e0a.html'>seat 0 &mdash; <code>5646c8be3d</code> seed 0</a><span class='small'>raw <code>998da0647e</code> vs guided <code>fdaf1b3e0a</code></span></td><td>+1.000</td><td>+0.219</td><td>+1.219</td><td>0 &rarr; 1</td></tr><tr><td><a href='guided-seat1/compare-scorable_negotiation-moves_chat-a5193ebca5--scorable_negotiation-moves_chat-24299c8e1a.html'>seat 1 &mdash; <code>2d5d5b106e</code> seed 0</a><span class='small'>raw <code>a5193ebca5</code> vs guided <code>24299c8e1a</code></span></td><td>+0.000</td><td>-1.000</td><td>-1.000</td><td>1 &rarr; 0</td></tr><tr><td><a href='guided-seat1/compare-scorable_negotiation-moves_chat-d9429c7a6a--scorable_negotiation-moves_chat-da9b02f17d.html'>seat 1 &mdash; <code>2d5d5b106e</code> seed 1</a><span class='small'>raw <code>d9429c7a6a</code> vs guided <code>da9b02f17d</code></span></td><td>+0.000</td><td>-1.000</td><td>-1.000</td><td>1 &rarr; 0</td></tr><tr><td><a href='guided-seat0/compare-scorable_negotiation-moves_chat-05e77bb5c8--scorable_negotiation-moves_chat-703e963e93.html'>seat 0 &mdash; <code>eddb2da273</code> seed 1</a><span class='small'>raw <code>05e77bb5c8</code> vs guided <code>703e963e93</code></span></td><td>-0.062</td><td>-1.000</td><td>-1.062</td><td>1 &rarr; 0</td></tr><tr><td><a href='guided-seat1/compare-scorable_negotiation-moves_chat-d329d730a6--scorable_negotiation-moves_chat-82dc0583a6.html'>seat 1 &mdash; <code>ce3bfa6570</code> seed 1</a><span class='small'>raw <code>d329d730a6</code> vs guided <code>82dc0583a6</code></span></td><td>-1.000</td><td>+0.000</td><td>-1.000</td><td>1 &rarr; 0</td></tr><tr><td><a href='guided-seat0/compare-scorable_negotiation-moves_chat-980772b988--scorable_negotiation-moves_chat-52f9fedc5b.html'>seat 0 &mdash; <code>90316f9784</code> seed 0</a><span class='small'>raw <code>980772b988</code> vs guided <code>52f9fedc5b</code></span></td><td>-1.000</td><td>-0.045</td><td>-1.045</td><td>1 &rarr; 0</td></tr><tr><td><a href='guided-seat1/compare-scorable_negotiation-moves_chat-70f94b0da4--scorable_negotiation-moves_chat-df8df54a50.html'>seat 1 &mdash; <code>4abed256fd</code> seed 1</a><span class='small'>raw <code>70f94b0da4</code> vs guided <code>df8df54a50</code></span></td><td>-1.000</td><td>-0.103</td><td>-1.103</td><td>1 &rarr; 0</td></tr><tr><td><a href='guided-seat0/compare-scorable_negotiation-moves_chat-5ab169b34d--scorable_negotiation-moves_chat-e03917b208.html'>seat 0 &mdash; <code>119dfa1112</code> seed 0</a><span class='small'>raw <code>5ab169b34d</code> vs guided <code>e03917b208</code></span></td><td>-1.000</td><td>-0.269</td><td>-1.269</td><td>1 &rarr; 0</td></tr></tbody></table></div>
+<h2>The same game at both caps</h2><p class='lede'>The most direct look at what the cap did: the raw baseline against itself, frozen-cap vintage on the left and uncapped on the right, paired on game, seed and arm so the cap is the only thing that differs. The censored turns are on the left, and they are readable as such &mdash; the turn's prompt-audit panel shows its reasoning stopping mid-sentence with <code>raw_truncated</code> set, and the message it published is the engine's placeholder, <em>&ldquo;ran out of time this turn and says nothing substantive&rdquo;</em>. Pairing here is across vintages for inspection only; no figure on this page is computed over the two together.</p><div class='card'><ul><li><a href='vintage/compare-scorable_negotiation-moves_chat-03570721bb--scorable_negotiation-moves_chat-70f94b0da4.html'>scorable_negotiation-moves_chat-03570721bb--scorable_negotiation-moves_chat-70f94b0da4</a></li><li><a href='vintage/compare-scorable_negotiation-moves_chat-2026b2b09e--scorable_negotiation-moves_chat-36151de7e5.html'>scorable_negotiation-moves_chat-2026b2b09e--scorable_negotiation-moves_chat-36151de7e5</a></li><li><a href='vintage/compare-scorable_negotiation-moves_chat-312639eaa0--scorable_negotiation-moves_chat-9bd8883391.html'>scorable_negotiation-moves_chat-312639eaa0--scorable_negotiation-moves_chat-9bd8883391</a></li><li><a href='vintage/compare-scorable_negotiation-moves_chat-4193b51a73--scorable_negotiation-moves_chat-d9429c7a6a.html'>scorable_negotiation-moves_chat-4193b51a73--scorable_negotiation-moves_chat-d9429c7a6a</a></li></ul></div>
+
+<h2>Artifacts</h2>
+<div class="links">
+<a href="https://github.com/Sid-MB/ii_mats/blob/main/experiments/rational_agents/research-notes/0054-advocate-viability-uncapped-rerun.md">research note 0054</a>
+<a href="https://github.com/Sid-MB/ii_mats/blob/main/experiments/rational_agents/research-notes/0009-realistic-advocate-viability-results.md">research note 0009 (the frozen-cap vintage)</a>
+<a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Negotiation-Campaigns/tree/main/realistic_advocate_viability_uncapped_v2">the public corpus, bank and execution audit</a>
+<a href="analysis/analysis.md">analysis.md &mdash; the rendered table set</a>
+<a href="analysis/summary.json">summary.json &mdash; every estimate and interval</a>
+<a href="analysis/empty_turn_audit.json">empty_turn_audit.json &mdash; both vintages, six cells</a>
+<a href="analysis/episodes.csv">episodes.csv &mdash; one row per episode</a>
+<a href="analysis/paired.csv">paired.csv &mdash; one row per matched focal comparison</a>
+<a href="analysis/belief_recovery.csv">belief_recovery.csv &mdash; the posterior at each focal decision</a>
+<a href="analysis/example_index.json">example_index.json &mdash; all
+    64 pairs ranked, with cluster paths</a>
+<a href="../index.html">the site index</a>
+</div>
+
+</main></body>
+</html>

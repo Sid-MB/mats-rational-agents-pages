@@ -1,0 +1,328 @@
+{
+ "valid": true,
+ "n_selected_episodes": 96,
+ "n_paired_focal_comparisons": 64,
+ "model": "Qwen/Qwen3-8B",
+ "conditions": {
+  "information": "private",
+  "communication": "moves_chat",
+  "history": "full",
+  "native_thinking": "on",
+  "planner_information": "own sheet + public actions only"
+ },
+ "condition_summary": {
+  "raw_llm": {
+   "n_focal_observations": 64,
+   "n_unique_episodes": 32,
+   "deal_rate": 0.8125,
+   "mean_focal_normalized_surplus": 0.42160153125,
+   "mean_opponent_normalized_surplus": 0.42160153125000005,
+   "mean_normalized_welfare": 0.843203125,
+   "syntax_errors": 0,
+   "economic_errors": 0
+  },
+  "planner_guided": {
+   "n_focal_observations": 64,
+   "n_unique_episodes": 64,
+   "deal_rate": 0.78125,
+   "mean_focal_normalized_surplus": 0.442470671875,
+   "mean_opponent_normalized_surplus": 0.3271883125,
+   "mean_normalized_welfare": 0.7696578125,
+   "syntax_errors": 0,
+   "economic_errors": 1
+  }
+ },
+ "mechanism_summary": {
+  "n_pairs": 64,
+  "new_deals": 7,
+  "lost_deals": 9,
+  "both_deal": 43,
+  "both_deal_focal_up_opponent_down": 10,
+  "both_deal_both_up": 0,
+  "all_pairs_focal_up": 17,
+  "all_pairs_focal_down": 11
+ },
+ "metrics": {
+  "surplus_difference": {
+   "estimate": 0.020869140624999998,
+   "ci_low": -0.09603734257812499,
+   "ci_high": 0.15377151601562497,
+   "n_pairs": 64,
+   "n_instances": 16
+  },
+  "opponent_surplus_difference": {
+   "estimate": -0.09441321875,
+   "ci_low": -0.2019243140625,
+   "ci_high": 0.007391349999999943,
+   "n_pairs": 64,
+   "n_instances": 16
+  },
+  "deal_difference": {
+   "estimate": -0.03125,
+   "ci_low": -0.171875,
+   "ci_high": 0.125,
+   "n_pairs": 64,
+   "n_instances": 16
+  },
+  "welfare_difference": {
+   "estimate": -0.07354531249999999,
+   "ci_low": -0.22364027343749998,
+   "ci_high": 0.09375582031249997,
+   "n_pairs": 64,
+   "n_instances": 16
+  }
+ },
+ "metrics_by_focal_seat": {
+  "0": {
+   "surplus_difference": {
+    "estimate": 0.07291428125,
+    "ci_low": -0.08313722265625,
+    "ci_high": 0.24834559140625,
+    "n_pairs": 32,
+    "n_instances": 16
+   },
+   "opponent_surplus_difference": {
+    "estimate": -0.03884515624999999,
+    "ci_low": -0.16725179453124997,
+    "ci_high": 0.09788806093749998,
+    "n_pairs": 32,
+    "n_instances": 16
+   },
+   "deal_difference": {
+    "estimate": 0.0625,
+    "ci_low": -0.125,
+    "ci_high": 0.25,
+    "n_pairs": 32,
+    "n_instances": 16
+   },
+   "welfare_difference": {
+    "estimate": 0.034068749999999995,
+    "ci_low": -0.15854960937499998,
+    "ci_high": 0.24325789062499995,
+    "n_pairs": 32,
+    "n_instances": 16
+   }
+  },
+  "1": {
+   "surplus_difference": {
+    "estimate": -0.031175999999999995,
+    "ci_low": -0.21292005625,
+    "ci_high": 0.15796168671875,
+    "n_pairs": 32,
+    "n_instances": 16
+   },
+   "opponent_surplus_difference": {
+    "estimate": -0.14998128125,
+    "ci_low": -0.33306667578125,
+    "ci_high": 0.003594036718749991,
+    "n_pairs": 32,
+    "n_instances": 16
+   },
+   "deal_difference": {
+    "estimate": -0.125,
+    "ci_low": -0.3125,
+    "ci_high": 0.0625,
+    "n_pairs": 32,
+    "n_instances": 16
+   },
+   "welfare_difference": {
+    "estimate": -0.181159375,
+    "ci_low": -0.373234765625,
+    "ci_high": 0.008534609374999903,
+    "n_pairs": 32,
+    "n_instances": 16
+   }
+  }
+ },
+ "viability_gates": {
+  "surplus_positive_ci": false,
+  "deal_rate_noninferior_5pp": false,
+  "welfare_noninferior_5pp": false
+ },
+ "viable_for_rl_examples": false,
+ "belief_recovery": {
+  "n_observed_opponent_proposals": {
+   "mean": 2.234375,
+   "n": 64
+  },
+  "issue_pairwise_accuracy": {
+   "mean": 0.46614583333333326,
+   "n": 64
+  },
+  "issue_pairwise_gain": {
+   "mean": 0.028645833333333332,
+   "n": 64
+  },
+  "true_top_issue_probability_gain": {
+   "mean": 0.002353912003073329,
+   "n": 64
+  },
+  "threshold_abs_error": {
+   "mean": 0.053178976757335954,
+   "n": 64
+  },
+  "threshold_error_reduction": {
+   "mean": -0.004601066931142766,
+   "n": 64
+  },
+  "posterior_entropy": {
+   "mean": 5.4550820974257395,
+   "n": 64
+  }
+ },
+ "analysis_provenance": {
+  "parent_repo": {
+   "sha": "797978331d8a1e025e66466b8b1efbb6ac07f534",
+   "branch": "main",
+   "dirty": true
+  },
+  "interlens_repo": {
+   "sha": "974709c1c54e626a6f8eb4e8539b95129fffb265",
+   "branch": "main",
+   "dirty": false
+  },
+  "interlens_version": "0.1.60",
+  "dependency_versions": {
+   "transformers": "4.57.6",
+   "torch": "2.12.1+cu130",
+   "numpy": "2.4.2"
+  }
+ },
+ "rollout_provenance": {
+  "baseline": {
+   "invocation": [
+    "run.py",
+    "--run-name",
+    "advocate_v2_uncapped_baseline",
+    "--table",
+    "all_llm",
+    "--models",
+    "Qwen/Qwen3-8B",
+    "--model-thinking",
+    "on",
+    "--instances",
+    "instances/advocate_viability_v1",
+    "--arm",
+    "moves_chat",
+    "--seeds",
+    "0",
+    "1",
+    "--scaffold",
+    "canonical",
+    "--turn-max-tokens",
+    "32768"
+   ],
+   "provenance": {
+    "parent_repo": {
+     "sha": null,
+     "branch": null,
+     "dirty": null
+    },
+    "interlens_repo": {
+     "sha": "530059d02220cf2aa1c6ec13e4e32eeed77f4925",
+     "branch": "master",
+     "dirty": false
+    },
+    "interlens_version": "0.1.70",
+    "dependency_versions": {
+     "transformers": "4.57.6",
+     "torch": "2.12.1+cu129",
+     "numpy": "2.4.2"
+    }
+   }
+  },
+  "guided_seat0": {
+   "invocation": [
+    "run.py",
+    "--run-name",
+    "advocate_v2_uncapped_seat0",
+    "--table",
+    "advocate_mixed",
+    "--rational-seat",
+    "0",
+    "--models",
+    "Qwen/Qwen3-8B",
+    "--model-thinking",
+    "on",
+    "--instances",
+    "instances/advocate_viability_v1",
+    "--arm",
+    "moves_chat",
+    "--seeds",
+    "0",
+    "1",
+    "--scaffold",
+    "canonical",
+    "--turn-max-tokens",
+    "32768"
+   ],
+   "provenance": {
+    "parent_repo": {
+     "sha": null,
+     "branch": null,
+     "dirty": null
+    },
+    "interlens_repo": {
+     "sha": "7e782ed9d22f9d232758621d24ed9ab078697b2a",
+     "branch": "master",
+     "dirty": false
+    },
+    "interlens_version": "0.1.70",
+    "dependency_versions": {
+     "transformers": "4.57.6",
+     "torch": "2.12.1+cu129",
+     "numpy": "2.4.2"
+    }
+   }
+  },
+  "guided_seat1": {
+   "invocation": [
+    "run.py",
+    "--run-name",
+    "advocate_v2_uncapped_seat1",
+    "--table",
+    "advocate_mixed",
+    "--rational-seat",
+    "1",
+    "--models",
+    "Qwen/Qwen3-8B",
+    "--model-thinking",
+    "on",
+    "--instances",
+    "instances/advocate_viability_v1",
+    "--arm",
+    "moves_chat",
+    "--seeds",
+    "0",
+    "1",
+    "--scaffold",
+    "canonical",
+    "--turn-max-tokens",
+    "32768"
+   ],
+   "provenance": {
+    "parent_repo": {
+     "sha": null,
+     "branch": null,
+     "dirty": null
+    },
+    "interlens_repo": {
+     "sha": "42db5bd352708972ebd57f042e1f50189d700763",
+     "branch": "master",
+     "dirty": false
+    },
+    "interlens_version": "0.1.70",
+    "dependency_versions": {
+     "transformers": "4.57.6",
+     "torch": "2.12.1+cu129",
+     "numpy": "2.4.2"
+    }
+   }
+  }
+ },
+ "selected_runs": {
+  "baseline": "/juice2/scr2/siddharth/ii_mats/rational_agents/advocate_v2_uncapped_baseline",
+  "guided_seat0": "/juice2/scr2/siddharth/ii_mats/rational_agents/advocate_v2_uncapped_seat0",
+  "guided_seat1": "/juice2/scr2/siddharth/ii_mats/rational_agents/advocate_v2_uncapped_seat1"
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "report": {
+  "left_run": "/nlp/scr/siddharth/ii_mats/rational_agents/advocate_v2_uncapped_baseline",
+  "right_run": "/nlp/scr/siddharth/ii_mats/rational_agents/advocate_v2_uncapped_seat0",
+  "pair_fields": [
+   "instance_id",
+   "seed",
+   "arm"
+  ],
+  "select": "largest-effect",
+  "n_left": 32,
+  "n_right": 32,
+  "n_matched_keys": 32,
+  "n_candidate_pairs": 32,
+  "n_comparisons": 4,
+  "unmatched_left": [],
+  "unmatched_right": [],
+  "uneven_multiplicity": {}
+ },
+ "out_dir": "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/f736b4f0/tmp/adv_cmp/seat0",
+ "n_comparisons": 4,
+ "index": "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/f736b4f0/tmp/adv_cmp/seat0/index.html",
+ "pages": [
+  "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/f736b4f0/tmp/adv_cmp/seat0/compare-scorable_negotiation-moves_chat-05e77bb5c8--scorable_negotiation-moves_chat-703e963e93.html",
+  "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/f736b4f0/tmp/adv_cmp/seat0/compare-scorable_negotiation-moves_chat-5ab169b34d--scorable_negotiation-moves_chat-e03917b208.html",
+  "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/f736b4f0/tmp/adv_cmp/seat0/compare-scorable_negotiation-moves_chat-980772b988--scorable_negotiation-moves_chat-52f9fedc5b.html",
+  "/afs/cs.stanford.edu/u/siddharth/.claude/jobs/f736b4f0/tmp/adv_cmp/seat0/compare-scorable_negotiation-moves_chat-998da0647e--scorable_negotiation-moves_chat-fdaf1b3e0a.html"
+ ]
+}
