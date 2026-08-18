@@ -43,6 +43,8 @@ Both among-deals columns condition on a closed deal (per-arm deal counts beside 
 
 Direct all-rational minus one-rational paired normalized-score effect: -0.498 [-0.590, -0.404] (positive favors five rational agents).
 
+Every arm in this table seats Claude Opus 5. For the same all-LLM table with **Sonnet 5** or **Haiku 4.5** seats (bank v2, matched protocol — not poolable with these rows), see the [capability-ladder section at the bottom of this page](#capability-ladder-2026-08-18-research-note-0060--the-same-all-llm-table-with-sonnet-5-and-haiku-45-seats).
+
 ## Difficulty-tag strata
 
 Paired normalized-score effects versus all-LLM:
@@ -217,3 +219,17 @@ The computable seat structurally **cannot use the public message channel** the f
 | **ballot repaired** | **0.917 [0.850, 0.967]** | **0.829 [0.767, 0.884]** | **-0.044 [-0.103, +0.013]** | -0.060 [-0.092, -0.033] | +0.043 [+0.025, +0.065] | +0.015 [+0.005, +0.027] | 106 |
 
 **The published "one omniscient seat costs the table 45 points of deal rate and 41 points of score" is almost entirely the spoiled ballot** — repaired, neither contrast excludes zero. The distributional finding survives on a nearly doubled pair set and is better resolved than before. Together with the `all_oracle` erratum above, that is now the whole oracle story: **the oracle arms never had a closure problem, and they always had a distribution problem.**
+
+## Capability ladder (2026-08-18, research note 0060) — the same all-LLM table with Sonnet 5 and Haiku 4.5 seats
+
+Every arm above seats Claude Opus 5. Two new 120-episode cells replace all five seats with **Sonnet 5** and with **Haiku 4.5**, on the bank-v2 replication protocol (the 0039 `infomotive_primary_v1__all_llm` Opus cell is the matched reference — identical bank, seeds, framing, floor 16,384, adaptive thinking; only `--models` differs). **These rows are bank v2 — do not pool them with the bank-v1 table at the top of this page.** Data: [`capability_ladder_v1/` on the HF dataset](https://huggingface.co/datasets/siddharthmb/2026.RA.Five-Seat-Frontier-Negotiation/tree/main/capability_ladder_v1).
+
+| all-LLM table (bank v2, matched protocol) | normalized score | deal rate | paired deal rate vs Opus | worst-off z (cond.) | norm. Gini (cond.) |
+|---|---:|---:|---:|---:|---:|
+| **Opus 5** (0039 reference) | 0.865 [0.830, 0.900] | 0.975 [0.950, 1.000] | reference | 0.286 [0.229, 0.355] | 0.216 [0.188, 0.241] |
+| **Sonnet 5** | 0.507 [0.392, 0.616] | 0.592 [0.458, 0.717] | −0.383 [−0.508, −0.267] | 0.156 [0.110, 0.206] | 0.297 [0.256, 0.339] |
+| **Haiku 4.5** *(explicit 8,192-token thinking — Haiku rejects adaptive; not a thinking-condition match)* | 0.438 [0.344, 0.526] | 0.517 [0.408, 0.617] | −0.458 [−0.567, −0.358] | 0.165 [0.116, 0.220] | 0.300 [0.256, 0.344] |
+| `all_rational` (bank-v2 vintage, computable floor) | 0.197 [0.108, 0.296] | 0.225 [0.125, 0.333] | −0.750 [−0.858, −0.633] | 0.244 [0.190, 0.292] | 0.249 [0.221, 0.279] |
+| `all_oracle` ballot-repaired (bank-v2 vintage, omniscient ceiling) | 0.888 [0.867, 0.909] | 1.000 [1.000, 1.000] | +0.025 [0.000, +0.050] | 0.183 [0.138, 0.234] | 0.288 [0.254, 0.319] |
+
+**The ladder's big step is Sonnet → Opus, not Haiku → Sonnet.** Haiku and Sonnet are statistically indistinguishable paired on identical games (deal rate −0.075 [−0.150, 0.000]; every fairness contrast straddles zero), while the Sonnet → Opus step is enormous and resolved. Fairness orders *with* capability: among closed deals Opus's splits beat both smaller models on every basket column (paired worst-off z −0.094 and −0.123, Gini +0.072 and +0.089, all resolved) — the weaker models lose on closure *and* on splits, unlike the repaired oracle, which buys its 1.000 closure with a basket at the Sonnet/Haiku level. All three tables are IR-clean (0.000 below-threshold accepts). Gates: zero fabrication and zero cap truncation in both new cells; the G4 transcript audit **formally fails both** on its zero-mute-action criterion (well-formed terminal-phase ballots cast with no public message — 20 Sonnet turns, 2 Haiku; Opus has 0 on the identical gate), flagged on any transcript-level use of these cells. Full account: research note **0060**.
