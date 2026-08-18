@@ -1,0 +1,152 @@
+{
+ "all_rational__majority_r16": {
+  "min_accept": 3,
+  "veto_seats": [
+   1
+  ],
+  "n_episodes_at_terminal_vote": 31,
+  "n_violating_votes": 4,
+  "n_terminal_votes": 102,
+  "episodes_with_violation": {
+   "estimate": 0.0967741935483871,
+   "ci_low": 0.0,
+   "ci_high": 0.23076923076923078,
+   "n": 31,
+   "n_instances": 14
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 31,
+   "n_instances": 14
+  },
+  "deals_lost_if_veto_dissolved": 2
+ },
+ "all_rational__majority_r4": {
+  "min_accept": 3,
+  "veto_seats": [
+   1
+  ],
+  "n_episodes_at_terminal_vote": 32,
+  "n_violating_votes": 6,
+  "n_terminal_votes": 103,
+  "episodes_with_violation": {
+   "estimate": 0.125,
+   "ci_low": 0.0,
+   "ci_high": 0.3142857142857143,
+   "n": 32,
+   "n_instances": 13
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 32,
+   "n_instances": 13
+  },
+  "deals_lost_if_veto_dissolved": 4
+ },
+ "all_rational__supermajority_r16": {
+  "min_accept": 4,
+  "veto_seats": [
+   1
+  ],
+  "n_episodes_at_terminal_vote": 113,
+  "n_violating_votes": 54,
+  "n_terminal_votes": 419,
+  "episodes_with_violation": {
+   "estimate": 0.3185840707964602,
+   "ci_low": 0.23076923076923078,
+   "ci_high": 0.4090909090909091,
+   "n": 113,
+   "n_instances": 24
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 113,
+   "n_instances": 24
+  },
+  "deals_lost_if_veto_dissolved": 9
+ },
+ "all_rational__supermajority_r4": {
+  "min_accept": 4,
+  "veto_seats": [
+   1
+  ],
+  "n_episodes_at_terminal_vote": 109,
+  "n_violating_votes": 52,
+  "n_terminal_votes": 408,
+  "episodes_with_violation": {
+   "estimate": 0.3211009174311927,
+   "ci_low": 0.2169811320754717,
+   "ci_high": 0.4260869565217391,
+   "n": 109,
+   "n_instances": 24
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 109,
+   "n_instances": 24
+  },
+  "deals_lost_if_veto_dissolved": 8
+ },
+ "all_rational__unanimity_r16": {
+  "min_accept": 5,
+  "veto_seats": [
+   1
+  ],
+  "n_episodes_at_terminal_vote": 120,
+  "n_violating_votes": 139,
+  "n_terminal_votes": 480,
+  "episodes_with_violation": {
+   "estimate": 0.6833333333333333,
+   "ci_low": 0.5916666666666667,
+   "ci_high": 0.7666666666666667,
+   "n": 120,
+   "n_instances": 24
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "deals_lost_if_veto_dissolved": 0
+ },
+ "all_rational__unanimity_r4": {
+  "min_accept": 5,
+  "veto_seats": [
+   1
+  ],
+  "n_episodes_at_terminal_vote": 119,
+  "n_violating_votes": 120,
+  "n_terminal_votes": 476,
+  "episodes_with_violation": {
+   "estimate": 0.6386554621848739,
+   "ci_low": 0.55,
+   "ci_high": 0.7226890756302521,
+   "n": 119,
+   "n_instances": 24
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 119,
+   "n_instances": 24
+  },
+  "deals_lost_if_veto_dissolved": 0
+ }
+}

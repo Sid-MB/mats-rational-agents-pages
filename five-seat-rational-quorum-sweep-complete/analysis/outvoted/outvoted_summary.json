@@ -1,0 +1,561 @@
+{
+ "schema": "five-seat-quorum-outvoted-v1",
+ "arms": [
+  "all_rational__unanimity_r4",
+  "all_rational__unanimity_r16",
+  "all_rational__supermajority_r4",
+  "all_rational__supermajority_r16",
+  "all_rational__majority_r4",
+  "all_rational__majority_r16"
+ ],
+ "levels": {
+  "all_rational__unanimity_r4": {
+   "deal_rate": {
+    "estimate": 0.21666666666666667,
+    "ci_low": 0.125,
+    "ci_high": 0.31666666666666665,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 26,
+    "n_instances": 13
+   },
+   "outvoted_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "outvoted_z": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "outvoted_dissented": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "any_below_threshold": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 26,
+    "n_instances": 13
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  },
+  "all_rational__unanimity_r16": {
+   "deal_rate": {
+    "estimate": 0.21666666666666667,
+    "ci_low": 0.125,
+    "ci_high": 0.31666666666666665,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 26,
+    "n_instances": 15
+   },
+   "outvoted_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "outvoted_z": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "outvoted_dissented": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "any_below_threshold": {
+    "estimate": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "n": 26,
+    "n_instances": 15
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  },
+  "all_rational__supermajority_r4": {
+   "deal_rate": {
+    "estimate": 0.49166666666666664,
+    "ci_low": 0.35833333333333334,
+    "ci_high": 0.6333333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 0.8983050847457628,
+    "ci_low": 0.8269230769230769,
+    "ci_high": 0.9629629629629629,
+    "n": 59,
+    "n_instances": 20
+   },
+   "outvoted_below_threshold": {
+    "estimate": 0.5471698113207547,
+    "ci_low": 0.37037037037037035,
+    "ci_high": 0.7118708269131997,
+    "n": 53,
+    "n_instances": 20
+   },
+   "outvoted_z": {
+    "estimate": 0.11280894339622641,
+    "ci_low": -0.04409057173913043,
+    "ci_high": 0.2790749777423468,
+    "n": 53,
+    "n_instances": 20
+   },
+   "outvoted_dissented": {
+    "estimate": 0.39622641509433965,
+    "ci_low": 0.27498774509803925,
+    "ci_high": 0.5098039215686274,
+    "n": 53,
+    "n_instances": 20
+   },
+   "any_below_threshold": {
+    "estimate": 0.4915254237288136,
+    "ci_low": 0.3333333333333333,
+    "ci_high": 0.6379549808429116,
+    "n": 59,
+    "n_instances": 20
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  },
+  "all_rational__supermajority_r16": {
+   "deal_rate": {
+    "estimate": 0.475,
+    "ci_low": 0.35833333333333334,
+    "ci_high": 0.5916666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 0.9473684210526315,
+    "ci_low": 0.8857025761124121,
+    "ci_high": 1.0,
+    "n": 57,
+    "n_instances": 22
+   },
+   "outvoted_below_threshold": {
+    "estimate": 0.6481481481481481,
+    "ci_low": 0.5344827586206896,
+    "ci_high": 0.7586206896551724,
+    "n": 54,
+    "n_instances": 22
+   },
+   "outvoted_z": {
+    "estimate": -0.01377592592592594,
+    "ci_low": -0.13449176535294122,
+    "ci_high": 0.1064816494097222,
+    "n": 54,
+    "n_instances": 22
+   },
+   "outvoted_dissented": {
+    "estimate": 0.5370370370370371,
+    "ci_low": 0.4,
+    "ci_high": 0.6666666666666666,
+    "n": 54,
+    "n_instances": 22
+   },
+   "any_below_threshold": {
+    "estimate": 0.6140350877192983,
+    "ci_low": 0.4909090909090909,
+    "ci_high": 0.7391304347826086,
+    "n": 57,
+    "n_instances": 22
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  },
+  "all_rational__majority_r4": {
+   "deal_rate": {
+    "estimate": 0.9083333333333333,
+    "ci_low": 0.8083333333333333,
+    "ci_high": 0.9833333333333333,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 0.981651376146789,
+    "ci_low": 0.9514563106796117,
+    "ci_high": 1.0,
+    "n": 109,
+    "n_instances": 23
+   },
+   "outvoted_below_threshold": {
+    "estimate": 0.6542056074766355,
+    "ci_low": 0.5372340425531915,
+    "ci_high": 0.7614678899082569,
+    "n": 107,
+    "n_instances": 23
+   },
+   "outvoted_z": {
+    "estimate": -0.08301469626168224,
+    "ci_low": -0.17811555096900036,
+    "ci_high": 0.017196809859625625,
+    "n": 107,
+    "n_instances": 23
+   },
+   "outvoted_dissented": {
+    "estimate": 0.06542056074766354,
+    "ci_low": 0.018691588785046728,
+    "ci_high": 0.12264150943396226,
+    "n": 107,
+    "n_instances": 23
+   },
+   "any_below_threshold": {
+    "estimate": 0.7981651376146789,
+    "ci_low": 0.6701005154639175,
+    "ci_high": 0.908256880733945,
+    "n": 109,
+    "n_instances": 23
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  },
+  "all_rational__majority_r16": {
+   "deal_rate": {
+    "estimate": 0.9083333333333333,
+    "ci_low": 0.8083333333333333,
+    "ci_high": 0.975,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 0.9724770642201835,
+    "ci_low": 0.941747572815534,
+    "ci_high": 1.0,
+    "n": 109,
+    "n_instances": 23
+   },
+   "outvoted_below_threshold": {
+    "estimate": 0.6745283018867925,
+    "ci_low": 0.5436893203883495,
+    "ci_high": 0.7927927927927928,
+    "n": 106,
+    "n_instances": 23
+   },
+   "outvoted_z": {
+    "estimate": -0.1040756179245283,
+    "ci_low": -0.20165072411556603,
+    "ci_high": -0.0019267011985981647,
+    "n": 106,
+    "n_instances": 23
+   },
+   "outvoted_dissented": {
+    "estimate": 0.07075471698113207,
+    "ci_low": 0.02830188679245283,
+    "ci_high": 0.12149532710280374,
+    "n": 106,
+    "n_instances": 23
+   },
+   "any_below_threshold": {
+    "estimate": 0.8073394495412844,
+    "ci_low": 0.6759259259259259,
+    "ci_high": 0.918918918918919,
+    "n": 109,
+    "n_instances": 23
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  }
+ },
+ "counts": {
+  "all_rational__unanimity_r4": {
+   "n_episodes": 120,
+   "n_deals": 26,
+   "n_quorum_closes": 0,
+   "n_outvoted_below_threshold": 0,
+   "n_outvoted_dissented": 0,
+   "support_histogram": {
+    "5.0": 26
+   }
+  },
+  "all_rational__unanimity_r16": {
+   "n_episodes": 120,
+   "n_deals": 26,
+   "n_quorum_closes": 0,
+   "n_outvoted_below_threshold": 0,
+   "n_outvoted_dissented": 0,
+   "support_histogram": {
+    "5.0": 26
+   }
+  },
+  "all_rational__supermajority_r4": {
+   "n_episodes": 120,
+   "n_deals": 59,
+   "n_quorum_closes": 53,
+   "n_outvoted_below_threshold": 29,
+   "n_outvoted_dissented": 21,
+   "support_histogram": {
+    "4.0": 53,
+    "5.0": 6
+   }
+  },
+  "all_rational__supermajority_r16": {
+   "n_episodes": 120,
+   "n_deals": 57,
+   "n_quorum_closes": 54,
+   "n_outvoted_below_threshold": 35,
+   "n_outvoted_dissented": 29,
+   "support_histogram": {
+    "4.0": 54,
+    "5.0": 3
+   }
+  },
+  "all_rational__majority_r4": {
+   "n_episodes": 120,
+   "n_deals": 109,
+   "n_quorum_closes": 107,
+   "n_outvoted_below_threshold": 53,
+   "n_outvoted_dissented": 6,
+   "support_histogram": {
+    "3.0": 93,
+    "4.0": 14,
+    "5.0": 2
+   }
+  },
+  "all_rational__majority_r16": {
+   "n_episodes": 120,
+   "n_deals": 109,
+   "n_quorum_closes": 106,
+   "n_outvoted_below_threshold": 55,
+   "n_outvoted_dissented": 6,
+   "support_histogram": {
+    "3.0": 93,
+    "4.0": 13,
+    "5.0": 3
+   }
+  }
+ },
+ "n_rows": 720,
+ "bootstrap": {
+  "samples": 10000,
+  "seed": 20260810,
+  "cluster": "parameter_set"
+ }
+}

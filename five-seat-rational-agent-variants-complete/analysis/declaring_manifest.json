@@ -1,0 +1,1171 @@
+{
+ "run_name": "variantconfirm_declaring",
+ "invocation": [
+  "/juice2/u/siddharth/ii_mats/experiments/rational_agents/agent_variants/run_confirmation.py",
+  "--variant",
+  "declaring",
+  "--no-wandb"
+ ],
+ "game": "scorable",
+ "protocol_cfg": {},
+ "turn_max_tokens": null,
+ "table": "all_rational",
+ "arms": [
+  "moves_chat"
+ ],
+ "rational_seat": null,
+ "fill_policy": null,
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "scaffold": "canonical",
+ "info": "private",
+ "policies": [
+  "bayes-rational"
+ ],
+ "framing": "datacenter",
+ "framing_plans": {
+  "scorable_negotiation-L0-033f0874d5": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Cooling",
+    "Build schedule",
+    "Power supply",
+    "Site access"
+   ],
+   "option_labels": [
+    [
+     "reclaimed water",
+     "river draw",
+     "closed-loop plant",
+     "air cooling"
+    ],
+    [
+     "three years",
+     "eighteen months",
+     "five years",
+     "phased over eight years"
+    ],
+    [
+     "solar with storage",
+     "shared substation",
+     "grid tie-in",
+     "on-site turbines"
+    ],
+    [
+     "rail siding",
+     "widened lane",
+     "existing haul route",
+     "new spur road"
+    ]
+   ],
+   "party_roles": [
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Northgate Borough Council (the elected local authority)"
+   ]
+  },
+  "scorable_negotiation-L0-44925c2d5b": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Location",
+    "Power supply",
+    "Build schedule",
+    "Site access"
+   ],
+   "option_labels": [
+    [
+     "Anvil Ridge",
+     "Dunlow Yard",
+     "Weir Flats",
+     "Kestrel Park"
+    ],
+    [
+     "shared substation",
+     "on-site turbines",
+     "grid tie-in",
+     "solar with storage"
+    ],
+    [
+     "three years",
+     "phased over eight years",
+     "five years",
+     "eighteen months"
+    ],
+    [
+     "rail siding",
+     "new spur road",
+     "existing haul route",
+     "widened lane"
+    ]
+   ],
+   "party_roles": [
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Borough Council (the elected local authority)",
+    "Office of the County Executive (the county-level executive)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Northgate Water Board (the utility that supplies cooling water)"
+   ]
+  },
+  "scorable_negotiation-L0-5b80bb74c6": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Hiring",
+    "Build schedule",
+    "Location",
+    "Power supply"
+   ],
+   "option_labels": [
+    [
+     "apprenticeship programme",
+     "local hiring pact",
+     "union hall referral",
+     "open recruitment"
+    ],
+    [
+     "eighteen months",
+     "phased over eight years",
+     "five years",
+     "three years"
+    ],
+    [
+     "Dunlow Yard",
+     "Anvil Ridge",
+     "Weir Flats",
+     "Kestrel Park"
+    ],
+    [
+     "on-site turbines",
+     "grid tie-in",
+     "solar with storage",
+     "shared substation"
+    ]
+   ],
+   "party_roles": [
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Office of the County Executive (the county-level executive)",
+    "Northgate Borough Council (the elected local authority)"
+   ]
+  },
+  "scorable_negotiation-L0-86d39f433e": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Power supply",
+    "Location",
+    "Compensation",
+    "Site access"
+   ],
+   "option_labels": [
+    [
+     "solar with storage",
+     "grid tie-in",
+     "shared substation",
+     "on-site turbines"
+    ],
+    [
+     "Anvil Ridge",
+     "Weir Flats",
+     "Kestrel Park",
+     "Dunlow Yard"
+    ],
+    [
+     "rates abatement",
+     "in-kind infrastructure",
+     "annual community fund",
+     "one-off site payment"
+    ],
+    [
+     "widened lane",
+     "existing haul route",
+     "new spur road",
+     "rail siding"
+    ]
+   ],
+   "party_roles": [
+    "Office of the County Executive (the county-level executive)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Water Board (the utility that supplies cooling water)"
+   ]
+  },
+  "scorable_negotiation-L0-db777d04d1": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Cooling",
+    "Hiring",
+    "Location",
+    "Site access"
+   ],
+   "option_labels": [
+    [
+     "reclaimed water",
+     "closed-loop plant",
+     "air cooling",
+     "river draw"
+    ],
+    [
+     "apprenticeship programme",
+     "union hall referral",
+     "open recruitment",
+     "local hiring pact"
+    ],
+    [
+     "Anvil Ridge",
+     "Weir Flats",
+     "Kestrel Park",
+     "Dunlow Yard"
+    ],
+    [
+     "rail siding",
+     "widened lane",
+     "existing haul route",
+     "new spur road"
+    ]
+   ],
+   "party_roles": [
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Office of the County Executive (the county-level executive)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Northgate Borough Council (the elected local authority)"
+   ]
+  },
+  "scorable_negotiation-L1-1381dc04db": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Site access",
+    "Location",
+    "Hiring",
+    "Cooling"
+   ],
+   "option_labels": [
+    [
+     "new spur road",
+     "rail siding",
+     "widened lane",
+     "existing haul route"
+    ],
+    [
+     "Dunlow Yard",
+     "Weir Flats",
+     "Kestrel Park",
+     "Anvil Ridge"
+    ],
+    [
+     "apprenticeship programme",
+     "local hiring pact",
+     "open recruitment",
+     "union hall referral"
+    ],
+    [
+     "air cooling",
+     "closed-loop plant",
+     "river draw",
+     "reclaimed water"
+    ]
+   ],
+   "party_roles": [
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Northgate Borough Council (the elected local authority)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)"
+   ]
+  },
+  "scorable_negotiation-L1-6e5961e973": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Power supply",
+    "Hiring",
+    "Build schedule",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "grid tie-in",
+     "on-site turbines",
+     "solar with storage",
+     "shared substation"
+    ],
+    [
+     "open recruitment",
+     "apprenticeship programme",
+     "union hall referral",
+     "local hiring pact"
+    ],
+    [
+     "phased over eight years",
+     "five years",
+     "eighteen months",
+     "three years"
+    ],
+    [
+     "Weir Flats",
+     "Dunlow Yard",
+     "Kestrel Park",
+     "Anvil Ridge"
+    ]
+   ],
+   "party_roles": [
+    "Office of the County Executive (the county-level executive)",
+    "Northgate Borough Council (the elected local authority)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)"
+   ]
+  },
+  "scorable_negotiation-L1-6f6151e1d5": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Site access",
+    "Compensation",
+    "Power supply",
+    "Build schedule"
+   ],
+   "option_labels": [
+    [
+     "existing haul route",
+     "widened lane",
+     "rail siding",
+     "new spur road"
+    ],
+    [
+     "in-kind infrastructure",
+     "one-off site payment",
+     "annual community fund",
+     "rates abatement"
+    ],
+    [
+     "grid tie-in",
+     "on-site turbines",
+     "shared substation",
+     "solar with storage"
+    ],
+    [
+     "eighteen months",
+     "three years",
+     "five years",
+     "phased over eight years"
+    ]
+   ],
+   "party_roles": [
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Northgate Borough Council (the elected local authority)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)"
+   ]
+  },
+  "scorable_negotiation-L1-a9e4838c4c": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Power supply",
+    "Cooling",
+    "Location",
+    "Build schedule"
+   ],
+   "option_labels": [
+    [
+     "shared substation",
+     "on-site turbines",
+     "solar with storage",
+     "grid tie-in"
+    ],
+    [
+     "closed-loop plant",
+     "reclaimed water",
+     "river draw",
+     "air cooling"
+    ],
+    [
+     "Dunlow Yard",
+     "Weir Flats",
+     "Kestrel Park",
+     "Anvil Ridge"
+    ],
+    [
+     "eighteen months",
+     "three years",
+     "phased over eight years",
+     "five years"
+    ]
+   ],
+   "party_roles": [
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Meridian Compute (the firm that would build and operate the facility)"
+   ]
+  },
+  "scorable_negotiation-L1-b3fd37949a": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Site access",
+    "Build schedule",
+    "Hiring",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "new spur road",
+     "rail siding",
+     "existing haul route",
+     "widened lane"
+    ],
+    [
+     "phased over eight years",
+     "three years",
+     "five years",
+     "eighteen months"
+    ],
+    [
+     "open recruitment",
+     "apprenticeship programme",
+     "union hall referral",
+     "local hiring pact"
+    ],
+    [
+     "Anvil Ridge",
+     "Dunlow Yard",
+     "Kestrel Park",
+     "Weir Flats"
+    ]
+   ],
+   "party_roles": [
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)"
+   ]
+  },
+  "scorable_negotiation-L2-107032bc27": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Build schedule",
+    "Power supply",
+    "Cooling",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "three years",
+     "five years",
+     "eighteen months",
+     "phased over eight years"
+    ],
+    [
+     "grid tie-in",
+     "solar with storage",
+     "shared substation",
+     "on-site turbines"
+    ],
+    [
+     "river draw",
+     "closed-loop plant",
+     "reclaimed water",
+     "air cooling"
+    ],
+    [
+     "Kestrel Park",
+     "Dunlow Yard",
+     "Weir Flats",
+     "Anvil Ridge"
+    ]
+   ],
+   "party_roles": [
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Northgate Borough Council (the elected local authority)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Meridian Compute (the firm that would build and operate the facility)"
+   ]
+  },
+  "scorable_negotiation-L2-5edb2fff08": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Compensation",
+    "Site access",
+    "Build schedule",
+    "Power supply"
+   ],
+   "option_labels": [
+    [
+     "in-kind infrastructure",
+     "annual community fund",
+     "rates abatement",
+     "one-off site payment"
+    ],
+    [
+     "widened lane",
+     "rail siding",
+     "existing haul route",
+     "new spur road"
+    ],
+    [
+     "three years",
+     "five years",
+     "phased over eight years",
+     "eighteen months"
+    ],
+    [
+     "solar with storage",
+     "grid tie-in",
+     "shared substation",
+     "on-site turbines"
+    ]
+   ],
+   "party_roles": [
+    "Office of the County Executive (the county-level executive)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Electrical Workers' Union (the construction and maintenance workforce)"
+   ]
+  },
+  "scorable_negotiation-L2-c07670b4c3": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Site access",
+    "Build schedule",
+    "Cooling",
+    "Power supply"
+   ],
+   "option_labels": [
+    [
+     "new spur road",
+     "rail siding",
+     "existing haul route",
+     "widened lane"
+    ],
+    [
+     "five years",
+     "phased over eight years",
+     "eighteen months",
+     "three years"
+    ],
+    [
+     "air cooling",
+     "closed-loop plant",
+     "reclaimed water",
+     "river draw"
+    ],
+    [
+     "on-site turbines",
+     "shared substation",
+     "solar with storage",
+     "grid tie-in"
+    ]
+   ],
+   "party_roles": [
+    "Office of the County Executive (the county-level executive)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Northgate Borough Council (the elected local authority)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)"
+   ]
+  },
+  "scorable_negotiation-L2-cd5957683b": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Hiring",
+    "Site access",
+    "Power supply",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "open recruitment",
+     "local hiring pact",
+     "apprenticeship programme",
+     "union hall referral"
+    ],
+    [
+     "widened lane",
+     "rail siding",
+     "existing haul route",
+     "new spur road"
+    ],
+    [
+     "grid tie-in",
+     "shared substation",
+     "solar with storage",
+     "on-site turbines"
+    ],
+    [
+     "Anvil Ridge",
+     "Kestrel Park",
+     "Weir Flats",
+     "Dunlow Yard"
+    ]
+   ],
+   "party_roles": [
+    "Northgate Borough Council (the elected local authority)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Regional Grid Authority (the body that authorises electricity connections)"
+   ]
+  },
+  "scorable_negotiation-L2-f3366df5c2": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Power supply",
+    "Compensation",
+    "Cooling",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "shared substation",
+     "on-site turbines",
+     "solar with storage",
+     "grid tie-in"
+    ],
+    [
+     "annual community fund",
+     "rates abatement",
+     "in-kind infrastructure",
+     "one-off site payment"
+    ],
+    [
+     "reclaimed water",
+     "air cooling",
+     "river draw",
+     "closed-loop plant"
+    ],
+    [
+     "Weir Flats",
+     "Dunlow Yard",
+     "Kestrel Park",
+     "Anvil Ridge"
+    ]
+   ],
+   "party_roles": [
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Northgate Borough Council (the elected local authority)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Meridian Compute (the firm that would build and operate the facility)"
+   ]
+  },
+  "scorable_negotiation-L3-09d8108a8f": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Cooling",
+    "Site access",
+    "Hiring",
+    "Power supply"
+   ],
+   "option_labels": [
+    [
+     "air cooling",
+     "closed-loop plant",
+     "river draw",
+     "reclaimed water"
+    ],
+    [
+     "rail siding",
+     "widened lane",
+     "new spur road",
+     "existing haul route"
+    ],
+    [
+     "open recruitment",
+     "apprenticeship programme",
+     "union hall referral",
+     "local hiring pact"
+    ],
+    [
+     "solar with storage",
+     "shared substation",
+     "on-site turbines",
+     "grid tie-in"
+    ]
+   ],
+   "party_roles": [
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Office of the County Executive (the county-level executive)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Electrical Workers' Union (the construction and maintenance workforce)"
+   ]
+  },
+  "scorable_negotiation-L3-78a36182a2": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Cooling",
+    "Power supply",
+    "Hiring",
+    "Build schedule"
+   ],
+   "option_labels": [
+    [
+     "river draw",
+     "air cooling",
+     "closed-loop plant",
+     "reclaimed water"
+    ],
+    [
+     "on-site turbines",
+     "grid tie-in",
+     "solar with storage",
+     "shared substation"
+    ],
+    [
+     "open recruitment",
+     "local hiring pact",
+     "union hall referral",
+     "apprenticeship programme"
+    ],
+    [
+     "three years",
+     "phased over eight years",
+     "five years",
+     "eighteen months"
+    ]
+   ],
+   "party_roles": [
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Office of the County Executive (the county-level executive)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)"
+   ]
+  },
+  "scorable_negotiation-L3-81f699e3fe": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Compensation",
+    "Build schedule",
+    "Location",
+    "Hiring"
+   ],
+   "option_labels": [
+    [
+     "rates abatement",
+     "annual community fund",
+     "in-kind infrastructure",
+     "one-off site payment"
+    ],
+    [
+     "five years",
+     "phased over eight years",
+     "three years",
+     "eighteen months"
+    ],
+    [
+     "Weir Flats",
+     "Dunlow Yard",
+     "Anvil Ridge",
+     "Kestrel Park"
+    ],
+    [
+     "local hiring pact",
+     "open recruitment",
+     "union hall referral",
+     "apprenticeship programme"
+    ]
+   ],
+   "party_roles": [
+    "Office of the County Executive (the county-level executive)",
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Northgate Borough Council (the elected local authority)"
+   ]
+  },
+  "scorable_negotiation-L3-8e55401ea3": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Hiring",
+    "Compensation",
+    "Build schedule",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "open recruitment",
+     "local hiring pact",
+     "union hall referral",
+     "apprenticeship programme"
+    ],
+    [
+     "in-kind infrastructure",
+     "one-off site payment",
+     "rates abatement",
+     "annual community fund"
+    ],
+    [
+     "five years",
+     "three years",
+     "phased over eight years",
+     "eighteen months"
+    ],
+    [
+     "Dunlow Yard",
+     "Weir Flats",
+     "Kestrel Park",
+     "Anvil Ridge"
+    ]
+   ],
+   "party_roles": [
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Office of the County Executive (the county-level executive)",
+    "Northgate Borough Council (the elected local authority)"
+   ]
+  },
+  "scorable_negotiation-L3-901198dd46": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Cooling",
+    "Power supply",
+    "Hiring",
+    "Build schedule"
+   ],
+   "option_labels": [
+    [
+     "river draw",
+     "reclaimed water",
+     "closed-loop plant",
+     "air cooling"
+    ],
+    [
+     "on-site turbines",
+     "grid tie-in",
+     "solar with storage",
+     "shared substation"
+    ],
+    [
+     "union hall referral",
+     "open recruitment",
+     "apprenticeship programme",
+     "local hiring pact"
+    ],
+    [
+     "eighteen months",
+     "phased over eight years",
+     "three years",
+     "five years"
+    ]
+   ],
+   "party_roles": [
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Office of the County Executive (the county-level executive)"
+   ]
+  },
+  "scorable_negotiation-L4-05f715c1e6": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Power supply",
+    "Cooling",
+    "Site access",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "solar with storage",
+     "grid tie-in",
+     "on-site turbines",
+     "shared substation"
+    ],
+    [
+     "river draw",
+     "air cooling",
+     "closed-loop plant",
+     "reclaimed water"
+    ],
+    [
+     "widened lane",
+     "rail siding",
+     "new spur road",
+     "existing haul route"
+    ],
+    [
+     "Dunlow Yard",
+     "Weir Flats",
+     "Anvil Ridge",
+     "Kestrel Park"
+    ]
+   ],
+   "party_roles": [
+    "Northgate Water Board (the utility that supplies cooling water)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Office of the County Executive (the county-level executive)"
+   ]
+  },
+  "scorable_negotiation-L4-35d9e3e112": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Hiring",
+    "Power supply",
+    "Site access",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "open recruitment",
+     "local hiring pact",
+     "union hall referral",
+     "apprenticeship programme"
+    ],
+    [
+     "on-site turbines",
+     "solar with storage",
+     "grid tie-in",
+     "shared substation"
+    ],
+    [
+     "widened lane",
+     "rail siding",
+     "existing haul route",
+     "new spur road"
+    ],
+    [
+     "Dunlow Yard",
+     "Kestrel Park",
+     "Weir Flats",
+     "Anvil Ridge"
+    ]
+   ],
+   "party_roles": [
+    "Riverside Residents' Assembly (the neighbourhood association beside the candidate sites)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Borough Council (the elected local authority)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Electrical Workers' Union (the construction and maintenance workforce)"
+   ]
+  },
+  "scorable_negotiation-L4-592a4f7b6d": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Site access",
+    "Compensation",
+    "Location",
+    "Cooling"
+   ],
+   "option_labels": [
+    [
+     "existing haul route",
+     "new spur road",
+     "rail siding",
+     "widened lane"
+    ],
+    [
+     "rates abatement",
+     "annual community fund",
+     "in-kind infrastructure",
+     "one-off site payment"
+    ],
+    [
+     "Anvil Ridge",
+     "Kestrel Park",
+     "Weir Flats",
+     "Dunlow Yard"
+    ],
+    [
+     "river draw",
+     "air cooling",
+     "reclaimed water",
+     "closed-loop plant"
+    ]
+   ],
+   "party_roles": [
+    "Electrical Workers' Union (the construction and maintenance workforce)",
+    "Office of the County Executive (the county-level executive)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Meridian Compute (the firm that would build and operate the facility)",
+    "Northgate Water Board (the utility that supplies cooling water)"
+   ]
+  },
+  "scorable_negotiation-L4-b9891ffb3e": {
+   "framing": "datacenter",
+   "title": "Northgate data-centre siting agreement",
+   "issue_names": [
+    "Site access",
+    "Build schedule",
+    "Hiring",
+    "Location"
+   ],
+   "option_labels": [
+    [
+     "rail siding",
+     "existing haul route",
+     "new spur road",
+     "widened lane"
+    ],
+    [
+     "phased over eight years",
+     "three years",
+     "eighteen months",
+     "five years"
+    ],
+    [
+     "apprenticeship programme",
+     "union hall referral",
+     "local hiring pact",
+     "open recruitment"
+    ],
+    [
+     "Kestrel Park",
+     "Dunlow Yard",
+     "Anvil Ridge",
+     "Weir Flats"
+    ]
+   ],
+   "party_roles": [
+    "Office of the County Executive (the county-level executive)",
+    "Northgate Borough Council (the elected local authority)",
+    "Anvil Ridge Landholding (the owner of record of the candidate parcels)",
+    "Regional Grid Authority (the body that authorises electricity connections)",
+    "Northgate Water Board (the utility that supplies cooling water)"
+   ]
+  }
+ },
+ "decision_support": [
+  "none"
+ ],
+ "seeded_offer": null,
+ "models": [
+  "anthropic:claude-opus-5"
+ ],
+ "oracles": [
+  "threshold",
+  "acceptance",
+  "belief",
+  "bestresponse"
+ ],
+ "n_episodes": 120,
+ "api_request_config": {},
+ "n_planned": 120,
+ "status_counts": {
+  "done": 120
+ },
+ "instances_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/variantconfirm_declaring/instances",
+ "episodes_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/variantconfirm_declaring/episodes",
+ "instance_ids": [
+  "scorable_negotiation-L0-033f0874d5",
+  "scorable_negotiation-L0-44925c2d5b",
+  "scorable_negotiation-L0-5b80bb74c6",
+  "scorable_negotiation-L0-86d39f433e",
+  "scorable_negotiation-L0-db777d04d1",
+  "scorable_negotiation-L1-1381dc04db",
+  "scorable_negotiation-L1-6e5961e973",
+  "scorable_negotiation-L1-6f6151e1d5",
+  "scorable_negotiation-L1-a9e4838c4c",
+  "scorable_negotiation-L1-b3fd37949a",
+  "scorable_negotiation-L2-107032bc27",
+  "scorable_negotiation-L2-5edb2fff08",
+  "scorable_negotiation-L2-c07670b4c3",
+  "scorable_negotiation-L2-cd5957683b",
+  "scorable_negotiation-L2-f3366df5c2",
+  "scorable_negotiation-L3-09d8108a8f",
+  "scorable_negotiation-L3-78a36182a2",
+  "scorable_negotiation-L3-81f699e3fe",
+  "scorable_negotiation-L3-8e55401ea3",
+  "scorable_negotiation-L3-901198dd46",
+  "scorable_negotiation-L4-05f715c1e6",
+  "scorable_negotiation-L4-35d9e3e112",
+  "scorable_negotiation-L4-592a4f7b6d",
+  "scorable_negotiation-L4-b9891ffb3e"
+ ],
+ "provenance": {
+  "parent_repo": {
+   "sha": "c441aaf8495ee0b360b6b5f6a6501eefcb273ae7",
+   "branch": "main",
+   "dirty": true
+  },
+  "interlens_repo": {
+   "sha": "68f6df63489e87de084953907fec827f669d49a7",
+   "branch": "main",
+   "dirty": true
+  },
+  "interlens_version": "0.1.60",
+  "dependency_versions": {
+   "transformers": "4.57.6",
+   "torch": "2.12.1+cu130",
+   "numpy": "2.4.2"
+  }
+ },
+ "usage": null,
+ "fabrication": null,
+ "agent_variant": {
+  "schema": "agent-variant-confirmation-v1",
+  "variant": "declaring",
+  "policy": "Declaring",
+  "participant": "SharingParticipant",
+  "rounds": 4,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "bank": "/juice2/u/siddharth/ii_mats/experiments/rational_agents/instances_five_seat_private_v2",
+  "revelation_caveat": "variants whose name starts with 'declaring' have seats publish their TRUE score sheet on the public channel; truthful revelation is a design choice for cooperative-by-construction agents, not an equilibrium claim",
+  "summary": {
+   "n_episodes": 120,
+   "deal": 1.0,
+   "deal_lo": 1.0,
+   "deal_hi": 1.0,
+   "normalized": 0.8566199999999999,
+   "normalized_lo": 0.8228508125000001,
+   "normalized_hi": 0.8895764999999999,
+   "usw": 186.29166666666666,
+   "usw_lo": 170.53791666666666,
+   "usw_hi": 203.33458333333334,
+   "min_seat": 7.7,
+   "min_seat_lo": 5.658125,
+   "min_seat_hi": 9.833749999999998,
+   "ir_violation": 0.0,
+   "ir_violation_lo": 0.0,
+   "ir_violation_hi": 0.0,
+   "closing_round": 4.975,
+   "closing_round_lo": 4.95,
+   "closing_round_hi": 5.0,
+   "ir_all_proposals_r1": 0.313373253493014,
+   "ir_all_proposals_r3plus": 1.0
+  }
+ }
+}

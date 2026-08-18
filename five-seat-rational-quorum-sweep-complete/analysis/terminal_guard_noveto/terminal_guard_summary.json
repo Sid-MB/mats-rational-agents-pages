@@ -1,0 +1,48 @@
+{
+ "all_rational__majority_no_veto_r16": {
+  "min_accept": 3,
+  "veto_seats": [],
+  "n_episodes_at_terminal_vote": 13,
+  "n_violating_votes": 2,
+  "n_terminal_votes": 38,
+  "episodes_with_violation": {
+   "estimate": 0.15384615384615385,
+   "ci_low": 0.0,
+   "ci_high": 0.3076923076923077,
+   "n": 13,
+   "n_instances": 7
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 13,
+   "n_instances": 7
+  },
+  "deals_lost_if_veto_dissolved": 0
+ },
+ "all_rational__majority_no_veto_r4": {
+  "min_accept": 3,
+  "veto_seats": [],
+  "n_episodes_at_terminal_vote": 12,
+  "n_violating_votes": 0,
+  "n_terminal_votes": 37,
+  "episodes_with_violation": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 12,
+   "n_instances": 8
+  },
+  "deals_lost": 0,
+  "deals_lost_rate": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 12,
+   "n_instances": 8
+  },
+  "deals_lost_if_veto_dissolved": 0
+ }
+}

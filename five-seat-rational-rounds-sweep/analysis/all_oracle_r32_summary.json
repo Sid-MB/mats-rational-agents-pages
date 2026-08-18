@@ -1,0 +1,210 @@
+{
+ "normalized_primary": {
+  "estimate": 0.8988366666666666,
+  "ci_low": 0.880127625,
+  "ci_high": 0.919602875,
+  "n": 120,
+  "n_instances": 24
+ },
+ "deal_rate": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "normalized_nash_welfare": {
+  "estimate": 0.4323985707882009,
+  "ci_low": 0.3561303706313797,
+  "ci_high": 0.5045048285527689,
+  "n": 120,
+  "n_instances": 24
+ },
+ "dist_to_nbs": {
+  "estimate": 0.523293147136795,
+  "ci_low": 0.42937486974280026,
+  "ci_high": 0.6094165250524584,
+  "n": 120,
+  "n_instances": 24
+ },
+ "gini": {
+  "estimate": 0.3547594052414456,
+  "ci_low": 0.3301582998609918,
+  "ci_high": 0.38017239494286675,
+  "n": 120,
+  "n_instances": 24
+ },
+ "usw": {
+  "estimate": 194.61666666666667,
+  "ci_low": 179.89020833333333,
+  "ci_high": 209.86062499999997,
+  "n": 120,
+  "n_instances": 24
+ },
+ "esw": {
+  "estimate": 8.325,
+  "ci_low": 6.658125,
+  "ci_high": 9.991666666666667,
+  "n": 120,
+  "n_instances": 24
+ },
+ "nsw_geomean": {
+  "estimate": 23.383753493188713,
+  "ci_low": 19.831080486646922,
+  "ci_high": 26.80493663430612,
+  "n": 120,
+  "n_instances": 24
+ },
+ "dist_to_frontier": {
+  "estimate": 0.002865488987142314,
+  "ci_low": 0.0,
+  "ci_high": 0.008596466961426942,
+  "n": 120,
+  "n_instances": 24
+ },
+ "dist_to_ks": {
+  "estimate": 0.5647119711893229,
+  "ci_low": 0.4698661546916389,
+  "ci_high": 0.6493759023395944,
+  "n": 120,
+  "n_instances": 24
+ },
+ "on_frontier": {
+  "estimate": 0.9916666666666667,
+  "ci_low": 0.975,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "all_ir": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "n_ir_violations": {
+  "estimate": 0.0,
+  "ci_low": 0.0,
+  "ci_high": 0.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "n_ir_violation_turns": {
+  "estimate": 2.975,
+  "ci_low": 0.725,
+  "ci_high": 6.725,
+  "n": 120,
+  "n_instances": 24
+ },
+ "rounds_to_agreement": {
+  "estimate": 3.425,
+  "ci_low": 2.066666666666667,
+  "ci_high": 5.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "closing_round": {
+  "estimate": 3.425,
+  "ci_low": 2.091666666666667,
+  "ci_high": 5.025,
+  "n": 120,
+  "n_instances": 24
+ },
+ "rounds_used_turns": {
+  "estimate": 17.1,
+  "ci_low": 10.433333333333334,
+  "ci_high": 25.075,
+  "n": 120,
+  "n_instances": 24
+ },
+ "reached_deadline": {
+  "estimate": 0.075,
+  "ci_low": 0.03333333333333333,
+  "ci_high": 0.11666666666666667,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_accuracy_mean": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_accuracy_final": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_final_posterior_mass_true_type": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_final_expected_utility_rmse": {
+  "estimate": 0.0,
+  "ci_low": 0.0,
+  "ci_high": 0.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_final_accept_set_f1": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_auc_posterior_mass_true_type": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_auc_expected_utility_rmse": {
+  "estimate": 0.0,
+  "ci_low": 0.0,
+  "ci_high": 0.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "belief_auc_accept_set_f1": {
+  "estimate": 1.0,
+  "ci_low": 1.0,
+  "ci_high": 1.0,
+  "n": 120,
+  "n_instances": 24
+ },
+ "n_episodes": 120,
+ "n_instances": 24,
+ "belief_accuracy_by_turn": {
+  "posterior_mass_true_type": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "expected_utility_rmse": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "accept_set_f1": [
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ "episode_seconds": {
+  "n": 120,
+  "total": 1174.5944981761277,
+  "mean": 9.788287484801064,
+  "max": 68.2850819285959,
+  "n_timeout": 0
+ }
+}

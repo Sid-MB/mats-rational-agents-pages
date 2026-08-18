@@ -1,0 +1,286 @@
+{
+ "cell_id": "all_rational_r8",
+ "logical_table": "all_rational",
+ "rounds": 8,
+ "status": "complete",
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "min_accept": 5,
+ "persona_id": null,
+ "expected_episodes": 120,
+ "n_done": 120,
+ "budget_usd": null,
+ "est_usd_per_episode": null,
+ "shard_exit_codes": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "missing_shards": [],
+ "reused_shards": [],
+ "resumed_complete_cell": false,
+ "slurm": {
+  "slurm_job_id": "16859545",
+  "slurm_job_nodelist": "viscam1",
+  "slurm_job_partition": "sc-loprio",
+  "slurm_cpus_on_node": "16",
+  "hostname": "viscam1.stanford.edu"
+ },
+ "wall_seconds": 31.194251731038094,
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/pure_rounds_sweep_v1/all_rational_r8",
+ "attempts": [
+  {
+   "run_name": "pure_rounds_sweep_v1/all_rational_r8",
+   "status": "complete",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/pure_rounds_sweep_v1/all_rational_r8"
+  }
+ ],
+ "summary": {
+  "normalized_primary": {
+   "estimate": 0.22963833333333333,
+   "ci_low": 0.12712114583333334,
+   "ci_high": 0.34275510416666666,
+   "n": 120,
+   "n_instances": 24
+  },
+  "deal_rate": {
+   "estimate": 0.26666666666666666,
+   "ci_low": 0.15,
+   "ci_high": 0.38333333333333336,
+   "n": 120,
+   "n_instances": 24
+  },
+  "normalized_nash_welfare": {
+   "estimate": 0.12923017934506653,
+   "ci_low": 0.06741407968801778,
+   "ci_high": 0.1976602579455679,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_nbs": {
+   "estimate": 0.52935029099226,
+   "ci_low": 0.4100716656124172,
+   "ci_high": 0.6467812020252032,
+   "n": 32,
+   "n_instances": 14
+  },
+  "gini": {
+   "estimate": 0.28457587478507196,
+   "ci_low": 0.2415215802743216,
+   "ci_high": 0.33603116450743437,
+   "n": 32,
+   "n_instances": 14
+  },
+  "usw": {
+   "estimate": 55.625,
+   "ci_low": 28.456875,
+   "ci_high": 87.87124999999997,
+   "n": 120,
+   "n_instances": 24
+  },
+  "esw": {
+   "estimate": 3.95,
+   "ci_low": 1.6833333333333333,
+   "ci_high": 6.9,
+   "n": 120,
+   "n_instances": 24
+  },
+  "nsw_geomean": {
+   "estimate": 8.84600078163988,
+   "ci_low": 4.076317265466307,
+   "ci_high": 14.169965927605029,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_frontier": {
+   "estimate": 0.0736732621171264,
+   "ci_low": 0.018817736839116757,
+   "ci_high": 0.16641932356226197,
+   "n": 32,
+   "n_instances": 14
+  },
+  "dist_to_ks": {
+   "estimate": 0.5794515322070473,
+   "ci_low": 0.4740918519870671,
+   "ci_high": 0.6743887745203416,
+   "n": 32,
+   "n_instances": 14
+  },
+  "on_frontier": {
+   "estimate": 0.21666666666666667,
+   "ci_low": 0.1,
+   "ci_high": 0.35833333333333334,
+   "n": 120,
+   "n_instances": 24
+  },
+  "all_ir": {
+   "estimate": 0.26666666666666666,
+   "ci_low": 0.15812500000000002,
+   "ci_high": 0.39166666666666666,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_ir_violations": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_ir_violation_turns": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "rounds_to_agreement": {
+   "estimate": 8.96875,
+   "ci_low": 8.896459359605911,
+   "ci_high": 9.0,
+   "n": 32,
+   "n_instances": 14
+  },
+  "closing_round": {
+   "estimate": 8.991666666666667,
+   "ci_low": 8.975,
+   "ci_high": 9.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "rounds_used_turns": {
+   "estimate": 44.958333333333336,
+   "ci_low": 44.875,
+   "ci_high": 45.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "reached_deadline": {
+   "estimate": 0.9916666666666667,
+   "ci_low": 0.975,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_accuracy_mean": {
+   "estimate": 0.2279242914026682,
+   "ci_low": 0.20458733275098168,
+   "ci_high": 0.251208811143664,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_accuracy_final": {
+   "estimate": 0.23408242877729238,
+   "ci_low": 0.21116657404589506,
+   "ci_high": 0.25857423990168615,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_posterior_mass_true_type": {
+   "estimate": 0.00031365864389416403,
+   "ci_low": 0.00023591687822763303,
+   "ci_high": 0.0003963775621840317,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_expected_utility_rmse": {
+   "estimate": 0.25214975862165107,
+   "ci_low": 0.24633966422479847,
+   "ci_high": 0.25828726143641756,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_accept_set_f1": {
+   "estimate": 0.23408242877729238,
+   "ci_low": 0.2114244430647655,
+   "ci_high": 0.25852894453898856,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_posterior_mass_true_type": {
+   "estimate": 0.00030285466313426763,
+   "ci_low": 0.00023702776795660413,
+   "ci_high": 0.00037812514844155363,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_expected_utility_rmse": {
+   "estimate": 0.25226955935793416,
+   "ci_low": 0.24665708374272777,
+   "ci_high": 0.2578580337022649,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_accept_set_f1": {
+   "estimate": 0.2279242914026682,
+   "ci_low": 0.20550795655894857,
+   "ci_high": 0.25170604855849454,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_episodes": 120,
+  "n_instances": 24,
+  "belief_accuracy_by_turn": {
+   "posterior_mass_true_type": [
+    0.00022625985679313213,
+    0.00029597906506962106,
+    0.00030133772346909333,
+    0.000307940812286264,
+    0.00031039517198809004,
+    0.00031167780244725063,
+    0.0003130929190325016,
+    0.0003133866101547664,
+    0.0003160864329970499
+   ],
+   "expected_utility_rmse": [
+    0.25195777418678583,
+    0.2520378213968282,
+    0.25258639254784526,
+    0.2523839884884454,
+    0.2524125121687703,
+    0.2523051762257411,
+    0.2522379055682738,
+    0.2522237314926447,
+    0.2522775678052474
+   ],
+   "accept_set_f1": [
+    0.16453292830717128,
+    0.22051516999771062,
+    0.22797334870865646,
+    0.2338326220273041,
+    0.23623705811097048,
+    0.23707792140775977,
+    0.2351114316238237,
+    0.23408472139200462,
+    0.23478218379563073
+   ]
+  },
+  "episode_seconds": {
+   "n": 120,
+   "total": 1600.6436879872344,
+   "mean": 13.33869739989362,
+   "max": 28.352040826343,
+   "n_timeout": 0
+  }
+ },
+ "wandb_url": "https://wandb.ai/siddharth-stanford/rational_agents/runs/yqi0f21u",
+ "wandb_run_id": "yqi0f21u"
+}

@@ -1,0 +1,195 @@
+{
+ "schema": "five-seat-quorum-outvoted-v1",
+ "arms": [
+  "all_rational__majority_no_veto_r4",
+  "all_rational__majority_no_veto_r16"
+ ],
+ "levels": {
+  "all_rational__majority_no_veto_r4": {
+   "deal_rate": {
+    "estimate": 0.975,
+    "ci_low": 0.95,
+    "ci_high": 1.0,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 117,
+    "n_instances": 24
+   },
+   "outvoted_below_threshold": {
+    "estimate": 0.6239316239316239,
+    "ci_low": 0.5254237288135594,
+    "ci_high": 0.7192982456140351,
+    "n": 117,
+    "n_instances": 24
+   },
+   "outvoted_z": {
+    "estimate": -0.09400299145299144,
+    "ci_low": -0.1645636136232466,
+    "ci_high": -0.02878867277542376,
+    "n": 117,
+    "n_instances": 24
+   },
+   "outvoted_dissented": {
+    "estimate": 0.038461538461538464,
+    "ci_low": 0.008620689655172414,
+    "ci_high": 0.07142857142857142,
+    "n": 117,
+    "n_instances": 24
+   },
+   "any_below_threshold": {
+    "estimate": 0.8717948717948718,
+    "ci_low": 0.7796610169491526,
+    "ci_high": 0.9487179487179487,
+    "n": 117,
+    "n_instances": 24
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  },
+  "all_rational__majority_no_veto_r16": {
+   "deal_rate": {
+    "estimate": 0.9666666666666667,
+    "ci_low": 0.9333333333333333,
+    "ci_high": 0.9916666666666667,
+    "n": 120,
+    "n_instances": 24
+   },
+   "quorum_close_rate": {
+    "estimate": 1.0,
+    "ci_low": 1.0,
+    "ci_high": 1.0,
+    "n": 116,
+    "n_instances": 24
+   },
+   "outvoted_below_threshold": {
+    "estimate": 0.6336206896551724,
+    "ci_low": 0.5338911835920809,
+    "ci_high": 0.7307692307692307,
+    "n": 116,
+    "n_instances": 24
+   },
+   "outvoted_z": {
+    "estimate": -0.1042716724137931,
+    "ci_low": -0.17497514619274068,
+    "ci_high": -0.03801896265391863,
+    "n": 116,
+    "n_instances": 24
+   },
+   "outvoted_dissented": {
+    "estimate": 0.02586206896551724,
+    "ci_low": 0.00423728813559322,
+    "ci_high": 0.05309734513274336,
+    "n": 116,
+    "n_instances": 24
+   },
+   "any_below_threshold": {
+    "estimate": 0.8793103448275862,
+    "ci_low": 0.7863247863247863,
+    "ci_high": 0.9565217391304348,
+    "n": 116,
+    "n_instances": 24
+   },
+   "treated_reject_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_accept_share": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_dissent_rate": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_is_outvoted": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   },
+   "treated_below_threshold": {
+    "estimate": null,
+    "ci_low": null,
+    "ci_high": null,
+    "n": 0,
+    "n_instances": 0
+   }
+  }
+ },
+ "counts": {
+  "all_rational__majority_no_veto_r4": {
+   "n_episodes": 120,
+   "n_deals": 117,
+   "n_quorum_closes": 117,
+   "n_outvoted_below_threshold": 44,
+   "n_outvoted_dissented": 3,
+   "support_histogram": {
+    "3.0": 117
+   }
+  },
+  "all_rational__majority_no_veto_r16": {
+   "n_episodes": 120,
+   "n_deals": 116,
+   "n_quorum_closes": 116,
+   "n_outvoted_below_threshold": 45,
+   "n_outvoted_dissented": 1,
+   "support_histogram": {
+    "3.0": 116
+   }
+  }
+ },
+ "n_rows": 240,
+ "bootstrap": {
+  "samples": 10000,
+  "seed": 20260810,
+  "cluster": "parameter_set"
+ }
+}

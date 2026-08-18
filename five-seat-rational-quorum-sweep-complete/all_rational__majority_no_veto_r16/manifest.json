@@ -1,0 +1,10 @@
+{
+ "run": "/nlp/scr/siddharth/ii_mats/rational_agents/quorum_sweep_v1_noveto/all_rational__majority_no_veto_r16",
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__majority_no_veto_r16",
+ "n_episodes": 1,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__majority_no_veto_r16/index.html",
+ "failures": [],
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__majority_no_veto_r16/scorable_negotiation-moves_chat-04061f97a3.html"
+ ]
+}

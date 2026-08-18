@@ -1,0 +1,268 @@
+{
+ "cell_id": "all_oracle_r8",
+ "logical_table": "all_oracle",
+ "rounds": 8,
+ "status": "complete",
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "min_accept": 5,
+ "persona_id": null,
+ "expected_episodes": 120,
+ "n_done": 120,
+ "budget_usd": null,
+ "est_usd_per_episode": null,
+ "shard_exit_codes": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "missing_shards": [],
+ "reused_shards": [],
+ "resumed_complete_cell": false,
+ "slurm": {
+  "slurm_job_id": "16859568",
+  "slurm_job_nodelist": "tiger7",
+  "slurm_job_partition": "sc-loprio",
+  "slurm_cpus_on_node": "8",
+  "hostname": "tiger7.stanford.edu"
+ },
+ "wall_seconds": 28.76477382518351,
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/pure_rounds_sweep_v1/all_oracle_r8",
+ "attempts": [
+  {
+   "run_name": "pure_rounds_sweep_v1/all_oracle_r8",
+   "status": "complete",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/pure_rounds_sweep_v1/all_oracle_r8"
+  }
+ ],
+ "summary": {
+  "normalized_primary": {
+   "estimate": 0.8835691666666666,
+   "ci_low": 0.8598648125,
+   "ci_high": 0.9060401666666666,
+   "n": 120,
+   "n_instances": 24
+  },
+  "deal_rate": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "normalized_nash_welfare": {
+   "estimate": 0.4300720235310988,
+   "ci_low": 0.35422298148408005,
+   "ci_high": 0.5043598175425547,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_nbs": {
+   "estimate": 0.5616212657788056,
+   "ci_low": 0.4773315780723943,
+   "ci_high": 0.6399429632699611,
+   "n": 120,
+   "n_instances": 24
+  },
+  "gini": {
+   "estimate": 0.3642553492196354,
+   "ci_low": 0.33994963322872246,
+   "ci_high": 0.3892717380060861,
+   "n": 120,
+   "n_instances": 24
+  },
+  "usw": {
+   "estimate": 192.11666666666667,
+   "ci_low": 177.7725,
+   "ci_high": 207.36083333333332,
+   "n": 120,
+   "n_instances": 24
+  },
+  "esw": {
+   "estimate": 8.291666666666666,
+   "ci_low": 6.674791666666667,
+   "ci_high": 9.933541666666665,
+   "n": 120,
+   "n_instances": 24
+  },
+  "nsw_geomean": {
+   "estimate": 23.28244640103553,
+   "ci_low": 19.47120703159922,
+   "ci_high": 27.105388143139255,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_frontier": {
+   "estimate": 0.002491345953898649,
+   "ci_low": 0.0,
+   "ci_high": 0.007474037861695948,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_ks": {
+   "estimate": 0.5787379291104706,
+   "ci_low": 0.49338049644102216,
+   "ci_high": 0.6559030886871478,
+   "n": 120,
+   "n_instances": 24
+  },
+  "on_frontier": {
+   "estimate": 0.9916666666666667,
+   "ci_low": 0.975,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "all_ir": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_ir_violations": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_ir_violation_turns": {
+   "estimate": 0.425,
+   "ci_low": 0.075,
+   "ci_high": 0.9,
+   "n": 120,
+   "n_instances": 24
+  },
+  "rounds_to_agreement": {
+   "estimate": 1.625,
+   "ci_low": 1.2666666666666666,
+   "ci_high": 2.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "closing_round": {
+   "estimate": 1.625,
+   "ci_low": 1.2916666666666667,
+   "ci_high": 2.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "rounds_used_turns": {
+   "estimate": 8.075,
+   "ci_low": 6.390208333333334,
+   "ci_high": 9.817083333333331,
+   "n": 120,
+   "n_instances": 24
+  },
+  "reached_deadline": {
+   "estimate": 0.075,
+   "ci_low": 0.03333333333333333,
+   "ci_high": 0.125,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_accuracy_mean": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_accuracy_final": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_posterior_mass_true_type": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_expected_utility_rmse": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_accept_set_f1": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_posterior_mass_true_type": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_expected_utility_rmse": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_accept_set_f1": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_episodes": 120,
+  "n_instances": 24,
+  "belief_accuracy_by_turn": {
+   "posterior_mass_true_type": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "expected_utility_rmse": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "accept_set_f1": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "episode_seconds": {
+   "n": 120,
+   "total": 283.41407569590956,
+   "mean": 2.3617839641325795,
+   "max": 13.081637277733535,
+   "n_timeout": 0
+  }
+ },
+ "wandb_url": "https://wandb.ai/siddharth-stanford/rational_agents/runs/hrfm6ddr",
+ "wandb_run_id": "hrfm6ddr"
+}

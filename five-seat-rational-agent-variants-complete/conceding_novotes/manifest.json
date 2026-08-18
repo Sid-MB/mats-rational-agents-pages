@@ -1,0 +1,19 @@
+{
+ "run": "/nlp/scr/siddharth/ii_mats/rational_agents/variantconfirm_conceding_novotes",
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes",
+ "n_episodes": 10,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/index.html",
+ "failures": [],
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-18023b6347.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-1ae8cebfda.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-1bdf3421a1.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-22a22555ae.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-26c3a55e23.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-289d6d4d05.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-2bc32a939e.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-374c0522b9.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-56364c0866.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/conceding_novotes/scorable_negotiation-moves_chat-5af1ef07f9.html"
+ ]
+}

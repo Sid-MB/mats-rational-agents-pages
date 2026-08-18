@@ -1,0 +1,19 @@
+{
+ "run": "/nlp/scr/siddharth/ii_mats/rational_agents/variantconfirm_declaring",
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring",
+ "n_episodes": 10,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/index.html",
+ "failures": [],
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-21fc5c9846.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-223c1a23c5.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-2b355bf652.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-2bed33c169.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-2d6cf89d0a.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-36effabb92.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-4d16cdb889.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-555bb98ac2.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-63e92cc20a.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-agent-variants-complete/declaring/scorable_negotiation-moves_chat-66a622c776.html"
+ ]
+}

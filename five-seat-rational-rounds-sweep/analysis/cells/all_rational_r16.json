@@ -1,0 +1,310 @@
+{
+ "cell_id": "all_rational_r16",
+ "logical_table": "all_rational",
+ "rounds": 16,
+ "status": "complete",
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "min_accept": 5,
+ "persona_id": null,
+ "expected_episodes": 120,
+ "n_done": 120,
+ "budget_usd": null,
+ "est_usd_per_episode": null,
+ "shard_exit_codes": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "missing_shards": [],
+ "reused_shards": [],
+ "resumed_complete_cell": false,
+ "slurm": {
+  "slurm_job_id": "16859546",
+  "slurm_job_nodelist": "jagupard34",
+  "slurm_job_partition": "sc-loprio",
+  "slurm_cpus_on_node": "16",
+  "hostname": "jagupard34.stanford.edu"
+ },
+ "wall_seconds": 408.9226842112839,
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/pure_rounds_sweep_v1/all_rational_r16",
+ "attempts": [
+  {
+   "run_name": "pure_rounds_sweep_v1/all_rational_r16",
+   "status": "complete",
+   "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/pure_rounds_sweep_v1/all_rational_r16"
+  }
+ ],
+ "summary": {
+  "normalized_primary": {
+   "estimate": 0.18190749999999997,
+   "ci_low": 0.09679660416666666,
+   "ci_high": 0.27402152083333325,
+   "n": 120,
+   "n_instances": 24
+  },
+  "deal_rate": {
+   "estimate": 0.20833333333333334,
+   "ci_low": 0.11666666666666667,
+   "ci_high": 0.31666666666666665,
+   "n": 120,
+   "n_instances": 24
+  },
+  "normalized_nash_welfare": {
+   "estimate": 0.10303494788533936,
+   "ci_low": 0.054449447100679206,
+   "ci_high": 0.15957045936515754,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_nbs": {
+   "estimate": 0.5564775424905025,
+   "ci_low": 0.40470783077467387,
+   "ci_high": 0.6979992610799421,
+   "n": 25,
+   "n_instances": 14
+  },
+  "gini": {
+   "estimate": 0.28685888354865985,
+   "ci_low": 0.23518237576043077,
+   "ci_high": 0.34882899960127967,
+   "n": 25,
+   "n_instances": 14
+  },
+  "usw": {
+   "estimate": 44.05,
+   "ci_low": 21.71333333333333,
+   "ci_high": 71.11708333333324,
+   "n": 120,
+   "n_instances": 24
+  },
+  "esw": {
+   "estimate": 2.816666666666667,
+   "ci_low": 1.0583333333333333,
+   "ci_high": 5.216666666666667,
+   "n": 120,
+   "n_instances": 24
+  },
+  "nsw_geomean": {
+   "estimate": 6.843998766652857,
+   "ci_low": 2.8521609350255033,
+   "ci_high": 11.307894704359667,
+   "n": 120,
+   "n_instances": 24
+  },
+  "dist_to_frontier": {
+   "estimate": 0.05266134301692572,
+   "ci_low": 0.0,
+   "ci_high": 0.1445708050182352,
+   "n": 25,
+   "n_instances": 14
+  },
+  "dist_to_ks": {
+   "estimate": 0.5397255123149752,
+   "ci_low": 0.3793193492043902,
+   "ci_high": 0.65021545403553,
+   "n": 25,
+   "n_instances": 14
+  },
+  "on_frontier": {
+   "estimate": 0.18333333333333332,
+   "ci_low": 0.08333333333333333,
+   "ci_high": 0.3,
+   "n": 120,
+   "n_instances": 24
+  },
+  "all_ir": {
+   "estimate": 0.20833333333333334,
+   "ci_low": 0.11666666666666667,
+   "ci_high": 0.30833333333333335,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_ir_violations": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_ir_violation_turns": {
+   "estimate": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "rounds_to_agreement": {
+   "estimate": 17.0,
+   "ci_low": 17.0,
+   "ci_high": 17.0,
+   "n": 25,
+   "n_instances": 14
+  },
+  "closing_round": {
+   "estimate": 17.0,
+   "ci_low": 17.0,
+   "ci_high": 17.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "rounds_used_turns": {
+   "estimate": 85.0,
+   "ci_low": 85.0,
+   "ci_high": 85.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "reached_deadline": {
+   "estimate": 1.0,
+   "ci_low": 1.0,
+   "ci_high": 1.0,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_accuracy_mean": {
+   "estimate": 0.24127561313815352,
+   "ci_low": 0.21600567682239905,
+   "ci_high": 0.2671171534400729,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_accuracy_final": {
+   "estimate": 0.24617109236543802,
+   "ci_low": 0.22168675775621538,
+   "ci_high": 0.2714814656447126,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_posterior_mass_true_type": {
+   "estimate": 0.00034631562715279674,
+   "ci_low": 0.00026721298330386776,
+   "ci_high": 0.00043082898364204874,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_expected_utility_rmse": {
+   "estimate": 0.24964532619604754,
+   "ci_low": 0.2436060175488272,
+   "ci_high": 0.25627813847384195,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_final_accept_set_f1": {
+   "estimate": 0.24617109236543802,
+   "ci_low": 0.22251937467987593,
+   "ci_high": 0.2730044637375798,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_posterior_mass_true_type": {
+   "estimate": 0.0003371217153376854,
+   "ci_low": 0.0002659734717852699,
+   "ci_high": 0.0004185913315972768,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_expected_utility_rmse": {
+   "estimate": 0.2500973666359586,
+   "ci_low": 0.24415593167938607,
+   "ci_high": 0.25607078389210536,
+   "n": 120,
+   "n_instances": 24
+  },
+  "belief_auc_accept_set_f1": {
+   "estimate": 0.24127561313815352,
+   "ci_low": 0.21691058111416406,
+   "ci_high": 0.26608336311232705,
+   "n": 120,
+   "n_instances": 24
+  },
+  "n_episodes": 120,
+  "n_instances": 24,
+  "belief_accuracy_by_turn": {
+   "posterior_mass_true_type": [
+    0.00023732208447487682,
+    0.00032429054511098925,
+    0.0003296025926389272,
+    0.00033573814492018683,
+    0.0003387604061957736,
+    0.000339631829752615,
+    0.0003409360479155423,
+    0.00034136052815946064,
+    0.0003423758299070657,
+    0.00034359447039691995,
+    0.0003436210424044048,
+    0.0003432412593993133,
+    0.00034350394682853007,
+    0.00034413263541431077,
+    0.0003456701950118196,
+    0.0003462759996717269,
+    0.000345745423518227
+   ],
+   "expected_utility_rmse": [
+    0.25120003859656564,
+    0.2500803943312691,
+    0.2504075469482723,
+    0.25024048665606674,
+    0.25031464578123624,
+    0.250246477216548,
+    0.2502095914622256,
+    0.2501302099620355,
+    0.25012305604902435,
+    0.2500429902696178,
+    0.25001929678792656,
+    0.25001910461992866,
+    0.24994981991031115,
+    0.24986074323779867,
+    0.24979741681305667,
+    0.24966881458521628,
+    0.2499669286619722
+   ],
+   "accept_set_f1": [
+    0.16802789614669206,
+    0.23059074201663662,
+    0.23807426294567044,
+    0.24340292777888928,
+    0.24639366513032976,
+    0.24731553699112574,
+    0.24570131067394105,
+    0.24448351719389103,
+    0.24418199118672163,
+    0.24413648814676867,
+    0.24401993478134304,
+    0.24412127514061696,
+    0.24431968726867098,
+    0.2449678328948658,
+    0.24573098307059713,
+    0.2462674709388973,
+    0.24636761472291482
+   ]
+  },
+  "episode_seconds": {
+   "n": 120,
+   "total": 21631.347119939514,
+   "mean": 180.26122599949593,
+   "max": 386.4899249570444,
+   "n_timeout": 0
+  }
+ },
+ "wandb_url": "https://wandb.ai/siddharth-stanford/rational_agents/runs/h24cx2mx",
+ "wandb_run_id": "h24cx2mx"
+}

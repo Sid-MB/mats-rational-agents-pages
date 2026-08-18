@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Letting the negotiators say what they want closes every game</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d;
+            --warn:#b45309; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink);
+           font:15px/1.55 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    h3 { font:700 17px/1.2 ui-sans-serif,system-ui,sans-serif; margin:22px 0 8px; }
+    .lede { color:var(--muted); max-width:880px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px;
+            box-shadow:0 8px 24px rgba(29,58,43,.06); overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:10px 9px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+    th:first-child,td:first-child { text-align:left; white-space:normal; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .finding { border-left:4px solid var(--accent); padding:12px 16px; background:#eef7f1;
+               border-radius:0 10px 10px 0; }
+    .warn { border-left:4px solid var(--warn); padding:12px 16px; background:#fdf6ec;
+            border-radius:0 10px 10px 0; margin:14px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    code { font-size:13px; }
+</style>
+</head>
+<body><main>
+  <h1>Say what you want and the table closes; keep guessing and it tops out at 0.41</h1>
+
+  <p class="lede">The published Bayesian negotiator closes 0.233 of these games while the
+  omniscient reference closes 1.000 on the identical bank, so every failure is a
+  package all five seats would have signed, left unsigned. The audit found why: the agent's posterior learns
+  only from a counterpart <em>conceding</em>, these agents almost never concede, and the posterior therefore
+  stays near-uniform &mdash; no seat can ever certify that a package would pass. This hub is the confirmation
+  run of the design loop that fixed it. Eleven designs, each a subclass of the frozen code, were scored on a
+  fixed ten-instance subset; the two best were then re-run on the whole 24-instance bank at 120 episodes each,
+  which is what these pages show.</p>
+
+  <div class="finding">
+    <strong>Telling the other seats what you want closes every game: deal rate 1.000
+    [1.000, 1.000], zero individual-rationality violations, normalized score
+    0.857 against the omniscient ceiling's 0.888.</strong>
+    It works by turning the inference problem off &mdash; each seat publishes its sheet once, and once all five
+    are in, every seat is planning on a full-information table without one decision rule changing. Everything
+    that avoids revelation falls far short: the best non-sharing design reaches 0.408
+    [0.283, 0.542] against the published 0.233. The blocker was the
+    inference problem, not the bargaining problem.
+  </div>
+
+  <h2>The full-bank confirmation</h2>
+  <section class='card'><table><thead><tr><th>arm</th><th>deal rate</th><th>normalized score</th><th>USW</th><th>min-seat surplus</th><th>IR violations</th><th>closing round</th><th>IR-for-all proposals<div class='small'>round 1 &rarr; rounds 3+</div></th><th>episode pages</th></tr></thead><tbody><tr><td><code>all_oracle</code><div class='small'>omniscient ceiling &mdash; shown every sheet</div></td><td>1.000 <span class='small'>[1.000, 1.000]</span></td><td>0.888 <span class='small'>[0.868, 0.908]</span></td><td>193.3 <span class='small'>[179.1, 208.6]</span></td><td>8.40 <span class='small'>[6.73, 9.98]</span></td><td>0.000 <span class='small'>[0.000, 0.000]</span></td><td>1.40 <span class='small'>[1.20, 1.63]</span></td><td>0.932 &rarr; 1.000</td><td><span class='small'>reference cell, published in the deadline sweep</span></td></tr><tr><td><strong><code>declaring</code></strong><div class='small'>preference sharing &mdash; publish your true sheet, read everyone else's</div></td><td>1.000 <span class='small'>[1.000, 1.000]</span></td><td>0.857 <span class='small'>[0.823, 0.890]</span></td><td>186.3 <span class='small'>[170.5, 203.3]</span></td><td>7.70 <span class='small'>[5.66, 9.83]</span></td><td>0.000 <span class='small'>[0.000, 0.000]</span></td><td>4.97 <span class='small'>[4.95, 5.00]</span></td><td>0.313 &rarr; 1.000</td><td><a href="declaring/index.html">10 pages</a></td></tr><tr><td><code>conceding_novotes</code><div class='small'>best design without revelation &mdash; concede on a deadline clock</div></td><td>0.408 <span class='small'>[0.283, 0.542]</span></td><td>0.339 <span class='small'>[0.229, 0.453]</span></td><td>74.8 <span class='small'>[49.0, 103.6]</span></td><td>3.55 <span class='small'>[2.21, 5.03]</span></td><td>0.000 <span class='small'>[0.000, 0.000]</span></td><td>5.00 <span class='small'>[5.00, 5.00]</span></td><td>0.104 &rarr; 0.267</td><td><a href="conceding_novotes/index.html">10 pages</a></td></tr><tr><td><code>all_rational</code><div class='small'>the published Bayesian agent, unmodified</div></td><td>0.233 <span class='small'>[0.142, 0.333]</span></td><td>0.195 <span class='small'>[0.120, 0.280]</span></td><td>45.4 <span class='small'>[26.6, 66.7]</span></td><td>3.04 <span class='small'>[1.62, 4.68]</span></td><td>0.000 <span class='small'>[0.000, 0.000]</span></td><td>4.99 <span class='small'>[4.97, 5.00]</span></td><td>0.114 &rarr; 0.174</td><td><span class='small'>reference cell, published in the deadline sweep</span></td></tr></tbody></table></section>
+  <p class="small">120 episodes per arm (24 instances &times; 5 seeds), four rounds, unanimity, identical
+  protocol knobs; all four rows scored by the same summarizer
+  (<code>agent_variants.run_confirmation.summarize</code>), the two reference rows computed at build time from
+  the deadline sweep's own 4-round cells. Intervals are 95% instance-clustered bootstraps. <em>Min-seat
+  surplus</em> is the worst-off seat's realized surplus, which is why a package sitting at a seat's exact
+  walk-away value still counts as a win. <em>IR-for-all proposals</em> is the audit's falsifiable early
+  indicator &mdash; the share of tabled packages acceptable to every seat &mdash; and it bends upward exactly
+  where closure does.</p>
+
+  <div class="warn">
+    <strong>Truthful revelation is a design choice here, not an equilibrium result.</strong> These agents are
+    cooperative by construction: the declaring agent emits numbers read straight off its own sheet and the
+    readers trust them without verification. Nothing here shows that a self-interested agent <em>would</em>
+    reveal truthfully, or that revelation survives an incentive to misreport &mdash; a seat that overstated its
+    threshold would be handed a larger slice by exactly these readers. Robustness to strategic misreporting is
+    future work and is not claimed. The claim is: <em>if</em> preferences are shared honestly, this bargaining
+    machinery closes every feasible game, which locates the published agent's failure in inference rather than
+    in bargaining.
+  </div>
+
+  <h2>Everything behind the page</h2>
+  <div class='links'><a href="analysis/leaderboard.md">The eleven-design leaderboard and per-design mechanism</a><a href="analysis/">Confirmation summaries, per-episode rows, and the run manifests carrying the agent-variant provenance block</a><a href="../five-seat-rational-rounds-sweep/index.html">The deadline sweep: the clock was never the problem</a><a href="../five-seat-rational-quorum-sweep-complete/index.html">The quorum sweep: the other escape, and what it costs</a><a href="https://huggingface.co/datasets/siddharthmb/2026.RA.Agent-Variants-Closure">Dataset: 2026.RA.Agent-Variants-Closure</a></div>
+  <p class="small">Full methodology, two corrections (the audit's own predicted fix underdelivered at +0.040
+  against a predicted 0.5&ndash;0.8, and the levers do not compose) and a methods near-miss that nearly produced
+  a false negative: research note 0059 in the <code>ii_mats</code> repository. Every variant subclasses the
+  frozen agent; no negotiation solver, policy, scenario or campaign-runner file was edited.</p>
+
+</main></body>
+</html>

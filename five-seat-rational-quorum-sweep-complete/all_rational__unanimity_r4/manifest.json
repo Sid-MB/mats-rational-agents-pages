@@ -1,0 +1,17 @@
+{
+ "run": "/nlp/scr/siddharth/ii_mats/rational_agents/quorum_sweep_v1/all_rational__unanimity_r4",
+ "out_dir": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4",
+ "n_episodes": 8,
+ "index": "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/index.html",
+ "failures": [],
+ "pages": [
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-1012cfdb67.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-268fe6083f.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-280422628e.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-33d2dd4366.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-3d7c58b367.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-4864622c73.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-4aa1f0c744.html",
+  "/juice2/u/siddharth/mats-rational-agents-pages/five-seat-rational-quorum-sweep-complete/all_rational__unanimity_r4/scorable_negotiation-moves_chat-4e6500343e.html"
+ ]
+}
