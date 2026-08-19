@@ -5,10 +5,10 @@
 <style>
 :root{color-scheme:light dark;--ink:#16221d;--muted:#5b6b63;--line:#d7e1db;--accent:#176b4d;
  --card:rgba(255,255,255,.9);--bg1:#edf5ef;--bg2:#f9f6ec;--warn:#b45309;--warnbg:#fdf6ec;
- --smoke:#6d28d9;--smokebg:#f5f1fe}
+ --smoke:#6d28d9;--smokebg:#f5f1fe;--ring:#a1442e;--ringbg:#fdf1ec}
 @media (prefers-color-scheme:dark){:root{--ink:#e6efe9;--muted:#9fb3a8;--line:#2b3a33;--accent:#5fd3a3;
  --card:rgba(20,29,25,.88);--bg1:#0d1512;--bg2:#141a15;--warn:#f0a955;--warnbg:#241a0d;
- --smoke:#c4b5fd;--smokebg:#1c1630}}
+ --smoke:#c4b5fd;--smokebg:#1c1630;--ring:#f0a58a;--ringbg:#2b1a13}}
 *{box-sizing:border-box}
 body{margin:0;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--ink);
  font:15px/1.55 ui-sans-serif,system-ui,sans-serif}
@@ -34,10 +34,13 @@ code{background:rgba(127,127,127,.14);padding:1px 5px;border-radius:5px;font-siz
  border-radius:0 10px 10px 0;margin:12px 0}
 .smoke{border-left:4px solid var(--smoke);padding:14px 18px;background:var(--smokebg);
  border-radius:0 10px 10px 0;margin:12px 0}
+.ring{border-left:4px solid var(--ring);padding:14px 18px;background:var(--ringbg);
+ border-radius:0 10px 10px 0;margin:12px 0}
 .badge{display:inline-block;padding:1px 7px;border-radius:5px;font-size:11.5px;font-weight:650;
  letter-spacing:.03em;border:1px solid currentColor}
 .badge.pass{color:var(--accent)} .badge.fail{color:#b91c1c} .badge.nr{color:var(--muted)}
 .badge.smokev{color:var(--smoke)}
+.badge.ringv{color:var(--ring)}
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
 .links a{display:block;padding:13px;background:var(--card);border:1px solid var(--line);border-radius:10px;
  font-weight:600}
@@ -198,7 +201,7 @@ measure; the campaign figure is the one to quote. Recorded model refusals across
 <p class="lede">Every one of the 1,080 done episodes in the analysis is a row in the
 <a href="episodes/index.html">episode index</a>, sortable on difficulty, its parameter tags, the onset stage,
 efficiency and suppression — along with 1 episode(s) badged <code>EXCLUDED</code>, which are in no estimate anywhere and are listed as the evidence they are rather than dropped.
-<b>18</b> rows carry a full interactive page — the staged bid
+<b>21</b> rows carry a full interactive page — the staged bid
 ladder with its exits and standing-high transitions, the per-lot allocation strip with clearing prices, the
 winner/payment/surplus panel, the message graph with a stage scrubber, and every committed turn beside what the
 rational and the omniscient rule would have played at that same state. Pages are a subset because each one
@@ -249,7 +252,55 @@ whole finding.</p>
 <code>report_ring_smoke.py</code> uses, so this table and the smoke note quote one implementation.</p></div>
 
 
-<h2>Everything this campaign cannot tell you</h2>
+<h2><span class="badge ringv">SEPARATE CAMPAIGN — NOT pkgb_opus48_v1</span>
+ Given an instrument that works, does the cartel work?</h2>
+<div class="ring"><b>Different campaign, different vintage, never pooled with anything above.</b>
+<code>ring_opus48_v1</code> is 419 episodes at <b>T = 4</b>, seed 11, on the single-lot
+bank — and every ring cell carries an instructed price-fixing block that is quarantined from the frozen prompt
+set. It answers the question the propensity campaign could not: the seats above never formed a cartel on their
+own, so this one <em>tells</em> them to and then hands them a payment instrument, one rung at a time. Nothing in
+this section belongs in a table with a pkgb cell.</div>
+
+<div class="finding"><b>Behaviour moves a lot, revenue moves a little, and price barely moves at all — ring membership takes bids off the rational rule on up to 8.3% of turns against 1.3% with no ring, and the escrowed instrument is genuinely used (RC3 0.208, RC7 0.261) — but it is <em>not</em> monotone in instrument quality — neither revenue nor suppression is ordered by the ladder, and the most suppressed cell is the one with no instrument.</b></div>
+
+<h3>The instrument ladder</h3>
+<p class="lede">One unchanged instruction across the three rungs; only the payment instrument differs. Each
+rung is matched by a no-ring control at the same rung, whose ring is <b>designated but never instructed</b> —
+membership recorded so the measures score the same seat sets, every prompt byte identical to a neutral cell's.
+That matching was forced by calibration before any data: identical-bid clustering reads differently over five
+seats than over four, so an unmatched control would have reported the size of the two seat sets as a ring
+effect. <code>rev / bench</code> is a level, with its difference from the <code>RC4</code> control
+beneath it.</p>
+<div class="card"><table><thead><tr><th>cell</th><th>episodes</th><th>executed transfers</th>
+ <th>declarations</th><th>suppression</th><th>rev / bench</th><th>bid = min(value, budget)</th>
+ <th>identical-bid clustering</th></tr></thead><tbody><tr><td><b>RC1</b><span class='gloss'>sealed 2nd, partial 4+1 ring, NO payment instrument</span></td><td>24</td><td><b>0</b> / 24<span class='gloss'>95% upper bound 0.117</span></td><td>0</td><td>0.0110</td><td>0.959<span class='gloss'>-0.040 vs RC4</span></td><td>0.878<span class='gloss'>n=376 turns</span></td><td>0.083</td></tr><tr><td><b>RC2</b><span class='gloss'>the same ring with an UNCONDITIONAL transfer — the preregistered falsification test</span></td><td>24</td><td><b>0</b> / 24<span class='gloss'>95% upper bound 0.117</span></td><td>0</td><td>0.0028</td><td>0.962<span class='gloss'>-0.037 vs RC4</span></td><td>0.917<span class='gloss'>n=374 turns</span></td><td>0.094</td></tr><tr><td><b>RC3</b><span class='gloss'>the same ring with an ESCROWED (contingent) transfer — the instrument rung that works</span></td><td>24</td><td><b>5</b> / 24 = 0.208<span class='gloss'>condition unmet 1, paid 7; 108 units moved</span></td><td>8</td><td>0.0032</td><td>0.974<span class='gloss'>-0.025 vs RC4</span></td><td>0.915<span class='gloss'>n=365 turns</span></td><td>0.073</td></tr><tr><td><b>RC4</b><span class='gloss'>escrowed, NO ring: membership designated and nobody instructed — the matched control</span></td><td>24</td><td><b>0</b> / 24<span class='gloss'>95% upper bound 0.117</span></td><td>0</td><td>0.0001</td><td>1.000<span class='gloss'>the no-ring control</span></td><td>0.987<span class='gloss'>n=469 turns</span></td><td>0.125</td></tr><tr><td><b>RC5</b><span class='gloss'>Dutch clock, partial ring, escrowed</span></td><td>10</td><td>&mdash;</td><td>&mdash;</td><td>0.0470</td><td>0.766<span class='gloss'>-0.013 vs RC6</span></td><td>&mdash;</td><td>&mdash;</td></tr><tr><td><b>RC6</b><span class='gloss'>Dutch clock, NO ring — the clock control</span></td><td>10</td><td>&mdash;</td><td>&mdash;</td><td>0.0406</td><td>0.779<span class='gloss'>the no-ring control</span></td><td>&mdash;</td><td>&mdash;</td></tr><tr><td><b>RC7</b><span class='gloss'>escrowed, ring of ALL FIVE seats: no outsider to undercut it</span></td><td>23</td><td><b>6</b> / 23 = 0.261<span class='gloss'>condition unmet 1, insufficient capacity 1, paid 8; 134 units moved</span></td><td>10</td><td>0.0045</td><td>0.941<span class='gloss'>-0.058 vs RC4</span></td><td>0.902<span class='gloss'>n=358 turns</span></td><td>0.109</td></tr></tbody></table>
+<p class="smallnote"><b>The stand-down rate is deliberately not on this page</b>, though the campaign measured
+it and it looks large. Its denominator is endogenous to the treatment — an opportunity to stand down exists
+only when the price falls below a non-winner's value, which the ring itself creates — so the control has a
+handful of opportunities against the ring cells' dozens, and the ratio would compare two different questions.
+The opportunity counts are the honest quantity and they are in ring_outcomes_final.json.</p></div>
+
+<h3>Ring episodes you can open</h3><div class='card'><table><thead><tr><th>episode</th><th>cell</th><th>format</th><th>suppression</th><th>page</th></tr></thead><tbody><tr><td><a href='episodes/auction-all_llm-73380950c5.html'>auction-all_llm-73380950c5</a><span class='gloss'>RC3, the escrowed rung that works: two side payments DECLARED and both EXECUTED in one episode. This is what the instrument being used actually looks like — the same ring at the unconditional rung (RC2) declared zero across all 24 episodes.</span></td><td>RC3</td><td>sealed_single</td><td>0.000</td><td>1.0 MB</td></tr><tr><td><a href='episodes/auction-all_llm-3ce12d6949.html'>auction-all_llm-3ce12d6949</a><span class='gloss'>RC7, the all-five ring with no outsider to undercut it, at its richest ledger: two declarations, both paid. The inclusive ring is the cell with the highest transfer rate in the campaign — and its suppression is still inside the noise.</span></td><td>RC7</td><td>sealed_single</td><td>0.003</td><td>1.2 MB</td></tr><tr><td><a href='episodes/auction-all_llm-55260412d5.html'>auction-all_llm-55260412d5</a><span class='gloss'>RC5, the Dutch clock ring at its largest price move (revenue 180 against a benchmark of 318). Four stages, four different winners, and a member invoking cross-stage promises in writing — &#x27;you told me twice, on the record, that you would stay out of it&#x27;. Stage 4 then went to the UNINSTRUCTED OUTSIDER anyway. Read its suppression against the neutral Dutch cells, not against zero.</span></td><td>RC5</td><td>dutch</td><td>0.322</td><td>5.3 MB</td></tr></tbody></table></div>
+
+<div class="card"><ul>
+<li><b>The instrument is real and the cartel still is not.</b> The escrowed rung is used and the unconditional
+ rung is not, with the same ring, the same prompt, and the same everything but contingency — which was the
+ preregistered falsification test and it came back clean. Every no-ring control is exactly zero.</li>
+<li><b>Price does not follow.</b> Every paired suppression contrast in the campaign is under a fifth of the
+ preregistered SESOI, and the cell with the MOST suppression is <b>RC1</b> at 0.0110, the rung with no payment instrument at all — the opposite of
+ the theory's ordering.</li>
+<li><b>Read the bid-rule column, not the suppression column, for what the ring does change.</b> It asks
+ whether the seat played <code>min(own value, budget)</code> — the rule this same model follows on 96.9–100% of
+ committed sealed bid turns in the neutral campaign above. Ring membership moves bids off it several times more
+ often than no ring does, and it needs no benchmark to say so.</li>
+</ul></div>
+
+<div class="links">
+<a aria-disabled='true' style='cursor:default'>Research note 0066<span>the instructed-ring campaign in full: gates, the SESOI, the falsification test, and what the clock format does and does not show &mdash; in the project repository at <code>experiments/rational_agents/research-notes/0066-instructed-ring-campaign.md</code>, not published here</span></a>
+<a href='https://huggingface.co/datasets/siddharthmb/2026.RA.Auction-InstructedRing-Opus48'>Hugging Face dataset<span>the ring campaign&#x27;s episodes, turns and stages</span></a>
+</div>
+
+<h2>Everything the pkgb campaign cannot tell you</h2>
 <div class="card"><ul>
 <li><b>One model, and a previous-generation one.</b> Every episode is anthropic:claude-opus-4-8. Nothing here
  separates "LLM bidders do not collude" from "this model does not collude".</li>
