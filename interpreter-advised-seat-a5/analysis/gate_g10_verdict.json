@@ -1,0 +1,135 @@
+{
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/_a5_offline_parser_g10",
+ "pass": true,
+ "checks": {
+  "g10a_hallucination": {
+   "measured": 0.0,
+   "threshold": 0.2,
+   "pass": true
+  },
+  "g10b_accuracy_above_chance": {
+   "measured_lower_bound": 0.852597058633461,
+   "empirical_chance": 0.5,
+   "point_estimate": 0.874248496993988,
+   "pass": true
+  },
+  "g10c_evidence_volume": {
+   "mean_claims_per_turn": 23.885416666666668,
+   "threshold": 1.0,
+   "fraction_of_turns_with_a_claim": 0.9895833333333334,
+   "fraction_threshold": 0.5,
+   "pass": true
+  },
+  "g10d_hard_strata": {
+   "required": [
+    "hard",
+    "high-conflict"
+   ],
+   "missing": [],
+   "at_or_below_chance": [],
+   "per_stratum": {
+    "easy": {
+     "mean": 0.8553654743390358,
+     "ci95": [
+      0.8058252427184466,
+      0.9109932461406517
+     ],
+     "n_claims": 643,
+     "n_instances": 8
+    },
+    "hard": {
+     "mean": 0.8908045977011494,
+     "ci95": [
+      0.8665730337078652,
+      0.9166666666666666
+     ],
+     "n_claims": 696,
+     "n_instances": 8
+    },
+    "high-conflict": {
+     "mean": 0.9055793991416309,
+     "ci95": [
+      0.8933002481389578,
+      0.9222222222222223
+     ],
+     "n_claims": 466,
+     "n_instances": 6
+    },
+    "large-frontier": {
+     "mean": 0.8596881959910914,
+     "ci95": [
+      0.8037190082644629,
+      0.8974358974358975
+     ],
+     "n_claims": 449,
+     "n_instances": 6
+    },
+    "medium": {
+     "mean": 0.8751902587519026,
+     "ci95": [
+      0.8534362458492065,
+      0.8988560142568477
+     ],
+     "n_claims": 657,
+     "n_instances": 8
+    },
+    "no-clear-win-win": {
+     "mean": 0.884990253411306,
+     "ci95": [
+      0.8627049180327869,
+      0.9012875536480687
+     ],
+     "n_claims": 513,
+     "n_instances": 6
+    },
+    "pivotal-seat": {
+     "mean": 0.8908730158730159,
+     "ci95": [
+      0.8596153846153847,
+      0.9260089686098655
+     ],
+     "n_claims": 504,
+     "n_instances": 6
+    },
+    "small-frontier": {
+     "mean": 0.8658318425760286,
+     "ci95": [
+      0.8432343234323433,
+      0.89086859688196
+     ],
+     "n_claims": 559,
+     "n_instances": 6
+    }
+   },
+   "pass": true
+  }
+ },
+ "channel_volume": {
+  "mean_public_messages_available": 9.604166666666666,
+  "mean_public_chars_available": 14359.791666666666,
+  "mean_claims_kept_per_parse": 23.885416666666668,
+  "fraction_of_parses_yielding_a_claim": 0.9895833333333334,
+  "claims_per_1000_public_chars": 1.6633539831996171
+ },
+ "n_parse_calls": 96,
+ "n_scored_claims": 1996,
+ "cost": {
+  "parse_usd_total": 13.7369,
+  "parse_usd_per_episode": 0.5724,
+  "parse_calls_per_episode": 4.0,
+  "note": "A5 issues one extra Opus call per non-forced-final focal turn. The asymmetry cannot be removed \u2014 the intervention IS an extra inference \u2014 so it is reported, not corrected out."
+ },
+ "parse_path": {
+  "n_refused": 0,
+  "stop_reason_counts": {
+   "end_turn": 96
+  },
+  "n_truncated_at_cap": 0,
+  "n_call_failed": 0,
+  "n_unparsable_responses": 0,
+  "clean": true
+ },
+ "a5j_trigger_marginal": false,
+ "a5j_reading": "\u00a711.9 trigger (a) does NOT fire: the parser extracts rich, accurate evidence from natural chat, so A5j is unnecessary on this evidence and the question is answered by measurement",
+ "reading": "G10 PASSES \u2014 the parser works on real recorded negotiation chat; the cell may launch"
+}

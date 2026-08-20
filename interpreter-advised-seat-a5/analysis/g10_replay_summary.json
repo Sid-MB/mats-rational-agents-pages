@@ -1,0 +1,364 @@
+{
+ "model": "anthropic:claude-opus-5",
+ "source_run": "/nlp/scr/siddharth/ii_mats/rational_agents/advised_v1__rational_advised_llm",
+ "sample_seed": 20260819,
+ "n_episodes": 24,
+ "n_turns": 96,
+ "n_calls": 96,
+ "n_leak_assertions_raised": 0,
+ "per_instance": [
+  {
+   "instance_id": "scorable_negotiation-L0-32200851b2",
+   "seed": 3,
+   "focal_seat": 1,
+   "n_turns": 4,
+   "tags": [
+    "easy",
+    "high-conflict"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.517985,
+   "n_claims_kept": 75
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 3,
+   "focal_seat": 1,
+   "n_turns": 4,
+   "tags": [
+    "easy",
+    "large-frontier"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.5922,
+   "n_claims_kept": 99
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-611ee402f7",
+   "seed": 4,
+   "focal_seat": 3,
+   "n_turns": 4,
+   "tags": [
+    "easy"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.705465,
+   "n_claims_kept": 125
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-65113008ad",
+   "seed": 4,
+   "focal_seat": 3,
+   "n_turns": 4,
+   "tags": [
+    "medium"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.649385,
+   "n_claims_kept": 102
+  },
+  {
+   "instance_id": "scorable_negotiation-L0-a483b0d80d",
+   "seed": 1,
+   "focal_seat": 2,
+   "n_turns": 3,
+   "tags": [
+    "easy"
+   ],
+   "n_parse_calls": 3,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.29398,
+   "n_claims_kept": 55
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-19dae4b672",
+   "seed": 2,
+   "focal_seat": 0,
+   "n_turns": 4,
+   "tags": [
+    "high-conflict",
+    "medium"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.57023,
+   "n_claims_kept": 100
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-282034699c",
+   "seed": 3,
+   "focal_seat": 2,
+   "n_turns": 4,
+   "tags": [
+    "easy",
+    "large-frontier"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.554345,
+   "n_claims_kept": 88
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-996daa4124",
+   "seed": 1,
+   "focal_seat": 3,
+   "n_turns": 4,
+   "tags": [
+    "easy",
+    "large-frontier"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.479465,
+   "n_claims_kept": 78
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-a9097927ce",
+   "seed": 3,
+   "focal_seat": 2,
+   "n_turns": 4,
+   "tags": [
+    "easy"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.67877,
+   "n_claims_kept": 113
+  },
+  {
+   "instance_id": "scorable_negotiation-L1-aabb4d986b",
+   "seed": 0,
+   "focal_seat": 1,
+   "n_turns": 4,
+   "tags": [
+    "easy"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.478875,
+   "n_claims_kept": 87
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-0aa50f7b83",
+   "seed": 0,
+   "focal_seat": 2,
+   "n_turns": 4,
+   "tags": [
+    "hard",
+    "high-conflict",
+    "large-frontier",
+    "no-clear-win-win"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.44555,
+   "n_claims_kept": 71
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-103cef6017",
+   "seed": 0,
+   "focal_seat": 2,
+   "n_turns": 4,
+   "tags": [
+    "medium",
+    "small-frontier"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.462675,
+   "n_claims_kept": 85
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-1fc37540c8",
+   "seed": 1,
+   "focal_seat": 4,
+   "n_turns": 3,
+   "tags": [
+    "high-conflict",
+    "large-frontier",
+    "medium",
+    "no-clear-win-win"
+   ],
+   "n_parse_calls": 3,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.38759,
+   "n_claims_kept": 67
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-adac68f4ac",
+   "seed": 4,
+   "focal_seat": 0,
+   "n_turns": 4,
+   "tags": [
+    "large-frontier",
+    "medium"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.65067,
+   "n_claims_kept": 87
+  },
+  {
+   "instance_id": "scorable_negotiation-L2-df1e479b72",
+   "seed": 2,
+   "focal_seat": 1,
+   "n_turns": 4,
+   "tags": [
+    "medium",
+    "small-frontier"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.51255,
+   "n_claims_kept": 104
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-46e1252af7",
+   "seed": 2,
+   "focal_seat": 2,
+   "n_turns": 4,
+   "tags": [
+    "hard",
+    "pivotal-seat"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.5051,
+   "n_claims_kept": 73
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-9a1b1c0960",
+   "seed": 0,
+   "focal_seat": 3,
+   "n_turns": 4,
+   "tags": [
+    "hard",
+    "pivotal-seat"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.64962,
+   "n_claims_kept": 122
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-9a673abad3",
+   "seed": 0,
+   "focal_seat": 3,
+   "n_turns": 4,
+   "tags": [
+    "hard",
+    "high-conflict",
+    "pivotal-seat"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.54159,
+   "n_claims_kept": 86
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-a8641f6c33",
+   "seed": 4,
+   "focal_seat": 1,
+   "n_turns": 3,
+   "tags": [
+    "medium",
+    "small-frontier"
+   ],
+   "n_parse_calls": 3,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.290105,
+   "n_claims_kept": 62
+  },
+  {
+   "instance_id": "scorable_negotiation-L3-d9a0ef3c04",
+   "seed": 1,
+   "focal_seat": 0,
+   "n_turns": 4,
+   "tags": [
+    "hard",
+    "no-clear-win-win",
+    "pivotal-seat"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.533425,
+   "n_claims_kept": 87
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-712ba36a4f",
+   "seed": 4,
+   "focal_seat": 2,
+   "n_turns": 5,
+   "tags": [
+    "hard",
+    "no-clear-win-win",
+    "pivotal-seat"
+   ],
+   "n_parse_calls": 5,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.84338,
+   "n_claims_kept": 138
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-8a29217702",
+   "seed": 2,
+   "focal_seat": 3,
+   "n_turns": 5,
+   "tags": [
+    "hard",
+    "high-conflict",
+    "no-clear-win-win",
+    "small-frontier"
+   ],
+   "n_parse_calls": 5,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.83702,
+   "n_claims_kept": 134
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-d49e5fe070",
+   "seed": 0,
+   "focal_seat": 4,
+   "n_turns": 5,
+   "tags": [
+    "medium",
+    "small-frontier"
+   ],
+   "n_parse_calls": 5,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.993255,
+   "n_claims_kept": 162
+  },
+  {
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "seed": 3,
+   "focal_seat": 0,
+   "n_turns": 4,
+   "tags": [
+    "hard",
+    "no-clear-win-win",
+    "pivotal-seat",
+    "small-frontier"
+   ],
+   "n_parse_calls": 4,
+   "n_failed_parse_calls": 0,
+   "parse_usd": 0.563625,
+   "n_claims_kept": 93
+  }
+ ],
+ "strata_present": {
+  "easy": 8,
+  "hard": 8,
+  "high-conflict": 6,
+  "large-frontier": 6,
+  "medium": 8,
+  "no-clear-win-win": 6,
+  "pivotal-seat": 6,
+  "small-frontier": 6
+ },
+ "total_usd": 13.7369
+}

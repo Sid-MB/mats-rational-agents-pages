@@ -48,6 +48,35 @@ actually played, marked against the ranking. Turns where the seat did <b>not</b>
 marked distinctly — on the card, on the scrubber chip, and in the audit table above the transcript — because
 those turns measure the model's own choice rather than the advisor's policy, and roughly half of them are.</div>
 
+<h2>What the arm did</h2><p>Every figure here is read out of the analysis' own summary files at build time, so a re-analysis and a rebuild cannot leave a stale number on this page. The full account, its preregistered gates and its caveats are research note 0068.</p><div class='finding'><b>Reading the room is worth a resolved increment over speaking
+ alone, and it closes the last of the informed seat's deficit.</b> Against wave 1's arm — the same decision rule
+ with a voice but no ears — this seat's normalized primary is
+ <b>+0.069 [+0.004, +0.155]</b>, an interval that excludes zero, and the deals it reaches are
+ more equal (<b>-0.017 [-0.035, -0.002]</b> normalized Gini). Against an ordinary five-Opus
+ table it now closes exactly as often: deal rate <b>+0.000 [-0.042, +0.042]</b>. The seat does not
+ keep the gain — see the override direction below, and note 0068's per-seat capture anchors.</div><h3>Where the arm lands</h3><div class='card'><table>
+ <thead><tr><th>arm</th><th>deal rate</th><th>normalized primary</th></tr></thead>
+ <tbody><tr><td>one_rational — informed, private, and MUTE</td><td>0.767 [0.683, 0.842]</td><td>0.686 [0.613, 0.761]</td></tr><tr><td>A2 — the same rule, given a voice (wave 1)</td><td>0.900 [0.808, 0.975]</td><td>0.811 [0.726, 0.884]</td></tr><tr><td>A5 — it reads the room as well (this arm)</td><td>0.958 [0.917, 0.992]</td><td>0.881 [0.836, 0.921]</td></tr><tr><td>all_llm — five ordinary Opus seats</td><td>0.958 [0.925, 0.983]</td><td>0.873 [0.833, 0.910]</td></tr></tbody></table>
+ <p class='small'>Levels on the same 24-instance bank, cluster bootstrap over instances,
+ 10000 draws.</p></div><h3>The paired contrasts</h3><div class='card'><table>
+ <thead><tr><th>metric</th><th>A5 &minus; A2 <span class='small'>the input channel, at matched voice</span></th><th>A5 &minus; all_llm <span class='small'>against an ordinary table</span></th></tr></thead><tbody><tr><td>deal rate</td><td>+0.058 [-0.008, +0.142]</td><td>+0.000 [-0.042, +0.042]</td></tr><tr><td>normalized primary score</td><td>+0.069 [+0.004, +0.155]</td><td>+0.008 [-0.034, +0.050]</td></tr><tr><td>normalized Nash welfare</td><td>+0.047 [-0.008, +0.116]</td><td>+0.007 [-0.031, +0.045]</td></tr><tr><td>normalized Gini (lower is more equal)</td><td>-0.017 [-0.035, -0.002]</td><td>-0.009 [-0.020, +0.001]</td></tr><tr><td>accepts below a party's own threshold</td><td>+0.000 [+0.000, +0.000]</td><td>+0.000 [+0.000, +0.000]</td></tr></tbody></table>
+ <p class='small'>Paired on (instance, seed), cluster bootstrap over the 24 instances. An interval that excludes
+ zero is resolved; one that straddles it is not, however suggestive the point estimate.</p></div><h3>Was the sensor any good?</h3><div class='card'><table><tbody>
+ <tr><td>direction accuracy of the parsed claims</td>
+  <td>0.886 [0.874, 0.899] against a
+  0.500 chance baseline, over 8487 scored claims</td></tr>
+ <tr><td>claims whose quote was findable nowhere in the public text</td>
+  <td>0.00042 of 9609 rows emitted</td></tr>
+ <tr><td>share of the planner's evidence that came from chat rather than formal moves</td>
+  <td>0.801</td></tr>
+ <tr><td>what the extra parse calls cost</td>
+  <td>$0.48 per episode,
+  3.69 calls</td></tr>
+ </tbody></table>
+ <p class='small'>This is what makes the contrast interpretable in either direction: a null from a sensor that
+ could not read the room would say nothing about whether reading the room helps. The per-turn panels below are
+ the same claims, one turn at a time, each next to the sentence it was read off.</p></div>
+
 <h2>Did the seat take the advice?</h2>
 <p>An arm whose advice the model discarded measured a prompt, not an intervention, so this is the number that
 licenses reading any other number the arm produced.</p>
@@ -129,8 +158,9 @@ can still be checked.</p>
 <a href="episodes/index.html">sortable table of all 25 pages</a>.</p>
 
 <h2>Artifacts</h2>
-<div class="links"><a href='analysis/advice_trace.json'>advice_trace.json</a></div>
-<p class="small">Run directory <code>/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2__interpreter_advised_llm</code>; trace built 2026-08-20T20:50:12.732171+00:00,
+<div class="links"><a href='analysis/advice_trace.json'>advice_trace.json</a><a href='analysis/advice_uptake_a2.json'>advice_uptake_a2.json</a><a href='analysis/advice_uptake_a5.json'>advice_uptake_a5.json</a><a href='analysis/empty_turn_audit.json'>empty_turn_audit.json</a><a href='analysis/fairness_basket_vs_a2/fairness_basket.md'>fairness_basket_vs_a2/fairness_basket.md</a><a href='analysis/fairness_basket_vs_a2/fairness_basket.png'>fairness_basket_vs_a2/fairness_basket.png</a><a href='analysis/fairness_basket_vs_a2/summary.json'>fairness_basket_vs_a2/summary.json</a><a href='analysis/fairness_basket_vs_all_llm/fairness_basket.md'>fairness_basket_vs_all_llm/fairness_basket.md</a><a href='analysis/fairness_basket_vs_all_llm/fairness_basket.png'>fairness_basket_vs_all_llm/fairness_basket.png</a><a href='analysis/fairness_basket_vs_all_llm/summary.json'>fairness_basket_vs_all_llm/summary.json</a><a href='analysis/g10_replay_summary.json'>g10_replay_summary.json</a><a href='analysis/gate_g0_g9.json'>gate_g0_g9.json</a></div>
+<p class="small">All 39 analysis file(s) are under <code>analysis/</code>, including the per-claim
+CSVs and the fairness-basket figures. Run directory <code>/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2__interpreter_advised_llm</code>; trace built 2026-08-20T20:50:12.732171+00:00,
 schema <code>five-seat-interpreter-advice-trace-v1</code>. Every advised turn joined its parse sidecar
 (0 unjoined).</p>
 

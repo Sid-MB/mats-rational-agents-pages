@@ -1,0 +1,180 @@
+{
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2_smoke",
+ "episode_quality": {
+  "n_discovered": 10,
+  "n_included_done": 10,
+  "n_excluded": 0,
+  "status_counts": {
+   "done": 10
+  },
+  "excluded_episodes": []
+ },
+ "n_episodes_done": 10,
+ "n_turns": 193,
+ "n_refusal_stop_turns": 8,
+ "refusal_stop_reasons": [
+  "refusal",
+  "content_filter"
+ ],
+ "stop_reason_counts": {
+  "end_turn": 185,
+  "refusal": 8
+ },
+ "refusal_recovery_counts": {},
+ "n_fabricated_turns": 0,
+ "refusals_by_seat_kind": {
+  "ordinary_seat": 8
+ },
+ "offending_turns": [
+  {
+   "episode_id": "scorable_negotiation-moves_chat-0f7da5bff1",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 1,
+   "turn_idx": 7,
+   "seat": "Ember",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P3 = 92 for me (above my bar of 69) but substation+haul route = 138 and grid tie-in+haul route = 115. So my real ranking: substation > grid tie-in > turbines. Lane is walled by Casey and Avery, so drop it as promised \u2014 costs me 29 but buys credibility. Push substation with Bl"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-0f7da5bff1",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 1,
+   "turn_idx": 12,
+   "seat": "Avery",
+   "round": 3,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P5 and P6 are worth exactly the same to me (66). Solar (67) and turbines (45) are dead by Blake's veto \u2014 he was credible and precise on both. So 66 is my ceiling. The only thing left is which location closes fastest. P5 has the veto party plus Ember; P6 has Devon alone. Blake"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-231dfbf074",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 4,
+   "turn_idx": 7,
+   "seat": "Casey",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Devon"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-231dfbf074",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 4,
+   "turn_idx": 10,
+   "seat": "Blake",
+   "round": 3,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Devon"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P5 = 143, comfortably above my bar; three accepts already. Don't create duplicate offers (splits the accept tally). Don't chase Weir Flats \u2014 Devon will not sign it and I'd risk the whole thing for a margin I don't need. Only remaining holdout is Avery, and the one thing Avery"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-231dfbf074",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 4,
+   "turn_idx": 18,
+   "seat": "Avery",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Devon"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-79265f08a2",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 2,
+   "turn_idx": 15,
+   "seat": "Avery",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P8 scores identically to P7 for me (66). Devon has credibly refused P7. Accepting P8 costs me nothing and is the only path to a deal. I hold the opening slot \u2014 use it to swing Blake, Casey, Ember onto P8.\", \"message\": \"I hold the opening slot and I am using it to close on Dev"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-79265f08a2",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 2,
+   "turn_idx": 16,
+   "seat": "Blake",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P8 (167) > P7 (148) for me. Devon won't sign P7. Accept P8 and push the other three, who all claimed parcel indifference.\", \"message\": \"The arithmetic is now trivial and I'll end my part of it"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-79265f08a2",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 2,
+   "turn_idx": 24,
+   "seat": "Avery",
+   "round": 5,
+   "phase": "final_vote",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  }
+ ],
+ "clean": false,
+ "verdict": "REFUSALS PRESENT \u2014 per proposal \u00a78 the run STOPS and is reported; do not silently fall back to Opus 4.8 (a fallback is a separate vintage and must never be pooled)",
+ "delegated": {
+  "cap_censorship_and_silence": "audit_empty_turns.py",
+  "transcript_behaviour": "gate_llm_transcript_audit.py"
+ }
+}

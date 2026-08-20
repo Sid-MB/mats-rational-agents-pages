@@ -1,0 +1,148 @@
+{
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/_a5_offline_parser_g10",
+ "n_parse_calls": 96,
+ "n_plan_records": 0,
+ "n_episodes": 24,
+ "n_unreadable_sidecar_lines": 0,
+ "fidelity": {
+  "n_rows_emitted": 2294,
+  "n_rows_kept": 2293,
+  "keep_rate": 0.9995640802092415,
+  "hallucination_rate": 0.0,
+  "misattribution_rate": 0.00043591979075850045,
+  "drop_reason_counts": {
+   "quote_misattributed": 1
+  },
+  "threshold": 0.2,
+  "smoke_kill_threshold": 0.5
+ },
+ "accuracy": {
+  "n_scored_claims": 1996,
+  "n_claims_on_flat_issues_excluded": 297,
+  "direction_accuracy": {
+   "mean": 0.874248496993988,
+   "ci95": [
+    0.852597058633461,
+    0.8963249339129059
+   ]
+  },
+  "argmax_accuracy": {
+   "mean": 0.7675350701402806,
+   "ci95": [
+    0.745558921110546,
+    0.788858172103357
+   ]
+  },
+  "empirical_chance": {
+   "p_option_above_its_issue_mean": 0.5,
+   "p_option_is_the_issue_argmax": 0.25,
+   "n_non_flat_option_cells": 1344
+  },
+  "resolved_above_chance": true,
+  "confidence_auc_vs_correctness": 0.7877829655589675,
+  "by_stratum": {
+   "easy": {
+    "mean": 0.8553654743390358,
+    "ci95": [
+     0.8058252427184466,
+     0.9109932461406517
+    ],
+    "n_claims": 643,
+    "n_instances": 8
+   },
+   "hard": {
+    "mean": 0.8908045977011494,
+    "ci95": [
+     0.8665730337078652,
+     0.9166666666666666
+    ],
+    "n_claims": 696,
+    "n_instances": 8
+   },
+   "high-conflict": {
+    "mean": 0.9055793991416309,
+    "ci95": [
+     0.8933002481389578,
+     0.9222222222222223
+    ],
+    "n_claims": 466,
+    "n_instances": 6
+   },
+   "large-frontier": {
+    "mean": 0.8596881959910914,
+    "ci95": [
+     0.8037190082644629,
+     0.8974358974358975
+    ],
+    "n_claims": 449,
+    "n_instances": 6
+   },
+   "medium": {
+    "mean": 0.8751902587519026,
+    "ci95": [
+     0.8534362458492065,
+     0.8988560142568477
+    ],
+    "n_claims": 657,
+    "n_instances": 8
+   },
+   "no-clear-win-win": {
+    "mean": 0.884990253411306,
+    "ci95": [
+     0.8627049180327869,
+     0.9012875536480687
+    ],
+    "n_claims": 513,
+    "n_instances": 6
+   },
+   "pivotal-seat": {
+    "mean": 0.8908730158730159,
+    "ci95": [
+     0.8596153846153847,
+     0.9260089686098655
+    ],
+    "n_claims": 504,
+    "n_instances": 6
+   },
+   "small-frontier": {
+    "mean": 0.8658318425760286,
+    "ci95": [
+     0.8432343234323433,
+     0.89086859688196
+    ],
+    "n_claims": 559,
+    "n_instances": 6
+   }
+  }
+ },
+ "channel_volume": {
+  "mean_public_messages_available": 9.604166666666666,
+  "mean_public_chars_available": 14359.791666666666,
+  "mean_claims_kept_per_parse": 23.885416666666668,
+  "fraction_of_parses_yielding_a_claim": 0.9895833333333334,
+  "claims_per_1000_public_chars": 1.6633539831996171
+ },
+ "evidence_volume": {
+  "mean_claims_applied_per_focal_turn": null,
+  "mean_formal_move_observations_per_focal_turn": null,
+  "claims_as_fraction_of_all_evidence": null
+ },
+ "parse_path_g5": {
+  "n_refused": 0,
+  "stop_reason_counts": {
+   "end_turn": 96
+  },
+  "n_truncated_at_cap": 0,
+  "n_call_failed": 0,
+  "n_unparsable_responses": 0,
+  "clean": true
+ },
+ "cost_asymmetry_vs_a2": {
+  "parse_usd_total": 13.7369,
+  "parse_usd_per_episode": 0.5724,
+  "parse_calls_per_episode": 4.0,
+  "note": "A5 issues one extra Opus call per non-forced-final focal turn. The asymmetry cannot be removed \u2014 the intervention IS an extra inference \u2014 so it is reported, not corrected out."
+ },
+ "g8_pass": true,
+ "g8_reading": "sensor worked: hallucination low and direction accuracy resolved above the empirical chance baseline, so a null A5-A2 says the INFORMATION does not help"
+}

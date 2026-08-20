@@ -1,0 +1,60 @@
+[
+ {
+  "run": "advised_v2__interpreter_advised_llm",
+  "caps": {
+   "2048": 2236,
+   "2560": 11
+  },
+  "groups": {
+   "all": {
+    "turns": 2247,
+    "episodes": 120,
+    "episodes_affected_frac": 0.042,
+    "placeholder": 0.0022,
+    "gen_failed": 0.0,
+    "empty_gen": 0.0022,
+    "truncated": 0.0,
+    "truncated_naive": 0.2265,
+    "noop_action": 0.0205,
+    "parse_failed": 0.0004,
+    "clean_tokens_out": {
+     "n": 2242,
+     "mean": 1571.0,
+     "median": 1324,
+     "p90": 2768,
+     "p99": 5195,
+     "max": 9589
+    }
+   }
+  }
+ },
+ {
+  "run": "advised_v2_smoke",
+  "caps": {
+   "2048": 192,
+   "2560": 1
+  },
+  "groups": {
+   "all": {
+    "turns": 193,
+    "episodes": 10,
+    "episodes_affected_frac": 0.2,
+    "placeholder": 0.0155,
+    "gen_failed": 0.0,
+    "empty_gen": 0.0155,
+    "truncated": 0.0,
+    "truncated_naive": 0.2539,
+    "noop_action": 0.0622,
+    "parse_failed": 0.0,
+    "clean_tokens_out": {
+     "n": 190,
+     "mean": 1676.9,
+     "median": 1458,
+     "p90": 2981,
+     "p99": 4914,
+     "max": 9802
+    }
+   }
+  }
+ }
+]

@@ -1,0 +1,186 @@
+{
+ "smoke": "/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2_smoke",
+ "pass": true,
+ "kills": {
+  "refusal_on_advised_or_parse_path": false,
+  "uptake_below_0_25": false,
+  "hallucination_above_0_50": false
+ },
+ "thresholds": {
+  "min_uptake": 0.25,
+  "max_hallucination": 0.5
+ },
+ "refusals": {
+  "n_turns": 193,
+  "n_advised_turns": 39,
+  "n_refusals": 8,
+  "n_on_advised_seat": 0,
+  "n_on_ordinary_seats": 8,
+  "rate": 0.04145077720207254,
+  "n_instances_with_refusals": 1,
+  "refusals_by_instance": {
+   "scorable_negotiation-L0-34733a57e6": 8
+  },
+  "offending_turns": [
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 1,
+    "seat": "Ember",
+    "round": 2,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "```json\n{\"scratchpad\": \"P3 = 92 for me (above my bar of 69) but substation+haul route = 138 and grid tie-in+haul route = 115. So my real ranking: substation > g"
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 1,
+    "seat": "Avery",
+    "round": 3,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "```json\n{\"scratchpad\": \"P5 and P6 are worth exactly the same to me (66). Solar (67) and turbines (45) are dead by Blake's veto \u2014 he was credible and precise on "
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 4,
+    "seat": "Casey",
+    "round": 2,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "(ran out of time this turn and says nothing substantive)"
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 4,
+    "seat": "Blake",
+    "round": 3,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "```json\n{\"scratchpad\": \"P5 = 143, comfortably above my bar; three accepts already. Don't create duplicate offers (splits the accept tally). Don't chase Weir Fla"
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 4,
+    "seat": "Avery",
+    "round": 4,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "(ran out of time this turn and says nothing substantive)"
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 2,
+    "seat": "Avery",
+    "round": 4,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "```json\n{\"scratchpad\": \"P8 scores identically to P7 for me (66). Devon has credibly refused P7. Accepting P8 costs me nothing and is the only path to a deal. I "
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 2,
+    "seat": "Blake",
+    "round": 4,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "```json\n{\"scratchpad\": \"P8 (167) > P7 (148) for me. Devon won't sign P7. Accept P8 and push the other three, who all claimed parcel indifference.\", \"message\": \""
+   },
+   {
+    "instance_id": "scorable_negotiation-L0-34733a57e6",
+    "seed": 2,
+    "seat": "Avery",
+    "round": 5,
+    "on_advised_seat": false,
+    "emitted": "none",
+    "content_head": "(ran out of time this turn and says nothing substantive)"
+   }
+  ]
+ },
+ "refusals_in_reference_arms": {
+  "advised_v1__rational_advised_llm": {
+   "n_turns": 2354,
+   "n_refusals": 12,
+   "rate": 0.005097706032285472,
+   "top_instances": {
+    "scorable_negotiation-L0-34733a57e6": 3,
+    "scorable_negotiation-L3-a8641f6c33": 3,
+    "scorable_negotiation-L2-103cef6017": 2,
+    "scorable_negotiation-L0-a483b0d80d": 1
+   }
+  },
+  "all_llm": {
+   "n_turns": 2165,
+   "n_refusals": 24,
+   "rate": 0.011085450346420323,
+   "top_instances": {
+    "scorable_negotiation-L0-34733a57e6": 6,
+    "scorable_negotiation-L2-103cef6017": 5,
+    "scorable_negotiation-L4-faf2ca7d47": 3,
+    "scorable_negotiation-L0-a483b0d80d": 2
+   }
+  }
+ },
+ "uptake": {
+  "advice_action_match": 0.5384615384615384,
+  "n_advised_turns": 39,
+  "advice_kind_match": 0.9230769230769231,
+  "ranked_advice": {
+   "n_turns_offered_a_ranked_list": 38,
+   "mean_candidates_offered": 3.8157894736842106,
+   "rank_taken_counts": {
+    "none": 18,
+    "rank_1": 7,
+    "rank_2": 7,
+    "rank_3": 4,
+    "rank_4": 2
+   },
+   "rank_taken_fractions": {
+    "none": 0.47368421052631576,
+    "rank_1": 0.18421052631578946,
+    "rank_2": 0.18421052631578946,
+    "rank_3": 0.10526315789473684,
+    "rank_4": 0.05263157894736842
+   }
+  }
+ },
+ "parse": {
+  "hallucination_rate": 0.0,
+  "misattribution_rate": 0.0,
+  "keep_rate": 1.0,
+  "direction_accuracy": {
+   "mean": 0.8618331053351573,
+   "ci95": [
+    0.8380952380952381,
+    0.8938906752411575
+   ]
+  },
+  "empirical_chance": {
+   "p_option_above_its_issue_mean": 0.5,
+   "p_option_is_the_issue_argmax": 0.25,
+   "n_non_flat_option_cells": 112
+  },
+  "confidence_auc": 0.8316203048876316,
+  "parse_path": {
+   "n_refused": 0,
+   "stop_reason_counts": {
+    "end_turn": 38
+   },
+   "n_truncated_at_cap": 0,
+   "n_call_failed": 0,
+   "n_unparsable_responses": 0,
+   "clean": true
+  },
+  "cost": {
+   "parse_usd_total": 5.207,
+   "parse_usd_per_episode": 0.5207,
+   "parse_calls_per_episode": 3.8,
+   "note": "A5 issues one extra Opus call per non-forced-final focal turn. The asymmetry cannot be removed \u2014 the intervention IS an extra inference \u2014 so it is reported, not corrected out."
+  },
+  "evidence_volume": {
+   "mean_claims_applied_per_focal_turn": 45.43589743589744,
+   "mean_formal_move_observations_per_focal_turn": 10.615384615384615,
+   "claims_as_fraction_of_all_evidence": 0.8106129917657823
+  }
+ },
+ "reading": "SMOKE GATE PASSES \u2014 launch the cell"
+}

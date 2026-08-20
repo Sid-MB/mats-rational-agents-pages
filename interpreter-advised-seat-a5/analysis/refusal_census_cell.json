@@ -1,0 +1,396 @@
+{
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2__interpreter_advised_llm",
+ "episode_quality": {
+  "n_discovered": 120,
+  "n_included_done": 120,
+  "n_excluded": 0,
+  "status_counts": {
+   "done": 120
+  },
+  "excluded_episodes": []
+ },
+ "n_episodes_done": 120,
+ "n_turns": 2247,
+ "n_refusal_stop_turns": 20,
+ "refusal_stop_reasons": [
+  "refusal",
+  "content_filter"
+ ],
+ "stop_reason_counts": {
+  "end_turn": 2227,
+  "refusal": 20
+ },
+ "refusal_recovery_counts": {},
+ "n_fabricated_turns": 0,
+ "refusals_by_seat_kind": {
+  "ordinary_seat": 20
+ },
+ "offending_turns": [
+  {
+   "episode_id": "scorable_negotiation-moves_chat-d9ea2847dc",
+   "instance_id": "scorable_negotiation-L0-34733a57e6",
+   "seed": 0,
+   "turn_idx": 7,
+   "seat": "Devon",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Avery"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P4=125, P1=127, P3=111, P5=89, P2=57 (below my 60 bar \u2014 genuinely unacceptable). Blake (veto) + Ember locked on substation; Casey + Avery on solar/turbines. P5 is my safe landing at 89 and I will take it late. But turbines are worth a real amount to me, so spend this turn pre"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-f5cec98765",
+   "instance_id": "scorable_negotiation-L0-611ee402f7",
+   "seed": 2,
+   "turn_idx": 5,
+   "seat": "Devon",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P5 = 114 for me, well clear. But compensation line is worth real money: annual community fund > rates abatement for me. Blake and Ember both said their objection to the one-off is that it is NOT recurring \u2014 a community fund is recurring and neighbourhood-directed, which answe"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-440e3a2b39",
+   "instance_id": "scorable_negotiation-L1-aabb4d986b",
+   "seed": 0,
+   "turn_idx": 13,
+   "seat": "Avery",
+   "round": 3,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Blake"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-2ade24789f",
+   "instance_id": "scorable_negotiation-L2-103cef6017",
+   "seed": 4,
+   "turn_idx": 17,
+   "seat": "Ember",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Avery"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-3008eca3a5",
+   "instance_id": "scorable_negotiation-L2-0aa50f7b83",
+   "seed": 0,
+   "turn_idx": 7,
+   "seat": "Devon",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P4 = 256 for me, P5 = 236. Both far above threshold 129. P4 needs Avery, Blake, Casey; P5 needs Avery, Devon, Ember. Push for P4 this turn with a real sweetener (free easement/land for headworks removes Casey's only objection), but make clear the deal will not die over this l"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-3008eca3a5",
+   "instance_id": "scorable_negotiation-L2-0aa50f7b83",
+   "seed": 0,
+   "turn_idx": 15,
+   "seat": "Devon",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"Final round, I act first and never again. P7 = 181 (surplus +52), P8 = 161 (+32). Both clear my bar; P7 better. Crucially, P8 needs my accept to ever reach 5, and I have no further turns \u2014 so voting P7 makes P8 mathematically dead and forces Blake/Casey, both of whom have sta"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-3008eca3a5",
+   "instance_id": "scorable_negotiation-L2-0aa50f7b83",
+   "seed": 0,
+   "turn_idx": 20,
+   "seat": "Ember",
+   "round": 5,
+   "phase": "final_proposal",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P8 terms give me 57, above threshold. Four parties already accepted it; only Devon is missing. Re-table it verbatim so Devon can vote yes. P9/P7 (reclaimed, 74) is better for me but Blake vetoes reclaimed and Casey/Avery refuse \u2014 no chance of five accepts.\", \"message\": \"One l"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-f6abedc187",
+   "instance_id": "scorable_negotiation-L2-103cef6017",
+   "seed": 0,
+   "turn_idx": 5,
+   "seat": "Blake",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P3 = 177 for me, already has Casey. P2 = 177 too. Power=shared substation is my single biggest item (must have, or grid tie-in as distant fallback). Access: widened lane > new spur > haul route. Devon fights widened lane; Ember is indifferent on access but fights substation. "
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-baa3241aba",
+   "instance_id": "scorable_negotiation-L3-46e1252af7",
+   "seed": 4,
+   "turn_idx": 17,
+   "seat": "Ember",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Blake"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P4 gives me 77, well above threshold. P1 would be 92 but Devon/Casey have ruled out the tie-in and Blake won't sign it. Blake has the last turn; my job is simply to keep the four-signature bloc intact and make it easy for Blake to sign P4. No new proposals.\", \"message\": \"Last"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-baa3241aba",
+   "instance_id": "scorable_negotiation-L3-46e1252af7",
+   "seed": 4,
+   "turn_idx": 18,
+   "seat": "Avery",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Blake"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P4 = 110 for me, well above threshold. P6 also 110 but Casey has ruled it below her line, so it cannot reach the five-accept quorum. Only P4 can close. Re-accept P4, keep the wall solid, no new packages on the final turn.\", \"message\": \"Final turn, and I'll not table anything "
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-d74998f82e",
+   "instance_id": "scorable_negotiation-L3-a8641f6c33",
+   "seed": 1,
+   "turn_idx": 10,
+   "seat": "Devon",
+   "round": 3,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Avery"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-dceda2f4fd",
+   "instance_id": "scorable_negotiation-L3-9a1b1c0960",
+   "seed": 2,
+   "turn_idx": 8,
+   "seat": "Blake",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-dceda2f4fd",
+   "instance_id": "scorable_negotiation-L3-9a1b1c0960",
+   "seed": 2,
+   "turn_idx": 10,
+   "seat": "Ember",
+   "round": 3,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"Every live offer scores identically for me (Dunlow + five years is all I need). My only job is to make SOME package close before round 4 ends. Contested: power (grid tie-in vs shared substation) and compensation (in-kind vs abatement). Avery has hard-refused abatement; Blake "
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-3e58c34af3",
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "seed": 0,
+   "turn_idx": 5,
+   "seat": "Blake",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P5 = 77, below my 81 threshold. Cannot sign it. P4 = 94, acceptable. Rail siding untested by anyone: rail+Dunlow+one-off = 99; rail+Weir = 116. Propose rail+Dunlow+union hall referral (99) as a package that gives Casey his site, Devon his hiring line, Ember his compensation. "
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-3e58c34af3",
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "seed": 0,
+   "turn_idx": 7,
+   "seat": "Devon",
+   "round": 2,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P5 = 98 for me, well above my bar. Max realistic is 122 (spur) but spur is dead \u2014 two parties call it zero. Lock in P5. Note: rail siding+Weir Flats bridge is only just tolerable for me; haul route is what I need. Signal that clearly so the fallback doesn't drift somewhere wo"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-3e58c34af3",
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "seed": 0,
+   "turn_idx": 18,
+   "seat": "Blake",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Ember"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P6 = 116, well above my 81 bar. P5 = 77, below my bar \u2014 I genuinely cannot sign it. Casey is the last name; Casey explicitly drafted the rail siding + Weir Flats + one-off payment + apprenticeship bridge and said it clears their bar. Reaffirm P6, make clear P5 is unauthorisab"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-41dfc985f5",
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "seed": 3,
+   "turn_idx": 18,
+   "seat": "Ember",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Avery"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "(ran out of time this turn and says nothing substantive)"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-6fbc8b84b6",
+   "instance_id": "scorable_negotiation-L4-faf2ca7d47",
+   "seed": 4,
+   "turn_idx": 19,
+   "seat": "Blake",
+   "round": 4,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Casey"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P10 scores 44 against my threshold of 81 \u2014 materially worse than no deal. I cannot sign it. No party has a turn after me, so P9 (99, signable for me) cannot gather the remaining names after Devon's formal rejection. The only correct move is to reject P10 and take no deal, whi"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-cad30bc706",
+   "instance_id": "scorable_negotiation-L4-d49e5fe070",
+   "seed": 1,
+   "turn_idx": 12,
+   "seat": "Avery",
+   "round": 3,
+   "phase": "turn",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Blake"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P6 gives me 179, my best live package. Four accepts including the veto; only Casey outstanding. Re-affirm P6 so it is unambiguously the standing offer and give Casey a face-saving reason to sign.\", \"message\": \"Nothing has changed on my side and nothing needs to. I re-affirm m"
+  },
+  {
+   "episode_id": "scorable_negotiation-moves_chat-cad30bc706",
+   "instance_id": "scorable_negotiation-L4-d49e5fe070",
+   "seed": 1,
+   "turn_idx": 22,
+   "seat": "Casey",
+   "round": 5,
+   "phase": "final_vote",
+   "stop_reason": "refusal",
+   "on_advised_seat": false,
+   "episode_advised_seats": [
+    "Blake"
+   ],
+   "advice_block_present": false,
+   "emitted_action": "none",
+   "refusal_recovery": null,
+   "content_head": "```json\n{\"scratchpad\": \"P8 = Dunlow, substation, three years, referral hall = exactly my line, surplus zero. Weir (P7) died on Devon's veto-equivalent refusal; Anvil (P5) died on Blake's service constraint. No further rounds to extract anything. Accepting is not worse than no deal and delivers the s"
+  }
+ ],
+ "clean": false,
+ "verdict": "REFUSALS PRESENT \u2014 per proposal \u00a78 the run STOPS and is reported; do not silently fall back to Opus 4.8 (a fallback is a separate vintage and must never be pooled)",
+ "delegated": {
+  "cap_censorship_and_silence": "audit_empty_turns.py",
+  "transcript_behaviour": "gate_llm_transcript_audit.py"
+ }
+}

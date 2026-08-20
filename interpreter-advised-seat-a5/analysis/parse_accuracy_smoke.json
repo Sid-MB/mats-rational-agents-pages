@@ -1,0 +1,68 @@
+{
+ "run_dir": "/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2_smoke",
+ "n_parse_calls": 38,
+ "n_plan_records": 39,
+ "n_episodes": 10,
+ "n_unreadable_sidecar_lines": 0,
+ "n_sidecar_records_superseded_by_resume": 0,
+ "fidelity": {
+  "n_rows_emitted": 844,
+  "n_rows_kept": 844,
+  "keep_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "misattribution_rate": 0.0,
+  "drop_reason_counts": {},
+  "threshold": 0.2,
+  "smoke_kill_threshold": 0.5
+ },
+ "accuracy": {
+  "n_scored_claims": 731,
+  "n_claims_on_flat_issues_excluded": 113,
+  "direction_accuracy": {
+   "mean": 0.8618331053351573,
+   "ci95": [
+    0.8380952380952381,
+    0.8938906752411575
+   ]
+  },
+  "argmax_accuracy": {
+   "mean": 0.7729138166894665,
+   "ci95": [
+    0.7380952380952381,
+    0.819935691318328
+   ]
+  },
+  "empirical_chance": {
+   "p_option_above_its_issue_mean": 0.5,
+   "p_option_is_the_issue_argmax": 0.25,
+   "n_non_flat_option_cells": 112
+  },
+  "resolved_above_chance": true,
+  "confidence_auc_vs_correctness": 0.8316203048876316,
+  "by_stratum": {}
+ },
+ "channel_volume": {},
+ "evidence_volume": {
+  "mean_claims_applied_per_focal_turn": 45.43589743589744,
+  "mean_formal_move_observations_per_focal_turn": 10.615384615384615,
+  "claims_as_fraction_of_all_evidence": 0.8106129917657823
+ },
+ "parse_path_g5": {
+  "n_refused": 0,
+  "stop_reason_counts": {
+   "end_turn": 38
+  },
+  "n_truncated_at_cap": 0,
+  "n_call_failed": 0,
+  "n_unparsable_responses": 0,
+  "clean": true
+ },
+ "cost_asymmetry_vs_a2": {
+  "parse_usd_total": 5.207,
+  "parse_usd_per_episode": 0.5207,
+  "parse_calls_per_episode": 3.8,
+  "note": "A5 issues one extra Opus call per non-forced-final focal turn. The asymmetry cannot be removed \u2014 the intervention IS an extra inference \u2014 so it is reported, not corrected out."
+ },
+ "g8_pass": true,
+ "g8_reading": "sensor worked: hallucination low and direction accuracy resolved above the empirical chance baseline, so a null A5-A2 says the INFORMATION does not help"
+}
