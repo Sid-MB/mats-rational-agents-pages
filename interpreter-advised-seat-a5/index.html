@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The interpreter-advised seat (arm A5)</title>
+  <style>
+    :root { color-scheme: light; --ink:#16221d; --muted:#5b6b63; --line:#d7e1db; --accent:#176b4d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#edf5ef,#f9f6ec); color:var(--ink);
+           font:15px/1.55 ui-sans-serif,system-ui,sans-serif; }
+    main { max-width:1120px; margin:36px auto; padding:0 22px 60px; }
+    h1 { font:700 34px/1.15 ui-serif,Georgia,serif; margin:0 0 8px; }
+    h2 { font:700 22px/1.2 ui-serif,Georgia,serif; margin:30px 0 12px; }
+    .lede { color:var(--muted); max-width:860px; }
+    .card { background:rgba(255,255,255,.88); border:1px solid var(--line); border-radius:14px; padding:18px;
+            box-shadow:0 8px 24px rgba(29,58,43,.06); overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+    th,td { padding:11px 10px; border-bottom:1px solid var(--line); text-align:right; }
+    th:first-child,td:first-child { text-align:left; }
+    tbody tr:last-child td { border-bottom:0; }
+    a { color:var(--accent); font-weight:650; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .links { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+    .links a { display:block; padding:14px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .finding { border-left:4px solid var(--accent); padding:12px 16px; background:#eef7f1; border-radius:0 10px 10px 0; }
+    .warn { border-left:4px solid #b45309; padding:12px 16px; background:#fdf6ec; border-radius:0 10px 10px 0; }
+    .small { color:var(--muted); font-size:13px; }
+    img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); background:white; }
+</style>
+</head>
+<body><main>
+
+<h1>The seat that reads the room</h1>
+<p class="lede">One seat of a five-party unanimity negotiation is given a closed advice loop. Each of its turns,
+a separate model call reads <em>only the public record</em> — the chat everyone can see and the formal offer
+ledger — and returns structured claims about what each other party wants, every claim carrying the verbatim
+sentence it was read off. Those claims are folded into a planner's revealed-preference ledger beside the formal
+moves, the planner re-ranks candidate packages by the estimated willingness of the least willing party, and the
+ranked list is appended to that seat's private prompt as explicitly fallible advice. <b>The model keeps the
+decision</b>, and does its own persuading in public. Research note 0068; the arm is
+<code>advised_v2__interpreter_advised_llm</code>.</p>
+
+<div class="finding"><b>What these pages add that a results table cannot.</b> Every advised turn carries a panel
+with the loop laid open in the order it ran: the formal-move evidence the planner had per opponent beside the
+chat-derived claims and their provenance quotes; the ranked candidates it produced; and the move the seat
+actually played, marked against the ranking. Turns where the seat did <b>not</b> play any ranked candidate are
+marked distinctly — on the card, on the scrubber chip, and in the audit table above the transcript — because
+those turns measure the model's own choice rather than the advisor's policy, and roughly half of them are.</div>
+
+<h2>Did the seat take the advice?</h2>
+<p>An arm whose advice the model discarded measured a prompt, not an intervention, so this is the number that
+licenses reading any other number the arm produced.</p>
+<div class='card'><table>
+ <thead><tr><th>the advice record</th><th>count</th><th>share</th></tr></thead><tbody>
+ <tr><td>advised turns</td><td>452</td><td>over
+   120 episodes, 24 instances</td></tr>
+ <tr><td>turns that played a ranked candidate</td>
+   <td>243</td>
+   <td>53.8%</td></tr>
+ <tr><td>turns that overrode the ranking</td>
+   <td>209</td>
+   <td>46.2%</td></tr>
+ <tr><td>episodes with at least one override</td><td>101</td>
+   <td>84.2%</td></tr>
+ <tr><td>parsed claims that entered the ledger</td>
+   <td>9604</td><td>across the traced corpus</td></tr>
+ <tr><td colspan="3" class="small"><b>Which rung was played</b>, as a share of the
+   443 turns that were OFFERED a ranked list — a forced final offers
+   no ranking, so this denominator is smaller than the advised-turn count above and the two override shares
+   differ for that reason alone.</td></tr>
+ <tr><td>played no listed candidate</td><td>209</td><td>47.2%</td></tr><tr><td>took rank 1</td><td>124</td><td>28.0%</td></tr><tr><td>took rank 2</td><td>47</td><td>10.6%</td></tr><tr><td>took rank 3</td><td>34</td><td>7.7%</td></tr><tr><td>took rank 4</td><td>29</td><td>6.5%</td></tr>
+ </tbody></table>
+ <p class='small'>Read out of <code>advice_trace.json</code> at build time. Compliance is
+ <code>advice_uptake</code>'s own verdict — a propose matches on canonical deal identity, an accept matches the
+ offer id a candidate records as already tabled — and neither this page nor the episode viewer re-decides it.</p>
+ </div>
+
+<h2>What an override actually is</h2>
+<p>"Overrode the advice" covers two different behaviours and it is worth separating them before reading the rate
+above as disagreement. Roughly half of the overrides are the seat <b>accepting a package already on the
+table</b> that the planner had not ranked — closure, not argument. The other half are the seat tabling a
+package of its own.</p>
+<div class='card'><table>
+ <thead><tr><th>what an overriding turn did</th><th>turns</th></tr></thead><tbody><tr><td>accepted a standing offer no candidate named</td><td>105</td></tr><tr><td>proposed a package the planner did not rank</td><td>88</td></tr><tr><td>rejected the offer on the table</td><td>11</td></tr><tr><td>made no formal move</td><td>5</td></tr>
+ <tr><td>of the propose-overrides, how many moved the seat toward its OWN best package</td>
+  <td>5 of 88 (5.7%)</td></tr>
+ <tr><td>median change in the seat's own points against the planner's top pick</td>
+  <td>-21.0</td></tr>
+ </tbody></table>
+ <p class='small'>The surplus comparison is defined only where the seat proposed a package of its own — an accept
+ names an offer id, not a deal — so its denominator is the propose-overrides, not every override. Read the
+ direction as descriptive: these turns are not a controlled contrast, and the planner's top pick is a
+ capture-leaning candidate by construction, so a seat that closes a deal will usually score below it.</p></div>
+<div class="finding"><b>The overrides do not run toward the seat's own optimum.</b> Where the comparison is
+defined — the turns on which the seat proposed its own package — that package is worth <em>less</em> to the
+seat than the planner's top pick on all but a handful of turns. Whatever these turns are, they are not the seat
+quietly maximizing against its advisor. The per-turn panels are where to look at what they are instead: the
+public message the seat published sits directly beneath the advice it did not take.</div>
+
+<h2>How a disobeyed turn is identified</h2>
+<p>Entirely from records that already existed, with no model call and no classifier anywhere in the chain. The
+planner's ranked advice is recovered from the <em>bytes of the prompt the seat was shown</em> (the advice block
+is part of the stored view, so it cannot drift from what was actually shown); the move played is the turn's own
+parsed action; and the comparison between them is <code>advice_uptake</code>'s, the module the arm's compliance
+gate is evaluated on. A turn is marked as an override exactly when that census records no match — the seat
+proposed a package the planner did not rank, or accepted an offer no candidate names, or did something else
+entirely.</p>
+<p>Two things are deliberately <b>not</b> claimed. The page does not judge whether the seat's public message
+<em>described</em> its advice faithfully: that is not in the record, and manufacturing it with a classifier
+would put an unaudited model judgement on a page whose whole purpose is auditing. The advice and the published
+message are placed together and the reading is left to the reader. Nor does the viewer re-derive compliance; it
+paints the stored verdict, so the page and the arm's gate cannot disagree.</p>
+
+<h2>Episodes you can open</h2>
+<p>25 of 120 traced episodes are published as full interactive pages
+(25 rendered). The selection rule is fixed and printed against each row: every episode
+that did not close, plus the two most- and two least-overridden episodes for each of the five focal seats. The
+other 95 are <b>not</b> on this site — the corpus is Opus episodes with full reasoning traces and
+stored prompt views, which is about a hundred megabytes of pages. <b>The audit is complete regardless:</b>
+<code>analysis/advice_trace.json</code> carries every advised turn of all 120 episodes — the parsed claims
+with their quotes, the ranked advice, the emitted action and the verdict — so an episode whose page is absent
+can still be checked.</p>
+<div class='card'><table>
+ <thead><tr><th>episode</th><th>focal seat</th><th>outcome</th><th>turns overridden</th>
+  <th>claims in the ledger</th><th>why it is published</th></tr></thead>
+ <tbody><tr><td><a href='episodes/scorable_negotiation-moves_chat-00d9a41df9.html'>00d9a41df9</a></td><td>Blake</td><td>deal</td><td>3 / 4</td><td>116</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-02041bb0c4.html'>02041bb0c4</a></td><td>Ember</td><td>deal</td><td>0 / 3</td><td>54</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-02bada7c80.html'>02bada7c80</a></td><td>Blake</td><td>deal</td><td>0 / 3</td><td>56</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-0e65302b5f.html'>0e65302b5f</a></td><td>Blake</td><td>deal</td><td>0 / 5</td><td>96</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-1b417dd7c9.html'>1b417dd7c9</a></td><td>Devon</td><td>deal</td><td>0 / 3</td><td>54</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-1dbd82a7da.html'>1dbd82a7da</a></td><td>Ember</td><td>deal</td><td>0 / 3</td><td>64</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-1ef2fc4ade.html'>1ef2fc4ade</a></td><td>Avery</td><td>deal</td><td>0 / 4</td><td>65</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-273a3ac844.html'>273a3ac844</a></td><td>Casey</td><td>deal</td><td>3 / 4</td><td>96</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-287728c7aa.html'>287728c7aa</a></td><td>Casey</td><td>deal</td><td>0 / 4</td><td>74</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-2e51134450.html'>2e51134450</a></td><td>Devon</td><td>deal</td><td>3 / 4</td><td>98</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-3008eca3a5.html'>3008eca3a5</a></td><td>Casey</td><td><b>no deal</b></td><td>3 / 4</td><td>80</td><td class='small'>did not close</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-33d2ddda15.html'>33d2ddda15</a></td><td>Ember</td><td>deal</td><td>4 / 4</td><td>113</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-49580093f9.html'>49580093f9</a></td><td>Casey</td><td>deal</td><td>4 / 4</td><td>94</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-5efa29acef.html'>5efa29acef</a></td><td>Avery</td><td>deal</td><td>0 / 4</td><td>83</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-65223d5cda.html'>65223d5cda</a></td><td>Ember</td><td><b>no deal</b></td><td>3 / 5</td><td>128</td><td class='small'>did not close</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-6fbc8b84b6.html'>6fbc8b84b6</a></td><td>Casey</td><td><b>no deal</b></td><td>1 / 5</td><td>101</td><td class='small'>did not close</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-78b9e83092.html'>78b9e83092</a></td><td>Blake</td><td>deal</td><td>4 / 4</td><td>116</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-98c77d55e8.html'>98c77d55e8</a></td><td>Casey</td><td><b>no deal</b></td><td>3 / 5</td><td>106</td><td class='small'>did not close</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-9b0fb718c2.html'>9b0fb718c2</a></td><td>Ember</td><td>deal</td><td>4 / 4</td><td>81</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-a15fefb0af.html'>a15fefb0af</a></td><td>Casey</td><td>deal</td><td>0 / 3</td><td>45</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-a21ac7267d.html'>a21ac7267d</a></td><td>Devon</td><td>deal</td><td>0 / 3</td><td>48</td><td class='small'>fewest overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-cad30bc706.html'>cad30bc706</a></td><td>Blake</td><td><b>no deal</b></td><td>2 / 5</td><td>75</td><td class='small'>did not close</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-d0ec680977.html'>d0ec680977</a></td><td>Avery</td><td>deal</td><td>4 / 4</td><td>83</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-d6107aede5.html'>d6107aede5</a></td><td>Devon</td><td>deal</td><td>4 / 4</td><td>82</td><td class='small'>most overridden turns for this focal seat</td></tr><tr><td><a href='episodes/scorable_negotiation-moves_chat-d9ea2847dc.html'>d9ea2847dc</a></td><td>Avery</td><td>deal</td><td>4 / 4</td><td>88</td><td class='small'>most overridden turns for this focal seat</td></tr></tbody></table></div>
+<p class="small">The episode index for the published set:
+<a href="episodes/index.html">sortable table of all 25 pages</a>.</p>
+
+<h2>Artifacts</h2>
+<div class="links"><a href='analysis/advice_trace.json'>advice_trace.json</a></div>
+<p class="small">Run directory <code>/nlp/scr/siddharth/ii_mats/rational_agents/advised_v2__interpreter_advised_llm</code>; trace built 2026-08-20T20:50:12.732171+00:00,
+schema <code>five-seat-interpreter-advice-trace-v1</code>. Every advised turn joined its parse sidecar
+(0 unjoined).</p>
+
+</main></body>
+</html>
